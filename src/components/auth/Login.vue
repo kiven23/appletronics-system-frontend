@@ -2,22 +2,26 @@
   <v-container fluid fill-height>
     <v-layout align-center justify-center>
       <v-flex xs12 sm8 md5>
-        <v-card class="elevation-12">
+        <v-card class="elevation-12" style="background:linear-gradient(356deg, rgba(0,0,0,1) 9%, rgba(255,255,255,0.5872549703475141) 100%);">
           <v-toolbar dark  >
             <v-img
-              src="/logo.png"
+              src="/logo.jpg"
               max-width="50"
               max-height="50"
               class="mr-2"
             ></v-img
             ><v-toolbar-title
-              ><strong>APP LOGIN PAGE</strong></v-toolbar-title
+              ><strong>Appletronics Service</strong>
+              <p style="font-size: 11px">Appletronics System INC.</p>
+              </v-toolbar-title
             >
           </v-toolbar>
-          <v-card-text>
-            <v-form>
+          <v-card-text >
+            <v-form >
               <v-text-field
+                
                 autofocus
+                dense
                 prepend-icon="person"
                 v-model="form.email"
                 label="Username"
@@ -26,6 +30,7 @@
               ></v-text-field>
               <v-text-field
                 prepend-icon="lock"
+                dense
                 v-model="form.password"
                 label="Password"
                 type="password"
@@ -91,3 +96,6 @@ export default {
   },
 };
 </script>
+<style>
+ 
+</style>

@@ -1,6 +1,6 @@
 <template>
  
-  <v-app style="background-color: white; ">
+  <v-app :style="this.$route.name == 'login'?  'background:  linear-gradient(340deg, rgba(0,0,0,1) 9%, rgba(255,28,0,0.7777311608237045) 100%);':'background:  linear-gradient(270deg, rgba(112,43,43,0.05504208519345233) 2%, rgba(50,48,48,0.8869748583026961) 100%);'">
      <!-- <v-vanta v-if="this.$route.name == 'login'" effect="rings" :options="options">
       </v-vanta> -->
     <!-- Navbar -->

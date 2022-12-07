@@ -81,6 +81,11 @@ import sapreports_incoming_payment_openbalance from "../views/sap_reports/incomi
 import databaseconfigure from "../views/settings/database/configure.vue";
 
 
+
+//APPLETRONICS ROUTE
+import booking from "../views/appletronics_system/booking/booking.vue";
+import jobs from "../views/appletronics_system/booking/jobs.vue";
+
 const viewRoutes = [
   {
     path: "/",
@@ -465,6 +470,27 @@ const viewRoutes = [
       requiresAuth: true
     }
   },
+
+  //APPLETRONICS SYSTEM
+    //BOOKING
+    {
+      path: "/app/booking/index",
+      component: booking,
+      name: "booking",
+      meta: {
+        requiresAuth: true
+      }
+    },
+    //Jobs
+    {
+      path: "/app/booking/jobs",
+      component: jobs,
+      name: "jobs",
+      meta: {
+        requiresAuth: true
+      }
+    },
+    
   
 
 ];

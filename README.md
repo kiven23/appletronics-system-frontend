@@ -41,3 +41,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 1. ps axo pid,comm
 2. pkill http-server
 # app-basement-frontend
+# appletronics-system-frontend

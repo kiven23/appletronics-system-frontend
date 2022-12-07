@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-navigation-drawer :value="drawer" app clipped style="background-color: white; ">
+    <v-navigation-drawer :value="drawer" app clipped  dark>
       <v-list dense>
         <v-list-item>
           <v-list-item-content>
