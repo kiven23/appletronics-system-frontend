@@ -1,217 +1,392 @@
 <template>
   <div>
     <v-container text-xs-center>
-      <vs-row>
+      <div class="center">
        
-          <vs-button
-            style="
-              background-color: white;
-              min-width: 70px;
-              color: black;
-            "
-            @click="dialog = true"
-            animation-type="scale"
-          >
-            <v-img src="/repair.png" style="width: 100px"> </v-img
-            ><strong>REPAIR</strong>
-            <template #animate>
-              <strong style="margin-left: 10px">REQUEST &#9881;</strong>
-              <v-img
-                src="/repair.png"
-                style="width: 70px; height: 70px"
-              ></v-img>
-            </template>
-          </vs-button>
-            <vs-button
-            style="
-              background-color: white;
-              min-width: 70px;
-              color: black;
-            "
-            @click="dialog = true"
-            animation-type="scale"
-          >
-            <v-img src="/cleaning.png" style="width: 90px"> </v-img
-            ><strong>CLEANING</strong>
-            <template #animate>
-              <strong style="margin-left: 10px">REQUEST &#9881;</strong>
-              <v-img
-                src="/cleaning.png"
-                style="width: 70px; height: 70px"
-              ></v-img>
-            </template>
-          </vs-button>
-     
-        
-            <vs-button
-            style="
-              background-color: white;
-              min-width: 70px;
-              color: black;
-            "
-            @click="dialog = true"
-            animation-type="scale"
-          >
-            <v-img src="/survey.png" style="width: 100px"> </v-img
-            ><strong>SITE SURVEY</strong>
-            <template #animate>
-              <strong style="margin-left: 10px">REQUEST &#9881;</strong>
-              <v-img
-                src="/survey.png"
-                style="width: 70px; height: 70px"
-              ></v-img>
-            </template>
-          </vs-button>
-       
+        <vs-dialog overflow-hidden full-screen v-model="bookingmodal">
+          <template #header>
+            <h4 class="not-margin">REQUEST-<strong>{{activerequest.name}}</strong></h4>
+          </template>
 
-       
-            <vs-button
-            style="
-              background-color: white;
-              min-width: 70px;
-              color: black;
-            "
-            @click="dialog = true"
-            animation-type="scale"
-          >
-            <v-img src="/repair.png" style="width: 100px"> </v-img
-            ><strong>INSTALLATION</strong>
-            <template #animate>
-              <strong style="margin-left: 10px">REQUEST &#9881;</strong>
-              <v-img
-                src="/repair.png"
-                style="width: 70px; height: 70px"
-              ></v-img>
-            </template>
-          </vs-button>
-       
+          <div class="con-form">
+            <v-row>
+              <v-col cols="2">
+                <vs-card>
+                  <template #title>
+                    <h3>Product Information</h3>
+                  </template>
+
+                  <template #text>
+                    <vs-select
+                      style="margin: 6px"
+                      v-model="prodcategories"
+                      :items="prodcategories"
+                      :error-messages="prodcategoriesError"
+                      placeholder="Product Categories"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      @change="$v.prodcategories.$touch()"
+                      @blur="$v.prodcategories.$touch()"
+                    ></vs-select>
+                    <vs-select
+                      style="margin: 6px"
+                      v-model="appliancetype"
+                      :items="appliancetype"
+                      :error-messages="appliancetypeErrors"
+                      placeholder="Appliance Type*"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      @change="$v.appliancetype.$touch()"
+                      @blur="$v.appliancetype.$touch()"
+                    ></vs-select>
+                    <vs-select
+                      style="margin: 6px"
+                      v-model="brand"
+                      :items="brand"
+                      :error-messages="brandErrors"
+                      placeholder="Brand*"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      @change="$v.brand.$touch()"
+                      @blur="$v.brand.$touch()"
+                    ></vs-select>
+                    <vs-select
+                      style="margin: 6px"
+                      v-model="model"
+                      :items="model"
+                      :error-messages="modelErrors"
+                      placeholder="Model*"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      @change="$v.model.$touch()"
+                      @blur="$v.model.$touch()"
+                    ></vs-select>
+
+                    <vs-input
+                      style="margin: 6px"
+                      v-model="serialno"
+                      :error-messages="serialnoErrors"
+                      placeholder="Serial No."
+                      required
+                      @input="$v.serialno.$touch()"
+                      @blur="$v.serialno.$touch()"
+                    ></vs-input>
+                    <vs-select
+                      style="margin: 6px"
+                      v-model="unitcondition"
+                      :items="unitcondition"
+                      :error-messages="unitconditionErrors"
+                      placeholder="Unit Condition*"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      @change="$v.unitcondition.$touch()"
+                      @blur="$v.unitcondition.$touch()"
+                    ></vs-select>
+
+                    <vs-select
+                      style="margin: 6px"
+                      v-model="warrantycondition"
+                      :items="warrantycondition"
+                      :error-messages="warrantyconditionErrors"
+                      placeholder="Warranty Condition*"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      @change="$v.warrantycondition.$touch()"
+                      @blur="$v.warrantycondition.$touch()"
+                    ></vs-select>
+                    <h4 style="margin: 5px">Date of Purchase</h4>
+                    <vs-input type="date" v-model="value7" />
+                    <vs-input
+                      style="margin: 6px"
+                      v-model="qty"
+                      :error-messages="qtyErrors"
+                      placeholder="QTY"
+                      required
+                      @input="$v.qty.$touch()"
+                      @blur="$v.qty.$touch()"
+                    ></vs-input>
+                    <vs-select
+                      style="margin: 6px"
+                      v-model="demandreplacement"
+                      :items="connections"
+                      :error-messages="demandreplacementErrors"
+                      placeholder="Demand Replacement"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      @change="$v.demandreplacement.$touch()"
+                      @blur="$v.demandreplacement.$touch()"
+                    ></vs-select>
+                    <vs-select
+                      style="margin: 6px"
+                      v-model="priority"
+                      :items="priority"
+                      :error-messages="priorityErrors"
+                      placeholder="Priority"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      @change="$v.priority.$touch()"
+                      @blur="$v.priority.$touch()"
+                    ></vs-select>
+                    <v-btn class="ma-2" outlined color="indigo">
+                      ADD MORE UNIT
+                    </v-btn>
+                  </template>
+                </vs-card>
+              </v-col>
+              <v-col cols="2">
+                <vs-card>
+                  <template #title>
+                    <h3>Customer Information</h3>
+                  </template>
+                  <template #text>
+                    <vs-input
+                      style="margin: 6px"
+                      v-model="serialno"
+                      :error-messages="serialnoErrors"
+                      placeholder="Contact Phone Number*"
+                      required
+                      @input="$v.serialno.$touch()"
+                      @blur="$v.serialno.$touch()"
+                    ></vs-input>
+                    <v-btn class="ma-2" outlined color="indigo">
+                      CHECK RECORD
+                    </v-btn>
+                    <vs-input
+                      style="margin: 6px"
+                      v-model="serialno"
+                      :error-messages="serialnoErrors"
+                      placeholder="Contact Email Address"
+                      required
+                      @input="$v.serialno.$touch()"
+                      @blur="$v.serialno.$touch()"
+                    ></vs-input>
+                    <vs-input
+                      style="margin: 6px"
+                      v-model="serialno"
+                      :error-messages="serialnoErrors"
+                      placeholder="Last Name"
+                      required
+                      @input="$v.serialno.$touch()"
+                      @blur="$v.serialno.$touch()"
+                    ></vs-input>
+                    <vs-input
+                      style="margin: 6px"
+                      v-model="serialno"
+                      :error-messages="serialnoErrors"
+                      placeholder="First Name"
+                      required
+                      @input="$v.serialno.$touch()"
+                      @blur="$v.serialno.$touch()"
+                    ></vs-input>
+                    <vs-input
+                      style="margin: 6px"
+                      v-model="serialno"
+                      :error-messages="serialnoErrors"
+                      placeholder="Middle Name"
+                      required
+                      @input="$v.serialno.$touch()"
+                      @blur="$v.serialno.$touch()"
+                    ></vs-input>
+                    <vs-input
+                      style="margin: 6px"
+                      v-model="serialno"
+                      :error-messages="serialnoErrors"
+                      placeholder="Contact Person"
+                      required
+                      @input="$v.serialno.$touch()"
+                      @blur="$v.serialno.$touch()"
+                    ></vs-input>
+                    <vs-input
+                      style="margin: 6px"
+                      v-model="serialno"
+                      :error-messages="serialnoErrors"
+                      placeholder="Telephone No."
+                      required
+                      @input="$v.serialno.$touch()"
+                      @blur="$v.serialno.$touch()"
+                    ></vs-input>
+                    <vs-input
+                      style="margin: 6px"
+                      v-model="serialno"
+                      :error-messages="serialnoErrors"
+                      placeholder="House No."
+                      required
+                      @input="$v.serialno.$touch()"
+                      @blur="$v.serialno.$touch()"
+                    ></vs-input>
+                    <vs-input
+                      style="margin: 6px"
+                      v-model="serialno"
+                      :error-messages="serialnoErrors"
+                      placeholder="Street"
+                      required
+                      @input="$v.serialno.$touch()"
+                      @blur="$v.serialno.$touch()"
+                    ></vs-input>
+                    <vs-select
+                      style="margin: 6px"
+                      v-model="priority"
+                      :items="priority"
+                      :error-messages="priorityErrors"
+                      placeholder="Barangay"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      @change="$v.priority.$touch()"
+                      @blur="$v.priority.$touch()"
+                    ></vs-select>
+                    <vs-select
+                      style="margin: 6px"
+                      v-model="priority"
+                      :items="priority"
+                      :error-messages="priorityErrors"
+                      placeholder="Municipality/City"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      @change="$v.priority.$touch()"
+                      @blur="$v.priority.$touch()"
+                    ></vs-select>
+                    <vs-select
+                      style="margin: 6px"
+                      v-model="priority"
+                      :items="priority"
+                      :error-messages="priorityErrors"
+                      placeholder="Province"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      @change="$v.priority.$touch()"
+                      @blur="$v.priority.$touch()"
+                    ></vs-select>
+                  </template>
+                </vs-card>
+              </v-col>
+              <v-col cols="3">
+                <vs-card>
+                  <template #title>
+                    <h3>>></h3>
+                  </template>
+                  <template #text>
+                    <vs-input
+                      style="margin: 6px"
+                      v-model="serialno"
+                      :error-messages="serialnoErrors"
+                      placeholder="Location of Unit"
+                      required
+                      @input="$v.serialno.$touch()"
+                      @blur="$v.serialno.$touch()"
+                    ></vs-input>
+                    <h3>Is this an organization?</h3>
+                    <v-radio-group v-model="row" row>
+                      <v-radio label="Yes" value="1"></v-radio>
+                      <v-radio label="No" value="2"></v-radio>
+                    </v-radio-group>
+                    <h3>SALES INVOICE:</h3>
+                    <v-file-input
+                      counter
+                      multiple
+                      show-size
+                      truncate-length="15"
+                    ></v-file-input>
+                    <v-textarea
+                      prepend-inner-icon="mdi-comment"
+                      class="mx-2"
+                      label="SPECIAL INSTRUCTION"
+                      rows="1"
+                    ></v-textarea>
+                    <h3>Any additional request?</h3>
+                  
+                      <vs-checkbox v-model="option" value="Long ladder needed for unit located above 10ft/3m (+Php 380)"> Long ladder needed for unit located above 10ft/3m (+Php 380) </vs-checkbox>
+                      <vs-checkbox v-model="option" value="Freon re-charge may be needed (additional charges applies)"> Freon re-charge may be needed (additional charges applies) </vs-checkbox>
+                   
+                  </template>
+                </vs-card>
+
+              </v-col>
+              <v-col cols="3">
+                  <vs-card>
+                  <template #title>
+                    <h3>Units</h3>
+                  </template>
+                  <template #text>
+                   
+                  </template>
+                  </vs-card>
+              </v-col>
+            </v-row>
+          </div>
+        </vs-dialog>
+      </div>
+
+      <vs-row>
+        <vs-button
+          style="background-color: white; min-width: 70px; color: black"
+          @click="request({name: 'REPAIR', id: 1})"
+          animation-type="scale"
+        >
+          <v-img src="/repair.png" style="width: 100px"> </v-img
+          ><strong>REPAIR</strong>
+          <template #animate>
+            <strong style="margin-left: 10px">REQUEST &#9881;</strong>
+            <v-img src="/repair.png" style="width: 70px; height: 70px"></v-img>
+          </template>
+        </vs-button>
+        <vs-button
+          style="background-color: white; min-width: 70px; color: black"
+          @click="request({name: 'CLEANING', id: 2})"
+          animation-type="scale"
+        >
+          <v-img src="/cleaning.png" style="width: 90px"> </v-img
+          ><strong>CLEANING</strong>
+          <template #animate>
+            <strong style="margin-left: 10px">REQUEST &#9881;</strong>
+            <v-img
+              src="/cleaning.png"
+              style="width: 70px; height: 70px"
+            ></v-img>
+          </template>
+        </vs-button>
+
+        <vs-button
+          style="background-color: white; min-width: 70px; color: black"
+          @click="request({name: 'SITE SURVEY', id: 3})"
+          animation-type="scale"
+        >
+          <v-img src="/survey.png" style="width: 100px"> </v-img
+          ><strong>SITE SURVEY</strong>
+          <template #animate>
+            <strong style="margin-left: 10px">REQUEST &#9881;</strong>
+            <v-img src="/survey.png" style="width: 70px; height: 70px"></v-img>
+          </template>
+        </vs-button>
+
+        <vs-button
+          style="background-color: white; min-width: 70px; color: black"
+          @click="request({name: 'INSTALLATION', id: 4})"
+          animation-type="scale"
+        >
+          <v-img src="/installation.png" style="width: 100px"> </v-img
+          ><strong>INSTALLATION</strong>
+          <template #animate>
+            <strong style="margin-left: 10px">REQUEST &#9881;</strong>
+            <v-img
+              src="/installation.png"
+              style="width: 70px; height: 70px"
+            ></v-img>
+          </template>
+        </vs-button>
       </vs-row>
     </v-container>
-    <v-dialog
-      v-model="dialog"
-      hide-overlay
-      transition="dialog-bottom-transition"
-      color="black"
-    >
-      <v-card color="#f2e7d0">
-        <v-toolbar dark color="#f2e7d0">
-          <v-btn icon dark @click="dialog = false">
-            <v-icon style="color: black">mdi-close</v-icon>
-          </v-btn>
-          <v-toolbar-title style="color: black"
-            >Database / Configure</v-toolbar-title
-          >
-          <v-spacer></v-spacer>
-          <v-toolbar-items>
-            <!-- <v-btn dark text @click="submit()" style="color: black">
-                Save Configure
-              </v-btn> -->
-            <vs-button size="large" @click="submit()">
-              <v-icon>mdi-content-save-all</v-icon>
-            </vs-button>
-            <vs-button size="large" @click="create()"> CREATE </vs-button>
-          </v-toolbar-items>
-        </v-toolbar>
-        <v-list three-line subheader>
-          <v-row no-gutters>
-            <v-col cols="12" sm="6">
-              <v-card class="pa-2" outlined tile>
-                <v-subheader>DATABASE / CREATE</v-subheader>
-                <v-list-item>
-                  <v-list-item-content>
-                    <form>
-                      <v-text-field
-                        v-model="host"
-                        :error-messages="hostErrors"
-                        label="Host"
-                        required
-                        @input="$v.host.$touch()"
-                        @blur="$v.host.$touch()"
-                      ></v-text-field>
-                      <v-text-field
-                        v-model="dbname"
-                        :error-messages="dbnameErrors"
-                        label="Database Name"
-                        required
-                        @input="$v.dbname.$touch()"
-                        @blur="$v.dbname.$touch()"
-                      ></v-text-field>
-                      <v-text-field
-                        v-model="username"
-                        :error-messages="usernameErrors"
-                        label="Username"
-                        required
-                        @input="$v.username.$touch()"
-                        @blur="$v.username.$touch()"
-                      ></v-text-field>
-                      <v-text-field
-                        v-model="password"
-                        :error-messages="passwordErrors"
-                        label="Password"
-                        type="password"
-                        required
-                        @input="$v.password.$touch()"
-                        @blur="$v.password.$touch()"
-                      ></v-text-field>
-
-                      <v-select
-                        v-model="connection"
-                        :items="connections"
-                        :error-messages="connectionsErrors"
-                        label="Connection"
-                        item-text="name"
-                        item-value="value"
-                        required
-                        @change="$v.connections.$touch()"
-                        @blur="$v.connections.$touch()"
-                      ></v-select>
-                      <v-select
-                        v-model="port"
-                        :items="ports"
-                        :error-messages="portsErrors"
-                        label="Port"
-                        item-text="name"
-                        item-value="value"
-                        required
-                        @change="$v.ports.$touch()"
-                        @blur="$v.ports.$touch()"
-                      ></v-select>
-                    </form>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-card>
-            </v-col>
-            <v-col cols="12" sm="6">
-              <v-card class="pa-2" outlined tile>
-                <v-subheader>DATABASE / UPDATE </v-subheader>
-                <v-list-item>
-                  <v-list-item-content>
-                    <v-data-table
-                      :headers="headers"
-                      :items="databaseData"
-                      :items-per-page="5"
-                      class="elevation-1"
-                    >
-                      <template v-slot:item.action="{ item }">
-                        <vs-button-group>
-                          <vs-button border @click="edit(item)">
-                            <v-icon>mdi-grease-pencil</v-icon>
-                          </vs-button>
-                          <vs-button border icon @click="trash(item)">
-                            <v-icon>mdi-delete</v-icon>
-                          </vs-button>
-                        </vs-button-group>
-                      </template>
-                    </v-data-table>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-list>
-        <v-divider></v-divider>
-      </v-card>
-    </v-dialog>
+     
   </div>
 </template>
   
@@ -231,33 +406,14 @@ export default {
   },
   data() {
     return {
-      headers: [
-        { text: "HOST", value: "host" },
-        { text: "DBNAME", value: "dbname" },
-        { text: "USERNAME", value: "username" },
-        { text: "PASSWORD", value: "password" },
-        { text: "CONNECTION", value: "connection" },
-        { text: "PORT", value: "port" },
-        { text: "ACTION", value: "action" },
-      ],
-      id: "",
-      entryname: "",
-      dialog: false,
-      host: "",
-      dbname: "",
-      username: "",
-      password: "",
-      connections: [
-        { name: "Mssql", value: "sqlsrv" },
-        { name: "mysql", value: "mysql" },
-        { name: " PostgreSQL", value: "pgsql" },
-      ],
-      ports: [
-        { name: "3306", value: "3306" },
-        { name: "1433", value: "1433" },
-      ],
-      connection: "",
-      port: "",
+      row: null,
+      bookingmodal: false,
+      date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+        .toISOString()
+        .substr(0, 10),
+      menu: false,
+      activerequest: null
+  
     };
   },
   created() {
@@ -308,6 +464,10 @@ export default {
     },
   },
   methods: {
+    request(data){
+      this.bookingmodal = true;
+      this.activerequest = data;
+    },
     submit() {
       this.$v.$touch();
       let data = {
