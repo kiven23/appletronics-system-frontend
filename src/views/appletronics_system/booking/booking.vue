@@ -2,7 +2,12 @@
   <div>
     <v-container text-xs-center>
       <div class="center">
-        <vs-dialog overflow-hidden full-screen v-model="bookingmodal">
+        <vs-dialog
+          prevent-close
+          overflow-hidden
+          full-screen
+          v-model="bookingmodal"
+        >
           <template #header>
             <h4 class="not-margin">
               REQUEST-<strong>{{ activerequest.name }}</strong>
@@ -18,7 +23,6 @@
                   </template>
 
                   <template #text>
-                   
                     <v-select
                       style="margin: 6px"
                       v-model="data.units.prodcategories"
@@ -31,7 +35,7 @@
                       dense
                       @change="getindex()"
                     ></v-select>
-             
+
                     <v-select
                       style="margin: 6px"
                       v-model="data.units.appliancetype"
@@ -42,7 +46,6 @@
                       item-value="value"
                       required
                       dense
-                      
                     ></v-select>
                     <v-select
                       style="margin: 6px"
@@ -54,7 +57,6 @@
                       item-value="value"
                       required
                       dense
-                       
                     ></v-select>
                     <v-text-field
                       style="margin: 6px"
@@ -63,17 +65,14 @@
                       placeholder="Model*"
                       required
                       dense
-                      
                     ></v-text-field>
 
                     <vs-input
                       style="margin: 6px"
                       v-model="data.units.serialno"
-                       
                       placeholder="Serial No."
                       required
                       dense
-                      
                     ></vs-input>
                     <v-select
                       style="margin: 6px"
@@ -85,7 +84,6 @@
                       item-value="value"
                       required
                       dense
-                      
                     ></v-select>
 
                     <v-select
@@ -98,7 +96,6 @@
                       item-value="value"
                       required
                       dense
-                      
                     ></v-select>
                     <h4 style="margin: 5px">Date of Purchase</h4>
                     <vs-input type="date" v-model="data.units.datepurchase" />
@@ -113,25 +110,21 @@
                       style="margin: 6px"
                       v-model="data.units.demandreplacement"
                       :items="productListDown.demandreplacement"
- 
                       placeholder="Demand Replacement"
                       item-text="name"
                       item-value="value"
                       required
                       dense
-                       
                     ></v-select>
                     <v-select
                       style="margin: 6px"
                       v-model="data.units.priority"
                       :items="productListDown.priority"
-                       
                       placeholder="Priority"
                       item-text="name"
                       item-value="value"
                       required
                       dense
-                      
                     ></v-select>
                     <v-btn class="ma-2" @click="add()" outlined color="indigo">
                       ADD
@@ -139,7 +132,7 @@
                   </template>
                 </vs-card>
               </v-col>
-            
+
               <v-col cols="2">
                 <vs-card>
                   <template #title>
@@ -148,112 +141,91 @@
                   <template #text>
                     <vs-input
                       style="margin: 6px"
-                      v-model="serialno"
-                      
+                      v-model="data.customer.cpnumber"
                       placeholder="Contact Phone Number*"
                       required
-                      
                     ></vs-input>
                     <v-btn class="ma-2" outlined color="indigo">
                       CHECK RECORD
                     </v-btn>
                     <vs-input
                       style="margin: 6px"
-                      v-model="serialno"
-                      
+                      v-model="data.customer.emailaddress"
                       placeholder="Contact Email Address"
                       required
-                      
                     ></vs-input>
                     <vs-input
                       style="margin: 6px"
-                      v-model="serialno"
-                      
+                      v-model="data.customer.lastname"
                       placeholder="Last Name"
                       required
-                     
                     ></vs-input>
                     <vs-input
                       style="margin: 6px"
-                      v-model="serialno"
-                       
+                      v-model="data.customer.firstname"
                       placeholder="First Name"
                       required
-                     
                     ></vs-input>
                     <vs-input
                       style="margin: 6px"
-                      v-model="serialno"
-                   
+                      v-model="data.customer.middlename"
                       placeholder="Middle Name"
                       required
-                      
                     ></vs-input>
                     <vs-input
                       style="margin: 6px"
-                      v-model="serialno"
-                       
+                      v-model="data.customer.contactperson"
                       placeholder="Contact Person"
                       required
-                     
                     ></vs-input>
                     <vs-input
                       style="margin: 6px"
-                      v-model="serialno"
-                    
+                      v-model="data.customer.telephoneno"
                       placeholder="Telephone No."
                       required
-                      
                     ></vs-input>
                     <vs-input
                       style="margin: 6px"
-                      v-model="serialno"
-                     
+                      v-model="data.customer.houseno"
                       placeholder="House No."
                       required
-                     
                     ></vs-input>
                     <vs-input
                       style="margin: 6px"
-                      v-model="serialno"
-                    
+                      v-model="data.customer.street"
                       placeholder="Street"
                       required
-                      
                     ></vs-input>
-                    <vs-select
+                    <v-select
                       style="margin: 6px"
-                      v-model="priority"
-                      :items="priority"
-                     
+                      v-model="data.customer.barangay"
+                      :items="addressesListDown.barangay"
                       placeholder="Barangay"
                       item-text="name"
                       item-value="value"
                       required
-                      
-                    ></vs-select>
-                    <vs-select
+                      dense
+                    ></v-select>
+                    <v-select
                       style="margin: 6px"
-                      v-model="priority"
-                      :items="priority"
-                      
+                      v-model="data.customer.mcity"
+                      :items="addressesListDown.mcity"
+                      dense
                       placeholder="Municipality/City"
                       item-text="name"
                       item-value="value"
                       required
-    
-                    ></vs-select>
-                    <vs-select
+                    ></v-select>
+                    <v-select
                       style="margin: 6px"
-                      v-model="priority"
-                      :items="priority"
-                      
+                      v-model="data.customer.province"
+                      :items="addressesListDown.province"
+                      dense
                       placeholder="Province"
                       item-text="name"
                       item-value="value"
                       required
-                     
-                    ></vs-select>
+                    ></v-select>
                   </template>
                 </vs-card>
               </v-col>
@@ -265,14 +237,12 @@
                   <template #text>
                     <vs-input
                       style="margin: 6px"
-                      v-model="serialno"
-                      
+                      v-model="data.customer.locationunit"
                       placeholder="Location of Unit"
                       required
-                     
                     ></vs-input>
                     <h3>Is this an organization?</h3>
-                    <v-radio-group v-model="row" row>
+                    <v-radio-group v-model="data.customer.organization" row>
                       <v-radio label="Yes" value="1"></v-radio>
                       <v-radio label="No" value="2"></v-radio>
                     </v-radio-group>
@@ -282,25 +252,27 @@
                       multiple
                       show-size
                       truncate-length="15"
+                      v-model="data.customer.attachment"
                     ></v-file-input>
                     <v-textarea
                       prepend-inner-icon="mdi-comment"
                       class="mx-2"
                       label="SPECIAL INSTRUCTION"
                       rows="1"
+                      v-model="data.customer.specialinstruction"
                     ></v-textarea>
                     <h3>Any additional request?</h3>
 
                     <vs-checkbox
-                      v-model="option"
-                      value="Long ladder needed for unit located above 10ft/3m (+Php 380)"
+                      v-model="data.customer.additionalrequest1"
+                      val="Long ladder needed for unit located above 10ft/3m (+Php 380)"
                     >
                       Long ladder needed for unit located above 10ft/3m (+Php
                       380)
                     </vs-checkbox>
                     <vs-checkbox
-                      v-model="option"
-                      value="Freon re-charge may be needed (additional charges applies)"
+                      v-model="data.customer.additionalrequest2"
+                      val="Freon re-charge may be needed (additional charges applies)"
                     >
                       Freon re-charge may be needed (additional charges applies)
                     </vs-checkbox>
@@ -324,13 +296,19 @@
                         </thead>
                         <tbody>
                           <tr v-for="item in units" :key="item.unitid">
-                            <td><strong>{{ item.unitid }}</strong></td>
-                            <td><strong>{{ item.serialno }}</strong></td>
+                            <td>
+                              <strong>{{ item.unitid }}</strong>
+                            </td>
+                            <td>
+                              <strong>{{ item.serialno }}</strong>
+                            </td>
                             <td>
                               <v-btn icon @click="editItem(item)">
-                                <v-icon>mdi-pencil</v-icon>
+                                <v-icon>mdi-content-paste </v-icon>/<v-icon
+                                  >mdi-eye
+                                </v-icon>
                               </v-btn>
-                              <v-btn icon>
+                              <v-btn icon @click="trashUnits(item)">
                                 <v-icon>mdi-delete</v-icon>
                               </v-btn>
                             </td>
@@ -338,13 +316,109 @@
                         </tbody>
                       </template>
                     </v-simple-table>
-                    <v-btn class="ma-2" outlined color="indigo">
+                    <v-btn
+                      class="ma-2"
+                      outlined
+                      color="indigo"
+                      @click="checkout()"
+                    >
                       REVIEW AND CHECKOUT
                     </v-btn>
                   </template>
                 </vs-card>
               </v-col>
             </v-row>
+            <v-dialog v-model="confirmdialog" persistent max-width="600px">
+              <v-card>
+                <v-card-title>
+                  <span class="text-h5">Confirm your request details</span>
+                </v-card-title>
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12" sm="6" md="4">
+                        <strong>Contact Name</strong>
+                        <br />{{data.customer.lastname}}, {{data.customer.firstname}}
+                      </v-col>
+
+                      <v-col cols="12" sm="6" md="4">
+                        <strong>Email Address</strong>
+                        <br />{{data.customer.emailaddress}}
+                      </v-col>
+
+                      <v-col cols="12" sm="6" md="4">
+                        <strong>Contact Number</strong>
+                        <br />{{data.customer.cpnumber}}
+                      </v-col>
+
+                      <v-col cols="12" sm="6" md="4">
+                        <strong>Property Type</strong>
+                        <br /> 
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <strong>Address Details</strong>
+                        <br/>{{data.customer.houseno+' '+data.customer.street+' '+data.customer.barangay+' '+data.customer.mcity+' '+data.customer.province}}
+                      </v-col>
+  
+                      <v-col cols="12" sm="6" md="4">
+                        <strong>Request Type</strong>
+                        <br />{{requestType}}
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <strong>Dealer Name</strong>
+                        <br />ADDESSA
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <strong>Special Instruction</strong>
+                        <br />{{data.customer.specialinstruction}}
+                      </v-col>
+                      <v-col cols="12">
+                        <strong>Units Details</strong>
+                        <br />
+                        <v-simple-table dense>
+                          <template v-slot:default>
+                            <thead>
+                              <tr>
+                                <th class="text-left">Appliance Type</th>
+                                <th class="text-left">Brand</th>
+                                <th class="text-left">Model</th>
+                                <th class="text-left">Appliance</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr v-for="item in units" :key="item.unitid">
+                                <td>{{ item.appliancetype }}</td>
+                                <td>{{ item.brand }}</td>
+                                <td>{{ item.model }}</td>
+                                <td>{{ item.prodcategories }}</td>
+                              </tr>
+                            </tbody>
+                          </template>
+                        </v-simple-table>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                  <small>#ref03948300</small>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn
+                    color="blue darken-1"
+                    text
+                    @click="confirmdialog = false"
+                  >
+                    BACK
+                  </v-btn>
+                  <v-btn
+                    color="blue darken-1"
+                    text
+                    @click="confirmdialog = false"
+                  >
+                    SUBMIT SERVICE REQUEST
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </div>
         </vs-dialog>
       </div>
@@ -420,21 +494,21 @@ export default {
   validations: {
     data: {
       units: {
-              appliancetype: {required},
-              brand: {required},
-              model: {required},
-              serialno: {required},
-              unitcondition: {required},
-              warrantycondition: {required},
-              qty: {required},
-         
-
-             }
-       }
-     
+        appliancetype: { required },
+        brand: { required },
+        model: { required },
+        serialno: { required },
+        unitcondition: { required },
+        warrantycondition: { required },
+        qty: { required },
+      },
+    },
   },
   data() {
     return {
+      datasummary: "",
+      confirmdialog: false,
+      requestType: "",
       row: null,
       bookingmodal: false,
       date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
@@ -442,241 +516,286 @@ export default {
         .substr(0, 10),
       menu: false,
       activerequest: null,
-      selectedIndex: '',
-      units: [ ],
+      selectedIndex: "",
+      units: [],
       data: {
         units: {
-          prodcategories: '',
-          appliancetype: '',
-          brand: '',
-          model: '',
-          serialno: '',
-          unitcondition: '',
-          warrantycondition: '',
-          qty: '',
-          demandreplacement: '',
-          priority: '',
-          datepurchase:  new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
-        .toISOString()
-        .substr(0, 10),
+          prodcategories: "",
+          appliancetype: "",
+          brand: "",
+          model: "",
+          serialno: "",
+          unitcondition: "",
+          warrantycondition: "",
+          qty: "",
+          demandreplacement: "",
+          priority: "",
+          datepurchase: new Date(
+            Date.now() - new Date().getTimezoneOffset() * 60000
+          )
+            .toISOString()
+            .substr(0, 10),
         },
-        customer:{
-           name: ''
+        customer: {
+          cpnumber: "",
+          lastname: "",
+          firstname: "",
+          emailaddress: "",
+          middlename: "",
+          contactperson: "",
+          telephoneno: "",
+          houseno: "",
+          street: "",
+          barangay: "",
+          mcity: "",
+          province: "",
+          locationunit: "",
+          organization: "",
+          attachment: [],
+          specialinstruction: "",
+          additionalrequest1: "",
+          additionalrequest2: "",
         },
-     },
-     productListDown: {
-          prodcategories: [
-                {
-                  name: 'AIRCONDITION',
-                  value: 'AIRCONDITION',
-
-                },
-                {
-                  name: 'REFRIGERATOR',
-                  value: 'REFRIGERATOR'
-                },
-                {
-                  name: 'WASHING MACHINE',
-                  value: 'WASHING MACHINE'
-                },
-                {
-                  name: 'GAS RANGE',
-                  value: 'GAS RANGE'
-                },
-                {
-                  name: 'FREEZER',
-                  value: 'FREEZER'
-                },
-                {
-                  name: 'CHILLER',
-                  value: 'CHILLER'
-                },
-                {
-                  name: 'WATER DESPENSER',
-                  value: 'WATER DESPENSER'
-                },
-                {
-                  name: 'AIR COOLER',
-                  value: 'AIR COOLER'
-                },
-                {
-                  name: 'RANGE HOOD',
-                  value: 'RANGE HOOD'
-                },
-                {
-                  name: 'MICROWAVE OVEN',
-                  value: 'MICROWAVE OVEN'
-                },
-                {
-                  name: 'OVEN TOASTER',
-                  value: 'OVEN TOASTER'
-                },
-                {
-                  name: 'BLENDER',
-                  value: 'BLENDER'
-                },
-                {
-                  name: 'VACUUM',
-                  value: 'VACUUM'
-                },
-                {
-                  name: 'CTV',
-                  value: 'CTV'
-                },
-                {
-                  name: 'ELECTRIC FAN',
-                  value: 'ELECTRIC FAN'
-                },
-                {
-                  name: 'PRINTER',
-                  value: 'BLENDER'
-                },
-                {
-                  name: 'AUDIO/SPEAKER',
-                  value: 'AUDIO/SPEAKER'
-                },
-          ],
-          appliancetype: [],
-          brand:[
-            {
-            name: 'LG',
-            value: 'LG',
-            },
-            {
-            name: 'CARRIER',
-            value: 'CARRIER',
-            },
-            {
-            name: 'SAMSUNG',
-            value: 'SAMSUNG',
-            },
-            {
-            name: 'HAIER',
-            value: 'HAIER',
-            },
-            {
-            name: 'SHARP',
-            value: 'SHARP',
-            },
-            {
-            name: 'EVEREST',
-            value: 'EVEREST',
-            },
-            {
-            name: 'PANASONIC',
-            value: 'PANASONIC',
-            },
-            {
-            name: 'SKYWORTH',
-            value: 'SKYWORTH',
-            },
-            {
-            name: 'GE',
-            value: 'GE',
-            },
-            {
-            name: 'MABE',
-            value: 'MABE',
-            },
-            {
-            name: 'MIDEA',
-            value: 'MIDEA',
-            },
-            {
-            name: 'ARISTON',
-            value: 'ARISTON',
-            },
-            {
-            name: 'TECHNOGAS',
-            value: 'TECHNOGAS',
-            },
-            {
-            name: 'AMERICAN MASTER',
-            value: 'AMERICAN MASTER',
-            },
-            {
-            name: 'EUROTEK',
-            value: 'EUROTEK',
-            },
-            {
-            name: 'EUREKA',
-            value: 'EUREKA',
-            },
-            {
-            name: 'XTREME',
-            value: 'XTREME',
-            },
-            {
-            name: 'FUJIDENZO',
-            value: 'FUJIDENZO',
-            },
-            {
-            name: 'WHIRLPOOL',
-            value: 'WHIRLPOOL',
-            },
-            {
-            name: 'MAYTAG',
-            value: 'MAYTAG',
-            },
-            {
-            name: 'GLEM',
-            value: 'GLEM',
-            },
-            {
-            name: 'CHANGHONG',
-            value: 'CHANGHONG',
-            },
-            {
-            name: 'CONDURA',
-            value: 'CONDURA',
-            }, 
+      },
+      addressesListDown: {
+        barangay: [
+          {
+            name: "Domanpot",
+            value: "Domanpot",
+          },
+          {
+            name: "Macalong",
+            value: "Macalong",
+          },
+          {
+            name: "Baro",
+            value: "Baro",
+          },
+        ],
+        mcity: [
+          {
+            name: "Asingan",
+            value: "Asingan",
+          },
+        ],
+        province: [
+          {
+            name: "Pangasinan",
+            value: "Pangasinan",
+          },
+        ],
+      },
+      productListDown: {
+        prodcategories: [
+          {
+            name: "AIRCONDITION",
+            value: "AIRCONDITION",
+          },
+          {
+            name: "REFRIGERATOR",
+            value: "REFRIGERATOR",
+          },
+          {
+            name: "WASHING MACHINE",
+            value: "WASHING MACHINE",
+          },
+          {
+            name: "GAS RANGE",
+            value: "GAS RANGE",
+          },
+          {
+            name: "FREEZER",
+            value: "FREEZER",
+          },
+          {
+            name: "CHILLER",
+            value: "CHILLER",
+          },
+          {
+            name: "WATER DESPENSER",
+            value: "WATER DESPENSER",
+          },
+          {
+            name: "AIR COOLER",
+            value: "AIR COOLER",
+          },
+          {
+            name: "RANGE HOOD",
+            value: "RANGE HOOD",
+          },
+          {
+            name: "MICROWAVE OVEN",
+            value: "MICROWAVE OVEN",
+          },
+          {
+            name: "OVEN TOASTER",
+            value: "OVEN TOASTER",
+          },
+          {
+            name: "BLENDER",
+            value: "BLENDER",
+          },
+          {
+            name: "VACUUM",
+            value: "VACUUM",
+          },
+          {
+            name: "CTV",
+            value: "CTV",
+          },
+          {
+            name: "ELECTRIC FAN",
+            value: "ELECTRIC FAN",
+          },
+          {
+            name: "PRINTER",
+            value: "BLENDER",
+          },
+          {
+            name: "AUDIO/SPEAKER",
+            value: "AUDIO/SPEAKER",
+          },
+        ],
+        appliancetype: [],
+        brand: [
+          {
+            name: "LG",
+            value: "LG",
+          },
+          {
+            name: "CARRIER",
+            value: "CARRIER",
+          },
+          {
+            name: "SAMSUNG",
+            value: "SAMSUNG",
+          },
+          {
+            name: "HAIER",
+            value: "HAIER",
+          },
+          {
+            name: "SHARP",
+            value: "SHARP",
+          },
+          {
+            name: "EVEREST",
+            value: "EVEREST",
+          },
+          {
+            name: "PANASONIC",
+            value: "PANASONIC",
+          },
+          {
+            name: "SKYWORTH",
+            value: "SKYWORTH",
+          },
+          {
+            name: "GE",
+            value: "GE",
+          },
+          {
+            name: "MABE",
+            value: "MABE",
+          },
+          {
+            name: "MIDEA",
+            value: "MIDEA",
+          },
+          {
+            name: "ARISTON",
+            value: "ARISTON",
+          },
+          {
+            name: "TECHNOGAS",
+            value: "TECHNOGAS",
+          },
+          {
+            name: "AMERICAN MASTER",
+            value: "AMERICAN MASTER",
+          },
+          {
+            name: "EUROTEK",
+            value: "EUROTEK",
+          },
+          {
+            name: "EUREKA",
+            value: "EUREKA",
+          },
+          {
+            name: "XTREME",
+            value: "XTREME",
+          },
+          {
+            name: "FUJIDENZO",
+            value: "FUJIDENZO",
+          },
+          {
+            name: "WHIRLPOOL",
+            value: "WHIRLPOOL",
+          },
+          {
+            name: "MAYTAG",
+            value: "MAYTAG",
+          },
+          {
+            name: "GLEM",
+            value: "GLEM",
+          },
+          {
+            name: "CHANGHONG",
+            value: "CHANGHONG",
+          },
+          {
+            name: "CONDURA",
+            value: "CONDURA",
+          },
         ],
         unitcondition: [
           {
-            name: 'BRAND NEW',
-            value: 'BRAND NEW' 
+            name: "BRAND NEW",
+            value: "BRAND NEW",
           },
           {
-            name: 'REPO',
-            value: 'REPO' 
+            name: "REPO",
+            value: "REPO",
           },
           {
-            name: 'STOCK',
-            value: 'STOCK' 
-          }
-           ],
-        warrantycondition:[
+            name: "STOCK",
+            value: "STOCK",
+          },
+        ],
+        warrantycondition: [
           {
-            name: 'WARRANTY',
-            value: 'WARRANTY' 
+            name: "WARRANTY",
+            value: "WARRANTY",
           },
           {
-            name: 'OUT WARRANTY',
-            value: 'OUT WARRANTY' 
-          }
-         ],
-         demandreplacement:[
+            name: "OUT WARRANTY",
+            value: "OUT WARRANTY",
+          },
+        ],
+        demandreplacement: [
           {
-            name: '7 DAYS WARRANTY',
-            value: '7 DAYS WARRANTY' 
+            name: "7 DAYS WARRANTY",
+            value: "7 DAYS WARRANTY",
           },
           {
-            name: 'DEFECTIVE UPON OPENING',
-            value: 'DEFECTIVE UPON OPENING' 
-          }
-         ],
-         priority:[
+            name: "DEFECTIVE UPON OPENING",
+            value: "DEFECTIVE UPON OPENING",
+          },
+        ],
+        priority: [
           {
-            name: 'HIGH',
-            value: 'HIGH' 
+            name: "HIGH",
+            value: "HIGH",
           },
           {
-            name: 'LOW',
-            value: 'LOW' 
-          }
-         ],
-
-     }
+            name: "LOW",
+            value: "LOW",
+          },
+        ],
+      },
     };
   },
   created() {
@@ -686,14 +805,13 @@ export default {
     ...mapGetters({
       databaseData: "getDBLIST",
     }),
- 
+
     appliancetypeError() {
       const errors = [];
       var RequiredError = null;
       if (!this.$v.data.units.appliancetype.$dirty) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.units.appliancetype.required &&
-        errors.push(RequiredError);
+      !this.$v.data.units.appliancetype.required && errors.push(RequiredError);
       return errors;
     },
     brandError() {
@@ -701,8 +819,7 @@ export default {
       var RequiredError = null;
       if (!this.$v.data.units.brand.$dirty) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.units.brand.required &&
-        errors.push(RequiredError);
+      !this.$v.data.units.brand.required && errors.push(RequiredError);
       return errors;
     },
     modelError() {
@@ -710,17 +827,15 @@ export default {
       var RequiredError = null;
       if (!this.$v.data.units.model.$dirty) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.units.model.required &&
-        errors.push(RequiredError);
+      !this.$v.data.units.model.required && errors.push(RequiredError);
       return errors;
     },
-    qtyError(){
+    qtyError() {
       const errors = [];
       var RequiredError = null;
       if (!this.$v.data.units.qty) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.units.qty.required &&
-        errors.push(RequiredError);
+      !this.$v.data.units.qty.required && errors.push(RequiredError);
       return errors;
     },
     unitconditionError() {
@@ -728,8 +843,7 @@ export default {
       var RequiredError = null;
       if (!this.$v.data.units.unitcondition) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.units.unitcondition.required &&
-        errors.push(RequiredError);
+      !this.$v.data.units.unitcondition.required && errors.push(RequiredError);
       return errors;
     },
     warrantyconditionError() {
@@ -741,102 +855,99 @@ export default {
         errors.push(RequiredError);
       return errors;
     },
-  
-    
-     
   },
   methods: {
     getindex: function () {
-         const AIRCONDITION = 
-          [ {
-              name: 'SPLIT TYPE',
-              value: 'SPLIT TYPE'
-              },
-              {
-              name: 'WINDOW TYPE',
-              value: 'WINDOW TYPE'
-              },
-              {
-              name: 'FLOOR MOUNTED',
-              value: 'FLOOR MOUNTED'
-              },
-              {
-              name: 'CEILING CASSETTE',
-              value: 'CEILING CASSETTE'
-              },
-              {
-              name: 'CEILING MOUNTED',
-              value: 'CEILING MOUNTED'
-              },
-              {
-              name: 'PORTABLE TYPE',
-              value: 'PORTABLE TYPE'
-              },
-              {
-              name: 'VRF TYPE',
-              value: 'VRF TYPE'
-              },
-              {
-              name: 'MULTI-SPLIT TYPE',
-              value: 'MULTI-SPLIT TYPE'
-              },
-           ];
-          const REFREGERATOR = [
-            {
-              name: 'SIDE BY SIDE',
-              value: 'SIDE BY SIDE'
-            },
-            {
-              name: 'TWO DOOR',
-              value: 'TWO DOOR'
-            },
-            {
-              name: 'SINGLE DOOR',
-              value: 'SINGLE DOOR'
-            },
-          ];
-          const EMPTY = [ {
-              name: 'N/A',
-              value: 'N/A'
-            },];
-  
-        const APPLIANCETYPE = this.data.units.prodcategories; 
-        if(APPLIANCETYPE == 'REFRIGERATOR'){
-          this.productListDown.appliancetype = REFREGERATOR;
-        }
-        else if(APPLIANCETYPE == 'AIRCONDITION'){
-          this.productListDown.appliancetype = AIRCONDITION;
-        }else{
-          this.productListDown.appliancetype = EMPTY
-        }
+      const AIRCONDITION = [
+        {
+          name: "SPLIT TYPE",
+          value: "SPLIT TYPE",
+        },
+        {
+          name: "WINDOW TYPE",
+          value: "WINDOW TYPE",
+        },
+        {
+          name: "FLOOR MOUNTED",
+          value: "FLOOR MOUNTED",
+        },
+        {
+          name: "CEILING CASSETTE",
+          value: "CEILING CASSETTE",
+        },
+        {
+          name: "CEILING MOUNTED",
+          value: "CEILING MOUNTED",
+        },
+        {
+          name: "PORTABLE TYPE",
+          value: "PORTABLE TYPE",
+        },
+        {
+          name: "VRF TYPE",
+          value: "VRF TYPE",
+        },
+        {
+          name: "MULTI-SPLIT TYPE",
+          value: "MULTI-SPLIT TYPE",
+        },
+      ];
+      const REFREGERATOR = [
+        {
+          name: "SIDE BY SIDE",
+          value: "SIDE BY SIDE",
+        },
+        {
+          name: "TWO DOOR",
+          value: "TWO DOOR",
+        },
+        {
+          name: "SINGLE DOOR",
+          value: "SINGLE DOOR",
+        },
+      ];
+      const EMPTY = [
+        {
+          name: "N/A",
+          value: "N/A",
+        },
+      ];
 
-       },
-    add(){
-      this.$v.$touch()
-      if (!this.$v.$error){
-        const add =  
-          {
-             
-            unitid: 'UNIT-'+this.data.units.brand+'-'+Math.ceil(Math.random()*1000000),
-            prodcategories: this.data.units.prodcategories,
-            appliancetype: this.data.units.appliancetype,
-            brand: this.data.units.brand,
-            model: this.data.units.model,
-            serialno: this.data.units.serialno,
-            unitcondition: this.data.units.unitcondition,
-            warrantycondition: this.data.units.warrantycondition,
-            qty: this.data.units.warrantycondition,
-            demandreplacement: this.data.units.demandreplacement,
-            priority: this.data.units.priority,
-            datepurchase: this.data.units.datepurchase
-           }
-         ;
-        this.units.push(add)
-      } 
-          
+      const APPLIANCETYPE = this.data.units.prodcategories;
+      if (APPLIANCETYPE == "REFRIGERATOR") {
+        this.productListDown.appliancetype = REFREGERATOR;
+      } else if (APPLIANCETYPE == "AIRCONDITION") {
+        this.productListDown.appliancetype = AIRCONDITION;
+      } else {
+        this.productListDown.appliancetype = EMPTY;
+      }
     },
-    editItem(items){
-      console.log(items)
+    add() {
+      this.$v.$touch();
+      if (!this.$v.$error) {
+        const add = {
+          unitid:
+            "UNIT-" +
+            this.data.units.brand +
+            "-" +
+            Math.ceil(Math.random() * 1000000),
+          prodcategories: this.data.units.prodcategories,
+          appliancetype: this.data.units.appliancetype,
+          brand: this.data.units.brand,
+          model: this.data.units.model,
+          serialno: this.data.units.serialno,
+          unitcondition: this.data.units.unitcondition,
+          warrantycondition: this.data.units.warrantycondition,
+          qty: this.data.units.warrantycondition,
+          demandreplacement: this.data.units.demandreplacement,
+          priority: this.data.units.priority,
+          datepurchase: this.data.units.datepurchase,
+        };
+        this.units.push(add);
+      }
+    },
+    editItem(items) {
+      console.log(items);
       this.data = {
         units: {
           prodcategories: items.prodcategories,
@@ -849,20 +960,37 @@ export default {
           qty: items.qty,
           demandreplacement: items.demandreplacement,
           priority: items.priority,
-          datepurchase: items.datepurchase
-        }
-      
-     }
+          datepurchase: items.datepurchase,
+        },
+      };
+    },
+    trashUnits(item) {
+      this.units.splice(this.units.indexOf(item), 1);
+
+      ///->
+    },
+    checkout() {
+      const data = [
+        {
+          referencenumber: this.requestType,
+          units: this.units,
+          customer: this.data.customer,
+        },
+      ];
+      this.datasummary = data;
+      console.log(data);
+      this.confirmdialog = true;
+      //console.log(this.data.customer)
     },
     request(data) {
       this.bookingmodal = true;
       this.activerequest = data;
+      this.requestType =
+        "REF-" + data.name + "-" + Math.ceil(Math.random() * 1000000);
     },
     submit() {
       this.$v.$touch();
-      let data = {
-      
-      };
+      let data = {};
       if (this.id) {
         this.$store.dispatch("updateDBcon", data).then((res) => {
           if (res.status == 200) {
