@@ -126,8 +126,18 @@
                       required
                       dense
                     ></v-select>
-                    <v-btn class="ma-2" @click="add()" outlined color="indigo">
+                    <v-btn class="ma-2" 
+                    @click="add()"
+                     outlined color="indigo"
+                     :disabled="UnitsALLError"
+                     >
                       ADD
+                    </v-btn>
+                    <v-btn  
+                    @click="gen()"
+                     outlined color="indigo"
+                     >
+                      TESTDATA
                     </v-btn>
                   </template>
                 </vs-card>
@@ -139,67 +149,77 @@
                     <h3>Customer Information</h3>
                   </template>
                   <template #text>
-                    <vs-input
-                      style="margin: 6px"
+                    <v-text-field
                       v-model="data.customer.cpnumber"
+                      :error-messages="cpnumberError"
                       placeholder="Contact Phone Number*"
+                      prefix="+63"
+                      dense
                       required
-                    ></vs-input>
+                    ></v-text-field>
                     <v-btn class="ma-2" outlined color="indigo">
                       CHECK RECORD
                     </v-btn>
                     <vs-input
-                      style="margin: 6px"
                       v-model="data.customer.emailaddress"
-                      placeholder="Contact Email Address"
+                      placeholder="Email Address (OPTIONAL)"
                       required
+                      dense
                     ></vs-input>
-                    <vs-input
-                      style="margin: 6px"
+                    <v-text-field
+
                       v-model="data.customer.lastname"
                       placeholder="Last Name"
+                      :error-messages="lastnameError"
                       required
-                    ></vs-input>
-                    <vs-input
-                      style="margin: 6px"
+                      dense
+                    ></v-text-field>
+                    <v-text-field
+
                       v-model="data.customer.firstname"
+                      :error-messages="firstnameError"
                       placeholder="First Name"
                       required
-                    ></vs-input>
-                    <vs-input
-                      style="margin: 6px"
+                      dense
+                    ></v-text-field>
+                    <v-text-field
                       v-model="data.customer.middlename"
                       placeholder="Middle Name"
+                      :error-messages="middlenameError"
                       required
-                    ></vs-input>
-                    <vs-input
-                      style="margin: 6px"
+                      dense
+                    ></v-text-field>
+                    <v-text-field
                       v-model="data.customer.contactperson"
                       placeholder="Contact Person"
+                      :error-messages="contactpersonError"
                       required
-                    ></vs-input>
+                      dense
+                    ></v-text-field>
                     <vs-input
-                      style="margin: 6px"
                       v-model="data.customer.telephoneno"
-                      placeholder="Telephone No."
+                      placeholder="Telephone No. (OPTIONAL)"
                       required
+                      dense
                     ></vs-input>
-                    <vs-input
-                      style="margin: 6px"
+                    <v-text-field
                       v-model="data.customer.houseno"
                       placeholder="House No."
+                      :error-messages="housenoError"
                       required
-                    ></vs-input>
-                    <vs-input
-                      style="margin: 6px"
+                      dense
+                    ></v-text-field>
+                    <v-text-field
                       v-model="data.customer.street"
+                      :error-messages="streetError"
                       placeholder="Street"
                       required
-                    ></vs-input>
+                      dense
+                    ></v-text-field>
                     <v-select
-                      style="margin: 6px"
                       v-model="data.customer.barangay"
                       :items="addressesListDown.barangay"
+                      :error-messages="barangayError"
                       placeholder="Barangay"
                       item-text="name"
                       item-value="value"
@@ -207,9 +227,9 @@
                       dense
                     ></v-select>
                     <v-select
-                      style="margin: 6px"
                       v-model="data.customer.mcity"
                       :items="addressesListDown.mcity"
+                      :error-messages="mcityError"
                       dense
                       placeholder="Municipality/City"
                       item-text="name"
@@ -217,9 +237,9 @@
                       required
                     ></v-select>
                     <v-select
-                      style="margin: 6px"
                       v-model="data.customer.province"
                       :items="addressesListDown.province"
+                      :error-messages="provinceError"
                       dense
                       placeholder="Province"
                       item-text="name"
@@ -236,7 +256,6 @@
                   </template>
                   <template #text>
                     <vs-input
-                      style="margin: 6px"
                       v-model="data.customer.locationunit"
                       placeholder="Location of Unit"
                       required
@@ -321,9 +340,12 @@
                       outlined
                       color="indigo"
                       @click="checkout()"
+                      :disabled="CustomerALLError"
                     >
                       REVIEW AND CHECKOUT
+                   
                     </v-btn>
+                    {{CustomerALLError}}
                   </template>
                 </vs-card>
               </v-col>
@@ -353,7 +375,7 @@
 
                       <v-col cols="12" sm="6" md="4">
                         <strong>Property Type</strong>
-                        <br /> 
+                        <br /> N/A
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <strong>Address Details</strong>
@@ -501,12 +523,25 @@ export default {
         unitcondition: { required },
         warrantycondition: { required },
         qty: { required },
+
+   
       },
+      customer: {
+          cpnumber: { required},
+          lastname: { required },
+          firstname: { required },
+          middlename: { required },
+          contactperson: { required },
+          houseno: { required },
+          street: { required },
+          barangay: { required },
+          mcity: { required },
+          province: { required },
+      }
     },
   },
   data() {
     return {
-      datasummary: "",
       confirmdialog: false,
       requestType: "",
       row: null,
@@ -806,6 +841,7 @@ export default {
       databaseData: "getDBLIST",
     }),
 
+  // PRODUCT INFO VALIDATION
     appliancetypeError() {
       const errors = [];
       var RequiredError = null;
@@ -855,6 +891,117 @@ export default {
         errors.push(RequiredError);
       return errors;
     },
+    //->CONTACT INFO VALIDATE
+    cpnumberError() {
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.customer.cpnumber) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.customer.cpnumber.required &&
+        errors.push(RequiredError);
+      return errors;
+    },
+    lastnameError() {
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.customer.lastname) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.customer.lastname.required &&
+        errors.push(RequiredError);
+      return errors;
+    },
+    firstnameError() {
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.customer.firstname) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.customer.firstname.required &&
+        errors.push(RequiredError);
+      return errors;
+    },
+    middlenameError() {
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.customer.middlename) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.customer.middlename.required &&
+        errors.push(RequiredError);
+      return errors;
+    },
+    contactpersonError() {
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.customer.contactperson) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.customer.contactperson.required &&
+        errors.push(RequiredError);
+      return errors;
+    },
+    housenoError() {
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.customer.houseno) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.customer.houseno.required &&
+        errors.push(RequiredError);
+      return errors;
+    },
+    streetError() {
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.customer.street) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.customer.street.required &&
+        errors.push(RequiredError);
+      return errors;
+    },
+    barangayError() {
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.customer.barangay) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.customer.barangay.required &&
+        errors.push(RequiredError);
+      return errors;
+    },
+ 
+    mcityError() {
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.customer.mcity) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.customer.mcity.required &&
+        errors.push(RequiredError);
+      return errors;
+    },
+    provinceError() {
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.customer.province) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.customer.province.required &&
+        errors.push(RequiredError);
+      return errors;
+    },
+    CustomerALLError() {
+      this.$v.data.customer.$touch();
+      if (!this.$v.data.customer.$error) {
+        if (!this.units || !this.units.length) {
+            return true
+        }else{
+          return false
+        }
+      } 
+        return true;
+    },
+    UnitsALLError() {
+      this.$v.data.units.$touch();
+      if (!this.$v.data.units.$error) {
+        return false;
+      } 
+        return true;
+    },
+
   },
   methods: {
     getindex: function () {
@@ -922,9 +1069,46 @@ export default {
         this.productListDown.appliancetype = EMPTY;
       }
     },
+    gen(){
+      this.data = {
+        units: {
+          prodcategories: 'AIRCONDITION',
+          appliancetype: 'SPLIT TYPE',
+          brand: 'CARRIER',
+          model: 'LG2-374933',
+          serialno: '342546335',
+          unitcondition: 'BRAND NEW',
+          warrantycondition: 'OUT WARRANTY',
+          qty: 1,
+          demandreplacement: '7 DAYS WARRANTY',
+          priority: 'HIGH',
+          datepurchase: '12/12/2022',
+        },
+        customer: {
+          cpnumber: "9384736475",
+          lastname: "CALIMLIM",
+          firstname: "STEVEN",
+          emailaddress: "calimlim.steven@gmail.com",
+          middlename: "FERNANDEZ",
+          contactperson: "JAMES DOE",
+          telephoneno: "34534453",
+          houseno: "243",
+          street: "PUROK SILAW",
+          barangay: "Domanpot",
+          mcity: "Asingan",
+          province: "Pangasinan",
+          locationunit: "N/A",
+          organization: "1",
+          attachment: [],
+          specialinstruction: "NONE",
+          additionalrequest1: "Long ladder needed for unit located above 10ft/3m (+Php 380)",
+          additionalrequest2: "",
+        }
+      };
+    },
     add() {
-      this.$v.$touch();
-      if (!this.$v.$error) {
+      this.$v.data.units.$touch();
+      if (!this.$v.data.units.$error) {
         const add = {
           unitid:
             "UNIT-" +
@@ -970,17 +1154,11 @@ export default {
       ///->
     },
     checkout() {
-      const data = [
-        {
-          referencenumber: this.requestType,
-          units: this.units,
-          customer: this.data.customer,
-        },
-      ];
-      this.datasummary = data;
-      console.log(data);
-      this.confirmdialog = true;
-      //console.log(this.data.customer)
+      this.$v.data.customer.$touch();
+      if (!this.$v.data.customer.$error) {
+        this.confirmdialog = true;
+      
+      }
     },
     request(data) {
       this.bookingmodal = true;
