@@ -126,19 +126,146 @@
                       required
                       dense
                     ></v-select>
-                    <v-btn class="ma-2" 
-                    @click="add()"
-                     outlined color="indigo"
-                     :disabled="UnitsALLError"
-                     >
+                    <v-btn
+                      class="ma-2"
+                      @click="add()"
+                      outlined
+                      color="indigo"
+                      :disabled="UnitsALLError"
+                    >
                       ADD
                     </v-btn>
-                    <v-btn  
-                    @click="gen()"
-                     outlined color="indigo"
-                     >
+                    <v-btn @click="gen()" outlined color="indigo">
                       TESTDATA
                     </v-btn>
+                  </template>
+                </vs-card>
+              </v-col>
+
+              <!--FIELD FOR INSTALLATION-->
+              <v-col cols="2"  v-if="reqIdentifier == 4">
+                <vs-card>
+                  <template #title>
+                    
+                    <h3>Usage Details</h3>
+                  </template>
+
+                  <template #text>
+                    <v-select
+                      style="margin: 6px"
+                      v-model="data.usage.propertytype"
+                      :items="usagedetailsListDown.propertytype"
+                      :error-messages="propertytypeError"
+                      placeholder="Property Type*"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      dense
+                    ></v-select>
+
+                    <v-select
+            
+                      style="margin: 6px"
+                      v-model="data.usage.level"
+                      :items="usagedetailsListDown.level"
+                      placeholder="Level"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      dense
+                    ></v-select>
+                    <v-select
+                      style="margin: 6px"
+                      v-model="data.usage.location"
+                      :items="usagedetailsListDown.location"
+                      placeholder="Location"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      dense
+                    ></v-select>
+                    <v-text-field
+                      style="margin: 6px"
+                      v-model="data.usage.area"
+                      prefix="sqm"
+                      placeholder="Area"
+                      required
+                      dense
+                    ></v-text-field>
+                    <v-select
+                      style="margin: 6px"
+                      v-model="data.usage.wallfinish"
+                      :items="usagedetailsListDown.wallfinish"
+                      :error-messages="wallfinishError"
+                      placeholder="Wall Finish*"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      dense
+                    ></v-select>
+                    <v-select
+                      style="margin: 6px"
+                      v-model="data.usage.withpowersupply"
+                      :items="usagedetailsListDown.withpowersupply"
+                      :error-messages="withpowersupplyError"
+                      placeholder="With Power Supply*"
+                      item-text="name"
+                      item-value="value"
+                      required
+                      dense
+                    ></v-select>
+                    <h4 style="margin: 5px">Date of Delivery</h4>
+                    <vs-input type="date" v-model="data.usage.deliverydate" />
+                    <v-dialog
+                      ref="dialog"
+                      v-model="modal2"
+                      :return-value.sync="data.usage.time"
+                      persistent
+                      width="290px"
+                    >
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-text-field
+                          v-model="data.usage.time"
+                          label="Picker in dialog"
+                          prepend-icon="mdi-clock-time-four-outline"
+                          readonly
+                          v-bind="attrs"
+                          v-on="on"
+                        ></v-text-field>
+                      </template>
+                      <v-time-picker
+                        v-if="modal2"
+                        v-model="data.usage.time"
+                        full-width
+                      >
+                        <v-spacer></v-spacer>
+                        <v-btn text color="primary" @click="modal2 = false">
+                          Cancel
+                        </v-btn>
+                        <v-btn
+                          text
+                          color="primary"
+                          @click="$refs.dialog.save(data.usage.time)"
+                        >
+                          OK
+                        </v-btn>
+                      </v-time-picker>
+                    </v-dialog>
+                    <vs-input
+                      style="margin: 6px"
+                      v-model="data.usage.locationofinstallation"
+                      placeholder="Location of Installation"
+                      required
+                      dense
+                    ></vs-input>
+                    <v-text-field
+                      style="margin: 6px"
+                      prefix="PHP"
+                      v-model="data.usage.paidamoun"
+                      placeholder="Amount Paid"
+                      required
+                      dense
+                    ></v-text-field>
                   </template>
                 </vs-card>
               </v-col>
@@ -167,7 +294,6 @@
                       dense
                     ></vs-input>
                     <v-text-field
-
                       v-model="data.customer.lastname"
                       placeholder="Last Name"
                       :error-messages="lastnameError"
@@ -175,7 +301,6 @@
                       dense
                     ></v-text-field>
                     <v-text-field
-
                       v-model="data.customer.firstname"
                       :error-messages="firstnameError"
                       placeholder="First Name"
@@ -343,9 +468,8 @@
                       :disabled="CustomerALLError"
                     >
                       REVIEW AND CHECKOUT
-                   
                     </v-btn>
-                    {{CustomerALLError}}
+                    {{ CustomerALLError }}
                   </template>
                 </vs-card>
               </v-col>
@@ -360,31 +484,43 @@
                     <v-row>
                       <v-col cols="12" sm="6" md="4">
                         <strong>Contact Name</strong>
-                        <br />{{data.customer.lastname}}, {{data.customer.firstname}}
+                        <br />{{ data.customer.lastname }},
+                        {{ data.customer.firstname }}
                       </v-col>
 
                       <v-col cols="12" sm="6" md="4">
                         <strong>Email Address</strong>
-                        <br />{{data.customer.emailaddress}}
+                        <br />{{ data.customer.emailaddress }}
                       </v-col>
 
                       <v-col cols="12" sm="6" md="4">
                         <strong>Contact Number</strong>
-                        <br />{{data.customer.cpnumber}}
+                        <br />{{ data.customer.cpnumber }}
                       </v-col>
 
                       <v-col cols="12" sm="6" md="4">
                         <strong>Property Type</strong>
-                        <br /> N/A
+                        <br />
+                        N/A
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <strong>Address Details</strong>
-                        <br/>{{data.customer.houseno+' '+data.customer.street+' '+data.customer.barangay+' '+data.customer.mcity+' '+data.customer.province}}
+                        <br />{{
+                          data.customer.houseno +
+                          " " +
+                          data.customer.street +
+                          " " +
+                          data.customer.barangay +
+                          " " +
+                          data.customer.mcity +
+                          " " +
+                          data.customer.province
+                        }}
                       </v-col>
-  
+
                       <v-col cols="12" sm="6" md="4">
                         <strong>Request Type</strong>
-                        <br />{{requestType}}
+                        <br />{{ requestType }}
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <strong>Dealer Name</strong>
@@ -392,7 +528,7 @@
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <strong>Special Instruction</strong>
-                        <br />{{data.customer.specialinstruction}}
+                        <br />{{ data.customer.specialinstruction }}
                       </v-col>
                       <v-col cols="12">
                         <strong>Units Details</strong>
@@ -431,11 +567,7 @@
                   >
                     BACK
                   </v-btn>
-                  <v-btn
-                    color="blue darken-1"
-                    text
-                    @click="confirmdialog = false"
-                  >
+                  <v-btn color="blue darken-1" text @click="submit()">
                     SUBMIT SERVICE REQUEST
                   </v-btn>
                 </v-card-actions>
@@ -523,26 +655,30 @@ export default {
         unitcondition: { required },
         warrantycondition: { required },
         qty: { required },
-
-   
       },
       customer: {
-          cpnumber: { required},
-          lastname: { required },
-          firstname: { required },
-          middlename: { required },
-          contactperson: { required },
-          houseno: { required },
-          street: { required },
-          barangay: { required },
-          mcity: { required },
-          province: { required },
-      }
+        cpnumber: { required },
+        lastname: { required },
+        firstname: { required },
+        middlename: { required },
+        contactperson: { required },
+        houseno: { required },
+        street: { required },
+        barangay: { required },
+        mcity: { required },
+        province: { required },
+      },
+      usage: {
+          propertytype: { required },
+          wallfinish: { required },
+          withpowersupply: { required },
+        },
     },
   },
   data() {
     return {
       confirmdialog: false,
+      reqIdentifier: 0,
       requestType: "",
       row: null,
       bookingmodal: false,
@@ -550,9 +686,13 @@ export default {
         .toISOString()
         .substr(0, 10),
       menu: false,
+      time: null,
+      menu2: false,
+      modal2: false,
       activerequest: null,
       selectedIndex: "",
       units: [],
+      storeDataFinal: [],
       data: {
         units: {
           prodcategories: "",
@@ -591,6 +731,97 @@ export default {
           additionalrequest1: "",
           additionalrequest2: "",
         },
+        usage: {
+          propertytype: "",
+          level: "",
+          location: "",
+          area: "",
+          wallfinish: "",
+          withpowersupply: "",
+          deliverydate: "",
+          time: null,
+          locationofinstallation: "",
+          paidamoun: "",
+        },
+      },
+      usagedetailsListDown: {
+        propertytype: [
+          {
+            name: "UNIVERSITY",
+            value: "UNIVERSITY",
+          },
+          {
+            name: "RESIDENTIAL",
+            value: "RESIDENTIAL",
+          },
+          {
+            name: "COMMERCIAL",
+            value: "COMMERCIAL",
+          },
+          {
+            name: "INDUSTRIAL",
+            value: "INDUSTRIAL",
+          },
+          {
+            name: "LAND",
+            value: "LAND",
+          },
+        ],
+        level: [
+          {
+            name: "1 FLOOR",
+            value: "1 FLOOR",
+          },
+          {
+            name: "2 FLOOR",
+            value: "2 FLOOR",
+          },
+          {
+            name: "3 FLOOR",
+            value: "3 FLOOR",
+          },
+          {
+            name: "4 FLOOR",
+            value: "4 FLOOR",
+          },
+          {
+            name: "5 FLOOR",
+            value: "5 FLOOR",
+          },
+          {
+            name: "6 FLOOR",
+            value: "6 FLOOR",
+          },
+          {
+            name: "7 FLOOR",
+            value: "7 FLOOR",
+          },
+          {
+            name: "8 FLOOR",
+            value: "8 FLOOR",
+          },
+          {
+            name: "9 FLOOR",
+            value: "9 FLOOR",
+          },
+          {
+            name: "10 FLOOR",
+            value: "10 FLOOR",
+          },
+        ],
+
+        location: [
+          { name: "OFFICE", value: "OFFICE" },
+          { name: "HOME", value: "HOME" },
+        ],
+        wallfinish: [
+          { name: "YES", value: "YES" },
+          { name: "NO", value: "NO" },
+        ],
+        withpowersupply: [
+          { name: "YES", value: "YES" },
+          { name: "NO", value: "NO" },
+        ],
       },
       addressesListDown: {
         barangay: [
@@ -841,7 +1072,7 @@ export default {
       databaseData: "getDBLIST",
     }),
 
-  // PRODUCT INFO VALIDATION
+    // PRODUCT INFO VALIDATION
     appliancetypeError() {
       const errors = [];
       var RequiredError = null;
@@ -897,8 +1128,7 @@ export default {
       var RequiredError = null;
       if (!this.$v.data.customer.cpnumber) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.cpnumber.required &&
-        errors.push(RequiredError);
+      !this.$v.data.customer.cpnumber.required && errors.push(RequiredError);
       return errors;
     },
     lastnameError() {
@@ -906,8 +1136,7 @@ export default {
       var RequiredError = null;
       if (!this.$v.data.customer.lastname) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.lastname.required &&
-        errors.push(RequiredError);
+      !this.$v.data.customer.lastname.required && errors.push(RequiredError);
       return errors;
     },
     firstnameError() {
@@ -915,8 +1144,7 @@ export default {
       var RequiredError = null;
       if (!this.$v.data.customer.firstname) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.firstname.required &&
-        errors.push(RequiredError);
+      !this.$v.data.customer.firstname.required && errors.push(RequiredError);
       return errors;
     },
     middlenameError() {
@@ -924,8 +1152,7 @@ export default {
       var RequiredError = null;
       if (!this.$v.data.customer.middlename) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.middlename.required &&
-        errors.push(RequiredError);
+      !this.$v.data.customer.middlename.required && errors.push(RequiredError);
       return errors;
     },
     contactpersonError() {
@@ -942,8 +1169,7 @@ export default {
       var RequiredError = null;
       if (!this.$v.data.customer.houseno) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.houseno.required &&
-        errors.push(RequiredError);
+      !this.$v.data.customer.houseno.required && errors.push(RequiredError);
       return errors;
     },
     streetError() {
@@ -951,8 +1177,7 @@ export default {
       var RequiredError = null;
       if (!this.$v.data.customer.street) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.street.required &&
-        errors.push(RequiredError);
+      !this.$v.data.customer.street.required && errors.push(RequiredError);
       return errors;
     },
     barangayError() {
@@ -960,18 +1185,16 @@ export default {
       var RequiredError = null;
       if (!this.$v.data.customer.barangay) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.barangay.required &&
-        errors.push(RequiredError);
+      !this.$v.data.customer.barangay.required && errors.push(RequiredError);
       return errors;
     },
- 
+
     mcityError() {
       const errors = [];
       var RequiredError = null;
       if (!this.$v.data.customer.mcity) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.mcity.required &&
-        errors.push(RequiredError);
+      !this.$v.data.customer.mcity.required && errors.push(RequiredError);
       return errors;
     },
     provinceError() {
@@ -979,28 +1202,54 @@ export default {
       var RequiredError = null;
       if (!this.$v.data.customer.province) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.province.required &&
-        errors.push(RequiredError);
+      !this.$v.data.customer.province.required && errors.push(RequiredError);
       return errors;
     },
+
     CustomerALLError() {
       this.$v.data.customer.$touch();
       if (!this.$v.data.customer.$error) {
         if (!this.units || !this.units.length) {
-            return true
-        }else{
-          return false
+          return true;
+        } else {
+          return false;
         }
-      } 
-        return true;
+      }
+      return true;
     },
     UnitsALLError() {
       this.$v.data.units.$touch();
       if (!this.$v.data.units.$error) {
         return false;
-      } 
-        return true;
+      }
+      return true;
     },
+    withpowersupplyError(){
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.usage.withpowersupply) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.usage.withpowersupply.required && errors.push(RequiredError);
+      return errors;
+    },
+    wallfinishError(){
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.usage.wallfinish) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.usage.wallfinish.required && errors.push(RequiredError);
+      return errors;
+    },
+    propertytypeError(){
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.usage.propertytype) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.usage.propertytype.required && errors.push(RequiredError);
+      return errors;
+    }
+
+
 
   },
   methods: {
@@ -1069,20 +1318,20 @@ export default {
         this.productListDown.appliancetype = EMPTY;
       }
     },
-    gen(){
-      this.data = {
+    gen() {
+      var testData = {
         units: {
-          prodcategories: 'AIRCONDITION',
-          appliancetype: 'SPLIT TYPE',
-          brand: 'CARRIER',
-          model: 'LG2-374933',
-          serialno: '342546335',
-          unitcondition: 'BRAND NEW',
-          warrantycondition: 'OUT WARRANTY',
+          prodcategories: "AIRCONDITION",
+          appliancetype: "SPLIT TYPE",
+          brand: "CARRIER",
+          model: "LG2-374933",
+          serialno: "342546335",
+          unitcondition: "BRAND NEW",
+          warrantycondition: "OUT WARRANTY",
           qty: 1,
-          demandreplacement: '7 DAYS WARRANTY',
-          priority: 'HIGH',
-          datepurchase: '12/12/2022',
+          demandreplacement: "7 DAYS WARRANTY",
+          priority: "HIGH",
+          datepurchase: "12/12/2022",
         },
         customer: {
           cpnumber: "9384736475",
@@ -1101,34 +1350,141 @@ export default {
           organization: "1",
           attachment: [],
           specialinstruction: "NONE",
-          additionalrequest1: "Long ladder needed for unit located above 10ft/3m (+Php 380)",
+          additionalrequest1:
+            "Long ladder needed for unit located above 10ft/3m (+Php 380)",
           additionalrequest2: "",
-        }
-      };
+        },
+     } ;
+   
+      var usage =
+        {
+            usage: {
+                propertytype: "UNIVERSITY",
+                level: "1 FLOOR",
+                location: "OFFICE",
+                area: "200",
+                wallfinish: "YES",
+                withpowersupply: "YES",
+                deliverydate: "",
+                time: null,
+                locationofinstallation: "ASINGAN",
+                paidamoun: "20000",
+              },
+              units: {
+          prodcategories: "AIRCONDITION",
+          appliancetype: "SPLIT TYPE",
+          brand: "CARRIER",
+          model: "LG2-374933",
+          serialno: "342546335",
+          unitcondition: "BRAND NEW",
+          warrantycondition: "OUT WARRANTY",
+          qty: 1,
+          demandreplacement: "7 DAYS WARRANTY",
+          priority: "HIGH",
+          datepurchase: "12/12/2022",
+        },
+        customer: {
+          cpnumber: "9384736475",
+          lastname: "CALIMLIM",
+          firstname: "STEVEN",
+          emailaddress: "calimlim.steven@gmail.com",
+          middlename: "FERNANDEZ",
+          contactperson: "JAMES DOE",
+          telephoneno: "34534453",
+          houseno: "243",
+          street: "PUROK SILAW",
+          barangay: "Domanpot",
+          mcity: "Asingan",
+          province: "Pangasinan",
+          locationunit: "N/A",
+          organization: "1",
+          attachment: [],
+          specialinstruction: "NONE",
+          additionalrequest1:
+            "Long ladder needed for unit located above 10ft/3m (+Php 380)",
+          additionalrequest2: "",
+        },
+      }
+      
+     if(this.activerequest.name == 'INSTALLATION'){
+         
+          this.data = usage
+      }
+      if(this.activerequest.name == 'CLEANING'){
+          this.data = testData
+      }
+      
     },
     add() {
-      this.$v.data.units.$touch();
-      if (!this.$v.data.units.$error) {
-        const add = {
-          unitid:
-            "UNIT-" +
-            this.data.units.brand +
-            "-" +
-            Math.ceil(Math.random() * 1000000),
-          prodcategories: this.data.units.prodcategories,
-          appliancetype: this.data.units.appliancetype,
-          brand: this.data.units.brand,
-          model: this.data.units.model,
-          serialno: this.data.units.serialno,
-          unitcondition: this.data.units.unitcondition,
-          warrantycondition: this.data.units.warrantycondition,
-          qty: this.data.units.warrantycondition,
-          demandreplacement: this.data.units.demandreplacement,
-          priority: this.data.units.priority,
-          datepurchase: this.data.units.datepurchase,
-        };
-        this.units.push(add);
+      
+      
+      if(this.activerequest.name == 'INSTALLATION'){
+       
+        this.$v.data.units.$touch();
+        this.$v.data.usage.$touch();
+        if (!this.$v.data.units.$error && !this.$v.data.usage.$error) {
+          const add = {
+              unitid:
+              "UNIT-" +
+              this.data.units.brand +
+              "-" +
+              Math.ceil(Math.random() * 1000000),
+              prodcategories: this.data.units.prodcategories,
+              appliancetype: this.data.units.appliancetype,
+              brand: this.data.units.brand,
+              model: this.data.units.model,
+              serialno: this.data.units.serialno,
+              unitcondition: this.data.units.unitcondition,
+              warrantycondition: this.data.units.warrantycondition,
+              qty: this.data.units.qty,
+              demandreplacement: this.data.units.demandreplacement,
+              priority: this.data.units.priority,
+              datepurchase: this.data.units.datepurchase,
+              
+              //usage
+              propertytype: this.data.usage.propertytype,
+              level: this.data.usage.level,
+              location: this.data.usage.location,
+              area: this.data.usage.area,
+              wallfinish: this.data.usage.propertytype,
+              withpowersupply: this.data.usage.wallfinish,
+              deliverydate: this.data.usage.deliverydate,
+              time: this.data.usage.time,
+              locationofinstallation: this.data.usage.locationofinstallation,
+              paidamoun: this.data.usage.paidamoun,
+          };
+          this.units.push(add);
+          this.storeDataFinal.push(add)
+        }
+      }else{
+       
+        this.$v.data.units.$touch();
+          if (!this.$v.data.units.$error) {
+          const add = {
+            unitid:
+              "UNIT-" +
+              this.data.units.brand +
+              "-" +
+              Math.ceil(Math.random() * 1000000),
+              prodcategories: this.data.units.prodcategories,
+              appliancetype: this.data.units.appliancetype,
+              brand: this.data.units.brand,
+              model: this.data.units.model,
+              serialno: this.data.units.serialno,
+              unitcondition: this.data.units.unitcondition,
+              warrantycondition: this.data.units.warrantycondition,
+              qty: this.data.units.qty,
+              demandreplacement: this.data.units.demandreplacement,
+              priority: this.data.units.priority,
+              datepurchase: this.data.units.datepurchase,
+          };
+          this.units.push(add);
+          this.storeDataFinal.push(add)
+        }
       }
+  
+
+
     },
     editItem(items) {
       console.log(items);
@@ -1150,80 +1506,34 @@ export default {
     },
     trashUnits(item) {
       this.units.splice(this.units.indexOf(item), 1);
-
-      ///->
+      this.storeDataFinal.splice(this.storeDataFinal.indexOf(item), 1);
     },
     checkout() {
       this.$v.data.customer.$touch();
       if (!this.$v.data.customer.$error) {
         this.confirmdialog = true;
-      
       }
     },
     request(data) {
       this.bookingmodal = true;
       this.activerequest = data;
+      this.reqIdentifier = data.id
       this.requestType =
         "REF-" + data.name + "-" + Math.ceil(Math.random() * 1000000);
     },
     submit() {
-      this.$v.$touch();
-      let data = {};
-      if (this.id) {
-        this.$store.dispatch("updateDBcon", data).then((res) => {
-          if (res.status == 200) {
-            this.refresh();
-          }
-        });
-      } else {
-        this.$store.dispatch("createDBcon", data).then((res) => {
-          if (res.status == 200) {
-            this.refresh();
-          }
-        });
-      }
-      //this.refresh();
-    },
-    refresh() {
-      this.id = "";
-      this.host = "";
-      this.dbname = "";
-      this.username = "";
-      this.password = "";
-      this.port = "1433";
-      this.connection = "mssql";
-      this.$store.dispatch("fetchDBAll");
-    },
-    edit(item) {
-      this.host = item.host;
-      this.dbname = item.dbname;
-      this.username = item.username;
-      this.password = item.password;
-      this.port = item.port;
-      this.connection = item.connection;
-      this.id = item.id;
-      this.entryname = item.entry;
-    },
-    create() {
-      this.id = "";
-      this.host = "";
-      this.dbname = "";
-      this.username = "";
-      this.password = "";
-      this.port = "1433";
-      this.connection = "mssql";
-    },
-    trash(data) {
-      const trash = {
-        id: data.id,
-        entryname: data.entry,
+      const d = {
+        requestid: this.requestType,
+        requestType: this.activerequest.name,
+        customer: this.data.customer,
+        units: this.storeDataFinal,
       };
-      this.$store.dispatch("deleteDBcon", trash).then((res) => {
-        if (res.status == 200) {
-          this.refresh();
-        }
-      });
+      //SAVE TO DB
+      console.log(d);
     },
+    refresh() {},
+
+    trash(data) {},
   },
 };
 </script>
