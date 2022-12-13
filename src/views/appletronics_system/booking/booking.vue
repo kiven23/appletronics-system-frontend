@@ -277,7 +277,7 @@
                   </template>
                   <template #text>
                     <v-text-field
-                      v-model="data.customer.cpnumber"
+                      v-model="customer.cpnumber"
                       :error-messages="cpnumberError"
                       placeholder="Contact Phone Number*"
                       prefix="+63"
@@ -288,61 +288,61 @@
                       CHECK RECORD
                     </v-btn>
                     <vs-input
-                      v-model="data.customer.emailaddress"
+                      v-model="customer.emailaddress"
                       placeholder="Email Address (OPTIONAL)"
                       required
                       dense
                     ></vs-input>
                     <v-text-field
-                      v-model="data.customer.lastname"
+                      v-model="customer.lastname"
                       placeholder="Last Name"
                       :error-messages="lastnameError"
                       required
                       dense
                     ></v-text-field>
                     <v-text-field
-                      v-model="data.customer.firstname"
+                      v-model="customer.firstname"
                       :error-messages="firstnameError"
                       placeholder="First Name"
                       required
                       dense
                     ></v-text-field>
                     <v-text-field
-                      v-model="data.customer.middlename"
+                      v-model="customer.middlename"
                       placeholder="Middle Name"
                       :error-messages="middlenameError"
                       required
                       dense
                     ></v-text-field>
                     <v-text-field
-                      v-model="data.customer.contactperson"
+                      v-model="customer.contactperson"
                       placeholder="Contact Person"
                       :error-messages="contactpersonError"
                       required
                       dense
                     ></v-text-field>
                     <vs-input
-                      v-model="data.customer.telephoneno"
+                      v-model="customer.telephoneno"
                       placeholder="Telephone No. (OPTIONAL)"
                       required
                       dense
                     ></vs-input>
                     <v-text-field
-                      v-model="data.customer.houseno"
+                      v-model="customer.houseno"
                       placeholder="House No."
                       :error-messages="housenoError"
                       required
                       dense
                     ></v-text-field>
                     <v-text-field
-                      v-model="data.customer.street"
+                      v-model="customer.street"
                       :error-messages="streetError"
                       placeholder="Street"
                       required
                       dense
                     ></v-text-field>
                     <v-select
-                      v-model="data.customer.barangay"
+                      v-model="customer.barangay"
                       :items="addressesListDown.barangay"
                       :error-messages="barangayError"
                       placeholder="Barangay"
@@ -352,7 +352,7 @@
                       dense
                     ></v-select>
                     <v-select
-                      v-model="data.customer.mcity"
+                      v-model="customer.mcity"
                       :items="addressesListDown.mcity"
                       :error-messages="mcityError"
                       dense
@@ -362,7 +362,7 @@
                       required
                     ></v-select>
                     <v-select
-                      v-model="data.customer.province"
+                      v-model="customer.province"
                       :items="addressesListDown.province"
                       :error-messages="provinceError"
                       dense
@@ -381,12 +381,12 @@
                   </template>
                   <template #text>
                     <vs-input
-                      v-model="data.customer.locationunit"
+                      v-model="customer.locationunit"
                       placeholder="Location of Unit"
                       required
                     ></vs-input>
                     <h3>Is this an organization?</h3>
-                    <v-radio-group v-model="data.customer.organization" row>
+                    <v-radio-group v-model="customer.organization" row>
                       <v-radio label="Yes" value="1"></v-radio>
                       <v-radio label="No" value="2"></v-radio>
                     </v-radio-group>
@@ -396,26 +396,26 @@
                       multiple
                       show-size
                       truncate-length="15"
-                      v-model="data.customer.attachment"
+                      v-model="customer.attachment"
                     ></v-file-input>
                     <v-textarea
                       prepend-inner-icon="mdi-comment"
                       class="mx-2"
                       label="SPECIAL INSTRUCTION"
                       rows="1"
-                      v-model="data.customer.specialinstruction"
+                      v-model="customer.specialinstruction"
                     ></v-textarea>
                     <h3>Any additional request?</h3>
 
                     <vs-checkbox
-                      v-model="data.customer.additionalrequest1"
+                      v-model="customer.additionalrequest1"
                       val="Long ladder needed for unit located above 10ft/3m (+Php 380)"
                     >
                       Long ladder needed for unit located above 10ft/3m (+Php
                       380)
                     </vs-checkbox>
                     <vs-checkbox
-                      v-model="data.customer.additionalrequest2"
+                      v-model="customer.additionalrequest2"
                       val="Freon re-charge may be needed (additional charges applies)"
                     >
                       Freon re-charge may be needed (additional charges applies)
@@ -469,7 +469,7 @@
                     >
                       REVIEW AND CHECKOUT
                     </v-btn>
-                    {{ CustomerALLError }}
+                    
                   </template>
                 </vs-card>
               </v-col>
@@ -484,18 +484,18 @@
                     <v-row>
                       <v-col cols="12" sm="6" md="4">
                         <strong>Contact Name</strong>
-                        <br />{{ data.customer.lastname }},
-                        {{ data.customer.firstname }}
+                        <br />{{ customer.lastname }},
+                        {{ customer.firstname }}
                       </v-col>
 
                       <v-col cols="12" sm="6" md="4">
                         <strong>Email Address</strong>
-                        <br />{{ data.customer.emailaddress }}
+                        <br />{{ customer.emailaddress }}
                       </v-col>
 
                       <v-col cols="12" sm="6" md="4">
                         <strong>Contact Number</strong>
-                        <br />{{ data.customer.cpnumber }}
+                        <br />{{ customer.cpnumber }}
                       </v-col>
 
                       <v-col cols="12" sm="6" md="4">
@@ -506,15 +506,15 @@
                       <v-col cols="12" sm="6" md="4">
                         <strong>Address Details</strong>
                         <br />{{
-                          data.customer.houseno +
+                          customer.houseno +
                           " " +
-                          data.customer.street +
+                          customer.street +
                           " " +
-                          data.customer.barangay +
+                          customer.barangay +
                           " " +
-                          data.customer.mcity +
+                          customer.mcity +
                           " " +
-                          data.customer.province
+                          customer.province
                         }}
                       </v-col>
 
@@ -528,7 +528,7 @@
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <strong>Special Instruction</strong>
-                        <br />{{ data.customer.specialinstruction }}
+                        <br />{{ customer.specialinstruction }}
                       </v-col>
                       <v-col cols="12">
                         <strong>Units Details</strong>
@@ -656,7 +656,14 @@ export default {
         warrantycondition: { required },
         qty: { required },
       },
-      customer: {
+
+      usage: {
+          propertytype: { required },
+          wallfinish: { required },
+          withpowersupply: { required },
+        },
+    },
+    customer: {
         cpnumber: { required },
         lastname: { required },
         firstname: { required },
@@ -667,13 +674,7 @@ export default {
         barangay: { required },
         mcity: { required },
         province: { required },
-      },
-      usage: {
-          propertytype: { required },
-          wallfinish: { required },
-          withpowersupply: { required },
-        },
-    },
+      }
   },
   data() {
     return {
@@ -693,25 +694,7 @@ export default {
       selectedIndex: "",
       units: [],
       storeDataFinal: [],
-      data: {
-        units: {
-          prodcategories: "",
-          appliancetype: "",
-          brand: "",
-          model: "",
-          serialno: "",
-          unitcondition: "",
-          warrantycondition: "",
-          qty: "",
-          demandreplacement: "",
-          priority: "",
-          datepurchase: new Date(
-            Date.now() - new Date().getTimezoneOffset() * 60000
-          )
-            .toISOString()
-            .substr(0, 10),
-        },
-        customer: {
+      customer: {
           cpnumber: "",
           lastname: "",
           firstname: "",
@@ -731,6 +714,25 @@ export default {
           additionalrequest1: "",
           additionalrequest2: "",
         },
+      data: {
+        units: {
+          prodcategories: "",
+          appliancetype: "",
+          brand: "",
+          model: "",
+          serialno: "",
+          unitcondition: "",
+          warrantycondition: "",
+          qty: "",
+          demandreplacement: "",
+          priority: "",
+          datepurchase: new Date(
+            Date.now() - new Date().getTimezoneOffset() * 60000
+          )
+            .toISOString()
+            .substr(0, 10),
+        },
+
         usage: {
           propertytype: "",
           level: "",
@@ -1126,89 +1128,89 @@ export default {
     cpnumberError() {
       const errors = [];
       var RequiredError = null;
-      if (!this.$v.data.customer.cpnumber) return errors;
+      if (!this.$v.customer.cpnumber) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.cpnumber.required && errors.push(RequiredError);
+      !this.$v.customer.cpnumber.required && errors.push(RequiredError);
       return errors;
     },
     lastnameError() {
       const errors = [];
       var RequiredError = null;
-      if (!this.$v.data.customer.lastname) return errors;
+      if (!this.$v.customer.lastname) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.lastname.required && errors.push(RequiredError);
+      !this.$v.customer.lastname.required && errors.push(RequiredError);
       return errors;
     },
     firstnameError() {
       const errors = [];
       var RequiredError = null;
-      if (!this.$v.data.customer.firstname) return errors;
+      if (!this.$v.customer.firstname) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.firstname.required && errors.push(RequiredError);
+      !this.$v.customer.firstname.required && errors.push(RequiredError);
       return errors;
     },
     middlenameError() {
       const errors = [];
       var RequiredError = null;
-      if (!this.$v.data.customer.middlename) return errors;
+      if (!this.$v.customer.middlename) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.middlename.required && errors.push(RequiredError);
+      !this.$v.customer.middlename.required && errors.push(RequiredError);
       return errors;
     },
     contactpersonError() {
       const errors = [];
       var RequiredError = null;
-      if (!this.$v.data.customer.contactperson) return errors;
+      if (!this.$v.customer.contactperson) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.contactperson.required &&
+      !this.$v.customer.contactperson.required &&
         errors.push(RequiredError);
       return errors;
     },
     housenoError() {
       const errors = [];
       var RequiredError = null;
-      if (!this.$v.data.customer.houseno) return errors;
+      if (!this.$v.customer.houseno) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.houseno.required && errors.push(RequiredError);
+      !this.$v.customer.houseno.required && errors.push(RequiredError);
       return errors;
     },
     streetError() {
       const errors = [];
       var RequiredError = null;
-      if (!this.$v.data.customer.street) return errors;
+      if (!this.$v.customer.street) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.street.required && errors.push(RequiredError);
+      !this.$v.customer.street.required && errors.push(RequiredError);
       return errors;
     },
     barangayError() {
       const errors = [];
       var RequiredError = null;
-      if (!this.$v.data.customer.barangay) return errors;
+      if (!this.$v.customer.barangay) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.barangay.required && errors.push(RequiredError);
+      !this.$v.customer.barangay.required && errors.push(RequiredError);
       return errors;
     },
 
     mcityError() {
       const errors = [];
       var RequiredError = null;
-      if (!this.$v.data.customer.mcity) return errors;
+      if (!this.$v.customer.mcity) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.mcity.required && errors.push(RequiredError);
+      !this.$v.customer.mcity.required && errors.push(RequiredError);
       return errors;
     },
     provinceError() {
       const errors = [];
       var RequiredError = null;
-      if (!this.$v.data.customer.province) return errors;
+      if (!this.$v.customer.province) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.customer.province.required && errors.push(RequiredError);
+      !this.$v.customer.province.required && errors.push(RequiredError);
       return errors;
     },
 
     CustomerALLError() {
-      this.$v.data.customer.$touch();
-      if (!this.$v.data.customer.$error) {
+      this.$v.customer.$touch();
+      if (!this.$v.customer.$error) {
         if (!this.units || !this.units.length) {
           return true;
         } else {
@@ -1253,6 +1255,7 @@ export default {
 
   },
   methods: {
+    
     getindex: function () {
       const AIRCONDITION = [
         {
@@ -1332,28 +1335,8 @@ export default {
           demandreplacement: "7 DAYS WARRANTY",
           priority: "HIGH",
           datepurchase: "12/12/2022",
-        },
-        customer: {
-          cpnumber: "9384736475",
-          lastname: "CALIMLIM",
-          firstname: "STEVEN",
-          emailaddress: "calimlim.steven@gmail.com",
-          middlename: "FERNANDEZ",
-          contactperson: "JAMES DOE",
-          telephoneno: "34534453",
-          houseno: "243",
-          street: "PUROK SILAW",
-          barangay: "Domanpot",
-          mcity: "Asingan",
-          province: "Pangasinan",
-          locationunit: "N/A",
-          organization: "1",
-          attachment: [],
-          specialinstruction: "NONE",
-          additionalrequest1:
-            "Long ladder needed for unit located above 10ft/3m (+Php 380)",
-          additionalrequest2: "",
-        },
+        }
+ 
      } ;
    
       var usage =
@@ -1383,7 +1366,9 @@ export default {
           priority: "HIGH",
           datepurchase: "12/12/2022",
         },
-        customer: {
+  
+      }
+      this.customer =  {
           cpnumber: "9384736475",
           lastname: "CALIMLIM",
           firstname: "STEVEN",
@@ -1403,15 +1388,15 @@ export default {
           additionalrequest1:
             "Long ladder needed for unit located above 10ft/3m (+Php 380)",
           additionalrequest2: "",
-        },
-      }
+        } 
       
      if(this.activerequest.name == 'INSTALLATION'){
-         
+    
           this.data = usage
       }
       if(this.activerequest.name == 'CLEANING'){
           this.data = testData
+           
       }
       
     },
@@ -1501,7 +1486,21 @@ export default {
           demandreplacement: items.demandreplacement,
           priority: items.priority,
           datepurchase: items.datepurchase,
+
+         
         },
+        usage:{
+          propertytype: items.propertytype,
+          level: items.level,
+          location: items.location,
+          area: items.area,
+          wallfinish: items.propertytype,
+          withpowersupply: items.wallfinish,
+          deliverydate: items.deliverydate,
+          time: items.time,
+          locationofinstallation: items.locationofinstallation,
+          paidamoun: items.paidamoun,
+        }
       };
     },
     trashUnits(item) {
@@ -1509,12 +1508,13 @@ export default {
       this.storeDataFinal.splice(this.storeDataFinal.indexOf(item), 1);
     },
     checkout() {
-      this.$v.data.customer.$touch();
-      if (!this.$v.data.customer.$error) {
+      this.$v.customer.$touch();
+      if (!this.$v.customer.$error) {
         this.confirmdialog = true;
       }
     },
     request(data) {
+      this.clearcookies()
       this.bookingmodal = true;
       this.activerequest = data;
       this.reqIdentifier = data.id
@@ -1525,14 +1525,74 @@ export default {
       const d = {
         requestid: this.requestType,
         requestType: this.activerequest.name,
-        customer: this.data.customer,
+        customer: this.customer,
         units: this.storeDataFinal,
       };
       //SAVE TO DB
-      console.log(d);
+ 
+      this.$store.dispatch("app_booking_sys/storeBooking",d)
     },
-    refresh() {},
+    refresh() {
 
+
+    },
+    clearcookies(){
+      this.storeDataFinal = [];
+      this.units = [];
+      this.reqIdentifier = 0,
+      this.customer ={
+          cpnumber: "",
+          lastname: "",
+          firstname: "",
+          emailaddress: "",
+          middlename: "",
+          contactperson: "",
+          telephoneno: "",
+          houseno: "",
+          street: "",
+          barangay: "",
+          mcity: "",
+          province: "",
+          locationunit: "",
+          organization: "",
+          attachment: [],
+          specialinstruction: "",
+          additionalrequest1: "",
+          additionalrequest2: "",
+        },
+      this.data = {
+        units: {
+          prodcategories: "",
+          appliancetype: "",
+          brand: "",
+          model: "",
+          serialno: "",
+          unitcondition: "",
+          warrantycondition: "",
+          qty: "",
+          demandreplacement: "",
+          priority: "",
+          datepurchase: new Date(
+            Date.now() - new Date().getTimezoneOffset() * 60000
+          )
+            .toISOString()
+            .substr(0, 10),
+        },
+ 
+        usage: {
+          propertytype: "",
+          level: "",
+          location: "",
+          area: "",
+          wallfinish: "",
+          withpowersupply: "",
+          deliverydate: "",
+          time: null,
+          locationofinstallation: "",
+          paidamoun: "",
+        },
+      }
+    },
     trash(data) {},
   },
 };

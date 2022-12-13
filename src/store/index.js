@@ -104,6 +104,13 @@ import searching_of_vehicles_parts from "./modules/sap_reports/searching_of_vehi
 import summary_of_customer_depostiapplied from "./modules/sap_reports/summary_of_customer_depositapplied/index";
 
 
+//APPLETRONICS SYSTEM
+import appletronics_booking from "./modules/appletronics/booking/index"
+
+
+
+
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -170,6 +177,9 @@ export default new Vuex.Store({
      recomputed_account: recomputed_account,
      searching_of_vehicles_parts: searching_of_vehicles_parts,
      summary_of_customer_depostiapplied: summary_of_customer_depostiapplied,
+
+     //APPLETRONICS BOOKING SYSTEM
+     app_booking_sys: appletronics_booking
  
 
   },
