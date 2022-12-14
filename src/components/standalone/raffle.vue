@@ -221,11 +221,11 @@ export default {
 <style >
 @font-face {
   font-family: myFirstFont;
-  src: url(http://192.168.1.19/Macondo-Regular.ttf);
+  src: url(http://10.10.10.38:8080/Macondo-Regular.ttf);
 }
 @font-face {
   font-family: myFirstFont2;
-  src: url(http://192.168.1.19/LuckiestGuy-Regular.ttf);
+  src: url(http://10.10.10.38:8080/LuckiestGuy-Regular.ttf);
 }
 p {
   font-family: myFirstFont;

@@ -572,6 +572,38 @@
                   </v-btn>
                 </v-card-actions>
               </v-card>
+
+
+     <v-dialog
+      v-model="RefDialog"
+      persistent
+      max-width="400"
+    >
+   
+      <v-card>
+        <v-card-title class="text-h5">
+          {{msg.data.iden == 0? 'Request successfully submitted':'File Exist Please RE Book Again' }}
+        </v-card-title>
+        <v-card-text>  {{msg.data.iden == 0? 'Your Request ID is:'+msg.data.ref:'' }}</v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="RefDialog = false ||rebook()"
+          >
+            Rebook Same Client
+          </v-btn>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="RefDialog = false"
+          >
+            Book New Client
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
             </v-dialog>
           </div>
         </vs-dialog>
@@ -678,6 +710,8 @@ export default {
   },
   data() {
     return {
+      msg: {data: {ref: '', iden: 4}},
+      RefDialog: false,
       confirmdialog: false,
       reqIdentifier: 0,
       requestType: "",
@@ -1401,10 +1435,7 @@ export default {
       
     },
     add() {
-      
-      
       if(this.activerequest.name == 'INSTALLATION'){
-       
         this.$v.data.units.$touch();
         this.$v.data.usage.$touch();
         if (!this.$v.data.units.$error && !this.$v.data.usage.$error) {
@@ -1467,9 +1498,6 @@ export default {
           this.storeDataFinal.push(add)
         }
       }
-  
-
-
     },
     editItem(items) {
       console.log(items);
@@ -1486,8 +1514,6 @@ export default {
           demandreplacement: items.demandreplacement,
           priority: items.priority,
           datepurchase: items.datepurchase,
-
-         
         },
         usage:{
           propertytype: items.propertytype,
@@ -1513,6 +1539,45 @@ export default {
         this.confirmdialog = true;
       }
     },
+    rebook(){
+      this.confirmdialog = false;
+      this.storeDataFinal = [];
+      this.units = [];
+      this.requestType =
+        "REF-" + this.activerequest + "-" + Math.ceil(Math.random() * 1000000);
+        this.data = {
+        units: {
+          prodcategories: "",
+          appliancetype: "",
+          brand: "",
+          model: "",
+          serialno: "",
+          unitcondition: "",
+          warrantycondition: "",
+          qty: "",
+          demandreplacement: "",
+          priority: "",
+          datepurchase: new Date(
+            Date.now() - new Date().getTimezoneOffset() * 60000
+          )
+            .toISOString()
+            .substr(0, 10),
+        },
+ 
+        usage: {
+          propertytype: "",
+          level: "",
+          location: "",
+          area: "",
+          wallfinish: "",
+          withpowersupply: "",
+          deliverydate: "",
+          time: null,
+          locationofinstallation: "",
+          paidamoun: "",
+        },
+      }
+    },
     request(data) {
       this.clearcookies()
       this.bookingmodal = true;
@@ -1529,8 +1594,10 @@ export default {
         units: this.storeDataFinal,
       };
       //SAVE TO DB
- 
-      this.$store.dispatch("app_booking_sys/storeBooking",d)
+      this.$store.dispatch("app_booking_sys/storeBooking",d).then((res)=>{
+        this.msg = res
+        this.RefDialog = true
+      })
     },
     refresh() {
 

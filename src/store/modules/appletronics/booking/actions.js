@@ -2,7 +2,7 @@ import axios from "axios";
 import rootUrl from "../../../rootUrl";
 
 const STOREBOOKING = rootUrl + "/api/booking/store";
-
+const FETCHJOBS = rootUrl + "/api/booking/jobs";
 const actions = {
   storeBooking(context, data) {
   
@@ -30,32 +30,26 @@ const actions = {
     formData.append('requestType', data.requestType);
     formData.append('requestid', data.requestid);
     formData.append('units', JSON.stringify(data.units));
-    context.commit("LOADING_STATUS", true, { root: true }); // start loading
-    axios
+   return axios
       .post(STOREBOOKING, formData, {
         headers: {
         'Content-Type': 'multipart/form-data'
       }})
       .then(response => {
-        console.log(response)
-        // context.commit("", response.data);
-        context.commit("DIALOG_STATUS", false, { root: true }); // close dialog
-        context.commit("LOADING_STATUS", false, { root: true }); // stop loading
-
-        let payload = [
-          {
-            status: true,
-            message: "Schedule successfully added.",
-            timeout: 3000
-          }
-        ];
-        context.commit("SNACKBAR_STATUS", payload, { root: true }); // show snackbar
+         return response
       })
       .catch(error => {
         context.commit("SCHEDULE_ERROR", error.response.data); // get error from backend
         context.commit("LOADING_STATUS", false, { root: true }); // stop loading
       });
   }, 
+  fetchJobs(context , data){
+   return axios.get(FETCHJOBS).then((res)=>{
+        return res
+    })
+  }
+
+
 };
 
 export default actions;
