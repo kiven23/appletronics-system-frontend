@@ -142,7 +142,7 @@
                       <strong>Barangay</strong><br />
                       {{ jobsData.customer.barangay }}<br />
                       <strong>Installer</strong><br />
-                      N/A<br />
+                      {{jobsData.installer}}<br />
                     </v-card>
                   </v-col>
                   <v-col cols="12" sm="3">
@@ -152,7 +152,7 @@
                       <strong>Municipality</strong><br />
                       {{ jobsData.customer.mcity }}<br />
                       <strong>Date of Installation</strong><br />
-                      N/A<br />
+                      {{jobsData.installationdate}}<br />
                       <strong>Province</strong><br />
                       N/A<br />
                     </v-card>
@@ -204,12 +204,12 @@
                       <br />
                       <vs-input
                         type="date"
-                        v-model="value7"
+                        v-model="installationdateData"
                         label="Date of Installation / Site Visit"
                       />
                       <div>
                         <br />
-                        <v-btn color="dark">
+                        <v-btn color="dark" @click="actions()">
                           <v-icon>mdi-send</v-icon>
                         </v-btn>
                       </div>
@@ -235,11 +235,11 @@
         </v-card>
         <v-dialog v-model="jobupdateDialog" max-width="500px">
           <v-card>
-            <v-card-title> Job Update </v-card-title>
+            <v-card-title> Job Update  </v-card-title>
 
             <v-list three-line>
               <div v-for="(item, $index) in items" v-bind:key="$index">
-                <v-subheader>{{ item.date }}</v-subheader>
+                <v-subheader><strong href="#">{{item.user}}</strong>{{' - '+item.created_at }}</v-subheader>
 
                 <v-divider> </v-divider>
 
@@ -271,19 +271,18 @@
             </v-list>
             <v-list three-line class="pa-3">
               <v-textarea
+                v-model="updatesData"
                 outlined
                 name="input-7-4"
                 label="Enter Update Here"
                 value=""
               ></v-textarea>
             </v-list>
-            
-
             <v-card-actions>
-              <v-btn color="primary" text @click="dialog2 = false">
+              <v-btn color="primary" text @click="jobupdateDialog = false">
                 CLOSE
               </v-btn>
-              <v-btn   text @click="send()">
+              <v-btn text @click="send()">
                 <v-icon>mdi-send</v-icon>
               </v-btn>
             </v-card-actions>
@@ -296,23 +295,17 @@
 
 <script>
 import { mapGetters } from "vuex";
+ 
+
 
 export default {
   data() {
     return {
+      requestID: '',
+      updatesData: '',
+      reason: '',
       items: [
-        {
-          date: "Nov 03, 2022 3:56 PM",
-          avatar: "http://10.10.10.38:8080/logo.jpg",
-          title: "BP Service Update",
-          subtitle: `CAN WE REUEST NA KUNIN NLNG PO NAMIN ANG PARTS SA TOTATLINE DAGUPAN SINCE AVIALBLE NAMN PO ANG PARTS DOON MA'AM `,
-        },
-        {
-          date: "Nov 03, 2022 3:56 PM",
-          avatar: "http://10.10.10.38:8080/logo.jpg",
-          title: "Parts",
-          subtitle: `This is approved wty con by Cherry for PCB outdoor, labor c/o customer. already inform customer by Cherry, "clles cx spoke to her husband informed that the wty con for parts approved cx ack" ------ done released to ERP 4001005995 - PCB: 43T6W608 SO #1680275586`,
-        },
+  
       ],
 
       unitsHeader: [
@@ -354,7 +347,6 @@ export default {
       },
       search: "",
       data: [],
-
       headers: [
         {
           text: "REF",
@@ -390,7 +382,6 @@ export default {
         { name: "Follow-Up", value: "Follow-Up" },
         { name: "BP-Service Update", value: "BP-Service Update" },
         { name: "Unit Replacement", value: "Unit Replacement" },
-
       ],
     };
   },
@@ -406,7 +397,53 @@ export default {
   },
 
   methods: {
+    send(){
+      let Data;
+      Data = {
+        requestID: this.requestID,
+        reason: this.reason,
+        updates: this.updatesData
+      }
+      this.$store.dispatch("app_booking_sys/JobsUpdate",Data).then((res)=>{
+         this.items = res.data
+         if(res.data.msg){
+          this.$toast.open({
+            message: res.data.msg,
+            type: res.data.error,
+            // all of other options may go here
+          });
+         }
+         this.$toast.open({
+            message: 'Success Sent..!',
+            type: 'success',
+            // all of other options may go here
+          });
+   
+      });
+    },
+    actions(){
+      
+      let Data;
+      Data = {
+        requestID: this.requestID,
+        installer: this.tech,
+        status: this.jobstatus,
+        installationData: this.installationdateData,
+      }
+      this.$store.dispatch("app_booking_sys/JobsAction",Data).then((res)=>{
+        this.$toast.open({
+            message: res.data.msg,
+            type: res.data.error,
+            duration: 3000
+            // all of other options may go here
+        });
+        if(res.data.type == 1){
+          this.jobsInfo = false;
+        }
+      });
+    },
     view(data) {
+      console.log(data)
       var status;
       if (data.status == 0) {
         status = "Unassigned";
@@ -415,12 +452,16 @@ export default {
       } else if (data.status == 2) {
         status = "Dispatch to Other ASC";
       }
+      this.items = data.bk_jobs_update;
+      this.tech = data.installer
       this.jobstatus = status;
-      //this.jobstat = status;
-
+      //this.jobstat = status
+      this.installationdateData = data.installationdate
       this.jobsInfo = true;
       this.jobsData = data;
       this.unitsData = data.units;
+      this.requestID = data.requestid
+      
     },
     download(id) {
       alert(id);

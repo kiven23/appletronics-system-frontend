@@ -11,8 +11,10 @@ import VueHtmlToPaper from 'vue-html-to-paper';
 import 'vuesax/dist/vuesax.css' //Vuesax styles
 import VueSocketIO from 'vue-socket.io'
 import SocketIO from 'socket.io-client'
-
-
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
+Vue.use(VueToast);
+ 
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 AOS.init();
@@ -24,7 +26,7 @@ AOS.init();
 //   })
 // );
 var vueAwesomeCountdown = require('vue-awesome-countdown').default;
-
+ 
 Vue.use(vueAwesomeCountdown);
 
 Vue.use(Vuesax, {
@@ -35,7 +37,7 @@ Vue.use(VueHtmlToPaper);
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
 Vue.prototype.moment = moment;
-
+ 
 initialize(store, router);
 
 new Vue({
