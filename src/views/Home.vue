@@ -9,7 +9,7 @@
                 
                 <template #text>
                   <v-icon  style="margin-right: 5px; color: red">mdi-email-alert</v-icon>
-                  <strong>Unassigned <h2>1</h2></strong>
+                  <strong>Unassigned <h2>{{jobsCounts.unsigned  }}</h2></strong>
                 </template>
               </vs-card>
             </vs-col>
@@ -17,7 +17,7 @@
               <vs-card type="3"  style="margin: 5px; ">
                 <template #text>
                   <v-icon  style="margin-right: 5px; color: yellowgreen;">mdi-account-check</v-icon>
-                  <strong>Accepted <h2>4</h2></strong>
+                  <strong>Accepted <h2>{{jobsCounts.accepted }}</h2></strong>
                 </template>
               </vs-card>
             </vs-col>
@@ -25,7 +25,7 @@
               <vs-card type="3"  style="margin: 5px">
                 <template #text>
                   <v-icon  style="margin-right: 5px; color: blue;">mdi-teamviewer</v-icon>
-                  <strong>Dispatch to Other ASC <h2>3</h2></strong>
+                  <strong>Dispatch to Other ASC <h2>{{jobsCounts.asc }}</h2></strong>
                 </template>
               </vs-card>
             </vs-col>
@@ -38,8 +38,16 @@
 
 <script>
 export default {
+  data() {
+    return {
+      jobsCounts: ''
+    }
+  },
+
   mounted() {
-    console.log("Home mounted.");
+    this.$store.dispatch("app_booking_sys/JobsCount").then((res)=>{
+          this.jobsCounts = res.data;
+       });
   },
 };
 </script>

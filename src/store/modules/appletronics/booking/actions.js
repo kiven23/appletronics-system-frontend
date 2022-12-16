@@ -5,6 +5,10 @@ const STOREBOOKING = rootUrl + "/api/booking/store";
 const FETCHJOBS = rootUrl + "/api/booking/jobs";
 const JOBSACTIONS = rootUrl + "/api/booking/jobs/action";
 const JOBSUPDATE = rootUrl + "/api/booking/jobs/jobsupdate";
+const GETCOUNT = rootUrl + "/api/booking/jobs/counts";
+const JOBSCHECKRECORDS = rootUrl + "/api/booking/jobs/checkrecords";
+const DOWNLOADSALESINVOICE = rootUrl + "/api/booking/jobs/salesinvoice/download";
+
 const actions = {
   storeBooking(context, data) {
     let formData = new FormData();
@@ -46,7 +50,7 @@ const actions = {
       });
   },
   fetchJobs(context, data) {
-    return axios.get(FETCHJOBS).then((res) => {
+    return axios.get(FETCHJOBS+'?id='+data).then((res) => {
       return res;
     });
   },
@@ -68,6 +72,35 @@ const actions = {
        return res
       });
   },
+  JobsCount(context, data) {
+    return  axios
+        .get(GETCOUNT)
+        .then((res) => {
+         return res
+        });
+    },
+  JobsCheckRecords(context, data) {
+    return  axios
+        .post(JOBSCHECKRECORDS, data)
+        .then((res) => {
+          return res
+        });
+    },
+  salesInvoiceDownload(context, data){
+    return  axios
+        .post(DOWNLOADSALESINVOICE, data,{responseType: 'blob'})
+        .then((response) => {
+          var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+          var fileLink = document.createElement('a');
+      
+          fileLink.href = fileURL;
+          fileLink.setAttribute('download', 'Invoice-Attachment-'+Math.ceil(Math.random() * 1000000)+'');
+          document.body.appendChild(fileLink);
+          fileLink.click();
+          return response
+        });
+  }
+  
 };
 
 export default actions;

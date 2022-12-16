@@ -284,7 +284,7 @@
                       dense
                       required
                     ></v-text-field>
-                    <v-btn class="ma-2" outlined color="indigo">
+                    <v-btn class="ma-2" outlined color="indigo" @click="checkRecExist()">
                       CHECK RECORD
                     </v-btn>
                     <vs-input
@@ -474,6 +474,41 @@
                 </vs-card>
               </v-col>
             </v-row>
+            <v-dialog
+              v-model="checkrecords"
+              width="500"
+            >
+ 
+              <v-card>
+                <v-card-title class="text-h5 grey lighten-2">
+                 Customer List
+                </v-card-title>
+                <v-data-table
+                    dense
+                    :headers="customerListHeaders"
+                    :items="customerList"
+                    item-key="name"
+                    class="elevation-1"
+                  >
+                  <template v-slot:item.cpnumber="{ item }">
+                    <vs-button
+                      transparent
+                      @click="selectedCustomer(item)"
+                    >
+                     {{item.cpnumber}}
+                    </vs-button>
+                  </template>
+                </v-data-table>
+               
+
+                <v-divider></v-divider>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+        
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
             <v-dialog v-model="confirmdialog" persistent max-width="600px">
               <v-card>
                 <v-card-title>
@@ -710,6 +745,7 @@ export default {
   },
   data() {
     return {
+      checkrecords: false,
       msg: {data: {ref: '', iden: 4}},
       RefDialog: false,
       confirmdialog: false,
@@ -728,6 +764,12 @@ export default {
       selectedIndex: "",
       units: [],
       storeDataFinal: [],
+      customerList: [],
+      customerListHeaders:[ 
+        { text: 'FIRST NAME', value: 'firstname' },
+        { text: 'LAST NAME', value: 'lastname' },
+        { text: 'MOBILE NUMBER', value: 'cpnumber' },
+       ],
       customer: {
           cpnumber: "",
           lastname: "",
@@ -766,7 +808,6 @@ export default {
             .toISOString()
             .substr(0, 10),
         },
-
         usage: {
           propertytype: "",
           level: "",
@@ -1661,6 +1702,31 @@ export default {
       }
     },
     trash(data) {},
+    checkRecExist(){
+      let id = { number: this.customer.cpnumber }
+      this.$store.dispatch("app_booking_sys/JobsCheckRecords", id).then((res)=>{
+          this.customerList = res.data
+          this.checkrecords = true
+       
+       })
+    },
+    selectedCustomer(data){
+      this.customer =  {
+          cpnumber:  data.cpnumber,
+          lastname:  data.firstname,
+          firstname:  data.lastname,
+          emailaddress:  data.emailaddress,
+          middlename:  data.middlename,
+          contactperson:  data.contactperson,
+          telephoneno:  data.telephoneno,
+          houseno:  data.houseno,
+          street:  data.street,
+          barangay: data.barangay,
+          mcity:  data.mcity,
+          province:  data.province,
+ 
+        } 
+    }
   },
 };
 </script>

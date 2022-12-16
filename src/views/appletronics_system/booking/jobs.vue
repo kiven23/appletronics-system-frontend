@@ -3,41 +3,42 @@
     <v-container grid-list-md text-xs-center>
       <v-flex xs12>
         <vs-row>
-          <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="4">
-            <vs-card type="3" style="margin: 5px">
-              <template #text>
+          <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="4" :style="bgselected0" >
+            <vs-card type="3" style="margin: 5px;" @click="selected(0, )" >
+              <template #text  >
                 <v-icon style="margin-right: 5px; color: red"
                   >mdi-email-alert</v-icon
                 >
                 <strong
                   >Unassigned
-                  <h2>1</h2></strong
+                  
+                  <h2> {{jobsCounts.unsigned }}</h2></strong
                 >
               </template>
             </vs-card>
           </vs-col>
-          <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="4">
-            <vs-card type="3" style="margin: 5px">
+          <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="4" :style="bgselected1">
+            <vs-card type="3" style="margin: 5px" @click="selected(1)">
               <template #text>
                 <v-icon style="margin-right: 5px; color: yellowgreen"
                   >mdi-account-check</v-icon
                 >
                 <strong
                   >Accepted
-                  <h2>4</h2></strong
+                  <h2> {{jobsCounts.accepted }}</h2></strong
                 >
               </template>
             </vs-card>
           </vs-col>
-          <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="4">
-            <vs-card type="3" style="margin: 5px">
+          <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="4" :style="bgselected2">
+            <vs-card type="3" style="margin: 5px" @click="selected(2)">
               <template #text>
                 <v-icon style="margin-right: 5px; color: blue"
                   >mdi-teamviewer</v-icon
                 >
                 <strong
                   >Dispatch to Other ASC
-                  <h2>3</h2></strong
+                  <h2> {{jobsCounts.asc }}</h2></strong
                 >
               </template>
             </vs-card>
@@ -76,12 +77,12 @@
       </v-data-table>
       <v-dialog
         v-model="jobsInfo"
-        fullscreen
+        
         hide-overlay
         transition="dialog-bottom-transition"
       >
         <v-card>
-          <v-toolbar dark color="primary">
+          <v-toolbar dark style="background:  linear-gradient(137deg, rgba(0,0,0,1) 9%, rgba(231,95,94,0.5872549703475141) 100%);">
             <v-btn icon dark @click="jobsInfo = false">
               <v-icon>mdi-close</v-icon>
             </v-btn>
@@ -236,7 +237,7 @@
         <v-dialog v-model="jobupdateDialog" max-width="500px">
           <v-card>
             <v-card-title> Job Update  </v-card-title>
-
+             
             <v-list three-line>
               <div v-for="(item, $index) in items" v-bind:key="$index">
                 <v-subheader><strong href="#">{{item.user}}</strong>{{' - '+item.created_at }}</v-subheader>
@@ -301,13 +302,17 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
+      selectedID: 0,
+      bgselected0: 'background-color: red',
+      bgselected1: '',
+      bgselected2: '',
       requestID: '',
       updatesData: '',
       reason: '',
       items: [
   
       ],
-
+      jobsCounts:'',
       unitsHeader: [
         { text: "Product Category", value: "prodcategories" },
         { text: "Appliance Type", value: "appliancetype" },
@@ -386,17 +391,29 @@ export default {
     };
   },
 
-  computed: {},
+  computed: {
+
+   
+  },
 
   watch: {},
 
-  created() {
+  mounted() {
     this.$store.dispatch("app_booking_sys/fetchJobs").then((res) => {
       this.data = res.data;
     });
+    this.refresh(0);
   },
 
   methods: {
+    refresh(data){
+      this.$store.dispatch("app_booking_sys/JobsCount").then((res)=>{
+          this.jobsCounts = res.data;
+       });
+       this.$store.dispatch("app_booking_sys/fetchJobs",data).then((res) => {
+        this.data = res.data;
+       });
+    },
     send(){
       let Data;
       Data = {
@@ -422,7 +439,6 @@ export default {
       });
     },
     actions(){
-      
       let Data;
       Data = {
         requestID: this.requestID,
@@ -440,7 +456,9 @@ export default {
         if(res.data.type == 1){
           this.jobsInfo = false;
         }
+        this.refresh(this.selectedID);
       });
+       
     },
     view(data) {
       console.log(data)
@@ -463,8 +481,31 @@ export default {
       this.requestID = data.requestid
       
     },
+    selected(id){
+    
+       if(id == 0){
+        this.bgselected0 = 'background-color: red';
+        this.bgselected1 = '';
+        this.bgselected2 = '';
+       }
+       if(id == 1){
+        this.bgselected0 = '';
+        this.bgselected1 = 'background-color: red';
+        this.bgselected2 = '';
+       }
+       if(id == 2){
+        this.bgselected0 = '';
+        this.bgselected1 = '';
+        this.bgselected2 = 'background-color: red';
+       }
+      this.selectedID = id;
+      this.refresh(id)
+    },
     download(id) {
-      alert(id);
+      let ids = {
+        id: id
+      }
+      this.$store.dispatch("app_booking_sys/salesInvoiceDownload",ids);
     },
     jobUpdates() {
       this.jobupdateDialog = true;
