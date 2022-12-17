@@ -2,22 +2,34 @@
   <div>
     <v-container grid-list-md text-xs-center>
       <v-flex xs12>
-        <vs-row>
-          <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="4" :style="bgselected0" >
-            <vs-card type="3" style="margin: 5px;" @click="selected(0, )" >
-              <template #text  >
+        <!-- <vs-row>
+          <vs-col
+            vs-type="flex"
+            vs-justify="center"
+            vs-align="center"
+            w="4"
+            :style="bgselected0"
+          >
+            <vs-card type="3" style="margin: 5px" @click="selected(0)">
+              <template #text>
                 <v-icon style="margin-right: 5px; color: red"
                   >mdi-email-alert</v-icon
                 >
                 <strong
                   >Unassigned
-                  
-                  <h2> {{jobsCounts.unsigned }}</h2></strong
+
+                  <h2>{{ jobsCounts.unsigned }}</h2></strong
                 >
               </template>
             </vs-card>
           </vs-col>
-          <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="4" :style="bgselected1">
+          <vs-col
+            vs-type="flex"
+            vs-justify="center"
+            vs-align="center"
+            w="4"
+            :style="bgselected1"
+          >
             <vs-card type="3" style="margin: 5px" @click="selected(1)">
               <template #text>
                 <v-icon style="margin-right: 5px; color: yellowgreen"
@@ -25,12 +37,18 @@
                 >
                 <strong
                   >Accepted
-                  <h2> {{jobsCounts.accepted }}</h2></strong
+                  <h2>{{ jobsCounts.accepted }}</h2></strong
                 >
               </template>
             </vs-card>
           </vs-col>
-          <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="4" :style="bgselected2">
+          <vs-col
+            vs-type="flex"
+            vs-justify="center"
+            vs-align="center"
+            w="4"
+            :style="bgselected2"
+          >
             <vs-card type="3" style="margin: 5px" @click="selected(2)">
               <template #text>
                 <v-icon style="margin-right: 5px; color: blue"
@@ -38,12 +56,79 @@
                 >
                 <strong
                   >Dispatch to Other ASC
-                  <h2> {{jobsCounts.asc }}</h2></strong
+                  <h2>{{ jobsCounts.asc }}</h2></strong
                 >
               </template>
             </vs-card>
           </vs-col>
-        </vs-row>
+        </vs-row> -->
+      <v-row>
+        <v-col
+        cols="12"
+        sm="4"
+      >
+        <v-card
+          class="pa-2"
+          outlined
+          tile
+          :color="bgselected0"
+          @click="selected(0)"
+        >
+        <v-icon style="margin-right: 5px; color: red"
+                  >mdi-email-alert</v-icon
+                >
+                <strong
+                  >Unassigned
+
+                  <h2>{{ jobsCounts.unsigned }}</h2></strong
+                >
+
+      </v-card>
+      </v-col>
+      <v-col
+        cols="12"
+        sm="4"
+      >
+        <v-card
+          class="pa-2"
+          outlined
+          tile
+          :color="bgselected1"
+          @click="selected(1)"
+        >
+        <v-icon style="margin-right: 5px; color: yellowgreen"
+                  >mdi-account-check</v-icon
+                >
+                <strong
+                  >Accepted
+                  <h2>{{ jobsCounts.accepted }}</h2></strong
+                >
+        
+      </v-card>
+      </v-col>
+      <v-col
+        cols="12"
+        sm="4"
+      >
+        <v-card
+          class="pa-2"
+          outlined
+          tile
+          :color="bgselected2"
+          @click="selected(2)"
+        >
+        <v-icon style="margin-right: 5px; color: blue"
+                  >mdi-teamviewer</v-icon
+                >
+                <strong
+                  >Dispatch to Other ASC
+                  <h2>{{ jobsCounts.asc }}</h2></strong
+                >
+        
+      </v-card>
+      </v-col>
+      </v-row>
+        
       </v-flex>
       <v-card-title>
         <v-text-field
@@ -77,12 +162,20 @@
       </v-data-table>
       <v-dialog
         v-model="jobsInfo"
-        
         hide-overlay
         transition="dialog-bottom-transition"
       >
         <v-card>
-          <v-toolbar dark style="background:  linear-gradient(137deg, rgba(0,0,0,1) 9%, rgba(231,95,94,0.5872549703475141) 100%);">
+          <v-toolbar
+            dark
+            style="
+              background: linear-gradient(
+                137deg,
+                rgba(0, 0, 0, 1) 9%,
+                rgba(231, 95, 94, 0.5872549703475141) 100%
+              );
+            "
+          >
             <v-btn icon dark @click="jobsInfo = false">
               <v-icon>mdi-close</v-icon>
             </v-btn>
@@ -143,7 +236,7 @@
                       <strong>Barangay</strong><br />
                       {{ jobsData.customer.barangay }}<br />
                       <strong>Installer</strong><br />
-                      {{jobsData.installer}}<br />
+                      {{ jobsData.installer }}<br />
                     </v-card>
                   </v-col>
                   <v-col cols="12" sm="3">
@@ -153,7 +246,7 @@
                       <strong>Municipality</strong><br />
                       {{ jobsData.customer.mcity }}<br />
                       <strong>Date of Installation</strong><br />
-                      {{jobsData.installationdate}}<br />
+                      {{ jobsData.installationdate }}<br />
                       <strong>Province</strong><br />
                       N/A<br />
                     </v-card>
@@ -236,39 +329,50 @@
         </v-card>
         <v-dialog v-model="jobupdateDialog" max-width="500px">
           <v-card>
-            <v-card-title> Job Update  </v-card-title>
-             
+            <v-card-title> Job Update </v-card-title>
+
             <v-list three-line>
-              <div v-for="(item, $index) in items" v-bind:key="$index">
-                <v-subheader><strong href="#">{{item.user}}</strong>{{' - '+item.created_at }}</v-subheader>
+              <v-sheet
+                id="scrolling-techniques-7"
+                class="overflow-y-auto"
+                max-height="200"
+              >
+                <div v-for="(item, $index) in items" v-bind:key="$index">
+                  <v-subheader
+                    ><strong href="#">{{ item.user }}</strong
+                    >{{ " - " + item.created_at }}</v-subheader
+                  >
 
-                <v-divider> </v-divider>
+                  <v-divider> </v-divider>
 
-                <v-list-item>
-                  <v-list-item-avatar>
-                    <v-img :src="item.avatar"></v-img>
-                  </v-list-item-avatar>
+                  <v-list-item>
+                    <v-list-item-avatar>
+                      <v-img :src="item.avatar"></v-img>
+                    </v-list-item-avatar>
 
-                  <v-list-item-content>
-                    <v-list-item-title v-html="item.title"></v-list-item-title>
+                    <v-list-item-content>
+                      <v-list-item-title
+                        v-html="item.title"
+                      ></v-list-item-title>
 
-                    <strong>{{ item.subtitle }} </strong>
-                  </v-list-item-content>
-                </v-list-item>
-              </div>
+                      <strong>{{ item.subtitle }} </strong>
+                    </v-list-item-content>
+                  </v-list-item>
+                </div>
+              </v-sheet>
             </v-list>
             <v-list three-line class="pa-3">
-                      <v-autocomplete
-                        v-model="reason"
-                        label="Reason"
-                        :items="reasonItem"
-                        item-text="name"
-                        item-value="value"
-                        chips
-                        dense
-                        deletable-chips
-                        small-chips
-                      ></v-autocomplete>
+              <v-autocomplete
+                v-model="reason"
+                label="Reason"
+                :items="reasonItem"
+                item-text="name"
+                item-value="value"
+                chips
+                dense
+                deletable-chips
+                small-chips
+              ></v-autocomplete>
             </v-list>
             <v-list three-line class="pa-3">
               <v-textarea
@@ -296,23 +400,19 @@
 
 <script>
 import { mapGetters } from "vuex";
- 
-
 
 export default {
   data() {
     return {
       selectedID: 0,
-      bgselected0: 'background-color: red',
-      bgselected1: '',
-      bgselected2: '',
-      requestID: '',
-      updatesData: '',
-      reason: '',
-      items: [
-  
-      ],
-      jobsCounts:'',
+      bgselected0: "success",
+      bgselected1: "",
+      bgselected2: "",
+      requestID: "",
+      updatesData: "",
+      reason: "",
+      items: [],
+      jobsCounts: "",
       unitsHeader: [
         { text: "Product Category", value: "prodcategories" },
         { text: "Appliance Type", value: "appliancetype" },
@@ -391,10 +491,7 @@ export default {
     };
   },
 
-  computed: {
-
-   
-  },
+  computed: {},
 
   watch: {},
 
@@ -406,62 +503,60 @@ export default {
   },
 
   methods: {
-    refresh(data){
-      this.$store.dispatch("app_booking_sys/JobsCount").then((res)=>{
-          this.jobsCounts = res.data;
-       });
-       this.$store.dispatch("app_booking_sys/fetchJobs",data).then((res) => {
+    refresh(data) {
+      this.$store.dispatch("app_booking_sys/JobsCount").then((res) => {
+        this.jobsCounts = res.data;
+      });
+      this.$store.dispatch("app_booking_sys/fetchJobs", data).then((res) => {
         this.data = res.data;
-       });
+      });
     },
-    send(){
+    send() {
       let Data;
       Data = {
         requestID: this.requestID,
         reason: this.reason,
-        updates: this.updatesData
-      }
-      this.$store.dispatch("app_booking_sys/JobsUpdate",Data).then((res)=>{
-         this.items = res.data
-         if(res.data.msg){
+        updates: this.updatesData,
+      };
+      this.$store.dispatch("app_booking_sys/JobsUpdate", Data).then((res) => {
+        this.items = res.data;
+        if (res.data.msg) {
           this.$toast.open({
             message: res.data.msg,
             type: res.data.error,
             // all of other options may go here
           });
-         }
-         this.$toast.open({
-            message: 'Success Sent..!',
-            type: 'success',
-            // all of other options may go here
-          });
-   
+        }
+        this.$toast.open({
+          message: "Success Sent..!",
+          type: "success",
+          // all of other options may go here
+        });
       });
     },
-    actions(){
+    actions() {
       let Data;
       Data = {
         requestID: this.requestID,
         installer: this.tech,
         status: this.jobstatus,
         installationData: this.installationdateData,
-      }
-      this.$store.dispatch("app_booking_sys/JobsAction",Data).then((res)=>{
+      };
+      this.$store.dispatch("app_booking_sys/JobsAction", Data).then((res) => {
         this.$toast.open({
-            message: res.data.msg,
-            type: res.data.error,
-            duration: 3000
-            // all of other options may go here
+          message: res.data.msg,
+          type: res.data.error,
+          duration: 3000,
+          // all of other options may go here
         });
-        if(res.data.type == 1){
+        if (res.data.type == 1) {
           this.jobsInfo = false;
         }
         this.refresh(this.selectedID);
       });
-       
     },
     view(data) {
-      console.log(data)
+      console.log(data);
       var status;
       if (data.status == 0) {
         status = "Unassigned";
@@ -471,41 +566,39 @@ export default {
         status = "Dispatch to Other ASC";
       }
       this.items = data.bk_jobs_update;
-      this.tech = data.installer
+      this.tech = data.installer;
       this.jobstatus = status;
       //this.jobstat = status
-      this.installationdateData = data.installationdate
+      this.installationdateData = data.installationdate;
       this.jobsInfo = true;
       this.jobsData = data;
       this.unitsData = data.units;
-      this.requestID = data.requestid
-      
+      this.requestID = data.requestid;
     },
-    selected(id){
-    
-       if(id == 0){
-        this.bgselected0 = 'background-color: red';
-        this.bgselected1 = '';
-        this.bgselected2 = '';
-       }
-       if(id == 1){
-        this.bgselected0 = '';
-        this.bgselected1 = 'background-color: red';
-        this.bgselected2 = '';
-       }
-       if(id == 2){
-        this.bgselected0 = '';
-        this.bgselected1 = '';
-        this.bgselected2 = 'background-color: red';
-       }
+    selected(id) {
+      if (id == 0) {
+        this.bgselected0 = "success";
+        this.bgselected1 = "";
+        this.bgselected2 = "";
+      }
+      if (id == 1) {
+        this.bgselected0 = "";
+        this.bgselected1 = "success";
+        this.bgselected2 = "";
+      }
+      if (id == 2) {
+        this.bgselected0 = "";
+        this.bgselected1 = "";
+        this.bgselected2 = "success";
+      }
       this.selectedID = id;
-      this.refresh(id)
+      this.refresh(id);
     },
     download(id) {
       let ids = {
-        id: id
-      }
-      this.$store.dispatch("app_booking_sys/salesInvoiceDownload",ids);
+        id: id,
+      };
+      this.$store.dispatch("app_booking_sys/salesInvoiceDownload", ids);
     },
     jobUpdates() {
       this.jobupdateDialog = true;
