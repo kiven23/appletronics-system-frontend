@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-app-bar app clipped-left  style="background:  linear-gradient(137deg, rgba(0,0,0,1) 9%, rgba(231,95,94,0.5872549703475141) 100%); border-radius: 10px; color: white;">
+    <v-app-bar dark app clipped-left  style="background:  linear-gradient(137deg, rgba(0,0,0,1) 9%, rgba(231,95,94,0.5872549703475141) 100%); border-radius: 10px; color: white;">
       <!-- <v-app-bar-nav-icon @click.stop="drawer"></v-app-bar-nav-icon> -->
       <v-btn icon @click.stop="drawer">
         <v-icon>{{ toggleDrawer ? "mdi-menu" : "mdi-menu-open" }}</v-icon>

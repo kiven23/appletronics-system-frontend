@@ -303,11 +303,11 @@ export default new Vuex.Store({
         context.commit("SET_DATE", response.data);
       });
     },
-    fetchDatabase(context) {
-      axios.get(mssqlDB).then(response => {
-        context.commit("SET_DBCONNECTIONS", response.data);
-      });
-    },
+    // fetchDatabase(context) {
+    //   axios.get(mssqlDB).then(response => {
+    //     context.commit("SET_DBCONNECTIONS", response.data);
+    //   });
+    // },
     //SETTINGS CODES
 
     //DATABASE 
@@ -323,11 +323,11 @@ export default new Vuex.Store({
         },
 
     //FETCH ALL DATABASE CONNECTION
-        fetchDBAll(context,data){
-           axios.post(DBlinkConf+'/fetch',data).then(response =>{
-                 context.commit("SET_DBLIST", response.data);
-           })
-        },
+        // fetchDBAll(context,data){
+        //    axios.post(DBlinkConf+'/fetch',data).then(response =>{
+        //          context.commit("SET_DBLIST", response.data);
+        //    })
+        // },
     //CREATE DATABASE CONNECTION
         createDBcon(context,data){
            return axios.post(DBlinkConf+'/create',data).then(response =>{

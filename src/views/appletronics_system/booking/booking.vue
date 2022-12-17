@@ -1264,10 +1264,7 @@ export default {
     this.$store.dispatch("fetchDBAll");
   },
   computed: {
-    ...mapGetters({
-      databaseData: "getDBLIST",
-    }),
-
+ 
     // PRODUCT INFO VALIDATION
     appliancetypeError() {
       const errors = [];
@@ -1832,6 +1829,7 @@ export default {
         mcity: data.mcity,
         province: data.province,
       };
+      this.checkrecords = false;
     },
   },
 };
