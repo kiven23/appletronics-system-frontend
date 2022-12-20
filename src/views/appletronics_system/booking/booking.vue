@@ -11,7 +11,11 @@
           <v-card>
             <v-toolbar
               dark
-              style="background: linear-gradient( 137deg,  rgba(0, 0, 0, 1) 9%, rgba(231, 95, 94, 0.5872549703475141) 100%
+              style="
+                background: linear-gradient(
+                  137deg,
+                  rgba(0, 0, 0, 1) 9%,
+                  rgba(231, 95, 94, 0.5872549703475141) 100%
                 );
               "
             >
@@ -19,8 +23,10 @@
                 <v-icon>mdi-close</v-icon>
               </v-btn>
               <v-toolbar-title>
-                REQUEST-<strong>{{  activerequest.name }}</strong
-              ></v-toolbar-title>
+                REQUEST-<strong>{{
+                  activerequest.name
+                }}</strong></v-toolbar-title
+              >
               <v-spacer></v-spacer>
               <v-toolbar-items> </v-toolbar-items>
             </v-toolbar>
@@ -30,7 +36,7 @@
                 <v-list-item-content>
                   <v-row no-gutters>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-3" height="700"> 
+                      <v-card class="pa-3" height="700">
                         <h4>PRODUCT INFORMATION</h4>
                         <v-select
                           style="margin: 6px"
@@ -80,7 +86,6 @@
                           style="margin: 6px"
                           v-model="data.units.serialno"
                           placeholder="Serial No."
-                          required
                           dense
                         ></vs-input>
                         <v-select
@@ -347,44 +352,58 @@
                           required
                           dense
                         ></v-text-field>
-                        <v-select
-                          v-model="customer.barangay"
-                          :items="addressesListDown.barangay"
-                          :error-messages="barangayError"
-                          placeholder="Barangay"
-                          item-text="name"
-                          item-value="value"
+                       <v-select
+                          v-model="customer.region"
+                          :items="addressesListDown.region"
+                          placeholder="Region"
+                          item-text="region_name"
+                          item-value="region_code"
                           required
                           dense
+                          @change="regionD()"
                         ></v-select>
-                        <v-select
-                          v-model="customer.mcity"
-                          :items="addressesListDown.mcity"
-                          :error-messages="mcityError"
-                          dense
-                          placeholder="Municipality/City"
-                          item-text="name"
-                          item-value="value"
-                          required
-                        ></v-select>
-                        <v-select
+                          <v-select
                           v-model="customer.province"
                           :items="addressesListDown.province"
                           :error-messages="provinceError"
                           dense
                           placeholder="Province"
-                          item-text="name"
-                          item-value="value"
+                          item-text="province_name"
+                          item-value="province_name"
+                          required
+                          @change="provinceD()"
+                        ></v-select>
+                             <v-select
+                          v-model="customer.mcity"
+                          :items="addressesListDown.mcity"
+                          :error-messages="mcityError"
+                          dense
+                          placeholder="Municipality/City"
+                          item-text="city_name"
+                          item-value="city_name"
                           required
                         ></v-select>
+                        <v-select
+                          v-model="customer.barangay"
+                          :items="addressesListDown.barangay"
+                          :error-messages="barangayError"
+                          placeholder="Barangay"
+                          item-text="barangay_name"
+                          item-value="barangay_name"
+                          required
+                          dense
+                        ></v-select>
+                    
+                   
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
                       <v-card class="pa-3" height="700">
                         <h4>>></h4>
+                         <h4>Location of Unit</h4>
                         <vs-input
                           v-model="customer.locationunit"
-                          placeholder="Location of Unit"
+                          placeholder="e.g MUNICIPALITY OF ASINGAN"
                           required
                         ></vs-input>
                         <h3>Is this an organization?</h3>
@@ -426,7 +445,7 @@
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="3">
-                      <v-card class="pa-4" >
+                      <v-card class="pa-4">
                         <v-simple-table dense>
                           <template v-slot:default>
                             <thead>
@@ -475,278 +494,243 @@
             </v-list>
           </v-card>
 
-          <v-dialog
-              v-model="checkrecords"
-              width="500"
-            >
- 
-              <v-card>
-                <v-card-title class="text-h5 grey lighten-2">
-                 Customer List
-                </v-card-title>
-                <v-data-table
-                    dense
-                    :headers="customerListHeaders"
-                    :items="customerList"
-                    item-key="name"
-                    class="elevation-1"
-                  >
-                  <template v-slot:item.cpnumber="{ item }">
-                    <vs-button
-                      transparent
-                      @click="selectedCustomer(item)"
-                    >
-                     {{item.cpnumber}}
-                    </vs-button>
-                  </template>
-                </v-data-table>
-               
+          <v-dialog v-model="checkrecords" width="500">
+            <v-card>
+              <v-card-title class="text-h5 grey lighten-2">
+                Customer List
+              </v-card-title>
+              <v-data-table
+                dense
+                :headers="customerListHeaders"
+                :items="customerList"
+                item-key="name"
+                class="elevation-1"
+              >
+                <template v-slot:item.cpnumber="{ item }">
+                  <vs-button transparent @click="selectedCustomer(item)">
+                    {{ item.cpnumber }}
+                  </vs-button>
+                </template>
+              </v-data-table>
 
-                <v-divider></v-divider>
+              <v-divider></v-divider>
 
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-        
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-            <v-dialog v-model="confirmdialog" persistent max-width="600px">
+              <v-card-actions>
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+          <v-dialog v-model="confirmdialog" persistent max-width="600px">
+            <v-card>
+              <v-card-title>
+                <span class="text-h5">Confirm your request details</span>
+              </v-card-title>
+              <v-card-text>
+                <v-container>
+                  <v-row>
+                    <v-col cols="12" sm="6" md="4">
+                      <strong>Contact Name</strong>
+                      <br />{{ customer.lastname }},
+                      {{ customer.firstname }}
+                    </v-col>
+
+                    <v-col cols="12" sm="6" md="4">
+                      <strong>Email Address</strong>
+                      <br />{{ customer.emailaddress }}
+                    </v-col>
+
+                    <v-col cols="12" sm="6" md="4">
+                      <strong>Contact Number</strong>
+                      <br />{{ customer.cpnumber }}
+                    </v-col>
+
+                    <v-col cols="12" sm="6" md="4">
+                      <strong>Property Type</strong>
+                      <br />
+                      N/A
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <strong>Address Details</strong>
+                      <br />{{
+                        customer.houseno +
+                        " " +
+                        customer.street +
+                        " " +
+                        customer.barangay +
+                        " " +
+                        customer.mcity +
+                        " " +
+                        customer.province
+                      }}
+                    </v-col>
+
+                    <v-col cols="12" sm="6" md="4">
+                      <strong>Request Type</strong>
+                      <br />{{ requestType }}
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <strong>Dealer Name</strong>
+                      <br />ADDESSA
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <strong>Special Instruction</strong>
+                      <br />{{ customer.specialinstruction }}
+                    </v-col>
+                    <v-col cols="12">
+                      <strong>Units Details</strong>
+                      <br />
+                      <v-simple-table dense>
+                        <template v-slot:default>
+                          <thead>
+                            <tr>
+                              <th class="text-left">Appliance Type</th>
+                              <th class="text-left">Brand</th>
+                              <th class="text-left">Model</th>
+                              <th class="text-left">Appliance</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr v-for="item in units" :key="item.unitid">
+                              <td>{{ item.appliancetype }}</td>
+                              <td>{{ item.brand }}</td>
+                              <td>{{ item.model }}</td>
+                              <td>{{ item.prodcategories }}</td>
+                            </tr>
+                          </tbody>
+                        </template>
+                      </v-simple-table>
+                    </v-col>
+                  </v-row>
+                </v-container>
+                <small>#ref03948300</small>
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                  color="blue darken-1"
+                  text
+                  @click="confirmdialog = false"
+                >
+                  BACK
+                </v-btn>
+                <v-btn color="blue darken-1" text @click="submit()">
+                  SUBMIT SERVICE REQUEST
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+
+            <v-dialog v-model="RefDialog" persistent max-width="400">
               <v-card>
-                <v-card-title>
-                  <span class="text-h5">Confirm your request details</span>
+                <v-card-title class="text-h5">
+                  {{
+                    msg.data.iden == 0
+                      ? "Request successfully submitted"
+                      : "File Exist Please RE Book Again"
+                  }}
                 </v-card-title>
                 <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col cols="12" sm="6" md="4">
-                        <strong>Contact Name</strong>
-                        <br />{{ customer.lastname }},
-                        {{ customer.firstname }}
-                      </v-col>
-
-                      <v-col cols="12" sm="6" md="4">
-                        <strong>Email Address</strong>
-                        <br />{{ customer.emailaddress }}
-                      </v-col>
-
-                      <v-col cols="12" sm="6" md="4">
-                        <strong>Contact Number</strong>
-                        <br />{{ customer.cpnumber }}
-                      </v-col>
-
-                      <v-col cols="12" sm="6" md="4">
-                        <strong>Property Type</strong>
-                        <br />
-                        N/A
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <strong>Address Details</strong>
-                        <br />{{
-                          customer.houseno +
-                          " " +
-                          customer.street +
-                          " " +
-                          customer.barangay +
-                          " " +
-                          customer.mcity +
-                          " " +
-                          customer.province
-                        }}
-                      </v-col>
-
-                      <v-col cols="12" sm="6" md="4">
-                        <strong>Request Type</strong>
-                        <br />{{ requestType }}
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <strong>Dealer Name</strong>
-                        <br />ADDESSA
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <strong>Special Instruction</strong>
-                        <br />{{ customer.specialinstruction }}
-                      </v-col>
-                      <v-col cols="12">
-                        <strong>Units Details</strong>
-                        <br />
-                        <v-simple-table dense>
-                          <template v-slot:default>
-                            <thead>
-                              <tr>
-                                <th class="text-left">Appliance Type</th>
-                                <th class="text-left">Brand</th>
-                                <th class="text-left">Model</th>
-                                <th class="text-left">Appliance</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr v-for="item in units" :key="item.unitid">
-                                <td>{{ item.appliancetype }}</td>
-                                <td>{{ item.brand }}</td>
-                                <td>{{ item.model }}</td>
-                                <td>{{ item.prodcategories }}</td>
-                              </tr>
-                            </tbody>
-                          </template>
-                        </v-simple-table>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                  <small>#ref03948300</small>
-                </v-card-text>
+                  {{
+                    msg.data.iden == 0
+                      ? "Your Request ID is:" + msg.data.ref
+                      : ""
+                  }}</v-card-text
+                >
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn
-                    color="blue darken-1"
+                    color="green darken-1"
                     text
-                    @click="confirmdialog = false"
+                    @click="RefDialog = false || rebook()"
                   >
-                    BACK
+                    Rebook Same Client
                   </v-btn>
-                  <v-btn color="blue darken-1" text @click="submit()">
-                    SUBMIT SERVICE REQUEST
+                  <v-btn color="green darken-1" text @click="RefDialog = false">
+                    Book New Client
                   </v-btn>
                 </v-card-actions>
               </v-card>
-
-
-     <v-dialog
-      v-model="RefDialog"
-      persistent
-      max-width="400"
-    >
-   
-      <v-card>
-        <v-card-title class="text-h5">
-          {{msg.data.iden == 0? 'Request successfully submitted':'File Exist Please RE Book Again' }}
-        </v-card-title>
-        <v-card-text>  {{msg.data.iden == 0? 'Your Request ID is:'+msg.data.ref:'' }}</v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="green darken-1"
-            text
-            @click="RefDialog = false ||rebook()"
-          >
-            Rebook Same Client
-          </v-btn>
-          <v-btn
-            color="green darken-1"
-            text
-            @click="RefDialog = false"
-          >
-            Book New Client
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
             </v-dialog>
+          </v-dialog>
         </v-dialog>
-
-
-
-
       </div>
       <v-row no-gutters>
-      <v-col
-        cols="12"
-        sm="4"
-      >
-        <v-card
-          class="pa-2"
-          outlined
-          tile
-        >
-        <vs-button
-          style="background-color: white; min-width: 70px; color: black"
-          @click="request({ name: 'REPAIR', id: 1 })"
-          animation-type="scale"
-        >
-          <v-img src="/repair.png" style="width: 100px"> </v-img
-          ><strong>REPAIR</strong>
-          <template #animate>
-            <strong style="margin-left: 10px">REQUEST &#9881;</strong>
-            <v-img src="/repair.png" style="width: 70px; height: 70px"></v-img>
-          </template>
-        </vs-button>
-        </v-card>
-      </v-col>
-      <v-col
-        cols="12"
-        sm="4"
-      >
-        <v-card
-          class="pa-2"
-          outlined
-          tile
-        >
-        <vs-button
-          style="background-color: white; min-width: 70px; color: black"
-          @click="request({ name: 'CLEANING', id: 2 })"
-          animation-type="scale"
-        >
-          <v-img src="/cleaning.png" style="width: 90px"> </v-img
-          ><strong>CLEANING</strong>
-          <template #animate>
-            <strong style="margin-left: 10px">REQUEST &#9881;</strong>
-            <v-img
-              src="/cleaning.png"
-              style="width: 70px; height: 70px"
-            ></v-img>
-          </template>
-        </vs-button>
-        </v-card>
-      </v-col>
-      <v-col
-        cols="12"
-        sm="4"
-      >
-        <v-card
-          class="pa-2"
-          outlined
-          tile
-        >
-        <vs-button
-          style="background-color: white; min-width: 70px; color: black"
-          @click="request({ name: 'SITE SURVEY', id: 3 })"
-          animation-type="scale"
-        >
-          <v-img src="/survey.png" style="width: 100px"> </v-img
-          ><strong>SITE SURVEY</strong>
-          <template #animate>
-            <strong style="margin-left: 10px">REQUEST &#9881;</strong>
-            <v-img src="/survey.png" style="width: 70px; height: 70px"></v-img>
-          </template>
-        </vs-button>
-        </v-card>
-      </v-col>
-      <v-col
-        cols="12"
-        sm="4"
-      >
-        <v-card
-          class="pa-2"
-          outlined
-          tile
-        >
-        <vs-button
-          style="background-color: white; min-width: 70px; color: black"
-          @click="request({ name: 'INSTALLATION', id: 4 })"
-          animation-type="scale"
-        >
-          <v-img src="/installation.png" style="width: 100px"> </v-img
-          ><strong>INSTALLATION</strong>
-          <template #animate>
-            <strong style="margin-left: 10px">TEST &#9881;</strong>
-            <v-img
-              src="/installation.png"
-              style="width: 70px; height: 70px"
-            ></v-img>
-          </template>
-        </vs-button>
-        </v-card>
-      </v-col>
-    </v-row>
+        <v-col cols="12" sm="4">
+          <v-card class="pa-2" outlined tile>
+            <vs-button
+              style="background-color: white; min-width: 70px; color: black"
+              @click="request({ name: 'REPAIR', id: 1 })"
+              animation-type="scale"
+            >
+              <v-img src="/repair.png" style="width: 100px"> </v-img
+              ><strong>REPAIR</strong>
+              <template #animate>
+                <strong style="margin-left: 10px">REQUEST &#9881;</strong>
+                <v-img
+                  src="/repair.png"
+                  style="width: 70px; height: 70px"
+                ></v-img>
+              </template>
+            </vs-button>
+          </v-card>
+        </v-col>
+        <v-col cols="12" sm="4">
+          <v-card class="pa-2" outlined tile>
+            <vs-button
+              style="background-color: white; min-width: 70px; color: black"
+              @click="request({ name: 'CLEANING', id: 2 })"
+              animation-type="scale"
+            >
+              <v-img src="/cleaning.png" style="width: 90px"> </v-img
+              ><strong>CLEANING</strong>
+              <template #animate>
+                <strong style="margin-left: 10px">REQUEST &#9881;</strong>
+                <v-img
+                  src="/cleaning.png"
+                  style="width: 70px; height: 70px"
+                ></v-img>
+              </template>
+            </vs-button>
+          </v-card>
+        </v-col>
+        <v-col cols="12" sm="4">
+          <v-card class="pa-2" outlined tile>
+            <vs-button
+              style="background-color: white; min-width: 70px; color: black"
+              @click="request({ name: 'SITE SURVEY', id: 3 })"
+              animation-type="scale"
+            >
+              <v-img src="/survey.png" style="width: 100px"> </v-img
+              ><strong>SITE SURVEY</strong>
+              <template #animate>
+                <strong style="margin-left: 10px">REQUEST &#9881;</strong>
+                <v-img
+                  src="/survey.png"
+                  style="width: 70px; height: 70px"
+                ></v-img>
+              </template>
+            </vs-button>
+          </v-card>
+        </v-col>
+        <v-col cols="12" sm="4">
+          <v-card class="pa-2" outlined tile>
+            <vs-button
+              style="background-color: white; min-width: 70px; color: black"
+              @click="request({ name: 'INSTALLATION', id: 4 })"
+              animation-type="scale"
+            >
+              <v-img src="/installation.png" style="width: 100px"> </v-img
+              ><strong>INSTALLATION</strong>
+              <template #animate>
+                <strong style="margin-left: 10px">TEST &#9881;</strong>
+                <v-img
+                  src="/installation.png"
+                  style="width: 70px; height: 70px"
+                ></v-img>
+              </template>
+            </vs-button>
+          </v-card>
+        </v-col>
+      </v-row>
       <!-- <vs-row>
         <vs-button
           style="background-color: white; min-width: 70px; color: black"
@@ -829,6 +813,15 @@
 import { validationMixin } from "vuelidate";
 import { required, maxLength, email } from "vuelidate/lib/validators";
 import { mapGetters } from "vuex";
+import {
+    regionByCode,
+    provincesByCode,
+    provinceByName,
+    regions,
+    provinces,
+    cities,
+    barangays,
+} from "select-philippines-address";
 export default {
   mixins: [validationMixin],
   validations: {
@@ -837,10 +830,9 @@ export default {
         appliancetype: { required },
         brand: { required },
         model: { required },
-        serialno: { required },
         unitcondition: { required },
         warrantycondition: { required },
-        qty: { required },
+        /// qty: { required },
       },
 
       usage: {
@@ -853,10 +845,10 @@ export default {
       cpnumber: { required },
       lastname: { required },
       firstname: { required },
-      middlename: { required },
-      contactperson: { required },
-      houseno: { required },
-      street: { required },
+      /// middlename: { required },
+      ///  contactperson: { required },
+      ///  houseno: { required },
+      /// street: { required },
       barangay: { required },
       mcity: { required },
       province: { required },
@@ -879,7 +871,7 @@ export default {
       time: null,
       menu2: false,
       modal2: false,
-      activerequest: {name: ''},
+      activerequest: { name: "" },
       selectedIndex: "",
       units: [],
       storeDataFinal: [],
@@ -899,6 +891,7 @@ export default {
         telephoneno: "",
         houseno: "",
         street: "",
+        region: "",
         barangay: "",
         mcity: "",
         province: "",
@@ -965,44 +958,44 @@ export default {
         ],
         level: [
           {
-            name: "1 FLOOR",
-            value: "1 FLOOR",
+            name: "1st FLOOR",
+            value: "1st FLOOR",
           },
           {
-            name: "2 FLOOR",
-            value: "2 FLOOR",
+            name: "2nd FLOOR",
+            value: "2nd FLOOR",
           },
           {
-            name: "3 FLOOR",
-            value: "3 FLOOR",
+            name: "3rd FLOOR",
+            value: "3rd FLOOR",
           },
           {
-            name: "4 FLOOR",
-            value: "4 FLOOR",
+            name: "4th FLOOR",
+            value: "4th FLOOR",
           },
           {
-            name: "5 FLOOR",
-            value: "5 FLOOR",
+            name: "5th FLOOR",
+            value: "5th FLOOR",
           },
           {
-            name: "6 FLOOR",
-            value: "6 FLOOR",
+            name: "6th FLOOR",
+            value: "6th FLOOR",
           },
           {
-            name: "7 FLOOR",
-            value: "7 FLOOR",
+            name: "7th FLOOR",
+            value: "7th FLOOR",
           },
           {
-            name: "8 FLOOR",
-            value: "8 FLOOR",
+            name: "8th FLOOR",
+            value: "8th FLOOR",
           },
           {
-            name: "9 FLOOR",
-            value: "9 FLOOR",
+            name: "9th FLOOR",
+            value: "9th FLOOR",
           },
           {
-            name: "10 FLOOR",
-            value: "10 FLOOR",
+            name: "10th FLOOR",
+            value: "10th FLOOR",
           },
         ],
 
@@ -1020,6 +1013,7 @@ export default {
         ],
       },
       addressesListDown: {
+        region: [],
         barangay: [
           {
             name: "Domanpot",
@@ -1034,18 +1028,8 @@ export default {
             value: "Baro",
           },
         ],
-        mcity: [
-          {
-            name: "Asingan",
-            value: "Asingan",
-          },
-        ],
-        province: [
-          {
-            name: "Pangasinan",
-            value: "Pangasinan",
-          },
-        ],
+        mcity: [],
+        province: [],
       },
       productListDown: {
         prodcategories: [
@@ -1246,6 +1230,10 @@ export default {
             name: "DEFECTIVE UPON OPENING",
             value: "DEFECTIVE UPON OPENING",
           },
+           {
+            name: "N/A",
+            value: "N/A",
+          },
         ],
         priority: [
           {
@@ -1262,9 +1250,13 @@ export default {
   },
   created() {
     this.$store.dispatch("fetchDBAll");
+    regions().then((region) =>
+    this.addressesListDown.region = region
+    );
+    
   },
   computed: {
- 
+    
     // PRODUCT INFO VALIDATION
     appliancetypeError() {
       const errors = [];
@@ -1443,6 +1435,20 @@ export default {
     },
   },
   methods: {
+     regionD(){
+       provinces(this.customer.region).then((province) => 
+       this.addressesListDown.province = province
+       );
+    },
+      provinceD(){
+        provinceByName(this.customer.province).then((province) =>
+          cities(province.province_code).then((city) => 
+        this.addressesListDown.mcity = city
+  
+          )
+        
+          );
+    },
     getindex: function () {
       const AIRCONDITION = [
         {
@@ -1823,6 +1829,7 @@ export default {
         middlename: data.middlename,
         contactperson: data.contactperson,
         telephoneno: data.telephoneno,
+        attachment: [],
         houseno: data.houseno,
         street: data.street,
         barangay: data.barangay,
