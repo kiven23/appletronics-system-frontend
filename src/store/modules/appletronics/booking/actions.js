@@ -8,7 +8,7 @@ const JOBSUPDATE = rootUrl + "/api/booking/jobs/jobsupdate";
 const GETCOUNT = rootUrl + "/api/booking/jobs/counts";
 const JOBSCHECKRECORDS = rootUrl + "/api/booking/jobs/checkrecords";
 const DOWNLOADSALESINVOICE = rootUrl + "/api/booking/jobs/salesinvoice/download";
-
+const RESTOREDATA = rootUrl + "/api/booking/restore";
 const actions = {
   storeBooking(context, data) {
     let formData = new FormData();
@@ -22,7 +22,8 @@ const actions = {
     formData.append("lastname", data.customer.lastname);
     formData.append("middlename", data.customer.middlename);
     formData.append("houseno", data.customer.houseno);
-    formData.append("mcity", data.customer.mcity);
+    formData.append("mcity", data.customer.customerCity);
+   
     formData.append("organization", data.customer.organization);
     formData.append("barangay", data.customer.barangay);
     formData.append("province", data.customer.province);
@@ -32,6 +33,7 @@ const actions = {
     formData.append("additionalrequest1", data.customer.additionalrequest1);
     formData.append("additionalrequest2", data.customer.additionalrequest2);
     //REQUEST TYPE
+    formData.append("identify", data.identify);
     formData.append("requestType", data.requestType);
     formData.append("requestid", data.requestid);
     formData.append("units", JSON.stringify(data.units));
@@ -99,6 +101,11 @@ const actions = {
           fileLink.click();
           return response
         });
+  },
+  restoreBk(context, data){
+      return axios.post(RESTOREDATA, data).then((res)=>{
+        return res
+      })
   }
   
 };

@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-navigation-drawer :value="drawer" app clipped  dark>
+    <v-navigation-drawer :value="drawer" app clipped  >
       <v-list dense>
         <v-list-item>
           <v-list-item-content>
@@ -23,12 +23,14 @@
 
         <span v-for="(link, index) in permissions" :key="index">
           <v-list-group
+              
             @click="toRoute(link.route)"
             :append-icon="link.subLinks ? 'keyboard_arrow_down' : ''"
             :prepend-icon="link.icon"
           >
             <template v-slot:activator>
               <v-list-item-title
+               
                 v-text="link.text"
               ></v-list-item-title>
             </template>
