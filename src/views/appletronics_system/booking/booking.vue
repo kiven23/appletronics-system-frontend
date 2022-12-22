@@ -28,15 +28,9 @@
                 }}</strong></v-toolbar-title
               >
               <v-spacer></v-spacer>
-                   <v-btn
-                      @click="restore()"
-                      color="primary"
-                      absolute
-                      right
-                      fab
-                    >
-                      <v-icon>mdi-backup-restore</v-icon>
-                    </v-btn>
+              <v-btn @click="restore()" color="primary" absolute right fab>
+                <v-icon>mdi-backup-restore</v-icon>
+              </v-btn>
               <v-toolbar-items> </v-toolbar-items>
             </v-toolbar>
 
@@ -126,7 +120,7 @@
                           v-model="data.units.datepurchase"
                         />
                         <v-text-field
-                        v-if="reqIdentifier !== 1"
+                          v-if="reqIdentifier !== 1"
                           style="margin: 6px"
                           v-model="data.units.qty"
                           placeholder="QTY"
@@ -134,7 +128,7 @@
                           required
                           dense
                         ></v-text-field>
-                          <!-- <v-select
+                        <!-- <v-select
                           style="margin: 6px"
                           v-model="data.units.demandreplacement"
                           :items="productListDown.demandreplacement"
@@ -145,7 +139,7 @@
                           dense
                         ></v-select> -->
                         <v-select
-                        v-if="reqIdentifier == 1"
+                          v-if="reqIdentifier == 1"
                           style="margin: 6px"
                           v-model="data.units.problem"
                           :items="productListDown.problem"
@@ -374,7 +368,7 @@
                           required
                           dense
                         ></v-text-field>
-                       <v-select
+                        <v-select
                           v-model="customer.region"
                           :items="addressesListDown.region"
                           placeholder="Region"
@@ -384,7 +378,7 @@
                           dense
                           @change="regionD()"
                         ></v-select>
-                          <v-select
+                        <v-select
                           v-model="customer.province"
                           :items="addressesListDown.province"
                           :error-messages="provinceError"
@@ -395,7 +389,7 @@
                           required
                           @change="provinceD()"
                         ></v-select>
-                             <v-select
+                        <v-select
                           v-model="customer.mcity"
                           :items="addressesListDown.mcity"
                           :error-messages="mcityError"
@@ -417,14 +411,12 @@
                           dense
                           @change="brgyD()"
                         ></v-select>
-                    
-                   
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
                       <v-card class="pa-3" height="700">
                         <h4>>></h4>
-                         <h4>Location of Unit</h4>
+                        <h4>Location of Unit</h4>
                         <vs-input
                           v-model="customer.locationunit"
                           placeholder="e.g MUNICIPALITY OF ASINGAN"
@@ -544,6 +536,34 @@
               </v-card-actions>
             </v-card>
           </v-dialog>
+
+          <v-dialog v-model="restoreBK" width="500">
+            <v-card>
+              <v-card-title class="text-h5 grey lighten-2">
+                RESTORE DRAFT
+              </v-card-title>
+              <v-data-table
+                dense
+                :headers="restoreHead"
+                :items="restoreList"
+                item-key="name"
+                class="elevation-1"
+              >
+                <template v-slot:item.ActionRestore="{ item }">
+                  <vs-button transparent @click="restoreNow(item)">
+                    RESTORE
+                  </vs-button>
+                </template>
+              </v-data-table>
+
+              <v-divider></v-divider>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+
           <v-dialog v-model="confirmdialog" persistent max-width="600px">
             <v-card>
               <v-card-title>
@@ -568,11 +588,7 @@
                       <br />{{ customer.cpnumber }}
                     </v-col>
 
-                    <v-col cols="12" sm="6" md="4">
-                      <strong>Property Type</strong>
-                      <br />
-                      N/A
-                    </v-col>
+             
                     <v-col cols="12" sm="6" md="4">
                       <strong>Address Details</strong>
                       <br />{{
@@ -626,7 +642,6 @@
                     </v-col>
                   </v-row>
                 </v-container>
-              
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
@@ -640,6 +655,9 @@
                 <v-btn color="blue darken-1" text @click="submit(1)">
                   SUBMIT SERVICE REQUEST
                 </v-btn>
+                 <v-btn color="blue darken-1" text @click="confirmdialog = false">
+                  CLOSE
+                </v-btn>
               </v-card-actions>
             </v-card>
 
@@ -647,9 +665,12 @@
               <v-card>
                 <v-card-title class="text-h5">
                   {{
-                    msg.data.iden == 0   ? "Request successfully submitted"  :   msg.data.iden == 5  ? "Request Submitted as Draft"  : "File Exist"
+                    msg.data.iden == 0
+                      ? "Request successfully submitted"
+                      : msg.data.iden == 5
+                      ? "Request Submitted as Draft"
+                      : "File Exist"
                   }}
-                    
                 </v-card-title>
                 <v-card-text>
                   {{
@@ -674,7 +695,6 @@
               </v-card>
             </v-dialog>
           </v-dialog>
-             
         </v-dialog>
       </div>
       <v-row no-gutters>
@@ -829,7 +849,6 @@
           </template>
         </vs-button>
       </vs-row> -->
-      
     </v-container>
   </div>
 </template>
@@ -839,14 +858,14 @@ import { validationMixin } from "vuelidate";
 import { required, maxLength, email } from "vuelidate/lib/validators";
 import { mapGetters } from "vuex";
 import {
-    regionByCode,
-    provincesByCode,
-    provinceByName,
-    regions,
-    provinces,
-    cities,
-    citiesName,
-    barangays,
+  regionByCode,
+  provincesByCode,
+  provinceByName,
+  regions,
+  provinces,
+  cities,
+  citiesName,
+  barangays,
 } from "select-philippines-address";
 export default {
   mixins: [validationMixin],
@@ -882,7 +901,16 @@ export default {
   },
   data() {
     return {
-      
+      restoreBK: false,
+      restoreHead: [
+        { text: "REQUEST TYPE", value: "requesttype" },
+        { text: "FIRSTNAME", value: "customer.firstname" },
+        { text: "LASTNAME", value: "customer.lastname" },
+        { text: "CONTACT NO", value: "customer.cpnumber" },
+        { text: "DATE CREATED", value: "created_at" },
+        { text: "RESTORE", value: "ActionRestore" },
+      ],
+      restoreList: [],
       checkrecords: false,
       msg: { data: { ref: "", iden: 4 } },
       RefDialog: false,
@@ -909,7 +937,7 @@ export default {
         { text: "MOBILE NUMBER", value: "cpnumber" },
       ],
       customer: {
-        customerCity: '',
+        customerCity: "",
         cpnumber: "",
         lastname: "",
         firstname: "",
@@ -1048,30 +1076,31 @@ export default {
         province: [],
       },
       productListDown: {
-        problem:[ {
-          name: 'NOT COOLING' ,
-          value: 'NOT COOLING',
-        },
-         {
-          name: 'NOISY MOTOR' ,
-          value: 'NOISY MOTOR',
-        },
-         {
-          name: 'POOR COOLING' ,
-          value: 'POOR COOLING',
-        },
-        {
-          name: 'AUTO SHUT OFF' ,
-          value: 'AUTO SHUT OFF',
-        },
-        {
-          name: 'NO PICTURE' ,
-          value: 'NO PICTURE',
-        },
-        {
-          name: 'NO SOUND' ,
-          value: 'NO SOUND',
-        },
+        problem: [
+          {
+            name: "NOT COOLING",
+            value: "NOT COOLING",
+          },
+          {
+            name: "NOISY MOTOR",
+            value: "NOISY MOTOR",
+          },
+          {
+            name: "POOR COOLING",
+            value: "POOR COOLING",
+          },
+          {
+            name: "AUTO SHUT OFF",
+            value: "AUTO SHUT OFF",
+          },
+          {
+            name: "NO PICTURE",
+            value: "NO PICTURE",
+          },
+          {
+            name: "NO SOUND",
+            value: "NO SOUND",
+          },
         ],
 
         prodcategories: [
@@ -1272,7 +1301,7 @@ export default {
             name: "DEFECTIVE UPON OPENING",
             value: "DEFECTIVE UPON OPENING",
           },
-           {
+          {
             name: "N/A",
             value: "N/A",
           },
@@ -1292,13 +1321,9 @@ export default {
   },
   created() {
     this.$store.dispatch("fetchDBAll");
-    regions().then((region) =>
-    this.addressesListDown.region = region
-    );
-    
+    regions().then((region) => (this.addressesListDown.region = region));
   },
   computed: {
-    
     // PRODUCT INFO VALIDATION
     appliancetypeError() {
       const errors = [];
@@ -1477,34 +1502,28 @@ export default {
     },
   },
   methods: {
-     regionD(){
-       provinces(this.customer.region).then((province) => 
-       this.addressesListDown.province = province
-       );
+    regionD() {
+      provinces(this.customer.region).then(
+        (province) => (this.addressesListDown.province = province)
+      );
     },
-      provinceD(){
-        provinceByName(this.customer.province).then((province) =>
-          cities(province.province_code).then((city) => 
-            this.addressesListDown.mcity = city
-               
-            )
-            
-          );
+    provinceD() {
+      provinceByName(this.customer.province).then((province) =>
+        cities(province.province_code).then(
+          (city) => (this.addressesListDown.mcity = city)
+        )
+      );
     },
-    mcityD(){
-       barangays(this.customer.mcity).then((barangays) => 
-         this.addressesListDown.barangay = barangays
-         
-       );
-  
-     
+    mcityD() {
+      barangays(this.customer.mcity).then(
+        (barangays) => (this.addressesListDown.barangay = barangays)
+      );
     },
-     brgyD(){
-      citiesName(this.customer.mcity).then((city) => 
-       this.customer.customerCity = city[0].city_name
-         
-       );
-     },
+    brgyD() {
+      citiesName(this.customer.mcity).then(
+        (city) => (this.customer.customerCity = city[0].city_name)
+      );
+    },
     getindex: function () {
       const AIRCONDITION = [
         {
@@ -1708,20 +1727,7 @@ export default {
         }
       }
     },
-    restore(){
-      // this.addressesListDown.barangay = {
-      //    // region: [],
-      //      brgy_name: 'd', brgy_code: 's'  
-      //     //mcity: [],
-      //    // province: [],
-      // },
-      // this.customer.barangay =  { brgy_name: 'd', brgy_code: 's'}
-      var data = {
-        type: this.requestType
-      }
-      this.$store.dispatch("app_booking_sys/restoreBk",data)
-       
-    },
+
     editItem(items) {
       console.log(items);
       this.data = {
@@ -1818,7 +1824,7 @@ export default {
         customer: this.customer,
         units: this.storeDataFinal,
       };
-    
+
       //SAVE TO DB
       this.$store.dispatch("app_booking_sys/storeBooking", d).then((res) => {
         this.msg = res;
@@ -1910,6 +1916,102 @@ export default {
         province: data.province,
       };
       this.checkrecords = false;
+    },
+
+    restore() {
+      this.restoreBK = true;
+
+      var data = {
+        type: this.requestType,
+      };
+      this.$store.dispatch("app_booking_sys/restoreBk", data).then((res) => {
+        this.restoreList = res.data;
+      });
+    },
+    restoreNow(restoreData) {
+      const DATA = [];
+      restoreData.units.map(function (value, key) {
+        const add = {
+          unitid:
+            "UNIT-" + value.brand + "-" + Math.ceil(Math.random() * 1000000),
+          prodcategories: value.prodcategories,
+          appliancetype: value.appliancetype,
+          brand: value.brand,
+          model: value.model,
+          serialno: value.serialno,
+          unitcondition: value.unitcondition,
+          warrantycondition: value.warrantycondition,
+          qty: value.qty,
+          demandreplacement: value.demandreplacement,
+          priority: value.priority,
+          datepurchase: value.datepurchase,
+          problem: value.problem,
+          //usage
+          propertytype: value.propertytype,
+          level: value.level,
+          location: value.location,
+          area: value.area,
+          wallfinish: value.propertytype,
+          withpowersupply: value.wallfinish,
+          deliverydate: value.deliverydate,
+          time: value.time,
+          locationofinstallation: value.locationofinstallation,
+          paidamoun: value.paidamoun,
+        };
+
+        DATA.push(add);
+      });
+      this.units = DATA;
+      this.customer = {
+        cpnumber: restoreData.customer.cpnumber,
+        lastname: restoreData.customer.lastname,
+        firstname: restoreData.customer.firstname,
+        emailaddress:
+          restoreData.customer.emailaddress == "null"
+            ? "N/A"
+            : restoreData.customer.emailaddress,
+        middlename: restoreData.customer.middlename,
+        contactperson: restoreData.customer.contactperson,
+        telephoneno:
+          restoreData.customer.telephoneno == "null"
+            ? "N/A"
+            : restoreData.customer.telephoneno,
+        houseno: restoreData.customer.houseno,
+        street: restoreData.customer.street,
+        barangay: restoreData.customer.barangay,
+        mcity: restoreData.customer.mcity,
+        province: restoreData.customer.province,
+        locationunit: restoreData.customer.locationunit,
+        organization: restoreData.customer.organization,
+        attachment: [],
+        specialinstruction: restoreData.customer.specialinstruction,
+        additionalrequest1: restoreData.customer.additionalrequest1,
+        additionalrequest2: restoreData.customer.additionalrequest2,
+      };
+      (this.addressesListDown.province = {
+        province_name: restoreData.customer.province,
+        brgy_code: restoreData.customer.province,
+      }),
+        (this.addressesListDown.mcity = {
+          city_name: restoreData.customer.mcity,
+          brgy_code: restoreData.customer.mcity,
+        }),
+        (this.addressesListDown.barangay = {
+          brgy_name: restoreData.customer.barangay,
+          brgy_code: restoreData.customer.barangay,
+        }),
+        (this.customer.barangay = {
+          brgy_name: restoreData.customer.barangay,
+          brgy_code: restoreData.customer.barangay,
+        });
+      this.customer.mcity = {
+        city_name: restoreData.customer.mcity,
+        city_code: restoreData.customer.mcity,
+      };
+      this.customer.province = {
+        province_name: restoreData.customer.province,
+        province_code: restoreData.customer.province,
+      };
     },
   },
 };
