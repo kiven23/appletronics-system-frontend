@@ -39,10 +39,10 @@
                 <v-list-item-content>
                   <v-row no-gutters>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-3" height="700">
+                      <v-card class="pa-3" height="830">
                         <h4>PRODUCT INFORMATION</h4>
+                        <v-chip x-small> Product Categories </v-chip>
                         <v-select
-                          style="margin: 6px"
                           v-model="data.units.prodcategories"
                           :items="productListDown.prodcategories"
                           :error-messages="prodcategoriesError"
@@ -53,9 +53,8 @@
                           dense
                           @change="getindex()"
                         ></v-select>
-
+                        <v-chip x-small> Appliance Type </v-chip>
                         <v-select
-                          style="margin: 6px"
                           v-model="data.units.appliancetype"
                           :items="productListDown.appliancetype"
                           :error-messages="appliancetypeError"
@@ -65,8 +64,8 @@
                           required
                           dense
                         ></v-select>
+                        <v-chip x-small> Brand* </v-chip>
                         <v-select
-                          style="margin: 6px"
                           v-model="data.units.brand"
                           :items="productListDown.brand"
                           :error-messages="brandError"
@@ -76,21 +75,71 @@
                           required
                           dense
                         ></v-select>
-                        <v-text-field
-                          style="margin: 6px"
+                        <v-chip x-small> Model* </v-chip>
+                        
+                        <v-autocomplete
                           v-model="data.units.model"
-                          :error-messages="modelError"
-                          placeholder="Model*"
-                          required
-                          dense
-                        ></v-text-field>
+                          :items="itemsAuto"
+                          :loading="isLoading"
+                          :search-input.sync="search"
+                       
+                          clearable
+                          hide-details
+                          hide-selected
+                          item-text="model"
+                          item-value="model"
+                          label="Search Model"
+                           
+                        >
+                        <template v-slot:no-data>
+                          <v-list-item>
+                            <v-list-item-title>
+                              Search Model
+                              <strong>Model</strong>
+                            </v-list-item-title>
+                          </v-list-item>
+                        </template>
+                        <template v-slot:selection="{ attr, on, item, selected }">
+                          <v-chip
+                            v-bind="attr"
+                            :input-value="selected"
+                            color="blue-grey"
+                            class="white--text"
+                            v-on="on"
+                          >
+                            <v-icon left>
+mdi-file-check                            </v-icon>
+                            <span v-text="item.model"></span>
+                          </v-chip>
+                        </template>
+                        <template v-slot:item="{ item }">
+                          <v-list-item-avatar
+                            color="indigo"
+                            class="text-h5 font-weight-light white--text"
+                          >
+                            {{ item.categories.charAt(0) }}
+                          </v-list-item-avatar>
+                          <v-list-item-content>
+                            <v-list-item-title v-text="item.model"></v-list-item-title>
+                            <v-list-item-subtitle v-text="item.categories"></v-list-item-subtitle>
+                             <v-list-item-subtitle v-text="item.brand"></v-list-item-subtitle>
+                          </v-list-item-content>
+                          <v-list-item-action>
+                            <v-icon>mdi-bitcoin</v-icon>
+                          </v-list-item-action>
+                        </template>
+                      </v-autocomplete>
 
-                        <vs-input
-                          style="margin: 6px"
+
+
+
+                        <v-chip x-small> Serial No. </v-chip>
+                        <v-text-field
                           v-model="data.units.serialno"
                           placeholder="Serial No."
                           dense
-                        ></vs-input>
+                        ></v-text-field>
+                        <v-chip x-small>Unit Condition* </v-chip>
                         <v-select
                           style="margin: 6px"
                           v-model="data.units.unitcondition"
@@ -102,9 +151,8 @@
                           required
                           dense
                         ></v-select>
-
+                        <v-chip x-small> Warranty Condition* </v-chip>
                         <v-select
-                          style="margin: 6px"
                           v-model="data.units.warrantycondition"
                           :items="productListDown.warrantycondition"
                           :error-messages="warrantyconditionError"
@@ -114,14 +162,13 @@
                           required
                           dense
                         ></v-select>
-                        <h4 style="margin: 5px">Date of Purchase</h4>
+                        <v-chip x-small>QTY</v-chip>
                         <vs-input
                           type="date"
                           v-model="data.units.datepurchase"
                         />
                         <v-text-field
                           v-if="reqIdentifier !== 1"
-                          style="margin: 6px"
                           v-model="data.units.qty"
                           placeholder="QTY"
                           :error-messages="qtyError"
@@ -138,9 +185,9 @@
                           required
                           dense
                         ></v-select> -->
+                        <v-chip x-small v-if="reqIdentifier == 1"> Problem </v-chip>
                         <v-select
                           v-if="reqIdentifier == 1"
-                          style="margin: 6px"
                           v-model="data.units.problem"
                           :items="productListDown.problem"
                           placeholder="Problem"
@@ -149,6 +196,7 @@
                           required
                           dense
                         ></v-select>
+                        <v-chip x-small>Priority </v-chip>
                         <v-select
                           style="margin: 6px"
                           v-model="data.units.priority"
@@ -159,25 +207,26 @@
                           required
                           dense
                         ></v-select>
-                        <v-btn
+                        <vs-button
                           class="ma-2"
                           @click="add()"
                           outlined
                           color="indigo"
                           :disabled="UnitsALLError"
+                          size="mini"
                         >
                           ADD
-                        </v-btn>
-                        <v-btn @click="gen()" outlined color="indigo">
+                        </vs-button>
+                        <!-- <v-btn @click="gen()" outlined color="indigo">
                           TESTDATA
-                        </v-btn>
+                        </v-btn> -->
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="3" v-if="reqIdentifier == 4">
-                      <v-card class="pa-3" height="700">
-                        <h4>>></h4>
+                      <v-card class="pa-3" height="830">
+                        <v-chip x-small>Property Type* </v-chip>
                         <v-select
-                          style="margin: 6px"
+                          
                           v-model="data.usage.propertytype"
                           :items="usagedetailsListDown.propertytype"
                           :error-messages="propertytypeError"
@@ -187,9 +236,8 @@
                           required
                           dense
                         ></v-select>
-
+                        <v-chip x-small>Property Type* </v-chip>
                         <v-select
-                          style="margin: 6px"
                           v-model="data.usage.level"
                           :items="usagedetailsListDown.level"
                           placeholder="Level"
@@ -198,8 +246,8 @@
                           required
                           dense
                         ></v-select>
+                        <v-chip x-small>Location </v-chip>
                         <v-select
-                          style="margin: 6px"
                           v-model="data.usage.location"
                           :items="usagedetailsListDown.location"
                           placeholder="Location"
@@ -208,16 +256,16 @@
                           required
                           dense
                         ></v-select>
+                        <v-chip x-small>Area </v-chip>
                         <v-text-field
-                          style="margin: 6px"
                           v-model="data.usage.area"
                           prefix="sqm"
                           placeholder="Area"
                           required
                           dense
                         ></v-text-field>
+                         <v-chip x-small>Wall Finish* </v-chip>
                         <v-select
-                          style="margin: 6px"
                           v-model="data.usage.wallfinish"
                           :items="usagedetailsListDown.wallfinish"
                           :error-messages="wallfinishError"
@@ -227,8 +275,8 @@
                           required
                           dense
                         ></v-select>
+                         <v-chip x-small>With Power Supply* </v-chip>
                         <v-select
-                          style="margin: 6px"
                           v-model="data.usage.withpowersupply"
                           :items="usagedetailsListDown.withpowersupply"
                           :error-messages="withpowersupplyError"
@@ -238,11 +286,13 @@
                           required
                           dense
                         ></v-select>
-                        <h4 style="margin: 5px">Date of Delivery</h4>
+                         <v-chip x-small>Date of Delivery</v-chip>
+                        
                         <vs-input
                           type="date"
                           v-model="data.usage.deliverydate"
                         />
+                        <v-chip x-small>Time Of Delivery </v-chip>
                         <v-dialog
                           ref="dialog"
                           v-model="modal2"
@@ -253,7 +303,7 @@
                           <template v-slot:activator="{ on, attrs }">
                             <v-text-field
                               v-model="data.usage.time"
-                              label="Picker in dialog"
+                              label="Time Of Delivery"
                               prepend-icon="mdi-clock-time-four-outline"
                               readonly
                               v-bind="attrs"
@@ -278,13 +328,15 @@
                             </v-btn>
                           </v-time-picker>
                         </v-dialog>
-                        <vs-input
+                        <v-chip x-small>Location of Installation </v-chip>
+                        <v-text-field
                           style="margin: 6px"
                           v-model="data.usage.locationofinstallation"
                           placeholder="Location of Installation"
                           required
                           dense
-                        ></vs-input>
+                        ></v-text-field>
+                         <v-chip x-small>Amount Paid</v-chip>
                         <v-text-field
                           style="margin: 6px"
                           prefix="PHP"
@@ -296,8 +348,9 @@
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-3" height="700">
-                        <h4>CUSTOMER INFORMATION</h4>
+                      <v-card class="pa-3" height="830">
+                        <h5>CUSTOMER INFORMATION</h5> 
+                        <v-chip x-small> Contact Phone Number*</v-chip>
                         <v-text-field
                           v-model="customer.cpnumber"
                           :error-messages="cpnumberError"
@@ -306,20 +359,24 @@
                           dense
                           required
                         ></v-text-field>
-                        <v-btn
-                          class="ma-2"
+                        
+                        <vs-button
+                          class="ma-1"
                           outlined
                           color="indigo"
                           @click="checkRecExist()"
+                          size="mini"
                         >
                           CHECK RECORD
-                        </v-btn>
-                        <vs-input
+                        </vs-button>
+                         <v-chip x-small>Email Address (OPTIONAL)</v-chip>
+                        <v-text-field
                           v-model="customer.emailaddress"
                           placeholder="Email Address (OPTIONAL)"
                           required
                           dense
-                        ></vs-input>
+                        ></v-text-field>
+                         <v-chip x-small>Last Name</v-chip>
                         <v-text-field
                           v-model="customer.lastname"
                           placeholder="Last Name"
@@ -327,6 +384,7 @@
                           required
                           dense
                         ></v-text-field>
+                          <v-chip x-small>First Name"</v-chip>
                         <v-text-field
                           v-model="customer.firstname"
                           :error-messages="firstnameError"
@@ -334,6 +392,7 @@
                           required
                           dense
                         ></v-text-field>
+                          <v-chip x-small>Middle Name</v-chip>
                         <v-text-field
                           v-model="customer.middlename"
                           placeholder="Middle Name"
@@ -341,6 +400,7 @@
                           required
                           dense
                         ></v-text-field>
+                          <v-chip x-small>Contact Person</v-chip>
                         <v-text-field
                           v-model="customer.contactperson"
                           placeholder="Contact Person"
@@ -348,12 +408,14 @@
                           required
                           dense
                         ></v-text-field>
-                        <vs-input
+                          <v-chip x-small>Telephone No. (OPTIONAL)</v-chip>
+                        <v-text-field
                           v-model="customer.telephoneno"
                           placeholder="Telephone No. (OPTIONAL)"
                           required
                           dense
-                        ></vs-input>
+                        ></v-text-field>
+                           
                         <v-text-field
                           v-model="customer.houseno"
                           placeholder="House No."
@@ -361,6 +423,7 @@
                           required
                           dense
                         ></v-text-field>
+                         
                         <v-text-field
                           v-model="customer.street"
                           :error-messages="streetError"
@@ -368,6 +431,7 @@
                           required
                           dense
                         ></v-text-field>
+                           
                         <v-select
                           v-model="customer.region"
                           :items="addressesListDown.region"
@@ -378,6 +442,7 @@
                           dense
                           @change="regionD()"
                         ></v-select>
+                         
                         <v-select
                           v-model="customer.province"
                           :items="addressesListDown.province"
@@ -389,6 +454,7 @@
                           required
                           @change="provinceD()"
                         ></v-select>
+                         
                         <v-select
                           v-model="customer.mcity"
                           :items="addressesListDown.mcity"
@@ -400,6 +466,7 @@
                           required
                           @change="mcityD()"
                         ></v-select>
+                          
                         <v-select
                           v-model="customer.barangay"
                           :items="addressesListDown.barangay"
@@ -414,21 +481,22 @@
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-3" height="700">
-                        <h4>>></h4>
-                        <h4>Location of Unit</h4>
-                        <vs-input
+                      <v-card class="pa-3" height="830">
+                        <v-chip x-small  >Location of Unit</v-chip>
+                        <v-text-field
                           v-model="customer.locationunit"
                           placeholder="e.g MUNICIPALITY OF ASINGAN"
                           required
-                        ></vs-input>
-                        <h3>Is this an organization?</h3>
+                        ></v-text-field>
+                         <v-chip x-small color="success">Is this an organization?</v-chip>
                         <v-radio-group v-model="customer.organization" row>
                           <v-radio label="Yes" value="1"></v-radio>
                           <v-radio label="No" value="2"></v-radio>
                         </v-radio-group>
-                        <h3>SALES INVOICE:</h3>
+                         <v-chip x-medium  v-if="checkwarranty">Sales Invoice</v-chip>
+                         
                         <v-file-input
+                          v-if="checkwarranty"
                           counter
                           multiple
                           show-size
@@ -461,7 +529,9 @@
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="3">
-                      <v-card class="pa-4">
+                      
+                      <v-card class="pa-1">
+                          <v-chip x-small color="success">UNITS/ITEMS</v-chip>
                         <v-simple-table dense>
                           <template v-slot:default>
                             <thead>
@@ -493,15 +563,16 @@
                             </tbody>
                           </template>
                         </v-simple-table>
-                        <v-btn
+                        <vs-button
                           class="ma-2"
                           outlined
                           color="indigo"
                           @click="checkout()"
                           :disabled="CustomerALLError"
+                          size="mini"
                         >
                           REVIEW AND CHECKOUT
-                        </v-btn>
+                        </vs-button>
                       </v-card>
                     </v-col>
                   </v-row>
@@ -588,7 +659,6 @@
                       <br />{{ customer.cpnumber }}
                     </v-col>
 
-             
                     <v-col cols="12" sm="6" md="4">
                       <strong>Address Details</strong>
                       <br />{{
@@ -655,7 +725,11 @@
                 <v-btn color="blue darken-1" text @click="submit(1)">
                   SUBMIT SERVICE REQUEST
                 </v-btn>
-                 <v-btn color="blue darken-1" text @click="confirmdialog = false">
+                <v-btn
+                  color="blue darken-1"
+                  text
+                  @click="confirmdialog = false"
+                >
                   CLOSE
                 </v-btn>
               </v-card-actions>
@@ -901,6 +975,13 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
+      itemsAuto: [],
+      modelAuto: null,
+      search: null,
+      tab: null,
+
+
       restoreBK: false,
       restoreHead: [
         { text: "REQUEST TYPE", value: "requesttype" },
@@ -1319,11 +1400,38 @@ export default {
       },
     };
   },
+  watch: {
+        modelAuto (val) {
+              if (val != null) this.tab = 0
+              else this.tab = null
+            },
+          search (val) {
+        // Items have already been loaded
+        if (this.itemsAuto.length > 0) return
+
+        this.isLoading = true
+
+        // Lazily load input items
+        fetch('http://192.168.1.19:8081/api2/aircon.json')
+          .then(res => res.clone().json())
+          .then(res => {
+            this.itemsAuto = res
+          })
+          .catch(err => {
+            console.log(err)
+          })
+          .finally(() => (this.isLoading = false))
+      },
+    },
   created() {
     this.$store.dispatch("fetchDBAll");
     regions().then((region) => (this.addressesListDown.region = region));
   },
   computed: {
+    checkwarranty(){
+     const checkwarranties = this.data.units.warrantycondition ==  'WARRANTY'? true: false;
+     return checkwarranties;
+    },
     // PRODUCT INFO VALIDATION
     appliancetypeError() {
       const errors = [];
