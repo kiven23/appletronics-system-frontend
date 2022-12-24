@@ -41,6 +41,67 @@
                     <v-col cols="12" sm="2">
                       <v-card class="pa-3" height="830">
                         <h4>PRODUCT INFORMATION</h4>
+                          <v-chip x-small> Model* </v-chip>
+                        <v-autocomplete
+                          v-model="data.units.model"
+                          :items="itemsAuto"
+                          :loading="isLoading"
+                          :search-input.sync="search"
+                       
+                          clearable
+                          hide-details
+                          hide-selected
+                          item-text="model"
+                          item-value="model"
+                          label="Search Model"
+                           
+                        >
+                        <template v-slot:no-data>
+                          <v-list-item>
+                            <v-list-item-title>
+                              Search Model
+                              <strong>Model</strong>
+                            </v-list-item-title>
+                          </v-list-item>
+                        </template>
+                        <template v-slot:selection="{ attr, on, item, selected }">
+                          <v-chip
+                            v-bind="attr"
+                            :input-value="selected"
+                            color="blue-grey"
+                            class="white--text"
+                            v-on="on"
+                             
+                          >
+                            <v-icon left>
+mdi-file-check                            </v-icon>
+                            <span v-text="item.model"  ></span>
+                          </v-chip>
+                        </template>
+                        <template v-slot:item="{ item }">
+                          <v-list-item-avatar
+                            color="indigo"
+                            class="text-h5 font-weight-light white--text"
+                            
+                          >
+                            {{ item.categories.charAt(0) }}
+                          </v-list-item-avatar>
+                          <v-list-item-content   @click="modelsActivate(item)">
+                            <v-list-item-title v-text="item.model" ></v-list-item-title>
+                            <v-list-item-subtitle v-text="item.categories"></v-list-item-subtitle>
+                             <v-list-item-subtitle v-text="item.Brand"></v-list-item-subtitle>
+                          </v-list-item-content>
+                          <v-list-item-action >
+                            <v-icon>mdi-bitcoin</v-icon>
+                          </v-list-item-action>
+                        </template>
+                      </v-autocomplete>
+                       <v-text-field
+                          v-model="data.units.model"
+                          placeholder="Model"
+                          required
+                          dense
+                        ></v-text-field>
                         <v-chip x-small> Product Categories </v-chip>
                         <v-select
                           v-model="data.units.prodcategories"
@@ -75,61 +136,7 @@
                           required
                           dense
                         ></v-select>
-                        <v-chip x-small> Model* </v-chip>
-                        
-                        <v-autocomplete
-                          v-model="data.units.model"
-                          :items="itemsAuto"
-                          :loading="isLoading"
-                          :search-input.sync="search"
                        
-                          clearable
-                          hide-details
-                          hide-selected
-                          item-text="model"
-                          item-value="model"
-                          label="Search Model"
-                           
-                        >
-                        <template v-slot:no-data>
-                          <v-list-item>
-                            <v-list-item-title>
-                              Search Model
-                              <strong>Model</strong>
-                            </v-list-item-title>
-                          </v-list-item>
-                        </template>
-                        <template v-slot:selection="{ attr, on, item, selected }">
-                          <v-chip
-                            v-bind="attr"
-                            :input-value="selected"
-                            color="blue-grey"
-                            class="white--text"
-                            v-on="on"
-                          >
-                            <v-icon left>
-mdi-file-check                            </v-icon>
-                            <span v-text="item.model"></span>
-                          </v-chip>
-                        </template>
-                        <template v-slot:item="{ item }">
-                          <v-list-item-avatar
-                            color="indigo"
-                            class="text-h5 font-weight-light white--text"
-                          >
-                            {{ item.categories.charAt(0) }}
-                          </v-list-item-avatar>
-                          <v-list-item-content>
-                            <v-list-item-title v-text="item.model"></v-list-item-title>
-                            <v-list-item-subtitle v-text="item.categories"></v-list-item-subtitle>
-                             <v-list-item-subtitle v-text="item.brand"></v-list-item-subtitle>
-                          </v-list-item-content>
-                          <v-list-item-action>
-                            <v-icon>mdi-bitcoin</v-icon>
-                          </v-list-item-action>
-                        </template>
-                      </v-autocomplete>
-
 
 
 
@@ -1035,9 +1042,9 @@ export default {
         locationunit: "",
         organization: "",
         attachment: [],
-        specialinstruction: "",
-        additionalrequest1: "",
-        additionalrequest2: "",
+        specialinstruction: "N/A",
+        additionalrequest1: "N/A",
+        additionalrequest2: "N/A",
       },
       data: {
         units: {
@@ -1184,171 +1191,9 @@ export default {
           },
         ],
 
-        prodcategories: [
-          {
-            name: "AIRCONDITION",
-            value: "AIRCONDITION",
-          },
-          {
-            name: "REFRIGERATOR",
-            value: "REFRIGERATOR",
-          },
-          {
-            name: "WASHING MACHINE",
-            value: "WASHING MACHINE",
-          },
-          {
-            name: "GAS RANGE",
-            value: "GAS RANGE",
-          },
-          {
-            name: "FREEZER",
-            value: "FREEZER",
-          },
-          {
-            name: "CHILLER",
-            value: "CHILLER",
-          },
-          {
-            name: "WATER DESPENSER",
-            value: "WATER DESPENSER",
-          },
-          {
-            name: "AIR COOLER",
-            value: "AIR COOLER",
-          },
-          {
-            name: "RANGE HOOD",
-            value: "RANGE HOOD",
-          },
-          {
-            name: "MICROWAVE OVEN",
-            value: "MICROWAVE OVEN",
-          },
-          {
-            name: "OVEN TOASTER",
-            value: "OVEN TOASTER",
-          },
-          {
-            name: "BLENDER",
-            value: "BLENDER",
-          },
-          {
-            name: "VACUUM",
-            value: "VACUUM",
-          },
-          {
-            name: "CTV",
-            value: "CTV",
-          },
-          {
-            name: "ELECTRIC FAN",
-            value: "ELECTRIC FAN",
-          },
-          {
-            name: "PRINTER",
-            value: "BLENDER",
-          },
-          {
-            name: "AUDIO/SPEAKER",
-            value: "AUDIO/SPEAKER",
-          },
-        ],
+        prodcategories: [ ],
         appliancetype: [],
-        brand: [
-          {
-            name: "LG",
-            value: "LG",
-          },
-          {
-            name: "CARRIER",
-            value: "CARRIER",
-          },
-          {
-            name: "SAMSUNG",
-            value: "SAMSUNG",
-          },
-          {
-            name: "HAIER",
-            value: "HAIER",
-          },
-          {
-            name: "SHARP",
-            value: "SHARP",
-          },
-          {
-            name: "EVEREST",
-            value: "EVEREST",
-          },
-          {
-            name: "PANASONIC",
-            value: "PANASONIC",
-          },
-          {
-            name: "SKYWORTH",
-            value: "SKYWORTH",
-          },
-          {
-            name: "GE",
-            value: "GE",
-          },
-          {
-            name: "MABE",
-            value: "MABE",
-          },
-          {
-            name: "MIDEA",
-            value: "MIDEA",
-          },
-          {
-            name: "ARISTON",
-            value: "ARISTON",
-          },
-          {
-            name: "TECHNOGAS",
-            value: "TECHNOGAS",
-          },
-          {
-            name: "AMERICAN MASTER",
-            value: "AMERICAN MASTER",
-          },
-          {
-            name: "EUROTEK",
-            value: "EUROTEK",
-          },
-          {
-            name: "EUREKA",
-            value: "EUREKA",
-          },
-          {
-            name: "XTREME",
-            value: "XTREME",
-          },
-          {
-            name: "FUJIDENZO",
-            value: "FUJIDENZO",
-          },
-          {
-            name: "WHIRLPOOL",
-            value: "WHIRLPOOL",
-          },
-          {
-            name: "MAYTAG",
-            value: "MAYTAG",
-          },
-          {
-            name: "GLEM",
-            value: "GLEM",
-          },
-          {
-            name: "CHANGHONG",
-            value: "CHANGHONG",
-          },
-          {
-            name: "CONDURA",
-            value: "CONDURA",
-          },
-        ],
+        brand: [ ],
         unitcondition: [
           {
             name: "BRAND NEW",
@@ -1412,7 +1257,7 @@ export default {
         this.isLoading = true
 
         // Lazily load input items
-        fetch('http://192.168.1.19:8081/api2/aircon.json')
+        fetch('http://192.168.1.19:8081/api2/all.json')
           .then(res => res.clone().json())
           .then(res => {
             this.itemsAuto = res
@@ -1690,11 +1535,11 @@ export default {
 
       const APPLIANCETYPE = this.data.units.prodcategories;
       if (APPLIANCETYPE == "REFRIGERATOR") {
-        this.productListDown.appliancetype = REFREGERATOR;
+       // this.productListDown.appliancetype = REFREGERATOR;
       } else if (APPLIANCETYPE == "AIRCONDITION") {
-        this.productListDown.appliancetype = AIRCONDITION;
+       // this.productListDown.appliancetype = AIRCONDITION;
       } else {
-        this.productListDown.appliancetype = EMPTY;
+       // this.productListDown.appliancetype = EMPTY;
       }
     },
     gen() {
@@ -2121,6 +1966,83 @@ export default {
         province_code: restoreData.customer.province,
       };
     },
+    modelsActivate(data){
+     this.productListDown.prodcategories = data.categories
+     this.productListDown.appliancetype = data.type
+     this.productListDown.brand = data.Brand
+     this.data.units.brand = data.Brand
+      
+     this.data.units.prodcategories = data.categories
+     if(data.type){
+      this.data.units.appliancetype = data.type
+     }else{ 
+       const AIRCONDITION = [
+          {
+            name: "SPLIT TYPE",
+            value: "SPLIT TYPE",
+          },
+          {
+            name: "WINDOW TYPE",
+            value: "WINDOW TYPE",
+          },
+          {
+            name: "FLOOR MOUNTED",
+            value: "FLOOR MOUNTED",
+          },
+          {
+            name: "CEILING CASSETTE",
+            value: "CEILING CASSETTE",
+          },
+          {
+            name: "CEILING MOUNTED",
+            value: "CEILING MOUNTED",
+          },
+          {
+            name: "PORTABLE TYPE",
+            value: "PORTABLE TYPE",
+          },
+          {
+            name: "VRF TYPE",
+            value: "VRF TYPE",
+          },
+          {
+            name: "MULTI-SPLIT TYPE",
+            value: "MULTI-SPLIT TYPE",
+          },
+        ];
+        const REFREGERATOR = [
+          {
+            name: "SIDE BY SIDE",
+            value: "SIDE BY SIDE",
+          },
+          {
+            name: "TWO DOOR",
+            value: "TWO DOOR",
+          },
+          {
+            name: "SINGLE DOOR",
+            value: "SINGLE DOOR",
+          },
+        ];
+        const EMPTY = [
+          {
+            name: "N/A",
+            value: "N/A",
+          },
+        ];
+
+        const APPLIANCETYPE = data.categories;
+        if (APPLIANCETYPE == "REFRIGERATOR") {
+       this.productListDown.appliancetype = REFREGERATOR;
+        } else if (APPLIANCETYPE == "AIRCONDITION") {
+       this.productListDown.appliancetype = AIRCONDITION;
+        } else {
+        this.productListDown.appliancetype = EMPTY;
+        }
+     }
+      
+     
+    }
   },
 };
 </script>

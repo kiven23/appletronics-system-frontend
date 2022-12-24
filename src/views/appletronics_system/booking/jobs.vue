@@ -278,11 +278,19 @@
                         :items="installer"
                         item-text="name"
                         item-value="value"
+                        :error-messages="techError"
                         chips
                         dense
                         deletable-chips
                         small-chips
                       ></v-autocomplete>
+                      <v-text-field 
+                        label="CALL ID" 
+                        v-model="callid"
+                        :error-messages="callidError"
+                        required
+                      > 
+                       </v-text-field>
                       <br />
                       <v-autocomplete
                         v-model="jobstatus"
@@ -400,10 +408,17 @@
 
 <script>
 import { mapGetters } from "vuex";
-
+import { validationMixin } from "vuelidate";
+import { required, maxLength, email } from "vuelidate/lib/validators";
 export default {
+   mixins: [validationMixin],
+  validations: {
+        callid: { required },
+        tech: { required },
+  },
   data() {
     return {
+      callid: "",
       selectedID: 0,
       bgselected0: "success",
       bgselected1: "",
@@ -491,7 +506,24 @@ export default {
     };
   },
 
-  computed: {},
+  computed: {
+      callidError() {
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.callid.$dirty) return errors;
+      RequiredError = "Required CALL ID";
+      !this.$v.callid.required && errors.push(RequiredError);
+      return errors;
+    },
+      techError() {
+      const errors = [];
+      var RequiredError = null;
+      if (!this.$v.tech.$dirty) return errors;
+      RequiredError = "Required CALL ID";
+      !this.$v.tech.required && errors.push(RequiredError);
+      return errors;
+    },
+  },
 
   watch: {},
 
@@ -536,24 +568,35 @@ export default {
     },
     actions() {
       let Data;
-      Data = {
-        requestID: this.requestID,
-        installer: this.tech,
-        status: this.jobstatus,
-        installationData: this.installationdateData,
-      };
-      this.$store.dispatch("app_booking_sys/JobsAction", Data).then((res) => {
-        this.$toast.open({
-          message: res.data.msg,
-          type: res.data.error,
-          duration: 3000,
-          // all of other options may go here
-        });
-        if (res.data.type == 1) {
-          this.jobsInfo = false;
-        }
-        this.refresh(this.selectedID);
-      });
+      this.$v.callid.$touch();
+      this.$v.tech.$touch();
+      if(!this.$v.callid.$error && !this.$v.tech.$error){
+          Data = {
+            requestID: this.requestID,
+            installer: this.tech,
+            status: this.jobstatus,
+            installationData: this.installationdateData,
+          };
+          if(this.jobstatus !== 'Unassigned'){
+          this.$store.dispatch("app_booking_sys/JobsAction", Data).then((res) => {
+            this.$toast.open({
+              message: res.data.msg,
+              type: res.data.error,
+              duration: 3000,
+              // all of other options may go here
+            });
+            if (res.data.type == 1) {
+              this.jobsInfo = false;
+            }
+            this.refresh(this.selectedID);
+          });
+          }else{
+            alert('This Action is Only Applicable on Accepted and Distpatch STATUS')
+          }
+ 
+      }
+      
+      
     },
     view(data) {
       console.log(data);
