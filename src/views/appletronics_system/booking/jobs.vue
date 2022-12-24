@@ -181,7 +181,7 @@
             </v-btn>
             <v-toolbar-title
               >Job Status Update:
-              <strong>{{ jobstatus }}</strong></v-toolbar-title
+              <strong>{{ jobstatus }} / {{ jobsData.callid }}</strong></v-toolbar-title
             >
             <v-spacer></v-spacer>
             <v-toolbar-items> </v-toolbar-items>
@@ -308,7 +308,9 @@
                         type="date"
                         v-model="installationdateData"
                         label="Date of Installation / Site Visit"
-                      />
+                      >
+                      </vs-input>
+                      
                       <div>
                         <br />
                         <v-btn color="dark" @click="actions()">
@@ -415,6 +417,7 @@ export default {
   validations: {
         callid: { required },
         tech: { required },
+       
   },
   data() {
     return {
@@ -523,6 +526,7 @@ export default {
       !this.$v.tech.required && errors.push(RequiredError);
       return errors;
     },
+ 
   },
 
   watch: {},
@@ -570,26 +574,33 @@ export default {
       let Data;
       this.$v.callid.$touch();
       this.$v.tech.$touch();
+
       if(!this.$v.callid.$error && !this.$v.tech.$error){
           Data = {
             requestID: this.requestID,
             installer: this.tech,
             status: this.jobstatus,
+            callid: this.callid,
             installationData: this.installationdateData,
           };
           if(this.jobstatus !== 'Unassigned'){
-          this.$store.dispatch("app_booking_sys/JobsAction", Data).then((res) => {
-            this.$toast.open({
-              message: res.data.msg,
-              type: res.data.error,
-              duration: 3000,
-              // all of other options may go here
-            });
-            if (res.data.type == 1) {
-              this.jobsInfo = false;
-            }
-            this.refresh(this.selectedID);
-          });
+             if(this.installationdateData){
+                  this.$store.dispatch("app_booking_sys/JobsAction", Data).then((res) => {
+                  this.$toast.open({
+                    message: res.data.msg,
+                    type: res.data.error,
+                    duration: 3000,
+                    // all of other options may go here
+                  });
+                if (res.data.type == 1) {
+                  this.jobsInfo = false;
+                }
+                this.refresh(this.selectedID);
+              });
+             }else{
+              alert("Please Input Installation Date..!")
+             }
+       
           }else{
             alert('This Action is Only Applicable on Accepted and Distpatch STATUS')
           }

@@ -504,6 +504,7 @@ mdi-file-check                            </v-icon>
                          
                         <v-file-input
                           v-if="checkwarranty"
+                         
                           counter
                           multiple
                           show-size
@@ -769,7 +770,7 @@ mdi-file-check                            </v-icon>
                   >
                     Rebook Same Client
                   </v-btn>
-                  <v-btn color="green darken-1" text @click="RefDialog = false">
+                  <v-btn color="green darken-1" text @click="RefDialog = false || booknew()">
                     Book New Client
                   </v-btn>
                 </v-card-actions>
@@ -1715,11 +1716,26 @@ export default {
       this.units.splice(this.units.indexOf(item), 1);
       this.storeDataFinal.splice(this.storeDataFinal.indexOf(item), 1);
     },
+    checkoutFinal(){
+       if (!this.$v.customer.$error) {
+           this.confirmdialog = true;
+          }
+    },
     checkout() {
       this.$v.customer.$touch();
-      if (!this.$v.customer.$error) {
-        this.confirmdialog = true;
+      if(this.checkwarranty == true){
+              if(this.customer.attachment.length !== 0){
+                   this.checkoutFinal();
+                  }else{
+               alert("Please Attach Sales Invoice to Proceed")
+              }
+      }else{
+            this.checkoutFinal();
       }
+    
+
+
+
     },
     rebook() {
       this.confirmdialog = false;
@@ -1788,7 +1804,7 @@ export default {
     clearcookies() {
       this.storeDataFinal = [];
       this.units = [];
-      (this.reqIdentifier = 0),
+       (this.reqIdentifier = 0),
         (this.customer = {
           cpnumber: "",
           lastname: "",
@@ -2042,6 +2058,67 @@ export default {
      }
       
      
+    },
+
+    booknew(){
+         this.confirmdialog = false;
+      this.storeDataFinal = [];
+      this.units = [];
+      this.requestType =
+        "REF-" + this.activerequest + "-" + Math.ceil(Math.random() * 1000000);
+      this.data = {
+        units: {
+          prodcategories: "",
+          appliancetype: "",
+          brand: "",
+          model: "",
+          serialno: "",
+          unitcondition: "",
+          warrantycondition: "",
+          qty: "",
+          demandreplacement: "",
+          priority: "",
+          datepurchase: new Date(
+            Date.now() - new Date().getTimezoneOffset() * 60000
+          )
+            .toISOString()
+            .substr(0, 10),
+        },
+
+        usage: {
+          propertytype: "",
+          level: "",
+          location: "",
+          area: "",
+          wallfinish: "",
+          withpowersupply: "",
+          deliverydate: "",
+          time: null,
+          locationofinstallation: "",
+          paidamoun: "",
+        },
+      };
+
+      this.customer = {
+          cpnumber: "",
+          lastname: "",
+          firstname: "",
+          emailaddress: "",
+          middlename: "",
+          contactperson: "",
+          telephoneno: "",
+          houseno: "",
+          street: "",
+          barangay: "",
+          mcity: "",
+          province: "",
+          locationunit: "",
+          organization: "",
+          attachment: [],
+          specialinstruction: "",
+          additionalrequest1: "",
+          additionalrequest2: "",
+        }
     }
   },
 };
