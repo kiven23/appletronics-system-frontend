@@ -199,6 +199,7 @@
             </v-list-item>
           </v-list>
           <v-list three-line subheader>
+      
             <v-subheader>Customer Information</v-subheader>
             <v-list-item>
               <v-list-item-content>
@@ -248,7 +249,7 @@
                       <strong>Date of Installation</strong><br />
                       {{ jobsData.installationdate }}<br />
                       <strong>Province</strong><br />
-                      N/A<br />
+                      {{jobsData.customer.province}}<br />
                     </v-card>
                   </v-col>
                 </v-row>
@@ -273,6 +274,7 @@
                     <br />
                     <v-card class="pa-1">
                       <v-autocomplete
+                      v-if="users == 28"
                         v-model="tech"
                         label="Assign Tech/Installer"
                         :items="installer"
@@ -305,6 +307,7 @@
                       ></v-autocomplete>
                       <br />
                       <vs-input
+                      v-if="users == 28"
                         type="date"
                         v-model="installationdateData"
                         label="Date of Installation / Site Visit"
@@ -421,6 +424,7 @@ export default {
   },
   data() {
     return {
+      usersData: [],
       callid: "",
       selectedID: 0,
       bgselected0: "success",
@@ -447,7 +451,7 @@ export default {
       ],
       jobupdateDialog: false,
       unitsData: [],
-      tech: "",
+      tech: { name: 'N/A', value: 'N/A'},
       jobstatus: "",
       jobsInfo: false,
       jobsData: {
@@ -492,6 +496,7 @@ export default {
         { name: "Dispatch to Other ASC", value: "Dispatch to Other ASC" },
       ],
       installer: [
+         { name: "N/A", value: "N/A" },
         { name: "Mike Doe", value: "Mike Doe" },
         { name: "Linux Doe", value: "Linux Doe" },
         { name: "James Doe", value: "James Doe" },
@@ -510,6 +515,10 @@ export default {
   },
 
   computed: {
+      users(){
+        var us = this.usersData.employment.position.id;
+        return us;
+      },
       callidError() {
       const errors = [];
       var RequiredError = null;
@@ -535,7 +544,9 @@ export default {
     this.$store.dispatch("app_booking_sys/fetchJobs").then((res) => {
       this.data = res.data;
     });
+
     this.refresh(0);
+    this.usersData = this.$store.state.currentUser
   },
 
   methods: {
@@ -573,9 +584,9 @@ export default {
     actions() {
       let Data;
       this.$v.callid.$touch();
-      this.$v.tech.$touch();
+       
 
-      if(!this.$v.callid.$error && !this.$v.tech.$error){
+      if(!this.$v.callid.$error ){
           Data = {
             requestID: this.requestID,
             installer: this.tech,
@@ -584,7 +595,7 @@ export default {
             installationData: this.installationdateData,
           };
           if(this.jobstatus !== 'Unassigned'){
-             if(this.installationdateData){
+             
                   this.$store.dispatch("app_booking_sys/JobsAction", Data).then((res) => {
                   this.$toast.open({
                     message: res.data.msg,
@@ -597,11 +608,9 @@ export default {
                 }
                 this.refresh(this.selectedID);
               });
-             }else{
-              alert("Please Input Installation Date..!")
-             }
+             } 
        
-          }else{
+          else{
             alert('This Action is Only Applicable on Accepted and Distpatch STATUS')
           }
  

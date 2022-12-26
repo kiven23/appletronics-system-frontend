@@ -39,8 +39,8 @@
                 <v-list-item-content>
                   <v-row no-gutters>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-3" height="830">
-                        <h4>PRODUCT INFORMATION</h4>
+                      <v-card class="pa-3" height="900">
+                        <h5>PRODUCT INFORMATION</h5>
                           <v-chip x-small> Model* </v-chip>
                         <v-autocomplete
                           v-model="data.units.model"
@@ -48,13 +48,13 @@
                           :loading="isLoading"
                           :search-input.sync="search"
                        
-                          clearable
+                           
                           hide-details
                           hide-selected
                           item-text="model"
                           item-value="model"
                           label="Search Model"
-                           
+                          @change="autoclear()"
                         >
                         <template v-slot:no-data>
                           <v-list-item>
@@ -92,7 +92,7 @@ mdi-file-check                            </v-icon>
                              <v-list-item-subtitle v-text="item.Brand"></v-list-item-subtitle>
                           </v-list-item-content>
                           <v-list-item-action >
-                            <v-icon>mdi-bitcoin</v-icon>
+                            <!-- <v-icon>mdi-bitcoin</v-icon> -->
                           </v-list-item-action>
                         </template>
                       </v-autocomplete>
@@ -103,7 +103,7 @@ mdi-file-check                            </v-icon>
                           dense
                         ></v-text-field>
                         <v-chip x-small> Product Categories </v-chip>
-                        <v-select
+                        <v-autocomplete
                           v-model="data.units.prodcategories"
                           :items="productListDown.prodcategories"
                           :error-messages="prodcategoriesError"
@@ -113,9 +113,9 @@ mdi-file-check                            </v-icon>
                           required
                           dense
                           @change="getindex()"
-                        ></v-select>
+                        ></v-autocomplete>
                         <v-chip x-small> Appliance Type </v-chip>
-                        <v-select
+                        <v-autocomplete
                           v-model="data.units.appliancetype"
                           :items="productListDown.appliancetype"
                           :error-messages="appliancetypeError"
@@ -124,9 +124,9 @@ mdi-file-check                            </v-icon>
                           item-value="value"
                           required
                           dense
-                        ></v-select>
+                        ></v-autocomplete>
                         <v-chip x-small> Brand* </v-chip>
-                        <v-select
+                        <v-autocomplete
                           v-model="data.units.brand"
                           :items="productListDown.brand"
                           :error-messages="brandError"
@@ -135,7 +135,7 @@ mdi-file-check                            </v-icon>
                           item-value="value"
                           required
                           dense
-                        ></v-select>
+                        ></v-autocomplete>
                        
 
 
@@ -169,11 +169,12 @@ mdi-file-check                            </v-icon>
                           required
                           dense
                         ></v-select>
-                        <v-chip x-small>QTY</v-chip>
+                        <v-chip x-small>DATE PURCHASE</v-chip>
                         <vs-input
                           type="date"
                           v-model="data.units.datepurchase"
                         />
+                        <v-chip x-small v-if="reqIdentifier !== 1">Quantity</v-chip>
                         <v-text-field
                           v-if="reqIdentifier !== 1"
                           v-model="data.units.qty"
@@ -192,17 +193,73 @@ mdi-file-check                            </v-icon>
                           required
                           dense
                         ></v-select> -->
-                        <v-chip x-small v-if="reqIdentifier == 1"> Problem </v-chip>
-                        <v-select
+  <v-chip x-small v-if="reqIdentifier == 1"> Problem </v-chip>
+                        <v-autocomplete
+                         v-if="reqIdentifier == 1"
+                          v-model="data.units.problem"
+                          :items="problemItemsAuto"
+                          :loading="isLoading"
+                          :search-input.sync="searchP"
+                          hide-details
+                          hide-selected
+                          item-text="Name"
+                          item-value="Name"
+                          label="Search Problem"
+                           
+                        >
+                        <template v-slot:no-data>
+                          <v-list-item>
+                            <v-list-item-title>
+                              Search Problem
+                          
+                            </v-list-item-title>
+                          </v-list-item>
+                        </template>
+                        <template v-slot:selection="{ attr, on, item, selected2 }">
+                          <v-chip
+                            v-bind="attr"
+                            :input-value="selected2"
+                            color="blue-grey"
+                            class="white--text"
+                            v-on="on"
+                             
+                          >
+                            <v-icon left>
+                          mdi-file-check                           
+                           </v-icon>
+                            <span v-text="item.Name"  ></span>
+                          </v-chip>
+                        </template>
+                        <template v-slot:item="{ item }">
+                          <v-list-item-avatar
+                            color="indigo"
+                            class="text-h5 font-weight-light white--text"
+                            
+                          >
+                            {{ item.Name.charAt(0) }}
+                          </v-list-item-avatar>
+                          <v-list-item-content  >
+                            <v-list-item-title v-text="item.Name" ></v-list-item-title>
+                            <v-list-item-subtitle v-text="item.Name"></v-list-item-subtitle>
+                           
+                          </v-list-item-content>
+                          <v-list-item-action >
+                            <!-- <v-icon>mdi-bitcoin</v-icon> -->
+                          </v-list-item-action>
+                        </template>
+                      </v-autocomplete>
+                                              
+                        <v-text-field
                           v-if="reqIdentifier == 1"
                           v-model="data.units.problem"
-                          :items="productListDown.problem"
                           placeholder="Problem"
-                          item-text="name"
-                          item-value="value"
                           required
                           dense
-                        ></v-select>
+                        ></v-text-field>
+    
+  
+
+
                         <v-chip x-small>Priority </v-chip>
                         <v-select
                           style="margin: 6px"
@@ -230,7 +287,7 @@ mdi-file-check                            </v-icon>
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="3" v-if="reqIdentifier == 4">
-                      <v-card class="pa-3" height="830">
+                      <v-card class="pa-3" height="900">
                         <v-chip x-small>Property Type* </v-chip>
                         <v-select
                           
@@ -335,11 +392,11 @@ mdi-file-check                            </v-icon>
                             </v-btn>
                           </v-time-picker>
                         </v-dialog>
-                        <v-chip x-small>Location of Installation </v-chip>
+                        <v-chip x-small>Location Address</v-chip>
                         <v-text-field
                           style="margin: 6px"
                           v-model="data.usage.locationofinstallation"
-                          placeholder="Location of Installation"
+                          placeholder="Location Address"
                           required
                           dense
                         ></v-text-field>
@@ -355,7 +412,7 @@ mdi-file-check                            </v-icon>
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-3" height="830">
+                      <v-card class="pa-3" height="900">
                         <h5>CUSTOMER INFORMATION</h5> 
                         <v-chip x-small> Contact Phone Number*</v-chip>
                         <v-text-field
@@ -488,15 +545,15 @@ mdi-file-check                            </v-icon>
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-3" height="830">
-                        <v-chip x-small  >Location of Unit</v-chip>
+                      <v-card class="pa-3" height="900">
+                        <v-chip x-small  >NAME OF ORGANIZATION</v-chip>
                         <v-text-field
                           v-model="customer.locationunit"
-                          placeholder="e.g MUNICIPALITY OF ASINGAN"
+                          placeholder="NAME OF ORGANIZATION"
                           required
                         ></v-text-field>
-                         <v-chip x-small color="success">Is this an organization?</v-chip>
-                        <v-radio-group v-model="customer.organization" row>
+                         <v-chip x-small color="success"  v-if="reqIdentifier == 3||reqIdentifier ==4">Is this an organization?</v-chip>
+                        <v-radio-group v-if="reqIdentifier == 4||reqIdentifier == 3" v-model="customer.organization" row>
                           <v-radio label="Yes" value="1"></v-radio>
                           <v-radio label="No" value="2"></v-radio>
                         </v-radio-group>
@@ -989,6 +1046,11 @@ export default {
       search: null,
       tab: null,
 
+      problemItemsAuto: [],
+      problemAuto: null,
+      searchP: null,
+ 
+
 
       restoreBK: false,
       restoreHead: [
@@ -1238,10 +1300,15 @@ export default {
             name: "HIGH",
             value: "HIGH",
           },
+           {
+            name: "MEDIUM",
+            value: "MEDIUM",
+          },
           {
             name: "LOW",
             value: "LOW",
           },
+           
         ],
       },
     };
@@ -1254,14 +1321,34 @@ export default {
           search (val) {
         // Items have already been loaded
         if (this.itemsAuto.length > 0) return
-
         this.isLoading = true
-
         // Lazily load input items
         fetch('http://192.168.1.19:8081/api2/all.json')
           .then(res => res.clone().json())
           .then(res => {
             this.itemsAuto = res
+          })
+          .catch(err => {
+            console.log(err)
+          })
+          .finally(() => (this.isLoading = false))
+      },
+
+
+
+       problemAuto (val) {
+              if (val != null) this.tab = 0
+              else this.tab = null
+            },
+      searchP (val) {
+        // Items have already been loaded
+        if (this.problemItemsAuto.length > 0) return
+        this.isLoading = true
+        // Lazily load input items
+        fetch('http://192.168.1.19:8081/api2/problem.json')
+          .then(res => res.clone().json())
+          .then(res => {
+            this.problemItemsAuto = res
           })
           .catch(err => {
             console.log(err)
@@ -1983,12 +2070,19 @@ export default {
       };
     },
     modelsActivate(data){
+ 
      this.productListDown.prodcategories = data.categories
      this.productListDown.appliancetype = data.type
      this.productListDown.brand = data.Brand
      this.data.units.brand = data.Brand
       
      this.data.units.prodcategories = data.categories
+     if(data.model == "*" ){
+     this.productListDown.brand = data.Brand2
+     this.productListDown.prodcategories = data.cat
+     this.productListDown.appliancetype = data.type
+ 
+     }
      if(data.type){
       this.data.units.appliancetype = data.type
      }else{ 
@@ -2119,6 +2213,16 @@ export default {
           additionalrequest1: "",
           additionalrequest2: "",
         }
+    },
+
+    autoclear(){
+     var i = this.data.units.model?1:2
+     if(i == 2){
+         this.data.units.prodcategories = ""
+         this.data.units.appliancetype = ""
+         this.data.units.brand = ""
+         this.data.units.model= ""
+     }
     }
   },
 };
