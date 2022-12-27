@@ -212,8 +212,8 @@
                       {{ jobsData.customer.lastname }}<br />
                       <strong>House No.</strong><br />
                       {{ jobsData.customer.houseno }}<br />
-                      <strong>Location of Unit</strong><br />
-                      N/A<br />
+                      <strong>{{data.requesttype == "REPAIR" || data.requesttype == "CLEANING"? "Location of Unit":"Name Of Organization"}} </strong><br />
+                      {{jobsData.locandorg}}<br />
                     </v-card>
                   </v-col>
                   <v-col cols="12" sm="3">
@@ -446,7 +446,7 @@ export default {
         { text: "Unit Condition", value: "unitcondition" },
         { text: "Warranty Condition", value: "warrantycondition" },
         { text: "Date of Purchase", value: "datepurchase" },
-        { text: "Demand Replacement", value: "demandreplacement" },
+         { text: "Installation Address", value: "locationofinstallation" },
         { text: "Priority", value: "priority" },
       ],
       jobupdateDialog: false,

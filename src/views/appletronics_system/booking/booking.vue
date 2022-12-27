@@ -2036,6 +2036,7 @@ export default {
         DATA.push(add);
       });
       this.units = DATA;
+      this.storeDataFinal = DATA
       this.customer = {
         cpnumber: restoreData.customer.cpnumber,
         lastname: restoreData.customer.lastname,

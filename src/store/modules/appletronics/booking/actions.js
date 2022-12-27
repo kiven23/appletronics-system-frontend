@@ -33,6 +33,7 @@ const actions = {
     formData.append("additionalrequest1", data.customer.additionalrequest1);
     formData.append("additionalrequest2", data.customer.additionalrequest2);
     //REQUEST TYPE
+    formData.append("locanorg", data.customer.locationunit);
     formData.append("identify", data.identify);
     formData.append("requestType", data.requestType);
     formData.append("requestid", data.requestid);
