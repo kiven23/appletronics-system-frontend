@@ -101,6 +101,7 @@ mdi-file-check                            </v-icon>
                           placeholder="Model"
                           required
                           dense
+                          @change="autoclear()"
                         ></v-text-field>
                         <v-chip x-small> Product Categories </v-chip>
                         <v-autocomplete
@@ -392,11 +393,11 @@ mdi-file-check                            </v-icon>
                             </v-btn>
                           </v-time-picker>
                         </v-dialog>
-                        <v-chip x-small>Location Address</v-chip>
+                        <v-chip x-small>Installation Address</v-chip>
                         <v-text-field
                           style="margin: 6px"
                           v-model="data.usage.locationofinstallation"
-                          placeholder="Location Address"
+                          placeholder="Installation Address"
                           required
                           dense
                         ></v-text-field>
@@ -546,10 +547,11 @@ mdi-file-check                            </v-icon>
                     </v-col>
                     <v-col cols="12" sm="2">
                       <v-card class="pa-3" height="900">
-                        <v-chip x-small  >NAME OF ORGANIZATION</v-chip>
+                        <v-chip x-small>{{reqIdentifier == 3|| reqIdentifier == 4? 'NAME OF ORGANIZATION': 'LOCATION OF UNIT'}} </v-chip>
                         <v-text-field
+                     
                           v-model="customer.locationunit"
-                          placeholder="NAME OF ORGANIZATION"
+                          :placeholder="reqIdentifier == 3|| reqIdentifier == 4? 'NAME OF ORGANIZATION': 'LOCATION OF UNIT'"
                           required
                         ></v-text-field>
                          <v-chip x-small color="success"  v-if="reqIdentifier == 3||reqIdentifier ==4">Is this an organization?</v-chip>
@@ -557,10 +559,10 @@ mdi-file-check                            </v-icon>
                           <v-radio label="Yes" value="1"></v-radio>
                           <v-radio label="No" value="2"></v-radio>
                         </v-radio-group>
-                         <v-chip x-medium  v-if="checkwarranty">Sales Invoice</v-chip>
+                         <v-chip x-medium  v-if="checkwarranty || reqIdentifier == 2 || reqIdentifier == 3 || reqIdentifier == 4">Sales Invoice</v-chip>
                          
                         <v-file-input
-                          v-if="checkwarranty"
+                          v-if="checkwarranty || reqIdentifier == 2 || reqIdentifier == 3 || reqIdentifier == 4"
                          
                           counter
                           multiple
@@ -575,6 +577,20 @@ mdi-file-check                            </v-icon>
                           rows="1"
                           v-model="customer.specialinstruction"
                         ></v-textarea>
+                        <v-chip x-small>LANDMARK</v-chip>
+                        <v-text-field
+                          v-model="customer.landmark"
+                          placeholder="LANDMARK "
+                          required
+                        ></v-text-field>
+                           <v-chip x-small v-if="reqIdentifier == 3">SURVEY LOCATION</v-chip>
+                        <v-text-field
+                          v-if="reqIdentifier == 3"
+                          v-model="customer.locationofinstallation"
+                          placeholder="Survey Location"
+                          required
+                        ></v-text-field>
+
                         <h3>Any additional request?</h3>
 
                         <vs-checkbox
@@ -727,15 +743,7 @@ mdi-file-check                            </v-icon>
                     <v-col cols="12" sm="6" md="4">
                       <strong>Address Details</strong>
                       <br />{{
-                        customer.houseno +
-                        " " +
-                        customer.street +
-                        " " +
-                        customer.barangay +
-                        " " +
-                        customer.mcity +
-                        " " +
-                        customer.province
+                        customer.barangay +', '+ customer.mcity +', '+customer.province
                       }}
                     </v-col>
 
@@ -745,7 +753,7 @@ mdi-file-check                            </v-icon>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <strong>Dealer Name</strong>
-                      <br />ADDESSA
+                      <br />{{usersData.branch.name}}
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <strong>Special Instruction</strong>
@@ -1040,6 +1048,7 @@ export default {
   },
   data() {
     return {
+      usersData: [],
       isLoading: false,
       itemsAuto: [],
       modelAuto: null,
@@ -1088,6 +1097,7 @@ export default {
         { text: "MOBILE NUMBER", value: "cpnumber" },
       ],
       customer: {
+        landmark: "",
         customerCity: "",
         cpnumber: "",
         lastname: "",
@@ -1359,6 +1369,8 @@ export default {
   created() {
     this.$store.dispatch("fetchDBAll");
     regions().then((region) => (this.addressesListDown.region = region));
+
+    this.usersData = this.$store.state.currentUser
   },
   computed: {
     checkwarranty(){
@@ -1814,7 +1826,13 @@ export default {
               if(this.customer.attachment.length !== 0){
                    this.checkoutFinal();
                   }else{
-               alert("Please Attach Sales Invoice to Proceed")
+                    this.reqIdentifier 
+                    if(this.reqIdentifier  == 3 || this.reqIdentifier  == 4){
+                          this.checkoutFinal();
+                    }else{
+                          alert("Please Attach Sales Invoice to Proceed")
+                    }
+               
               }
       }else{
             this.checkoutFinal();
@@ -2218,10 +2236,14 @@ export default {
     autoclear(){
      var i = this.data.units.model?1:2
      if(i == 2){
-         this.data.units.prodcategories = ""
-         this.data.units.appliancetype = ""
-         this.data.units.brand = ""
-         this.data.units.model= ""
+          this.data.units.prodcategories = ""
+          this.data.units.appliancetype = ""
+          this.data.units.brand = ""
+          this.data.units.model= ""
+
+          this.productListDown.brand = ""
+          this.productListDown.prodcategories = ""
+          this.productListDown.appliancetype = ""
      }
     }
   },

@@ -23,7 +23,7 @@ const actions = {
     formData.append("middlename", data.customer.middlename);
     formData.append("houseno", data.customer.houseno);
     formData.append("mcity", data.customer.customerCity);
-   
+    formData.append("landmark", data.customer.landmark);
     formData.append("organization", data.customer.organization);
     formData.append("barangay", data.customer.barangay);
     formData.append("province", data.customer.province);
