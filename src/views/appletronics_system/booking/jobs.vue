@@ -146,6 +146,7 @@
         item-key="requestid"
         class="elevation-1"
         :search="search"
+        :items-per-page="5"
       >
         <template v-slot:item.customer="{ item }">
           {{ item.customer.lastname }},
@@ -194,6 +195,7 @@
                   dense
                   :headers="unitsHeader"
                   :items="unitsData"
+                  
                 ></v-data-table>
               </v-list-item-content>
             </v-list-item>
@@ -202,57 +204,176 @@
       
             <v-subheader>Customer Information</v-subheader>
             <v-list-item>
-              <v-list-item-content>
+              <v-list-item-content >
                 <v-row no-gutters>
                   <v-col cols="12" sm="3">
-                    <v-card class="pa-2">
-                      <strong>Contact Phone Number</strong><br />
-                      {{ jobsData.customer.cpnumber }}<br />
+
+                    <!-- INSTALLATION ACCEPTED -->
+                    <v-card class="pa-2" v-if="reqtype == 'INSTALLATION'" style="height: 180px">
+                    <strong>Contact Phone Number</strong><br />
+                      {{ jobsData.customer.cpnumber?jobsData.customer.cpnumber  : 'N/A' }}<br />
                       <strong>Last Name</strong><br />
-                      {{ jobsData.customer.lastname }}<br />
-                      <strong>House No.</strong><br />
-                      {{ jobsData.customer.houseno }}<br />
-                      <strong>{{data.requesttype == "REPAIR" || data.requesttype == "CLEANING"? "Location of Unit":"Name Of Organization"}} </strong><br />
-                      {{jobsData.locandorg}}<br />
-                    </v-card>
-                  </v-col>
-                  <v-col cols="12" sm="3">
-                    <v-card class="pa-2">
-                      <strong>Contact Email Address</strong><br />
-                      {{ jobsData.customer.emailaddress }}<br />
-                      <strong>First Name</strong><br />
-                      {{ jobsData.customer.firstname }}<br />
-                      <strong>Street</strong><br />
-                      {{ jobsData.customer.street }}<br />
-                      <strong>Special Request</strong><br />
-                      {{ jobsData.customer.specialinstruction }}<br />
-                    </v-card>
-                  </v-col>
-                  <v-col cols="12" sm="3">
-                    <v-card class="pa-2">
-                      <strong>Telephone No.</strong><br />
-                      {{ jobsData.customer.telephoneno }}<br />
-                      <strong>Middle Name</strong><br />
-                      {{ jobsData.customer.middlename }}<br />
-                      <strong>Barangay</strong><br />
-                      {{ jobsData.customer.barangay }}<br />
-                      <strong>Installer</strong><br />
-                      {{ jobsData.installer }}<br />
-                    </v-card>
-                  </v-col>
-                  <v-col cols="12" sm="3">
-                    <v-card class="pa-2">
-                      <strong>Contact Person</strong><br />
-                      {{ jobsData.customer.contactperson }}<br />
+                      {{ jobsData.customer.lastname? jobsData.customer.lastname : 'N/A' }}<br />
                       <strong>Municipality</strong><br />
-                      {{ jobsData.customer.mcity }}<br />
-                      <strong>Date of Installation</strong><br />
-                      {{ jobsData.installationdate }}<br />
+                      {{ jobsData.customer.mcity? jobsData.customer.mcity : 'N/A' }}<br />
+                        <strong>Dealer Name</strong><br />
+                      {{jobsData.branch.name }}<br />
+                       <strong v-if="jobstatus !== 'Unassigned'">Date of Installation</strong><br />
+                      {{ jobstatus !== 'Unassigned'? jobsData.installationdate  ==null?jobsData.installationdate: 'N/A': '' }} 
+                    </v-card>
+                    <!--END-->
+
+                    <!-- SURVEY REQUEST -->
+                 
+                    <v-card class="pa-2" v-if="reqtype == 'SITE SURVEY'" style="height: 180px">
+                       <strong>Contact Phone Number</strong><br />
+                      {{ jobsData.customer.cpnumber?jobsData.customer.cpnumber  : 'N/A' }}<br />
+                      <strong>Last Name</strong><br />
+                      {{ jobsData.customer.lastname? jobsData.customer.lastname : 'N/A' }}<br />
+                      <strong>Municipality</strong><br />
+                      {{ jobsData.customer.mcity? jobsData.customer.mcity : 'N/A' }}<br />
+                        <strong>Dealer Name</strong><br />
+                      {{jobsData.branch.name }}<br />
+                       <strong v-if="jobstatus !== 'Unassigned'">Date of Survey</strong><br />
+                      {{ jobstatus !== 'Unassigned'? jobsData.installationdate  ==null ?jobsData.installationdate: 'N/A': '' }} 
+                    </v-card>
+                    <!--END-->
+
+                     <!-- REPAIR & CLEANING REQUEST -->
+                    <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 180px">
+                      <strong>Contact Phone Number</strong><br />
+                      {{ jobsData.customer.cpnumber?jobsData.customer.cpnumber  : 'N/A' }}<br />
+                      <strong>Last Name</strong><br />
+                      {{ jobsData.customer.lastname? jobsData.customer.lastname : 'N/A' }}<br />
+                      <strong>Municipality</strong><br />
+                      {{ jobsData.customer.mcity? jobsData.customer.mcity : 'N/A' }}<br />
+                        <strong>Dealer Name</strong><br />
+                      {{jobsData.branch.name }}<br />
+                      
+                    </v-card>
+                    <!--END-->
+
+                  </v-col>
+                  <v-col cols="12" sm="3">
+
+                     <!-- INSTALLATION ACCEPTED -->
+                    <v-card class="pa-2"  v-if="reqtype == 'INSTALLATION'" style="height: 180px">
+                      <strong>Contact Email Address</strong><br />
+                      {{ jobsData.customer.emailaddress? jobsData.customer.emailaddress : 'N/A' }}<br />
+                      <strong>First Name</strong><br />
+                      {{ jobsData.customer.firstname? jobsData.customer.firstname: 'N/A'}}<br />
+                        <strong>Barangay</strong><br />
+                      {{ jobsData.customer.barangay? jobsData.customer.barangay : 'N/A' }}<br />
+                       <strong>Name Of Organization</strong><br />
+                      {{jobsData.organizationname? jobsData.organizationname : 'N/A'}}<br />
+                    </v-card>
+                    <!-- END -->
+
+                    <!-- SURVEY REQUEST -->
+                    <v-card class="pa-2"  v-if="reqtype == 'SITE SURVEY'" style="height: 180px">
+                    <strong>Contact Email Address</strong><br />
+                      {{ jobsData.customer.emailaddress? jobsData.customer.emailaddress : 'N/A' }}<br />
+                      <strong>First Name</strong><br />
+                      {{ jobsData.customer.firstname? jobsData.customer.firstname: 'N/A'}}<br />
+                        <strong>Barangay</strong><br />
+                      {{ jobsData.customer.barangay? jobsData.customer.barangay : 'N/A' }}<br />
+                       <strong>Name Of Organization</strong><br />
+                      {{jobsData.organizationname? jobsData.organizationname : 'N/A'}}<br />
+                    </v-card>
+                    <!--END-->
+
+                    <!-- REPAIR & CLEANING REQUEST -->
+                    <v-card class="pa-2"  v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 180px">
+                      <strong>Contact Email Address</strong><br />
+                      {{ jobsData.customer.emailaddress? jobsData.customer.emailaddress : 'N/A' }}<br />
+                      <strong>First Name</strong><br />
+                      {{ jobsData.customer.firstname? jobsData.customer.firstname: 'N/A'}}<br />
+                        <strong>Barangay</strong><br />
+                      {{ jobsData.customer.barangay? jobsData.customer.barangay : 'N/A' }}<br />
+                        <strong>Special Request</strong><br />
+                      {{ jobsData.customer.specialinstruction? jobsData.customer.specialinstruction : 'N/A'}}
+                    </v-card>
+                    <!--END-->
+
+                  </v-col>
+
+                  <v-col cols="12" sm="3">
+                    <!-- INSTALLATION ACCEPTED -->
+                    <v-card class="pa-2" v-if="reqtype == 'INSTALLATION'" style="height: 180px">
+
+                      <strong>Telephone No.  </strong><br />
+                      {{ jobsData.customer.telephoneno?  jobsData.customer.telephoneno :'N/A' }}<br />
+                      <strong>Middle Name</strong><br />
+                      {{ jobsData.customer.middlename? jobsData.customer.middlename: 'N/A' }}<br />
+                      <strong>Street</strong><br />
+                      {{ jobsData.customer.street? jobsData.customer.street : 'N/A' }}<br />
+                      <strong>Special Request</strong><br />
+                      {{ jobsData.customer.specialinstruction? jobsData.customer.specialinstruction : 'N/A'}}
+                     
+                    </v-card>
+                    <!-- SURVEY REQUEST -->
+                    <v-card class="pa-2" v-if="reqtype == 'SITE SURVEY'" style="height: 180px">
+                       <strong>Telephone No.  </strong><br />
+                      {{ jobsData.customer.telephoneno?  jobsData.customer.telephoneno :'N/A' }}<br />
+                      <strong>Middle Name</strong><br />
+                      {{ jobsData.customer.middlename? jobsData.customer.middlename: 'N/A' }}<br />
+                      <strong>Street</strong><br />
+                      {{ jobsData.customer.street? jobsData.customer.street : 'N/A' }}<br />
+                      <strong>Special Request</strong><br />
+                      {{ jobsData.customer.specialinstruction? jobsData.customer.specialinstruction : 'N/A'}}
+                    </v-card>
+                    <!-- REPAIR & CLEANING REQUEST -->
+                    <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 180px">
+                     <strong>Telephone No.  </strong><br />
+                      {{ jobsData.customer.telephoneno?  jobsData.customer.telephoneno :'N/A' }}<br />
+                      <strong>Middle Name</strong><br />
+                      {{ jobsData.customer.middlename? jobsData.customer.middlename: 'N/A' }}<br />
+                      <strong>Street</strong><br />
+                      {{ jobsData.customer.street? jobsData.customer.street : 'N/A' }}<br />
+                        <strong v-if="jobstatus !== 'Unassigned'">Technician</strong><br />
+                       {{ jobstats !== 'Unassigned'?jobsData.installer ==null? jobsData.installer : 'N/A' :''}}<br />
+                    </v-card> 
+
+                  </v-col>
+                  
+                  <v-col cols="12" sm="3" >
+                     <!-- INSTALLATION ACCEPTED -->
+                    <v-card class="pa-2"  v-if="reqtype == 'INSTALLATION'" style="height: 180px">
+                     <strong>Contact Person</strong><br />
+                      {{ jobsData.customer.contactperson?jobsData.customer.contactperson :'N/A' }}<br />
                       <strong>Province</strong><br />
                       {{jobsData.customer.province}}<br />
+                      <strong>House No.</strong><br />
+                      {{ jobsData.customer.houseno? jobsData.customer.houseno : 'N/A' }}<br />
+                       <strong v-if="jobstatus !== 'Unassigned'">Installer</strong><br />
+                      {{ jobstats !== 'Unassigned'?jobsData.installer ==null ? jobsData.installer : 'N/A' :''}}<br />
+                    </v-card>
+                        <!-- SURVEY REQUEST -->
+                    <v-card class="pa-2"  v-if="reqtype == 'SITE SURVEY'" style="height: 180px">
+                    <strong>Contact Person</strong><br />
+                      {{ jobsData.customer.contactperson?jobsData.customer.contactperson :'N/A' }}<br />
+                      <strong>Province</strong><br />
+                      {{jobsData.customer.province}}<br />
+                      <strong>House No.</strong><br />
+                      {{ jobsData.customer.houseno? jobsData.customer.houseno : 'N/A' }}<br />
+                        <strong v-if="jobstatus !== 'Unassigned'">Technician</strong><br />
+                      {{ jobstats !== 'Unassigned'?jobsData.installer ==null? jobsData.installer : 'N/A' :''}}<br />
+                    </v-card>
+
+                     <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 180px">
+                      <strong>Contact Person</strong><br />
+                      {{ jobsData.customer.contactperson?jobsData.customer.contactperson :'N/A' }}<br />
+                      <strong>Province</strong><br />
+                      {{jobsData.customer.province}}<br />
+                      <strong>House No.</strong><br />
+                      {{ jobsData.customer.houseno? jobsData.customer.houseno : 'N/A' }}<br />
+                     <strong  v-if="jobstatus !== 'Unassigned'">Date of Service</strong><br />
+                      {{ jobstatus !== 'Unassigned'? jobsData.installationdate ==null?jobsData.installationdate: 'N/A': '' }} 
                     </v-card>
                   </v-col>
                 </v-row>
+
+             
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -274,7 +395,7 @@
                     <br />
                     <v-card class="pa-1">
                       <v-autocomplete
-                      v-if="users == 28"
+                      v-if="users == 28 || users == 25"
                         v-model="tech"
                         label="Assign Tech/Installer"
                         :items="installer"
@@ -307,10 +428,10 @@
                       ></v-autocomplete>
                       <br />
                       <vs-input
-                      v-if="users == 28"
+                      v-if="users == 28 || users == 25"
                         type="date"
                         v-model="installationdateData"
-                        label="Date of Installation / Site Visit"
+                        :label="reqtype == 'REPAIR' || reqtype == 'CLEANING'? 'Date Of Service': reqtype == 'INSTALLATION'? 'Date Of Installation':'Date Of Survey'"
                       >
                       </vs-input>
                       
@@ -436,21 +557,23 @@ export default {
       items: [],
       jobsCounts: "",
       unitsHeader: [
+
         { text: "Product Category", value: "prodcategories" },
         { text: "Appliance Type", value: "appliancetype" },
         // { text: "Request Type", value: "branch.name" },
         { text: "Brand", value: "brand" },
-        { text: "Qty", value: "qty" },
+        // { text: "Qty", value: "qty" },
         { text: "Model", value: "model" },
         { text: "Serial No.", value: "serialno" },
         { text: "Unit Condition", value: "unitcondition" },
         { text: "Warranty Condition", value: "warrantycondition" },
         { text: "Date of Purchase", value: "datepurchase" },
-         { text: "Installation Address", value: "locationofinstallation" },
+        // { text: "Installation Address", value: "locationofinstallation" },
         { text: "Priority", value: "priority" },
       ],
       jobupdateDialog: false,
       unitsData: [],
+      reqtype: '',
       tech: { name: 'N/A', value: 'N/A'},
       jobstatus: "",
       jobsInfo: false,
@@ -471,6 +594,8 @@ export default {
           street: "",
           telephoneno: "",
         },
+        branch: { name: 'N/A'}
+        
       },
       search: "",
       data: [],
@@ -619,7 +744,68 @@ export default {
       
     },
     view(data) {
-      console.log(data);
+      if(data.requesttype == 'REPAIR'){
+        this.unitsHeader =  [
+                    { text: "PRODUCT CATEGORY", value: "prodcategories" },
+                    { text: "APPLIANCE TYPE", value: "appliancetype" },
+                    { text: "Request Type", value: "problem" },
+                    { text: "BRAND", value: "brand" },
+                    // { text: "Qty", value: "qty" },
+                    { text: "MODEL", value: "model" },
+                    { text: "SERIAL NO.", value: "serialno" },
+                    { text: "UNIT CONDITION", value: "unitcondition" },
+                    { text: "WARRANTY CON", value: "warrantycondition" },
+                    { text: "DOP", value: "datepurchase" },
+                    { text: "LOCATION OF UNIT", value: "locationofinstallation" },
+                    { text: "PRIORITY", value: "priority" },
+        ];
+      }else if(data.requesttype == 'CLEANING'){
+                this.unitsHeader =  [
+                    { text: "Product Category", value: "prodcategories" },
+                    { text: "Appliance Type", value: "appliancetype" },
+                    // { text: "Request Type", value: "branch.name" },
+                    { text: "Brand", value: "brand" },
+                     { text: "QTY", value: "qty" },
+                    { text: "Model", value: "model" },
+                    { text: "Serial No.", value: "serialno" },
+                    { text: "Unit Condition", value: "unitcondition" },
+                    { text: "Warranty Condition", value: "warrantycondition" },
+                    { text: "Date of Purchase", value: "datepurchase" },
+                     { text: "LOCATION OF UNIT", value: "locationofinstallation" },
+                    { text: "Priority", value: "priority" },
+        ];
+      }else if(data.requesttype == 'INSTALLATION'){
+                this.unitsHeader =  [
+                    { text: "Product Category", value: "prodcategories" },
+                    { text: "Appliance Type", value: "appliancetype" },
+                    // { text: "Request Type", value: "branch.name" },
+                    { text: "Brand", value: "brand" },
+                     { text: "QTY", value: "qty" },
+                    { text: "Model", value: "model" },
+                    { text: "Serial No.", value: "serialno" },
+                    { text: "Unit Condition", value: "unitcondition" },
+                    { text: "Warranty Condition", value: "warrantycondition" },
+                    { text: "Date of Purchase", value: "datepurchase" },
+                     { text: "INSTALLATION ADDRESS", value: "locationofinstallation" },
+                    { text: "Priority", value: "priority" },
+        ];
+      }else if(data.requesttype == 'SITE SURVEY'){
+                this.unitsHeader =  [
+                    { text: "Product Category", value: "prodcategories" },
+                    { text: "Appliance Type", value: "appliancetype" },
+                    // { text: "Request Type", value: "branch.name" },
+                    { text: "Brand", value: "brand" },
+                     { text: "QTY", value: "qty" },
+                    { text: "Model", value: "model" },
+                    { text: "Serial No.", value: "serialno" },
+                    { text: "Unit Condition", value: "unitcondition" },
+                    { text: "Warranty Condition", value: "warrantycondition" },
+                    { text: "Date of Purchase", value: "datepurchase" },
+                     { text: "SURVEY LOCATION", value: "locationofinstallation" },
+                    { text: "Priority", value: "priority" },
+        ];
+      }
+       
       var status;
       if (data.status == 0) {
         status = "Unassigned";
@@ -630,8 +816,9 @@ export default {
       }
       this.items = data.bk_jobs_update;
       this.tech = data.installer;
+      this.reqtype = data.requesttype 
       this.jobstatus = status;
-      //this.jobstat = status
+       //this.jobstat = data.status
       this.installationdateData = data.installationdate;
       this.jobsInfo = true;
       this.jobsData = data;

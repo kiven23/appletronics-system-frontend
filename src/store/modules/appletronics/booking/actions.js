@@ -32,8 +32,15 @@ const actions = {
     formData.append("telephoneno", data.customer.telephoneno);
     formData.append("additionalrequest1", data.customer.additionalrequest1);
     formData.append("additionalrequest2", data.customer.additionalrequest2);
-    //REQUEST TYPE
+
+    //SURVEY LOCATION
+    formData.append("surveylocation", data.customer.locationofinstallation);
+
+    //LOCATION UNIT 
     formData.append("locanorg", data.customer.locationunit);
+    //AND NAME OF ORGANIZATION
+    formData.append("orgname", data.customer.organizationname);
+    //REQUEST TYPE
     formData.append("identify", data.identify);
     formData.append("requestType", data.requestType);
     formData.append("requestid", data.requestid);
