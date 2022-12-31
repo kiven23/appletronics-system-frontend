@@ -219,7 +219,7 @@
                         <strong>Dealer Name</strong><br />
                       {{jobsData.branch.name }}<br />
                        <strong v-if="jobstatus !== 'Unassigned'">Date of Installation</strong><br />
-                      {{ jobstatus !== 'Unassigned'? jobsData.installationdate  ==null?jobsData.installationdate: 'N/A': '' }} 
+                      {{ jobstatus !== 'Unassigned'? jobsData.installationdate  ?jobsData.installationdate: 'N/A': '' }} 
                     </v-card>
                     <!--END-->
 
@@ -235,7 +235,7 @@
                         <strong>Dealer Name</strong><br />
                       {{jobsData.branch.name }}<br />
                        <strong v-if="jobstatus !== 'Unassigned'">Date of Survey</strong><br />
-                      {{ jobstatus !== 'Unassigned'? jobsData.installationdate  ==null ?jobsData.installationdate: 'N/A': '' }} 
+                      {{ jobstatus !== 'Unassigned'? jobsData.installationdate   ?jobsData.installationdate: 'N/A': '' }} 
                     </v-card>
                     <!--END-->
 
@@ -331,7 +331,7 @@
                       <strong>Street</strong><br />
                       {{ jobsData.customer.street? jobsData.customer.street : 'N/A' }}<br />
                         <strong v-if="jobstatus !== 'Unassigned'">Technician</strong><br />
-                       {{ jobstats !== 'Unassigned'?jobsData.installer ==null? jobsData.installer : 'N/A' :''}}<br />
+                       {{ jobstats !== 'Unassigned'?jobsData.installer ? jobsData.installer : 'N/A' :''}}<br />
                     </v-card> 
 
                   </v-col>
@@ -346,7 +346,7 @@
                       <strong>House No.</strong><br />
                       {{ jobsData.customer.houseno? jobsData.customer.houseno : 'N/A' }}<br />
                        <strong v-if="jobstatus !== 'Unassigned'">Installer</strong><br />
-                      {{ jobstats !== 'Unassigned'?jobsData.installer ==null ? jobsData.installer : 'N/A' :''}}<br />
+                      {{ jobstats !== 'Unassigned'?jobsData.installer  ? jobsData.installer : 'N/A' :''}}<br />
                     </v-card>
                         <!-- SURVEY REQUEST -->
                     <v-card class="pa-2"  v-if="reqtype == 'SITE SURVEY'" style="height: 180px">
@@ -357,7 +357,7 @@
                       <strong>House No.</strong><br />
                       {{ jobsData.customer.houseno? jobsData.customer.houseno : 'N/A' }}<br />
                         <strong v-if="jobstatus !== 'Unassigned'">Technician</strong><br />
-                      {{ jobstats !== 'Unassigned'?jobsData.installer ==null? jobsData.installer : 'N/A' :''}}<br />
+                      {{ jobstats !== 'Unassigned'?jobsData.installer ? jobsData.installer : 'N/A' :''}}<br />
                     </v-card>
 
                      <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 180px">
@@ -368,7 +368,7 @@
                       <strong>House No.</strong><br />
                       {{ jobsData.customer.houseno? jobsData.customer.houseno : 'N/A' }}<br />
                      <strong  v-if="jobstatus !== 'Unassigned'">Date of Service</strong><br />
-                      {{ jobstatus !== 'Unassigned'? jobsData.installationdate ==null?jobsData.installationdate: 'N/A': '' }} 
+                      {{ jobstatus !== 'Unassigned'? jobsData.installationdate ?jobsData.installationdate: 'N/A': '' }} 
                     </v-card>
                   </v-col>
                 </v-row>

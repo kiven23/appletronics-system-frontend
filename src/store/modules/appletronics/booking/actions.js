@@ -9,6 +9,8 @@ const GETCOUNT = rootUrl + "/api/booking/jobs/counts";
 const JOBSCHECKRECORDS = rootUrl + "/api/booking/jobs/checkrecords";
 const DOWNLOADSALESINVOICE = rootUrl + "/api/booking/jobs/salesinvoice/download";
 const RESTOREDATA = rootUrl + "/api/booking/restore";
+
+const GETSCHEDULE = rootUrl + "/api/jobs/schedules/calendar";
 const actions = {
   storeBooking(context, data) {
     let formData = new FormData();
@@ -87,6 +89,13 @@ const actions = {
         .get(GETCOUNT)
         .then((res) => {
          return res
+        });
+    },
+  JobsSchedule(context, data) {
+    return  axios
+        .get(GETSCHEDULE)
+        .then((res) => {
+          return res
         });
     },
   JobsCheckRecords(context, data) {
