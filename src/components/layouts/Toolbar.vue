@@ -12,7 +12,7 @@
         style="margin: 5px"
       ></v-img>
       <v-toolbar-title> <strong>Appletronics Portal</strong>
-        <p style="font-size: 11px">Appletronics System INC.</p></v-toolbar-title>
+        <p style="font-size: 11px">Appletronics Services Inc.</p></v-toolbar-title>
 
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
@@ -34,9 +34,9 @@
 
       
     
-      <v-tooltip-title >
-        <strong style="text-align: center">{{currentUser.branch == null? '': currentUser.branch.name}}</strong>
-      </v-tooltip-title>
+      <!-- <v-tooltip-title > -->
+        <strong style="text-align: center">{{currentUser.branch? '': currentUser.branch.name}}</strong>
+      <!-- </v-tooltip-title> -->
 
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
@@ -89,7 +89,7 @@ export default {
 
  created() {
     console.log(this.$store.getters.currentUser);
-    this.$store.dispatch("fetchDatabase");
+    //this.$store.dispatch("fetchDatabase");
    
   },
 

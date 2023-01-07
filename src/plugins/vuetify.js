@@ -7,7 +7,7 @@ import { Ripple } from "vuetify/lib/directives";
 import "vuetify-dialog/dist/vuetify-dialog.css";
 import "material-design-icons-iconfont/dist/material-design-icons.css";
 var colors = false;
-Axios.get('http://10.10.10.38:9999/api/change/background').then((res)=>{
+Axios.get('http://192.168.1.19:8009/api/change/background').then((res)=>{
    colors = true;
 
 })

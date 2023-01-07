@@ -601,7 +601,7 @@ export default {
       data: [],
       headers: [
         {
-          text: "REF",
+          text: "Request Type",
           align: "start",
           sortable: false,
           value: "requestid",
@@ -641,7 +641,7 @@ export default {
 
   computed: {
       users(){
-        var us = this.usersData.employment.position.id;
+        var us = this.usersData.employment.position.id?this.usersData.employment.position.id:'';
         return us;
       },
       callidError() {

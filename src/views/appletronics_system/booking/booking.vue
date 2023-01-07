@@ -101,13 +101,14 @@ mdi-file-check                            </v-icon>
                           placeholder="Model"
                           required
                           dense
+                          :disabled="true"
                           @change="autoclear()"
                         ></v-text-field>
                         <v-chip x-small> Product Categories </v-chip>
                         <v-autocomplete
                           v-model="data.units.prodcategories"
                           :items="productListDown.prodcategories"
-                          :error-messages="prodcategoriesError"
+                           
                           placeholder="Product Categories"
                           item-text="name"
                           item-value="value"
@@ -331,6 +332,9 @@ mdi-file-check                            </v-icon>
                           v-model="data.usage.area"
                           prefix="sqm"
                           placeholder="Area"
+                          :error-messages="areaError"
+                           @input="$v.data.usage.area.$touch()"
+                           @keypress="checkAreaKey"
                           required
                           dense
                         ></v-text-field>
@@ -406,7 +410,7 @@ mdi-file-check                            </v-icon>
                           required
                           dense
                         ></v-text-field>
-                         <v-chip x-small>Amount Paid</v-chip>
+                         <v-chip x-small>Amount Paid(Installation fee)</v-chip>
                         <v-text-field
                           style="margin: 6px"
                           prefix="PHP"
@@ -1062,11 +1066,12 @@ export default {
         warrantycondition: { required },
         /// qty: { required },
       },
-
+ 
       usage: {
         propertytype: { required },
         wallfinish: { required },
         withpowersupply: { required },
+        area: {required}
       },
     },
     customer: {
@@ -1089,7 +1094,7 @@ export default {
     return {
 max: 10,
     text: '',
-
+      sqm: '',
       usersData: [],
       isLoading: false,
       itemsAuto: [],
@@ -1410,7 +1415,7 @@ max: 10,
       },
     },
   created() {
-    this.$store.dispatch("fetchDBAll");
+   // this.$store.dispatch("fetchDBAll");
     regions().then((region) => (this.addressesListDown.region = region));
 
     this.usersData = this.$store.state.currentUser
@@ -1418,6 +1423,17 @@ max: 10,
  
   },
   computed: {
+    areaError(){
+      const errors = [];
+ 
+        if(parseInt(this.sqm) < this.data.usage.area){
+          return "MAX SQM UP TO "+ this.sqm;
+        }else{
+          
+          return "";
+        }
+    },
+
     checkwarranty(){
      const checkwarranties = this.data.units.warrantycondition ==  'WARRANTY'? true: false;
      return checkwarranties;
@@ -1566,11 +1582,13 @@ max: 10,
       }
       return true;
     },
+   
     UnitsALLError() {
       this.$v.data.units.$touch();
       if (!this.$v.data.units.$error) {
         return false;
       }
+      
       return true;
     },
     withpowersupplyError() {
@@ -2146,7 +2164,7 @@ max: 10,
       };
     },
     modelsActivate(data){
- 
+     this.sqm = data.SQM
      this.productListDown.prodcategories = data.categories
      this.productListDown.appliancetype = data.type
      this.productListDown.brand = data.Brand
@@ -2305,12 +2323,30 @@ max: 10,
      }
     },
     onlyNumber ($event) {
-   //console.log($event.keyCode); //keyCodes value
-   let keyCode = ($event.keyCode ? $event.keyCode : $event.which);
-   if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { // 46 is dot
-      $event.preventDefault();
-   }
-}
+        //console.log($event.keyCode); //keyCodes value
+        let keyCode = ($event.keyCode ? $event.keyCode : $event.which);
+        if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { // 46 is dot
+            $event.preventDefault();
+            }
+    },
+    checkAreaKey($event){
+ 
+             if(parseInt(this.sqm) < this.data.usage.area){
+                  if ($event.keyCode > 48) { 
+                               
+                              $event.preventDefault();
+                   }
+                     this.data.usage.area = 0
+             }else{
+                console.log("pasok")
+             }
+
+            let keyCode = ($event.keyCode ? $event.keyCode : $event.which);
+             if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { // 46 is dot
+            $event.preventDefault();
+            }
+    }
+ 
     
   },
 };
