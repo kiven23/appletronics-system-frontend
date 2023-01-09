@@ -41,14 +41,12 @@
                     <v-col cols="12" sm="2">
                       <v-card class="pa-3" height="900">
                         <h5>PRODUCT INFORMATION</h5>
-                          <v-chip x-small> Model* </v-chip>
+                        <v-chip x-small> Model* </v-chip>
                         <v-autocomplete
                           v-model="data.units.model"
                           :items="itemsAuto"
                           :loading="isLoading"
                           :search-input.sync="search"
-                       
-                           
                           hide-details
                           hide-selected
                           item-text="model"
@@ -56,47 +54,52 @@
                           label="Search Model"
                           @change="autoclear()"
                         >
-                        <template v-slot:no-data>
-                          <v-list-item>
-                            <v-list-item-title>
-                              Search Model
-                              <strong>Model</strong>
-                            </v-list-item-title>
-                          </v-list-item>
-                        </template>
-                        <template v-slot:selection="{ attr, on, item, selected }">
-                          <v-chip
-                            v-bind="attr"
-                            :input-value="selected"
-                            color="blue-grey"
-                            class="white--text"
-                            v-on="on"
-                             
+                          <template v-slot:no-data>
+                            <v-list-item>
+                              <v-list-item-title>
+                                Search Model
+                                <strong>Model</strong>
+                              </v-list-item-title>
+                            </v-list-item>
+                          </template>
+                          <template
+                            v-slot:selection="{ attr, on, item, selected }"
                           >
-                            <v-icon left>
-mdi-file-check                            </v-icon>
-                            <span v-text="item.model"  ></span>
-                          </v-chip>
-                        </template>
-                        <template v-slot:item="{ item }">
-                          <v-list-item-avatar
-                            color="indigo"
-                            class="text-h5 font-weight-light white--text"
-                            
-                          >
-                            {{ item.categories.charAt(0) }}
-                          </v-list-item-avatar>
-                          <v-list-item-content   @click="modelsActivate(item)">
-                            <v-list-item-title v-text="item.model" ></v-list-item-title>
-                            <v-list-item-subtitle v-text="item.categories"></v-list-item-subtitle>
-                             <v-list-item-subtitle v-text="item.Brand"></v-list-item-subtitle>
-                          </v-list-item-content>
-                          <v-list-item-action >
-                            <!-- <v-icon>mdi-bitcoin</v-icon> -->
-                          </v-list-item-action>
-                        </template>
-                      </v-autocomplete>
-                       <v-text-field
+                            <v-chip
+                              v-bind="attr"
+                              :input-value="selected"
+                              color="blue-grey"
+                              class="white--text"
+                              v-on="on"
+                            >
+                              <v-icon left> mdi-file-check </v-icon>
+                              <span v-text="item.model"></span>
+                            </v-chip>
+                          </template>
+                          <template v-slot:item="{ item }">
+                            <v-list-item-avatar
+                              color="indigo"
+                              class="text-h5 font-weight-light white--text"
+                            >
+                              {{ item.categories.charAt(0) }}
+                            </v-list-item-avatar>
+                            <v-list-item-content @click="modelsActivate(item)">
+                              <v-list-item-title
+                                v-text="item.model"
+                              ></v-list-item-title>
+                              <v-list-item-subtitle
+                                v-text="item.categories"
+                              ></v-list-item-subtitle>
+                              <v-list-item-subtitle
+                                v-text="item.Brand"
+                              ></v-list-item-subtitle>
+                            </v-list-item-content>
+                            <v-list-item-action>
+                              <!-- <v-icon>mdi-bitcoin</v-icon> -->
+                            </v-list-item-action>
+                          </template>
+                        </v-autocomplete>
+                        <v-text-field
                           v-model="data.units.model"
                           placeholder="Model"
                           required
@@ -108,7 +111,6 @@ mdi-file-check                            </v-icon>
                         <v-autocomplete
                           v-model="data.units.prodcategories"
                           :items="productListDown.prodcategories"
-                           
                           placeholder="Product Categories"
                           item-text="name"
                           item-value="value"
@@ -138,9 +140,6 @@ mdi-file-check                            </v-icon>
                           required
                           dense
                         ></v-autocomplete>
-                       
-
-
 
                         <v-chip x-small> Serial No. </v-chip>
                         <v-text-field
@@ -171,12 +170,15 @@ mdi-file-check                            </v-icon>
                           required
                           dense
                         ></v-select>
-                        <v-chip x-small class="ma-2">DATE PURCHASE</v-chip><br>
+                        <v-chip x-small class="ma-2">DATE PURCHASE</v-chip
+                        ><br />
                         <vs-input
                           type="date"
                           v-model="data.units.datepurchase"
                         />
-                        <v-chip x-small v-if="reqIdentifier !== 1" class="ma-2">Quantity</v-chip>
+                        <v-chip x-small v-if="reqIdentifier !== 1" class="ma-2"
+                          >Quantity</v-chip
+                        >
                         <!-- <v-text-field
                           v-if="reqIdentifier !== 1"
                           v-model="data.units.qty"
@@ -185,11 +187,11 @@ mdi-file-check                            </v-icon>
                           required
                           dense
                         ></v-text-field> -->
-                          <div class="quantity-toggle" v-if="reqIdentifier !== 1">
+                        <div class="quantity-toggle" v-if="reqIdentifier !== 1">
                           <button @click="decrement()">&mdash;</button>
-                          <input type="text" :value="data.units.qty" readonly>
+                          <input type="text" :value="data.units.qty" readonly />
                           <button @click="increment()">&#xff0b;</button>
-                          </div>
+                        </div>
                         <!-- <v-select
                           style="margin: 6px"
                           v-model="data.units.demandreplacement"
@@ -200,9 +202,11 @@ mdi-file-check                            </v-icon>
                           required
                           dense
                         ></v-select> -->
-  <v-chip x-small v-if="reqIdentifier == 1" class="ma-2"> Problem </v-chip>
+                        <v-chip x-small v-if="reqIdentifier == 1" class="ma-2">
+                          Problem
+                        </v-chip>
                         <v-autocomplete
-                         v-if="reqIdentifier == 1"
+                          v-if="reqIdentifier == 1"
                           v-model="data.units.problem"
                           :items="problemItemsAuto"
                           :loading="isLoading"
@@ -212,50 +216,49 @@ mdi-file-check                            </v-icon>
                           item-text="Name"
                           item-value="Name"
                           label="Search Problem"
-                           
                         >
-                        <template v-slot:no-data>
-                          <v-list-item>
-                            <v-list-item-title>
-                              Search Problem
-                          
-                            </v-list-item-title>
-                          </v-list-item>
-                        </template>
-                        <template v-slot:selection="{ attr, on, item, selected2 }">
-                          <v-chip
-                            v-bind="attr"
-                            :input-value="selected2"
-                            color="blue-grey"
-                            class="white--text"
-                            v-on="on"
-                             
+                          <template v-slot:no-data>
+                            <v-list-item>
+                              <v-list-item-title>
+                                Search Problem
+                              </v-list-item-title>
+                            </v-list-item>
+                          </template>
+                          <template
+                            v-slot:selection="{ attr, on, item, selected2 }"
                           >
-                            <v-icon left>
-                          mdi-file-check                           
-                           </v-icon>
-                            <span v-text="item.Name"  ></span>
-                          </v-chip>
-                        </template>
-                        <template v-slot:item="{ item }">
-                          <v-list-item-avatar
-                            color="indigo"
-                            class="text-h5 font-weight-light white--text"
-                            
-                          >
-                            {{ item.Name.charAt(0) }}
-                          </v-list-item-avatar>
-                          <v-list-item-content  >
-                            <v-list-item-title v-text="item.Name" ></v-list-item-title>
-                            <v-list-item-subtitle v-text="item.Name"></v-list-item-subtitle>
-                           
-                          </v-list-item-content>
-                          <v-list-item-action >
-                            <!-- <v-icon>mdi-bitcoin</v-icon> -->
-                          </v-list-item-action>
-                        </template>
-                      </v-autocomplete>
-                                              
+                            <v-chip
+                              v-bind="attr"
+                              :input-value="selected2"
+                              color="blue-grey"
+                              class="white--text"
+                              v-on="on"
+                            >
+                              <v-icon left> mdi-file-check </v-icon>
+                              <span v-text="item.Name"></span>
+                            </v-chip>
+                          </template>
+                          <template v-slot:item="{ item }">
+                            <v-list-item-avatar
+                              color="indigo"
+                              class="text-h5 font-weight-light white--text"
+                            >
+                              {{ item.Name.charAt(0) }}
+                            </v-list-item-avatar>
+                            <v-list-item-content>
+                              <v-list-item-title
+                                v-text="item.Name"
+                              ></v-list-item-title>
+                              <v-list-item-subtitle
+                                v-text="item.Name"
+                              ></v-list-item-subtitle>
+                            </v-list-item-content>
+                            <v-list-item-action>
+                              <!-- <v-icon>mdi-bitcoin</v-icon> -->
+                            </v-list-item-action>
+                          </template>
+                        </v-autocomplete>
+
                         <v-text-field
                           v-if="reqIdentifier == 1"
                           v-model="data.units.problem"
@@ -263,9 +266,6 @@ mdi-file-check                            </v-icon>
                           required
                           dense
                         ></v-text-field>
-    
-  
-
 
                         <v-chip x-small class="ma-2">Priority </v-chip>
                         <v-select
@@ -297,7 +297,6 @@ mdi-file-check                            </v-icon>
                       <v-card class="pa-3" height="900">
                         <v-chip x-small>Property Type* </v-chip>
                         <v-select
-                          
                           v-model="data.usage.propertytype"
                           :items="usagedetailsListDown.propertytype"
                           :error-messages="propertytypeError"
@@ -333,23 +332,24 @@ mdi-file-check                            </v-icon>
                           prefix="sqm"
                           placeholder="Area"
                           :error-messages="areaError"
-                           @input="$v.data.usage.area.$touch()"
-                           @keypress="checkAreaKey"
+                          @input="$v.data.usage.area.$touch()"
+                          @keypress="checkAreaKey"
                           required
                           dense
                         ></v-text-field>
-                         <v-chip x-small>Wall Finish* </v-chip>
+                        <v-chip x-small>Wall Finish* </v-chip>
                         <v-select
                           v-model="data.usage.wallfinish"
                           :items="usagedetailsListDown.wallfinish"
                           :error-messages="wallfinishError"
+                          @change="verifywall()"
                           placeholder="Wall Finish*"
                           item-text="name"
                           item-value="value"
                           required
                           dense
                         ></v-select>
-                         <v-chip x-small>With Power Supply* </v-chip>
+                        <v-chip x-small>Power Supply Location</v-chip>
                         <v-select
                           v-model="data.usage.withpowersupply"
                           :items="usagedetailsListDown.withpowersupply"
@@ -360,57 +360,34 @@ mdi-file-check                            </v-icon>
                           required
                           dense
                         ></v-select>
-                         <v-chip x-small>Date of Delivery</v-chip>
-                        
+                        <v-chip x-small>Date of Delivery</v-chip>
+
                         <vs-input
                           type="date"
                           v-model="data.usage.deliverydate"
                         />
                         <v-chip x-small>Time Of Delivery </v-chip>
-                        <v-dialog
-                          ref="dialog"
-                          v-model="modal2"
-                          :return-value.sync="data.usage.time"
-                          persistent
-                          width="290px"
-                        >
-                          <template v-slot:activator="{ on, attrs }">
-                            <v-text-field
-                              v-model="data.usage.time"
-                              label="Time Of Delivery"
-                              prepend-icon="mdi-clock-time-four-outline"
-                              readonly
-                              v-bind="attrs"
-                              v-on="on"
-                            ></v-text-field>
-                          </template>
-                          <v-time-picker
-                            v-if="modal2"
-                            v-model="data.usage.time"
-                            full-width
-                          >
-                            <v-spacer></v-spacer>
-                            <v-btn text color="primary" @click="modal2 = false">
-                              Cancel
-                            </v-btn>
-                            <v-btn
-                              text
-                              color="primary"
-                              @click="$refs.dialog.save(data.usage.time)"
-                            >
-                              OK
-                            </v-btn>
-                          </v-time-picker>
-                        </v-dialog>
+                        <vue-timepicker
+                          v-model="data.usage.time"
+                          style="margin: 6px"
+                        ></vue-timepicker>
+
                         <v-chip x-small>Installation Address</v-chip>
+                        
+                        <v-radio-group v-model="InstallationAddress" @change="addressV()">
+                          <v-radio label="Customer" ></v-radio>
+                          <v-radio label="Others"></v-radio>
+                        </v-radio-group>
+                   
                         <v-text-field
+                          v-if="InstallationAddress == 1"
                           style="margin: 6px"
                           v-model="data.usage.locationofinstallation"
                           placeholder="Installation Address"
                           required
                           dense
                         ></v-text-field>
-                         <v-chip x-small>Amount Paid(Installation fee)</v-chip>
+                        <v-chip x-small>Amount Paid(Installation fee)</v-chip>
                         <v-text-field
                           style="margin: 6px"
                           prefix="PHP"
@@ -423,8 +400,10 @@ mdi-file-check                            </v-icon>
                     </v-col>
                     <v-col cols="12" sm="2">
                       <v-card class="pa-1" height="900">
-                        <h5>CUSTOMER INFORMATION</h5> 
-                        <v-chip x-small class="ma-2"> Contact Phone Number*</v-chip>
+                        <h5>CUSTOMER INFORMATION</h5>
+                        <v-chip x-small class="ma-2">
+                          Contact Phone Number*</v-chip
+                        >
                         <v-text-field
                           v-model="customer.cpnumber"
                           :error-messages="cpnumberError"
@@ -433,24 +412,25 @@ mdi-file-check                            </v-icon>
                           hide-details
                           single-line
                           type="integer"
-                          :maxlength="max" 
+                          :maxlength="max"
                           dense
                           required
                           @keypress="onlyNumber"
                           class="ma-2"
                         ></v-text-field>
-                         
+
                         <vs-button
                           class="ma-2"
                           outlined
                           color="indigo"
                           @click="checkRecExist()"
                           size="mini"
-
                         >
                           CHECK RECORD
                         </vs-button>
-                         <v-chip x-small class="ma-2">Email Address (OPTIONAL)</v-chip>
+                        <v-chip x-small class="ma-2"
+                          >Email Address (OPTIONAL)</v-chip
+                        >
                         <v-text-field
                           v-model="customer.emailaddress"
                           placeholder="Email Address (OPTIONAL)"
@@ -458,7 +438,7 @@ mdi-file-check                            </v-icon>
                           dense
                           class="ma-2"
                         ></v-text-field>
-                         <v-chip x-small class="ma-2">Last Name</v-chip>
+                        <v-chip x-small class="ma-2">Last Name</v-chip>
                         <v-text-field
                           v-model="customer.lastname"
                           placeholder="Last Name"
@@ -467,7 +447,7 @@ mdi-file-check                            </v-icon>
                           dense
                           class="ma-2"
                         ></v-text-field>
-                          <v-chip x-small class="ma-2">First Name"</v-chip>
+                        <v-chip x-small class="ma-2">First Name"</v-chip>
                         <v-text-field
                           v-model="customer.firstname"
                           :error-messages="firstnameError"
@@ -476,7 +456,7 @@ mdi-file-check                            </v-icon>
                           dense
                           class="ma-2"
                         ></v-text-field>
-                          <v-chip x-small class="ma-2">Middle Name</v-chip>
+                        <v-chip x-small class="ma-2">Middle Name</v-chip>
                         <v-text-field
                           v-model="customer.middlename"
                           placeholder="Middle Name"
@@ -485,7 +465,7 @@ mdi-file-check                            </v-icon>
                           dense
                           class="ma-2"
                         ></v-text-field>
-                          <v-chip x-small class="ma-2">Contact Person</v-chip>
+                        <v-chip x-small class="ma-2">Contact Person</v-chip>
                         <v-text-field
                           v-model="customer.contactperson"
                           placeholder="Contact Person"
@@ -494,7 +474,9 @@ mdi-file-check                            </v-icon>
                           dense
                           class="ma-2"
                         ></v-text-field>
-                          <v-chip x-small class="ma-2">Telephone No. (OPTIONAL)</v-chip>
+                        <v-chip x-small class="ma-2"
+                          >Telephone No. (OPTIONAL)</v-chip
+                        >
                         <v-text-field
                           v-model="customer.telephoneno"
                           placeholder="Telephone No. (OPTIONAL)"
@@ -502,13 +484,11 @@ mdi-file-check                            </v-icon>
                           dense
                           class="ma-2"
                         ></v-text-field>
-                         
-                             
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
                       <v-card class="pa-3" height="900">
-                          <v-chip x-small class="ma-1">Region</v-chip>
+                        <v-chip x-small class="ma-1">Region</v-chip>
                         <v-select
                           v-model="customer.region"
                           :items="addressesListDown.region"
@@ -520,7 +500,7 @@ mdi-file-check                            </v-icon>
                           class="ma-1"
                           @change="regionD()"
                         ></v-select>
-                            <v-chip x-small class="ma-1">Province</v-chip>
+                        <v-chip x-small class="ma-1">Province</v-chip>
                         <v-select
                           class="ma-1"
                           v-model="customer.province"
@@ -533,7 +513,7 @@ mdi-file-check                            </v-icon>
                           required
                           @change="provinceD()"
                         ></v-select>
-                            <v-chip x-small class="ma-1">Municipality/City</v-chip>
+                        <v-chip x-small class="ma-1">Municipality/City</v-chip>
                         <v-select
                           class="ma-1"
                           v-model="customer.mcity"
@@ -546,7 +526,7 @@ mdi-file-check                            </v-icon>
                           required
                           @change="mcityD()"
                         ></v-select>
-                             <v-chip x-small class="ma-1">Barangay</v-chip>
+                        <v-chip x-small class="ma-1">Barangay</v-chip>
                         <v-select
                           class="ma-1"
                           v-model="customer.barangay"
@@ -559,8 +539,8 @@ mdi-file-check                            </v-icon>
                           dense
                           @change="brgyD()"
                         ></v-select>
-                        
-                         <v-chip x-small class="ma-1">Street</v-chip>
+
+                        <v-chip x-small class="ma-1">Street</v-chip>
                         <v-text-field
                           v-model="customer.street"
                           :error-messages="streetError"
@@ -569,7 +549,7 @@ mdi-file-check                            </v-icon>
                           dense
                           class="ma-1"
                         ></v-text-field>
-                         <v-chip x-small class="ma-1">House No.</v-chip>
+                        <v-chip x-small class="ma-1">House No.</v-chip>
                         <v-text-field
                           v-model="customer.houseno"
                           placeholder="House No."
@@ -578,32 +558,68 @@ mdi-file-check                            </v-icon>
                           dense
                           class="ma-1"
                         ></v-text-field>
-                        <v-chip x-small class="ma-1">{{reqIdentifier == 3|| reqIdentifier == 4? 'NAME OF ORGANIZATION': 'LOCATION OF UNIT'}} </v-chip>
+                        <v-chip x-small class="ma-1"
+                          >{{
+                            reqIdentifier == 3 || reqIdentifier == 4
+                              ? "NAME OF ORGANIZATION"
+                              : "LOCATION OF UNIT"
+                          }}
+                        </v-chip>
 
                         <v-text-field
-                          v-if="reqIdentifier == 3 ||reqIdentifier == 4"
+                          v-if="reqIdentifier == 3 || reqIdentifier == 4"
                           v-model="customer.organizationname"
-                          :placeholder="reqIdentifier == 3|| reqIdentifier == 4? 'NAME OF ORGANIZATION': 'LOCATION OF UNIT'"
+                          :placeholder="
+                            reqIdentifier == 3 || reqIdentifier == 4
+                              ? 'NAME OF ORGANIZATION'
+                              : 'LOCATION OF UNIT'
+                          "
                           required
                         ></v-text-field>
 
                         <v-text-field
                           v-if="reqIdentifier == 1 || reqIdentifier == 2"
-                          v-model=" data.usage.locationofinstallation"
-                          :placeholder="reqIdentifier == 3|| reqIdentifier == 4? 'NAME OF ORGANIZATION': 'LOCATION OF UNIT'"
+                          v-model="data.usage.locationofinstallation"
+                          :placeholder="
+                            reqIdentifier == 3 || reqIdentifier == 4
+                              ? 'NAME OF ORGANIZATION'
+                              : 'LOCATION OF UNIT'
+                          "
                           required
                         ></v-text-field>
 
-                         <v-chip x-small color="success"  v-if="reqIdentifier == 3||reqIdentifier ==4">Is this an organization?</v-chip>
-                        <v-radio-group v-if="reqIdentifier == 4||reqIdentifier == 3" v-model="customer.organization" row>
+                        <v-chip
+                          x-small
+                          color="success"
+                          v-if="reqIdentifier == 3 || reqIdentifier == 4"
+                          >Is this an organization?</v-chip
+                        >
+                        <v-radio-group
+                          v-if="reqIdentifier == 4 || reqIdentifier == 3"
+                          v-model="customer.organization"
+                          row
+                        >
                           <v-radio label="Yes" value="1"></v-radio>
                           <v-radio label="No" value="2"></v-radio>
                         </v-radio-group>
-                         <v-chip x-medium  v-if="checkwarranty || reqIdentifier == 2 || reqIdentifier == 3 || reqIdentifier == 4">Sales Invoice</v-chip>
-                         
+                        <v-chip
+                          x-medium
+                          v-if="
+                            checkwarranty ||
+                            reqIdentifier == 2 ||
+                            reqIdentifier == 3 ||
+                            reqIdentifier == 4
+                          "
+                          >Sales Invoice</v-chip
+                        >
+
                         <v-file-input
-                          v-if="checkwarranty || reqIdentifier == 2 || reqIdentifier == 3 || reqIdentifier == 4"
-                         
+                          v-if="
+                            checkwarranty ||
+                            reqIdentifier == 2 ||
+                            reqIdentifier == 3 ||
+                            reqIdentifier == 4
+                          "
                           counter
                           multiple
                           show-size
@@ -623,7 +639,9 @@ mdi-file-check                            </v-icon>
                           placeholder="LANDMARK "
                           required
                         ></v-text-field>
-                        <v-chip x-small v-if="reqIdentifier == 3">SURVEY LOCATION</v-chip>
+                        <v-chip x-small v-if="reqIdentifier == 3"
+                          >SURVEY LOCATION</v-chip
+                        >
                         <v-text-field
                           v-if="reqIdentifier == 3"
                           v-model="data.usage.locationofinstallation"
@@ -650,9 +668,8 @@ mdi-file-check                            </v-icon>
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="3">
-                      
                       <v-card class="pa-1">
-                          <v-chip x-small color="success">UNITS/ITEMS</v-chip>
+                        <v-chip x-small color="success">UNITS/ITEMS</v-chip>
                         <v-simple-table dense>
                           <template v-slot:default>
                             <thead>
@@ -783,7 +800,11 @@ mdi-file-check                            </v-icon>
                     <v-col cols="12" sm="6" md="4">
                       <strong>Address Details</strong>
                       <br />{{
-                        customer.barangay +', '+ customer.mcity +', '+customer.province
+                        customer.barangay +
+                        ", " +
+                        customer.mcity +
+                        ", " +
+                        customer.province
                       }}
                     </v-col>
 
@@ -793,7 +814,7 @@ mdi-file-check                            </v-icon>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <strong>Dealer Name</strong>
-                      <br />{{usersData.branch.name}}
+                      <br />{{ usersData.branch.name }}
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <strong>Special Instruction</strong>
@@ -875,7 +896,11 @@ mdi-file-check                            </v-icon>
                   >
                     Rebook Same Client
                   </v-btn>
-                  <v-btn color="green darken-1" text @click="RefDialog = false || booknew()">
+                  <v-btn
+                    color="green darken-1"
+                    text
+                    @click="RefDialog = false || booknew()"
+                  >
                     Book New Client
                   </v-btn>
                 </v-card-actions>
@@ -1041,8 +1066,20 @@ mdi-file-check                            </v-icon>
 </template>
   
   <script>
+// import
+// Main JS (in UMD format)
+import VueTimepicker from "vue2-timepicker";
+
+// CSS
+import "vue2-timepicker/dist/VueTimepicker.css";
 import { validationMixin } from "vuelidate";
-import { required, maxLength, email, minLength, numeric } from "vuelidate/lib/validators";
+import {
+  required,
+  maxLength,
+  email,
+  minLength,
+  numeric,
+} from "vuelidate/lib/validators";
 import { mapGetters } from "vuex";
 import {
   regionByCode,
@@ -1055,6 +1092,7 @@ import {
   barangays,
 } from "select-philippines-address";
 export default {
+  components: { VueTimepicker },
   mixins: [validationMixin],
   validations: {
     data: {
@@ -1066,19 +1104,21 @@ export default {
         warrantycondition: { required },
         /// qty: { required },
       },
- 
+
       usage: {
         propertytype: { required },
         wallfinish: { required },
         withpowersupply: { required },
-        area: {required}
+        area: { required },
       },
     },
     customer: {
-      cpnumber: {  numeric,required,
-                    minLength: minLength(10),
-                    maxLength: maxLength(11)
-                           },
+      cpnumber: {
+        numeric,
+        required,
+        minLength: minLength(10),
+        maxLength: maxLength(11),
+      },
       lastname: { required },
       firstname: { required },
       /// middlename: { required },
@@ -1092,9 +1132,11 @@ export default {
   },
   data() {
     return {
-max: 10,
-    text: '',
-      sqm: '',
+ 
+      InstallationAddress: 0,
+      max: 10,
+      text: "",
+      sqm: "",
       usersData: [],
       isLoading: false,
       itemsAuto: [],
@@ -1105,8 +1147,6 @@ max: 10,
       problemItemsAuto: [],
       problemAuto: null,
       searchP: null,
- 
-
 
       restoreBK: false,
       restoreHead: [
@@ -1274,8 +1314,9 @@ max: 10,
           { name: "NO", value: "NO" },
         ],
         withpowersupply: [
-          { name: "YES", value: "YES" },
-          { name: "NO", value: "NO" },
+          { name: "INDOOR", value: "INDOOR" },
+          { name: "OUTDOOR", value: "OUTDOOR" },
+          { name: "NONE", value: "NONE" },
         ],
       },
       addressesListDown: {
@@ -1312,9 +1353,9 @@ max: 10,
           },
         ],
 
-        prodcategories: [ ],
+        prodcategories: [],
         appliancetype: [],
-        brand: [ ],
+        brand: [],
         unitcondition: [
           {
             name: "BRAND NEW",
@@ -1358,7 +1399,7 @@ max: 10,
             name: "HIGH",
             value: "HIGH",
           },
-           {
+          {
             name: "MEDIUM",
             value: "MEDIUM",
           },
@@ -1366,77 +1407,72 @@ max: 10,
             name: "LOW",
             value: "LOW",
           },
-           
         ],
       },
     };
   },
   watch: {
-        modelAuto (val) {
-              if (val != null) this.tab = 0
-              else this.tab = null
-            },
-          search (val) {
-        // Items have already been loaded
-        if (this.itemsAuto.length > 0) return
-        this.isLoading = true
-        // Lazily load input items
-        fetch('http://192.168.1.19:8081/api2/all.json')
-          .then(res => res.clone().json())
-          .then(res => {
-            this.itemsAuto = res
-          })
-          .catch(err => {
-            console.log(err)
-          })
-          .finally(() => (this.isLoading = false))
-      },
-
-
-
-       problemAuto (val) {
-              if (val != null) this.tab = 0
-              else this.tab = null
-            },
-      searchP (val) {
-        // Items have already been loaded
-        if (this.problemItemsAuto.length > 0) return
-        this.isLoading = true
-        // Lazily load input items
-        fetch('http://192.168.1.19:8081/api2/problem.json')
-          .then(res => res.clone().json())
-          .then(res => {
-            this.problemItemsAuto = res
-          })
-          .catch(err => {
-            console.log(err)
-          })
-          .finally(() => (this.isLoading = false))
-      },
+    modelAuto(val) {
+      if (val != null) this.tab = 0;
+      else this.tab = null;
     },
+    search(val) {
+      // Items have already been loaded
+      if (this.itemsAuto.length > 0) return;
+      this.isLoading = true;
+      // Lazily load input items
+      fetch("http://192.168.1.19:8082/api2/all.json")
+        .then((res) => res.clone().json())
+        .then((res) => {
+          this.itemsAuto = res;
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => (this.isLoading = false));
+    },
+
+    problemAuto(val) {
+      if (val != null) this.tab = 0;
+      else this.tab = null;
+    },
+    searchP(val) {
+      // Items have already been loaded
+      if (this.problemItemsAuto.length > 0) return;
+      this.isLoading = true;
+      // Lazily load input items
+      fetch("http://192.168.1.19:8082/api2/problem.json")
+        .then((res) => res.clone().json())
+        .then((res) => {
+          this.problemItemsAuto = res;
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => (this.isLoading = false));
+    },
+  },
   created() {
-   // this.$store.dispatch("fetchDBAll");
+    // this.$store.dispatch("fetchDBAll");
     regions().then((region) => (this.addressesListDown.region = region));
 
-    this.usersData = this.$store.state.currentUser
-
- 
+    this.usersData = this.$store.state.currentUser;
   },
   computed: {
-    areaError(){
+    areaError() {
       const errors = [];
- 
-        if(parseInt(this.sqm) < this.data.usage.area){
-          return "MAX SQM UP TO "+ this.sqm;
-        }else{
-          
-          return "";
-        }
+
+      if (parseInt(this.sqm) < this.data.usage.area) {
+        return "MAX SQM UP TO " + this.sqm;
+      } else {
+        return "";
+      }
     },
 
-    checkwarranty(){
-     const checkwarranties = this.data.units.warrantycondition ==  'WARRANTY'? true: false;
-     return checkwarranties;
+    checkwarranty() {
+      const checkwarranties =
+        this.data.units.warrantycondition == "WARRANTY" ? true : false;
+      return checkwarranties;
     },
     // PRODUCT INFO VALIDATION
     appliancetypeError() {
@@ -1582,13 +1618,13 @@ max: 10,
       }
       return true;
     },
-   
+
     UnitsALLError() {
       this.$v.data.units.$touch();
       if (!this.$v.data.units.$error) {
         return false;
       }
-      
+
       return true;
     },
     withpowersupplyError() {
@@ -1698,11 +1734,11 @@ max: 10,
 
       const APPLIANCETYPE = this.data.units.prodcategories;
       if (APPLIANCETYPE == "REFRIGERATOR") {
-       // this.productListDown.appliancetype = REFREGERATOR;
+        // this.productListDown.appliancetype = REFREGERATOR;
       } else if (APPLIANCETYPE == "AIRCONDITION") {
-       // this.productListDown.appliancetype = AIRCONDITION;
+        // this.productListDown.appliancetype = AIRCONDITION;
       } else {
-       // this.productListDown.appliancetype = EMPTY;
+        // this.productListDown.appliancetype = EMPTY;
       }
     },
     gen() {
@@ -1810,11 +1846,12 @@ max: 10,
             withpowersupply: this.data.usage.wallfinish,
             deliverydate: this.data.usage.deliverydate,
             time: this.data.usage.time,
-            locationofinstallation: this.data.usage.locationofinstallation,
+            locationofinstallation: this.InstallationAddress == 0?0:this.data.usage.locationofinstallation,
             paidamoun: this.data.usage.paidamoun,
           };
           this.units.push(add);
           this.storeDataFinal.push(add);
+        
         }
       } else {
         this.$v.data.units.$touch();
@@ -1837,7 +1874,7 @@ max: 10,
             demandreplacement: this.data.units.demandreplacement,
             priority: this.data.units.priority,
             datepurchase: this.data.units.datepurchase,
-            locationofinstallation: this.data.usage.locationofinstallation,
+            locationofinstallation:  this.InstallationAddress == 0?0:this.data.usage.locationofinstallation,
           };
           this.units.push(add);
           this.storeDataFinal.push(add);
@@ -1879,42 +1916,37 @@ max: 10,
       this.units.splice(this.units.indexOf(item), 1);
       this.storeDataFinal.splice(this.storeDataFinal.indexOf(item), 1);
     },
-    checkoutFinal(){
-       if (!this.$v.customer.$error) {
-           this.confirmdialog = true;
-          }
+    checkoutFinal() {
+      if (!this.$v.customer.$error) {
+        this.confirmdialog = true;
+      }
     },
     checkout() {
       this.$v.customer.$touch();
-      if(this.checkwarranty == true){
-              if(this.customer.attachment.length !== 0){
-                   this.checkoutFinal();
-                  }else{
-                    this.reqIdentifier 
-                    if(this.reqIdentifier  == 3 || this.reqIdentifier  == 4){
-                          this.checkoutFinal();
-                    }else{
-                          alert("Please Attach Sales Invoice to Proceed")
-                    }
-               
-              }
-      }else{
+      if (this.checkwarranty == true) {
+        if (this.customer.attachment.length !== 0) {
+          this.checkoutFinal();
+        } else {
+          this.reqIdentifier;
+          if (this.reqIdentifier == 3 || this.reqIdentifier == 4) {
             this.checkoutFinal();
-      }
-    
-
-
-
-    },
-
-   increment () {
-      this.data.units.qty++
-    },
-    decrement () {
-      if(this.data.units.qty === 1) {
-        alert('Negative quantity not allowed')
+          } else {
+            alert("Please Attach Sales Invoice to Proceed");
+          }
+        }
       } else {
-        this.data.units.qty--
+        this.checkoutFinal();
+      }
+    },
+
+    increment() {
+      this.data.units.qty++;
+    },
+    decrement() {
+      if (this.data.units.qty === 1) {
+        alert("Negative quantity not allowed");
+      } else {
+        this.data.units.qty--;
       }
     },
     rebook() {
@@ -1984,7 +2016,7 @@ max: 10,
     clearcookies() {
       this.storeDataFinal = [];
       this.units = [];
-       (this.reqIdentifier = 0),
+      (this.reqIdentifier = 0),
         (this.customer = {
           cpnumber: "",
           lastname: "",
@@ -2111,7 +2143,7 @@ max: 10,
         DATA.push(add);
       });
       this.units = DATA;
-      this.storeDataFinal = DATA
+      this.storeDataFinal = DATA;
       this.customer = {
         cpnumber: restoreData.customer.cpnumber,
         lastname: restoreData.customer.lastname,
@@ -2163,24 +2195,23 @@ max: 10,
         province_code: restoreData.customer.province,
       };
     },
-    modelsActivate(data){
-     this.sqm = data.SQM
-     this.productListDown.prodcategories = data.categories
-     this.productListDown.appliancetype = data.type
-     this.productListDown.brand = data.Brand
-     this.data.units.brand = data.Brand
-      
-     this.data.units.prodcategories = data.categories
-     if(data.model == "*" ){
-     this.productListDown.brand = data.Brand2
-     this.productListDown.prodcategories = data.cat
-     this.productListDown.appliancetype = data.type
- 
-     }
-     if(data.type){
-      this.data.units.appliancetype = data.type
-     }else{ 
-       const AIRCONDITION = [
+    modelsActivate(data) {
+      this.sqm = data.SQM;
+      this.productListDown.prodcategories = data.categories;
+      this.productListDown.appliancetype = data.type;
+      this.productListDown.brand = data.Brand;
+      this.data.units.brand = data.Brand;
+
+      this.data.units.prodcategories = data.categories;
+      if (data.model == "*") {
+        this.productListDown.brand = data.Brand2;
+        this.productListDown.prodcategories = data.cat;
+        this.productListDown.appliancetype = data.type;
+      }
+      if (data.type) {
+        this.data.units.appliancetype = data.type;
+      } else {
+        const AIRCONDITION = [
           {
             name: "SPLIT TYPE",
             value: "SPLIT TYPE",
@@ -2237,117 +2268,130 @@ max: 10,
 
         const APPLIANCETYPE = data.categories;
         if (APPLIANCETYPE == "REFRIGERATOR") {
-       this.productListDown.appliancetype = REFREGERATOR;
+          this.productListDown.appliancetype = REFREGERATOR;
         } else if (APPLIANCETYPE == "AIRCONDITION") {
-       this.productListDown.appliancetype = AIRCONDITION;
+          this.productListDown.appliancetype = AIRCONDITION;
         } else {
-        this.productListDown.appliancetype = EMPTY;
+          this.productListDown.appliancetype = EMPTY;
         }
-     }
-      
-     
+      }
     },
 
-    booknew(){
-         this.confirmdialog = false;
-      this.storeDataFinal = [];
-      this.units = [];
-      this.requestType =
-        "REF-" + this.activerequest + "-" + Math.ceil(Math.random() * 1000000);
-      this.data = {
-        units: {
-          prodcategories: "",
-          appliancetype: "",
-          brand: "",
-          model: "",
-          serialno: "",
-          unitcondition: "",
-          warrantycondition: "",
-          qty: "",
-          demandreplacement: "",
-          priority: "",
-          datepurchase: new Date(
-            Date.now() - new Date().getTimezoneOffset() * 60000
-          )
-            .toISOString()
-            .substr(0, 10),
-        },
+    booknew() {
 
-        usage: {
-          propertytype: "",
-          level: "",
-          location: "",
-          area: "",
-          wallfinish: "",
-          withpowersupply: "",
-          deliverydate: "",
-          time: null,
-          locationofinstallation: "",
-          paidamoun: "",
-        },
-      };
+      // this.confirmdialog = false;
+      // this.storeDataFinal = [];
+      // this.units = [];
+      // this.requestType =
+      //   "REF-" + this.activerequest + "-" + Math.ceil(Math.random() * 1000000);
+      // this.data = {
+      //   units: {
+      //     prodcategories: "",
+      //     appliancetype: "",
+      //     brand: "",
+      //     model: "",
+      //     serialno: "",
+      //     unitcondition: "",
+      //     warrantycondition: "",
+      //     qty: "",
+      //     demandreplacement: "",
+      //     priority: "",
+      //     datepurchase: new Date(
+      //       Date.now() - new Date().getTimezoneOffset() * 60000
+      //     )
+      //       .toISOString()
+      //       .substr(0, 10),
+      //   },
 
-      this.customer = {
-          cpnumber: "",
-          lastname: "",
-          firstname: "",
-          emailaddress: "",
-          middlename: "",
-          contactperson: "",
-          telephoneno: "",
-          houseno: "",
-          street: "",
-          barangay: "",
-          mcity: "",
-          province: "",
-          locationunit: "",
-          organization: "",
-          attachment: [],
-          specialinstruction: "",
-          additionalrequest1: "",
-          additionalrequest2: "",
+      //   usage: {
+      //     propertytype: "",
+      //     level: "",
+      //     location: "",
+      //     area: "",
+      //     wallfinish: "",
+      //     withpowersupply: "",
+      //     deliverydate: "",
+      //     time: null,
+      //     locationofinstallation: "",
+      //     paidamoun: "",
+      //   },
+      // };
+
+      // this.customer = {
+      //   cpnumber: "",
+      //   lastname: "",
+      //   firstname: "",
+      //   emailaddress: "",
+      //   middlename: "",
+      //   contactperson: "",
+      //   telephoneno: "",
+      //   houseno: "",
+      //   street: "",
+      //   barangay: "",
+      //   mcity: "",
+      //   province: "",
+      //   locationunit: "",
+      //   organization: "",
+      //   attachment: [],
+      //   specialinstruction: "",
+      //   additionalrequest1: "",
+      //   additionalrequest2: "",
+      // };
+    },
+
+    autoclear() {
+      var i = this.data.units.model ? 1 : 2;
+      if (i == 2) {
+        this.data.units.prodcategories = "";
+        this.data.units.appliancetype = "";
+        this.data.units.brand = "";
+        this.data.units.model = "";
+
+        this.productListDown.brand = "";
+        this.productListDown.prodcategories = "";
+        this.productListDown.appliancetype = "";
+      }
+    },
+    onlyNumber($event) {
+      //console.log($event.keyCode); //keyCodes value
+      let keyCode = $event.keyCode ? $event.keyCode : $event.which;
+      if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) {
+        // 46 is dot
+        $event.preventDefault();
+      }
+    },
+    checkAreaKey($event) {
+      if (parseInt(this.sqm) < this.data.usage.area) {
+        if ($event.keyCode > 48) {
+          $event.preventDefault();
         }
-    },
+        this.data.usage.area = 0;
+      } else {
+        console.log("pasok");
+      }
 
-    autoclear(){
-     var i = this.data.units.model?1:2
-     if(i == 2){
-          this.data.units.prodcategories = ""
-          this.data.units.appliancetype = ""
-          this.data.units.brand = ""
-          this.data.units.model= ""
-
-          this.productListDown.brand = ""
-          this.productListDown.prodcategories = ""
-          this.productListDown.appliancetype = ""
-     }
+      let keyCode = $event.keyCode ? $event.keyCode : $event.which;
+      if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) {
+        // 46 is dot
+        $event.preventDefault();
+      }
     },
-    onlyNumber ($event) {
-        //console.log($event.keyCode); //keyCodes value
-        let keyCode = ($event.keyCode ? $event.keyCode : $event.which);
-        if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { // 46 is dot
-            $event.preventDefault();
-            }
+    verifywall() {
+      console.log(this.data.usage.wallfinish);
+      if (this.data.usage.wallfinish == "NO") {
+        alert(
+          "NOT ADVISABLE TO INSTALL DUE TO WALL NOT YET FINISH PROCEED, DISREGARD, SAVE AS DRAFT AS A CHOICE"
+        );
+      }
     },
-    checkAreaKey($event){
- 
-             if(parseInt(this.sqm) < this.data.usage.area){
-                  if ($event.keyCode > 48) { 
-                               
-                              $event.preventDefault();
-                   }
-                     this.data.usage.area = 0
-             }else{
-                console.log("pasok")
-             }
-
-            let keyCode = ($event.keyCode ? $event.keyCode : $event.which);
-             if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { // 46 is dot
-            $event.preventDefault();
-            }
+    addressV(){
+      if(this.InstallationAddress == 1){
+          this.data.usage.locationofinstallation = '';
+      }else{
+         this.data.usage.locationofinstallation = 0;
+      }
+     console.log(this.data.usage.locationofinstallation) 
     }
- 
-    
   },
 };
 </script>
@@ -2365,7 +2409,4 @@ pre {
   padding: 1rem;
   border-radius: 5px;
 }
- 
-
-  
 </style>
