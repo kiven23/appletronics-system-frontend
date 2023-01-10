@@ -278,16 +278,7 @@
                           required
                           dense
                         ></v-select>
-                        <vs-button
-                          class="ma-2"
-                          @click="add()"
-                          outlined
-                          color="indigo"
-                          :disabled="UnitsALLError"
-                          size="mini"
-                        >
-                          ADD
-                        </vs-button>
+            
                         <!-- <v-btn @click="gen()" outlined color="indigo">
                           TESTDATA
                         </v-btn> -->
@@ -295,6 +286,7 @@
                     </v-col>
                     <v-col cols="12" sm="3" v-if="reqIdentifier == 4">
                       <v-card class="pa-3" height="900">
+                         
                         <v-chip x-small>Property Type* </v-chip>
                         <v-select
                           v-model="data.usage.propertytype"
@@ -303,10 +295,11 @@
                           placeholder="Property Type*"
                           item-text="name"
                           item-value="value"
+                         @change="propertyTypeController()"
                           required
                           dense
                         ></v-select>
-                        <v-chip x-small>Property Type* </v-chip>
+                        <v-chip x-small>Level </v-chip>
                         <v-select
                           v-model="data.usage.level"
                           :items="usagedetailsListDown.level"
@@ -314,6 +307,7 @@
                           item-text="name"
                           item-value="value"
                           required
+                          :disabled="ifcommercial ==1"
                           dense
                         ></v-select>
                         <v-chip x-small>Location </v-chip>
@@ -324,6 +318,7 @@
                           item-text="name"
                           item-value="value"
                           required
+                          :disabled="ifcommercial ==1"
                           dense
                         ></v-select>
                         <v-chip x-small>Area </v-chip>
@@ -335,6 +330,7 @@
                           @input="$v.data.usage.area.$touch()"
                           @keypress="checkAreaKey"
                           required
+                          :disabled="ifcommercial ==1"
                           dense
                         ></v-text-field>
                         <v-chip x-small>Wall Finish* </v-chip>
@@ -346,6 +342,7 @@
                           placeholder="Wall Finish*"
                           item-text="name"
                           item-value="value"
+                          :disabled="ifcommercial ==1"
                           required
                           dense
                         ></v-select>
@@ -359,6 +356,7 @@
                           item-value="value"
                           required
                           dense
+                          :disabled="ifcommercial ==1"
                         ></v-select>
                         <v-chip x-small>Date of Delivery</v-chip>
 
@@ -393,6 +391,15 @@
                           prefix="PHP"
                           v-model="data.usage.paidamoun"
                           placeholder="Amount Paid"
+                          required
+                          dense
+                        ></v-text-field>
+                        <!-- <v-chip x-small>OR #</v-chip> -->
+                        <v-text-field
+                          style="margin: 6px"
+                          prefix="OR#"
+                          v-model="data.usage.or"
+                          placeholder="OR #"
                           required
                           dense
                         ></v-text-field>
@@ -707,10 +714,29 @@
                           color="indigo"
                           @click="checkout()"
                           :disabled="CustomerALLError"
-                          size="mini"
+                         
                         >
                           REVIEW AND CHECKOUT
                         </vs-button>
+                         <vs-button
+                          class="ma-2"
+                          @click="add()"
+                          outlined
+                          color="indigo"
+                          :disabled="UnitsALLError"
+                        >
+                          ADD UNIT +
+                        </vs-button>
+                         <v-chip x-small class="ma-2">
+                          LOGGED BY </v-chip
+                        >
+                          <v-text-field
+                            outlined
+                            v-model="customer.bookby"
+                            name="LOGGED BY :"
+                            label="Enter Your Complete Name"
+                          ></v-text-field>
+                           
                       </v-card>
                     </v-col>
                   </v-row>
@@ -1143,7 +1169,7 @@ export default {
       modelAuto: null,
       search: null,
       tab: null,
-
+      ifcommercial: 0,
       problemItemsAuto: [],
       problemAuto: null,
       searchP: null,
@@ -1206,6 +1232,7 @@ export default {
         specialinstruction: "N/A",
         additionalrequest1: "N/A",
         additionalrequest2: "N/A",
+        bookby: ''
       },
       data: {
         units: {
@@ -1227,6 +1254,7 @@ export default {
             .substr(0, 10),
         },
         usage: {
+          or: "",
           propertytype: "",
           level: "",
           location: "",
@@ -1402,6 +1430,7 @@ export default {
           {
             name: "MEDIUM",
             value: "MEDIUM",
+          
           },
           {
             name: "LOW",
@@ -1652,6 +1681,7 @@ export default {
       !this.$v.data.usage.propertytype.required && errors.push(RequiredError);
       return errors;
     },
+ 
   },
   methods: {
     regionD() {
@@ -1838,6 +1868,7 @@ export default {
             datepurchase: this.data.units.datepurchase,
             problem: this.data.units.problem,
             //usage
+            ornumber: this.data.usage.or,
             propertytype: this.data.usage.propertytype,
             level: this.data.usage.level,
             location: this.data.usage.location,
@@ -1978,6 +2009,7 @@ export default {
           propertytype: "",
           level: "",
           location: "",
+          or: "",
           area: "",
           wallfinish: "",
           withpowersupply: "",
@@ -2018,6 +2050,7 @@ export default {
       this.units = [];
       (this.reqIdentifier = 0),
         (this.customer = {
+          bookby: "",
           cpnumber: "",
           lastname: "",
           firstname: "",
@@ -2057,6 +2090,7 @@ export default {
           },
 
           usage: {
+            or: "",
             propertytype: "",
             level: "",
             location: "",
@@ -2391,6 +2425,18 @@ export default {
          this.data.usage.locationofinstallation = 0;
       }
      console.log(this.data.usage.locationofinstallation) 
+    },
+    propertyTypeController(){
+      if(this.data.usage.propertytype == 'COMMERCIAL'){
+        
+        this.usagedetailsListDown.wallfinish = { name: 'N/A', value: 'N/A' }
+        this.usagedetailsListDown.withpowersupply = { name: 'N/A', value: 'N/A' }
+        this.data.usage.wallfinish = { name: 'N/A', value: 'N/A'}
+        this.data.usage.withpowersupply = { name: 'N/A', value: 'N/A' }
+        this.ifcommercial = 1
+      }else{
+        this.ifcommercial = 0
+      }
     }
   },
 };
@@ -2409,4 +2455,5 @@ pre {
   padding: 1rem;
   border-radius: 5px;
 }
+ 
 </style>

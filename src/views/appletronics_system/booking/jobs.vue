@@ -160,6 +160,9 @@
         <template v-slot:item.action="{ item }">
           <vs-button border @click="view(item)"> View </vs-button>
         </template>
+        <template v-slot:item.created_at="{ item }">
+          {{new Date(item.created_at).toLocaleString()}}
+        </template>
       </v-data-table>
       <v-dialog
         v-model="jobsInfo"

@@ -34,7 +34,7 @@ const actions = {
     formData.append("telephoneno", data.customer.telephoneno);
     formData.append("additionalrequest1", data.customer.additionalrequest1);
     formData.append("additionalrequest2", data.customer.additionalrequest2);
-
+    formData.append("bookby", data.customer.bookby);
     //SURVEY LOCATION
     formData.append("surveylocation", data.customer.locationofinstallation);
 
