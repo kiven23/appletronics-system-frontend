@@ -78,9 +78,9 @@
                   >mdi-email-alert</v-icon
                 >
                 <strong
-                  >Unassigned
+                  >Unassigned 
 
-                  <h2>{{ jobsCounts.unsigned }}</h2></strong
+                  <h2>{{ jobsCounts.unsigned }}  </h2></strong
                 >
 
       </v-card>
@@ -505,10 +505,7 @@
                 :items="reasonItem"
                 item-text="name"
                 item-value="value"
-                chips
-                dense
-                deletable-chips
-                small-chips
+                 
               ></v-autocomplete>
             </v-list>
             <v-list three-line class="pa-3">
@@ -838,6 +835,22 @@ export default {
         this.bgselected0 = "";
         this.bgselected1 = "success";
         this.bgselected2 = "";
+         this.headers= [
+                  {
+                    text: "Request Type",
+                    align: "start",
+                    sortable: false,
+                    value: "requestid",
+                  },
+                  { text: "Branch", value: "branch.name" },
+                  { text: "Customer Name", value: "customer" },
+                  { text: "Date of Complain", value: "created_at" },
+                  { text: "Appliance Type/Item", value: "producttype" },
+                  { text: "Province", value: "customer.province" },
+                  { text: "City", value: "customer.mcity" },
+                  { text: "Barangay", value: "customer.barangay" },
+                  { text: "Action", value: "action" },
+                ]
       }
       if (id == 2) {
         this.bgselected0 = "";

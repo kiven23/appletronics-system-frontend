@@ -85,6 +85,7 @@ import databaseconfigure from "../views/settings/database/configure.vue";
 //APPLETRONICS ROUTE
 import booking from "../views/appletronics_system/booking/booking.vue";
 import jobs from "../views/appletronics_system/booking/jobs.vue";
+import scalate from "../views/appletronics_system/booking/scalate/scalate.vue"
 
 const viewRoutes = [
   {
@@ -486,6 +487,15 @@ const viewRoutes = [
       path: "/app/booking/jobs",
       component: jobs,
       name: "jobs",
+      meta: {
+        requiresAuth: true
+      }
+    },
+    //Scalate
+    {
+      path: "/app/booking/scalate",
+      component: scalate,
+      name: "scalate",
       meta: {
         requiresAuth: true
       }

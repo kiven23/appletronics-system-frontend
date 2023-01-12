@@ -10,6 +10,7 @@ const JOBSCHECKRECORDS = rootUrl + "/api/booking/jobs/checkrecords";
 const DOWNLOADSALESINVOICE = rootUrl + "/api/booking/jobs/salesinvoice/download";
 const RESTOREDATA = rootUrl + "/api/booking/restore";
 
+const SCALATEDATA = rootUrl + "/api/booking/scalate/index";
 const GETSCHEDULE = rootUrl + "/api/jobs/schedules/calendar";
 const actions = {
   storeBooking(context, data) {
@@ -123,7 +124,13 @@ const actions = {
       return axios.post(RESTOREDATA, data).then((res)=>{
         return res
       })
-  }
+  },
+  scalateBk(context, data){
+    return axios.post(SCALATEDATA, data).then((res)=>{
+      return res
+    })
+},
+
   
 };
 
