@@ -61,17 +61,27 @@
         :search="search"
         :items-per-page="5"
       >
-        <!-- <template v-slot:item.customer="{ item }">
-          {{ item.customer.lastname }},
-          {{ item.customer.firstname }}
-        </template> -->
+        <template v-slot:item.status="{ item }">
+          <v-chip
+            :color="item.data.status == '1' ? 'orange' : 'green'"
+            label
+            outlined
+          >
+            {{ item.data.status == "1" ? "Pending" : "Resolved" }}</v-chip
+          >
+        </template>
+        <template v-slot:item.action="{ item }">
+          <v-btn class="ma-2" outlined color="indigo" @click="itemView(item)">
+            UPDATE
+          </v-btn>
+        </template>
       </v-data-table>
       <v-dialog v-model="createEszalateDialog" max-width="500px">
         <v-card>
           <v-card-title> Create New Escalation </v-card-title>
 
-          <v-list three-line
-            class="pa-5"><v-autocomplete
+          <v-list three-line class="pa-5"
+            ><v-autocomplete
               v-model="model"
               :items="items"
               :loading="isLoading"
@@ -114,6 +124,109 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
+      <v-dialog v-model="loadings" hide-overlay persistent width="300">
+        <v-card color="primary" dark>
+          <v-card-text>
+            Please stand by
+            <v-progress-linear
+              indeterminate
+              color="white"
+              class="mb-0"
+            ></v-progress-linear>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
+      <v-dialog v-model="viewThreads" max-width="700px">
+        <v-card>
+          <v-card-title> Escalation Details </v-card-title>
+ 
+            <v-row>
+              <v-col cols="12" sm="4">
+                <v-list three-line class="pa-6">
+                  Customer <br>
+                  <strong>{{threadsData.data.customername }}</strong><br>  
+                  Status<br>
+                 
+                  <v-chip
+                    :color="threadsData.data.status == '1' ? 'orange' : 'green'"
+                    label
+                    outlined
+                    
+                  >
+                    {{ threadsData.data.status == "1" ? "Pending" : "Resolved" }}</v-chip
+                  ><br>
+                   Category 
+                   <v-select
+                    v-model="category"
+                    :items="categories"
+                    item-text="name"
+                    item-value="value"
+                    label=""
+                    dense
+                    solo
+                  ></v-select>
+                    <v-btn class="ma-2" @click="updateScalate(threadsData.data.id)" outlined color="indigo">
+                    UPDATE</v-btn>
+                </v-list>
+              
+              </v-col>
+              <v-col cols="12" sm="8"> 
+                 <br>Escalation Date<br>
+                  {{new Date(threadsData.data.created_at).toLocaleString()}}  
+                  
+                  <v-card-text>
+                    <div class="font-weight-bold ">
+                      Updates
+                    </div>
+                    <v-timeline
+                      align-top
+                      dense
+                    >
+                     <v-sheet
+                        id="scrolling-techniques-7"
+                        class="overflow-y-auto"
+                        max-height="200"
+                      >
+                      <v-timeline-item
+                        v-for="message in threadsData.threads"
+                        :key="message.created_at"
+                         color="green"
+                        small
+                      >
+                       
+                        <div>
+                          <div class="font-weight-normal">
+                            <strong>{{ message.from_bys }}</strong> @{{ message.created_at }}
+                          </div>
+                          <div>{{ message.threads }}</div>
+                        </div>
+                      </v-timeline-item>
+                     </v-sheet>
+                    </v-timeline>
+                  </v-card-text>
+                   <v-list three-line class="pa-6">
+                     <v-textarea
+                        v-model="note"
+                        outlined
+                        name="input-7-4"
+                         
+                        value=""
+                      ></v-textarea>
+                        <v-col class="text-right">
+                      <v-btn class="ma-2" @click="sendThreads(threadsData.data.id)" :disabled="note?false:true" color="grey">
+                        SEND
+                      </v-btn>
+                      </v-col>
+                    </v-list>
+                     
+                     
+                 
+</v-col>
+            </v-row>
+          
+          <v-card-actions> </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-container>
   </div>
 </template>
@@ -127,19 +240,23 @@ export default {
   validations: {},
   data() {
     return {
+      messages: [],
+      threadsData: {data : { status: ''}},
+      viewThreads: false,
+      loadings: false,
       descriptionLimit: 60,
       entries: [],
       isLoading: false,
       model: null,
       searchCustomer: null,
-
+      createData: [],
       note: "",
       search: "",
       datas: [],
       headers: [
-        { text: "DATE CREATED", value: "created_at" },
-        { text: "CUSTOMER NAME", value: "customername" },
-        { text: "CATEGORY", value: "categories" },
+        { text: "DATE CREATED", value: "data.created_at" },
+        { text: "CUSTOMER NAME", value: "data.customername" },
+        { text: "CATEGORY", value: "data.categories" },
         { text: "STATUS", value: "status" },
         { text: "ACTION", value: "action" },
       ],
@@ -163,6 +280,7 @@ export default {
         },
       ],
       category: "",
+      category2: "",
     };
   },
 
@@ -185,10 +303,10 @@ export default {
     },
     items() {
       return this.entries.map((entry) => {
-        const Description = entry.whole
-          entry.whole.length > this.descriptionLimit
-            ? entry.whole.slice(0, this.descriptionLimit) + "..."
-            : entry.whole;
+        const Description = entry.whole;
+        entry.whole.length > this.descriptionLimit
+          ? entry.whole.slice(0, this.descriptionLimit) + "..."
+          : entry.whole;
 
         return Object.assign({}, entry, { Description });
       });
@@ -202,29 +320,81 @@ export default {
   },
 
   methods: {
+    refresh() {
+      this.$store.dispatch("app_booking_sys/scalateBk").then((res) => {
+        this.datas = res.data;
+      });
+    },
     create() {
       this.createEszalateDialog = true;
     },
     send() {
-      var note = this.note;
-      alert(note);
+      var data = {
+        identify: 1,
+        customerdata: this.createData,
+        category: this.category,
+        note: this.note,
+      };
+      this.$store
+        .dispatch("app_booking_sys/scalateCreateBk", data)
+        .then((res) => {
+          console.log(res.data);
+          this.refresh();
+        });
     },
-    getData(data){
-      console.log(data)
+    getData(data) {
+      this.createData = data;
+    },
+    itemView(data) {
+      this.viewThreads = true;
+      this.threadsData = data;
+      // this.loadings = true
+      setTimeout(
+        () => ((this.loadings = false), (this.viewThreads = true)),
+        2000
+      );
+    },
+    sendThreads(data){
+      var datas = {"scalate_id": data, "thread": this.note}
+      this.$store
+        .dispatch("app_booking_sys/scalateSendThreadsBk", datas)
+        .then((res) => {
+          this.refresh();
+          this.loadings = true
+         setTimeout(
+           () => (
+            (
+            this.loadings = false), 
+             
+             this.threadsData.threads.push(res.data[0])), 
+            2000
+          );
+         
+
+        });
+    },
+    updateScalate(datas){
+      var data = {
+        identify: 2,
+        id: datas,
+        category: this.category
+      }
+       this.$store
+        .dispatch("app_booking_sys/scalateCreateBk", data)
+        .then((res) => {
+          console.log(res.data);
+          this.refresh();
+        });
     }
   },
 
   watch: {
     searchCustomer(val) {
-      
-    
       this.isLoading = true;
-
       // Lazily load input items
-      fetch("http://192.168.1.19:8009/api/jobs/customers/list?q="+val)
+      fetch("http://192.168.1.19:8009/api/jobs/customers/list?q=" + val)
         .then((res) => res.json())
         .then((res) => {
-           
           this.entries = res;
         })
         .catch((err) => {

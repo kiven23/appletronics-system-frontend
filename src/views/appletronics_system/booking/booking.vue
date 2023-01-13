@@ -1450,7 +1450,7 @@ export default {
       if (this.itemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8081/api2/all.json")
+      fetch("http://192.168.1.19:8082/api2/all.json")
         .then((res) => res.clone().json())
         .then((res) => {
           this.itemsAuto = res;
@@ -1470,7 +1470,7 @@ export default {
       if (this.problemItemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8081/api2/problem.json")
+      fetch("http://192.168.1.19:8082/api2/problem.json")
         .then((res) => res.clone().json())
         .then((res) => {
           this.problemItemsAuto = res;

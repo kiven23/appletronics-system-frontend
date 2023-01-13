@@ -11,7 +11,10 @@ const DOWNLOADSALESINVOICE = rootUrl + "/api/booking/jobs/salesinvoice/download"
 const RESTOREDATA = rootUrl + "/api/booking/restore";
 
 const SCALATEDATA = rootUrl + "/api/booking/scalate/index";
+const SCALATECREATEDATA = rootUrl + "/api/booking/scalate/create";
+const SCALATESENDTHREADSDATA = rootUrl + "/api/booking/scalate/threads";
 const GETSCHEDULE = rootUrl + "/api/jobs/schedules/calendar";
+
 const actions = {
   storeBooking(context, data) {
     let formData = new FormData();
@@ -129,7 +132,17 @@ const actions = {
     return axios.post(SCALATEDATA, data).then((res)=>{
       return res
     })
-},
+  },
+  scalateCreateBk(context, data){
+    return axios.post(SCALATECREATEDATA, data).then((res)=>{
+      return res
+    })
+  },
+  scalateSendThreadsBk(context, data){
+    return axios.post(SCALATESENDTHREADSDATA, data).then((res)=>{
+      return res
+    })
+  },
 
   
 };
