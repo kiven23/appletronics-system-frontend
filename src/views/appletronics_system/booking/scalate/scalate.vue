@@ -71,8 +71,11 @@
           >
         </template>
         <template v-slot:item.action="{ item }">
-          <v-btn class="ma-2" outlined color="indigo" @click="itemView(item)">
+          <v-btn class="ma-1" outlined color="indigo" @click="itemView(item)">
             UPDATE
+          </v-btn>
+          <v-btn class="ma-1" outlined color="green" v-if="item.data.status == 1" @click="resolvedScalate(item)">
+            RESOLVED
           </v-btn>
         </template>
       </v-data-table>
@@ -164,13 +167,17 @@
                     label=""
                     dense
                     solo
+                    :disabled="threadsData.data.status == 2"
                   ></v-select>
-                    <v-btn class="ma-2" @click="updateScalate(threadsData.data.id)" outlined color="indigo">
-                    UPDATE</v-btn>
+                    <v-btn class="ma-2" v-if="threadsData.data.status == 1" @click="updateScalate(threadsData.data.id)" outlined color="indigo">
+                  UPDATE</v-btn>
+                       
                 </v-list>
               
               </v-col>
-              <v-col cols="12" sm="8"> 
+              <v-col cols="12" sm="8" > 
+                <v-btn v-if="threadsData.data.status == 2" class="ma-2" @click="reopen(threadsData.data.id)" outlined color="indigo">
+                   RE OPEN</v-btn>
                  <br>Escalation Date<br>
                   {{new Date(threadsData.data.created_at).toLocaleString()}}  
                   
@@ -209,11 +216,11 @@
                         v-model="note"
                         outlined
                         name="input-7-4"
-                         
+                         v-if="threadsData.data.status == 1"
                         value=""
                       ></v-textarea>
                         <v-col class="text-right">
-                      <v-btn class="ma-2" @click="sendThreads(threadsData.data.id)" :disabled="note?false:true" color="grey">
+                      <v-btn class="ma-2"  v-if="threadsData.data.status == 1" @click="sendThreads(threadsData.data.id)" :disabled="note?false:true" color="grey">
                         SEND
                       </v-btn>
                       </v-col>
@@ -364,13 +371,26 @@ export default {
          setTimeout(
            () => (
             (
-            this.loadings = false), 
-             
+             this.loadings = false), 
              this.threadsData.threads.push(res.data[0])), 
             2000
           );
          
 
+        });
+    },
+    reopen(id){
+      var data = {
+          identify: 5,
+          id: id,
+        }
+        this.$store
+        .dispatch("app_booking_sys/scalateCreateBk", data)
+        .then((res) => {
+          this.viewThreads = false;
+          //this.threadsData.data.status = 1;
+          this.threadsData.threads.push(res.data[0])
+          this.refresh();
         });
     },
     updateScalate(datas){
@@ -382,10 +402,23 @@ export default {
        this.$store
         .dispatch("app_booking_sys/scalateCreateBk", data)
         .then((res) => {
-          console.log(res.data);
+          // this.threadsData.data.status = 2;
+          this.threadsData.threads.push(res.data[0])
           this.refresh();
         });
-    }
+    },
+    resolvedScalate(datas){
+        var data = {
+          identify: 3,
+          id: datas.data.id,
+        }
+        this.$store
+          .dispatch("app_booking_sys/scalateCreateBk", data)
+          .then((res) => {
+             
+            this.refresh();
+          });
+      }
   },
 
   watch: {

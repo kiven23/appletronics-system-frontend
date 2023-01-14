@@ -148,6 +148,10 @@
         :search="search"
         :items-per-page="5"
       >
+       <template v-slot:item.requestid="{ item }">
+          {{ item.requesttype }}
+        </template>
+         
         <template v-slot:item.customer="{ item }">
           {{ item.customer.lastname }},
           {{ item.customer.firstname }}
@@ -830,6 +834,23 @@ export default {
         this.bgselected0 = "success";
         this.bgselected1 = "";
         this.bgselected2 = "";
+                 this.headers= [
+                  {
+                    text: "Request Type",
+                    align: "start",
+                    sortable: false,
+                    value: "requestid",
+                  },
+                  
+                  { text: "Branch", value: "branch.name" },
+                  { text: "Customer Name", value: "customer" },
+                  { text: "Date of Complain", value: "created_at" },
+                  { text: "Appliance Type/Item", value: "producttype" },
+                  { text: "Province", value: "customer.province" },
+                  { text: "City", value: "customer.mcity" },
+                  { text: "Barangay", value: "customer.barangay" },
+                  { text: "Action", value: "action" },
+                ]
       }
       if (id == 1) {
         this.bgselected0 = "";
@@ -841,6 +862,12 @@ export default {
                     align: "start",
                     sortable: false,
                     value: "requestid",
+                  },
+                  {
+                    text: "Call ID",
+                    align: "start",
+                    sortable: false,
+                    value: "callid",
                   },
                   { text: "Branch", value: "branch.name" },
                   { text: "Customer Name", value: "customer" },

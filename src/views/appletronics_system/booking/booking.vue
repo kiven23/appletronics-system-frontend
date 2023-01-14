@@ -825,7 +825,7 @@
 
                     <v-col cols="12" sm="6" md="4">
                       <strong>Address Details</strong>
-                      <br />{{
+                      <br /> {{
                         customer.barangay +
                         ", " +
                         customer.mcity +
@@ -1450,7 +1450,7 @@ export default {
       if (this.itemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8082/api2/all.json")
+      fetch("http://192.168.1.19:8081/api2/all.json")
         .then((res) => res.clone().json())
         .then((res) => {
           this.itemsAuto = res;
@@ -1470,7 +1470,7 @@ export default {
       if (this.problemItemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8082/api2/problem.json")
+      fetch("http://192.168.1.19:8081/api2/problem.json")
         .then((res) => res.clone().json())
         .then((res) => {
           this.problemItemsAuto = res;
@@ -2140,7 +2140,11 @@ export default {
         type: this.requestType,
       };
       this.$store.dispatch("app_booking_sys/restoreBk", data).then((res) => {
-        this.restoreList = res.data;
+         
+ this.restoreList = res.data;
+        
+         
+        console.log(res.data)
       });
     },
     restoreNow(restoreData) {
@@ -2178,7 +2182,21 @@ export default {
       });
       this.units = DATA;
       this.storeDataFinal = DATA;
+         (this.addressesListDown.province = {
+        province_name: restoreData.customer.province,
+        brgy_code: restoreData.customer.province,
+      }),
+        (this.addressesListDown.mcity = {
+          city_name: restoreData.customer.mcity,
+          brgy_code: restoreData.customer.mcity,
+        }),
+        (this.addressesListDown.barangay = {
+          brgy_name: restoreData.customer.barangay,
+          brgy_code: restoreData.customer.barangay,
+        }),
+       
       this.customer = {
+        customerCity: restoreData.customer.mcity,
         cpnumber: restoreData.customer.cpnumber,
         lastname: restoreData.customer.lastname,
         firstname: restoreData.customer.firstname,
@@ -2204,30 +2222,7 @@ export default {
         additionalrequest1: restoreData.customer.additionalrequest1,
         additionalrequest2: restoreData.customer.additionalrequest2,
       };
-      (this.addressesListDown.province = {
-        province_name: restoreData.customer.province,
-        brgy_code: restoreData.customer.province,
-      }),
-        (this.addressesListDown.mcity = {
-          city_name: restoreData.customer.mcity,
-          brgy_code: restoreData.customer.mcity,
-        }),
-        (this.addressesListDown.barangay = {
-          brgy_name: restoreData.customer.barangay,
-          brgy_code: restoreData.customer.barangay,
-        }),
-        (this.customer.barangay = {
-          brgy_name: restoreData.customer.barangay,
-          brgy_code: restoreData.customer.barangay,
-        });
-      this.customer.mcity = {
-        city_name: restoreData.customer.mcity,
-        city_code: restoreData.customer.mcity,
-      };
-      this.customer.province = {
-        province_name: restoreData.customer.province,
-        province_code: restoreData.customer.province,
-      };
+   
     },
     modelsActivate(data) {
       this.sqm = data.SQM;
