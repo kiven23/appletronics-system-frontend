@@ -19,7 +19,7 @@
               <strong
                 >Total Escalations
 
-                <h2>2</h2></strong
+                <h2>{{count.total}}</h2></strong
               >
             </v-card>
           </v-col>
@@ -28,7 +28,7 @@
               <v-icon style="margin-right: 5px; color: red">mdi-restore</v-icon>
               <strong
                 >Pending
-                <h2>2</h2></strong
+                <h2>{{count.pending}}</h2></strong
               >
             </v-card>
           </v-col>
@@ -37,7 +37,7 @@
               <v-icon style="margin-right: 5px; color: blue">mdi-wrench</v-icon>
               <strong
                 >Resolved
-                <h2>1</h2></strong
+                <h2>{{count.resolved}}</h2></strong
               >
             </v-card>
           </v-col>
@@ -247,6 +247,7 @@ export default {
   validations: {},
   data() {
     return {
+      count: {total: 0, pending: 0 , resolved: 0},
       messages: [],
       threadsData: {data : { status: ''}},
       viewThreads: false,
@@ -321,16 +322,25 @@ export default {
   },
 
   mounted() {
+    this.counting();
     this.$store.dispatch("app_booking_sys/scalateBk").then((res) => {
       this.datas = res.data;
     });
+
   },
 
   methods: {
+    counting(){
+           this.$store.dispatch("app_booking_sys/ScalateCount").then((res) => {
+      this.count = res.data;
+    });
+    },
     refresh() {
+
       this.$store.dispatch("app_booking_sys/scalateBk").then((res) => {
         this.datas = res.data;
       });
+      this.counting();
     },
     create() {
       this.createEszalateDialog = true;

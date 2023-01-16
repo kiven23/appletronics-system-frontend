@@ -151,7 +151,9 @@
        <template v-slot:item.requestid="{ item }">
           {{ item.requesttype }}
         </template>
-         
+         <template v-slot:item.callid="{ item }">
+          {{item.callid}}
+        </template>
         <template v-slot:item.customer="{ item }">
           {{ item.customer.lastname }},
           {{ item.customer.firstname }}
@@ -401,6 +403,14 @@
                     ><br />
                     <br />
                     <v-card class="pa-1">
+                       <v-text-field 
+                        label="CALL ID" 
+                        v-model="callid"
+                        :error-messages="callidError"
+                        required
+                      > 
+                       </v-text-field>
+                     
                       <v-autocomplete
                       v-if="users == 28 || users == 25"
                         v-model="tech"
@@ -414,14 +424,7 @@
                         deletable-chips
                         small-chips
                       ></v-autocomplete>
-                      <v-text-field 
-                        label="CALL ID" 
-                        v-model="callid"
-                        :error-messages="callidError"
-                        required
-                      > 
-                       </v-text-field>
-                      <br />
+             
                       <v-autocomplete
                         v-model="jobstatus"
                         label="Job Status"
@@ -451,7 +454,7 @@
                     </v-card>
                   </v-col>
                   <v-col cols="12">
-                    <v-btn
+                    <!-- <v-btn
                       @click="jobUpdates()"
                       color="dark"
                       dark
@@ -461,7 +464,7 @@
                       fab
                     >
                       <v-icon>mdi-wechat</v-icon>
-                    </v-btn>
+                    </v-btn> -->
                   </v-col>
                 </v-row>
               </v-list-item-content>

@@ -14,7 +14,7 @@ const SCALATEDATA = rootUrl + "/api/booking/scalate/index";
 const SCALATECREATEDATA = rootUrl + "/api/booking/scalate/create";
 const SCALATESENDTHREADSDATA = rootUrl + "/api/booking/scalate/threads";
 const GETSCHEDULE = rootUrl + "/api/jobs/schedules/calendar";
-
+const GETSCALATECOUNT = rootUrl + "/api/scalate/count";
 const actions = {
   storeBooking(context, data) {
     let formData = new FormData();
@@ -143,7 +143,13 @@ const actions = {
       return res
     })
   },
-
+  ScalateCount(context, data) {
+    return  axios
+        .get(GETSCALATECOUNT)
+        .then((res) => {
+         return res
+        });
+    },
   
 };
 
