@@ -617,7 +617,7 @@
                             reqIdentifier == 3 ||
                             reqIdentifier == 4
                           "
-                          >Sales Invoice</v-chip
+                          >Sales Invoice/cof/aisf</v-chip
                         >
 
                         <v-file-input
@@ -1450,7 +1450,7 @@ export default {
       if (this.itemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8012/api2/all.json")
+      fetch("http://192.168.1.19:8081/api2/all.json")
         .then((res) => res.clone().json())
         .then((res) => {
           this.itemsAuto = res;
@@ -1470,7 +1470,7 @@ export default {
       if (this.problemItemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8012/api2/problem.json")
+      fetch("http://192.168.1.19:8081/api2/problem.json")
         .then((res) => res.clone().json())
         .then((res) => {
           this.problemItemsAuto = res;
@@ -1845,7 +1845,9 @@ export default {
       }
     },
     add() {
+       
       if (this.activerequest.name == "INSTALLATION") {
+       
         this.$v.data.units.$touch();
         this.$v.data.usage.$touch();
         if (!this.$v.data.units.$error && !this.$v.data.usage.$error) {

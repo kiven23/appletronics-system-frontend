@@ -20,12 +20,12 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 AOS.init();
 /* Establish Connection */
-// const socketConnection = SocketIO('http://192.168.1.19:3378');
-// Vue.use(new VueSocketIO({
-//     debug: false,
-//     connection:socketConnection 
-//   })
-// );
+  const socketConnection = SocketIO('http://192.168.1.19:3333');
+  Vue.use(new VueSocketIO({
+     debug: false,
+     connection:socketConnection 
+   })
+  );
 var vueAwesomeCountdown = require('vue-awesome-countdown').default;
  
 Vue.use(vueAwesomeCountdown);

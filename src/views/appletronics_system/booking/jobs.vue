@@ -412,7 +412,7 @@
                        </v-text-field>
                      
                       <v-autocomplete
-                      v-if="users == 28 || users == 25"
+                      v-if="users == 28 || users == 25 || users == 7"
                         v-model="tech"
                         label="Assign Tech/Installer"
                         :items="installer"
@@ -438,7 +438,7 @@
                       ></v-autocomplete>
                       <br />
                       <vs-input
-                      v-if="users == 28 || users == 25"
+                      v-if="users == 28 || users == 25 || users == 7"
                         type="date"
                         v-model="installationdateData"
                         :label="reqtype == 'REPAIR' || reqtype == 'CLEANING'? 'Date Of Service': reqtype == 'INSTALLATION'? 'Date Of Installation':'Date Of Survey'"
@@ -839,6 +839,12 @@ export default {
         this.bgselected2 = "";
                  this.headers= [
                   {
+                    text: "Ticket No",
+                    align: "start",
+                    sortable: false,
+                    value: "ticketno",
+                  },
+                  {
                     text: "Request Type",
                     align: "start",
                     sortable: false,
@@ -860,17 +866,23 @@ export default {
         this.bgselected1 = "success";
         this.bgselected2 = "";
          this.headers= [
-                  {
-                    text: "Request Type",
+                 {
+                    text: "Ticket No",
                     align: "start",
                     sortable: false,
-                    value: "requestid",
+                    value: "ticketno",
                   },
                   {
                     text: "Call ID",
                     align: "start",
                     sortable: false,
                     value: "callid",
+                  },
+                    {
+                    text: "Request Type",
+                    align: "start",
+                    sortable: false,
+                    value: "requestid",
                   },
                   { text: "Branch", value: "branch.name" },
                   { text: "Customer Name", value: "customer" },

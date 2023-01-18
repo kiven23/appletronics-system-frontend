@@ -7,6 +7,10 @@
             <v-btn class="ma-2" @click="create()" outlined color="indigo">
               CREATE NEW ESCALATE</v-btn
             >
+                <v-btn class="ma-2" @click="notify()" outlined color="indigo">
+              TEST</v-btn
+            >
+             
           </v-col>
         </v-row>
 
@@ -74,7 +78,7 @@
           <v-btn class="ma-1" outlined color="indigo" @click="itemView(item)">
             UPDATE
           </v-btn>
-          <v-btn class="ma-1" outlined color="green" v-if="item.data.status == 1" @click="resolvedScalate(item)">
+          <v-btn  class="ma-1" outlined color="green" v-if="item.data.status == 1 && checkpermission" @click="resolvedScalate(item)">
             RESOLVED
           </v-btn>
         </template>
@@ -176,7 +180,7 @@
               
               </v-col>
               <v-col cols="12" sm="8" > 
-                <v-btn v-if="threadsData.data.status == 2" class="ma-2" @click="reopen(threadsData.data.id)" outlined color="indigo">
+                <v-btn v-if="threadsData.data.status == 2 && checkpermission" class="ma-2" @click="reopen(threadsData.data.id)" outlined color="indigo">
                    RE OPEN</v-btn>
                  <br>Escalation Date<br>
                   {{new Date(threadsData.data.created_at).toLocaleString()}}  
@@ -247,6 +251,7 @@ export default {
   validations: {},
   data() {
     return {
+      permissions: '', 
       count: {total: 0, pending: 0 , resolved: 0},
       messages: [],
       threadsData: {data : { status: ''}},
@@ -293,6 +298,12 @@ export default {
   },
 
   computed: {
+    ...mapGetters({
+        permissions: "userPermissions/getPermission",
+    }),
+    checkpermission(){
+     return this.permissions.includes("Approved");
+    },
     users() {
       var us = this.usersData.employment.position.id
         ? this.usersData.employment.position.id
@@ -326,7 +337,10 @@ export default {
     this.$store.dispatch("app_booking_sys/scalateBk").then((res) => {
       this.datas = res.data;
     });
-
+    this.$store.dispatch("userPermissions/fetchPermission");
+    this.sockets.subscribe("notify", (res)=>{
+      alert(res)
+    })
   },
 
   methods: {
@@ -428,7 +442,10 @@ export default {
              
             this.refresh();
           });
-      }
+      },
+    notify(){
+       this.$socket.emit("notify", 1);
+    }
   },
 
   watch: {
