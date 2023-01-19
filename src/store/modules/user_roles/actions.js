@@ -12,9 +12,10 @@ const actions = {
   },
   fetchPermission(context) {
     context.commit("LOADING_STATUS", true, { root: true }); // start loading
-    axios.post(permissionsUrl).then(response => {
+ return   axios.post(permissionsUrl).then(response => {
       context.commit("GET_PERMISSION", response.data);
       context.commit("LOADING_STATUS", false, { root: true });
+      return response;
     });
   },
  

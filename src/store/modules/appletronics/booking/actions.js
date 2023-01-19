@@ -16,7 +16,7 @@ const SCALATESENDTHREADSDATA = rootUrl + "/api/booking/scalate/threads";
 const GETSCHEDULE = rootUrl + "/api/jobs/schedules/calendar";
 const GETSCALATECOUNT = rootUrl + "/api/scalate/count";
 const GETNOTIFICATION = rootUrl + "/api/notification";
- 
+const VIEWNOTIFICATION = rootUrl + "/api/notification?q=2";
 const actions = {
   storeBooking(context, data) {
     let formData = new FormData();
@@ -159,6 +159,14 @@ const actions = {
           return res
         });
     },
+  ViewNotification(context, data) {
+    return  axios
+        .get(VIEWNOTIFICATION+'&id='+data)
+        .then((res) => {
+          return res
+        });
+    },
+ 
      
   
 };

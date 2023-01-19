@@ -60,7 +60,7 @@
           v-on="on">
         <v-icon >mdi-bell-ring-outline</v-icon>
         <template #badge>
-          28
+          {{items.count}}
         </template>
       </vs-avatar>
       </template>
@@ -85,55 +85,152 @@
             </v-list-item-action>
           </v-list-item>
         </v-list>
-
         <v-divider></v-divider>
-
-        <v-list   max-width="500">
-          <v-list-item >
-            <v-list three-line>
-              <h1>COMING SOON</h1>
-              <!-- <template v-for="(item, index) in items">
-                <v-subheader
-                  v-if="item.header"
-                  :key="item.header"
-                  v-text="item.header"
-                ></v-subheader>
-
-                <v-divider
-                  v-else-if="item.divider"
-                  :key="index"
-                  :inset="item.inset"
-                ></v-divider>
-
-                <v-list-item
-                  v-else
-                  :key="item.title"
-                >
-                  <v-list-item-avatar>
-                    <v-img :src="item.avatar"></v-img>
-                  </v-list-item-avatar>
-
-                  <v-list-item-content>
-                    <v-list-item-title v-html="item.title"></v-list-item-title>
-                    <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
-                  </v-list-item-content>
-                </v-list-item>
-              </template> -->
-            </v-list>
-
-
-
-     
+    <v-list two-line  max-width="400">
+      <v-list-item-group
+        multiple
+      >    <v-sheet
+                id="scrolling-techniques-7"
+                class="overflow-y-auto"
+                max-height="400"
+              >
+        <template v-for="(item, index) in items.data">
+          <v-list-item :key="item.categories" @click="view(item)">
+            <template>
+              <v-list-item-content><strong>From: {{item.name}}</strong>
+                <v-list-item-subtitle
+                  class="text--primary"
+                  v-text="item.categories"
+                ></v-list-item-subtitle>
+                <v-list-item-subtitle v-text="item.customername"></v-list-item-subtitle>
+                Updates:<v-list-item-subtitle v-text="item.event_logs"></v-list-item-subtitle>
+              </v-list-item-content>
+              <v-list-item-action>
+                <v-list-item-action-text v-text="item.created_at"></v-list-item-action-text>
+              </v-list-item-action>
+            </template>
           </v-list-item>
-
-         
-        </v-list>
-
- 
+          <v-divider
+            v-if="index < items.length - 1"
+            :key="index"
+          ></v-divider>
+        </template>
+      </v-sheet>
+      </v-list-item-group>
+    </v-list>
       </v-card>
     </v-menu>
+     <v-dialog v-model="loadings" hide-overlay persistent width="300">
+        <v-card color="primary" dark>
+          <v-card-text>
+            Please stand by
+            <v-progress-linear
+              indeterminate
+              color="white"
+              class="mb-0"
+            ></v-progress-linear>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
+    <v-dialog v-model="viewThreads" max-width="700px">
+        <v-card>
+          <v-card-title> Escalation Details </v-card-title>
+           
+            <v-row>
+              <v-col cols="12" sm="4">
+                <v-list three-line class="pa-6">
+                  Customer <br>
+                  <strong>{{threadsData.data.customername }}</strong><br>  
+                  Status<br>
+                 
+                  <v-chip
+                    :color="threadsData.data.status == '1' ? 'orange' : 'green'"
+                    label
+                    outlined
+                    
+                  >
+                    {{ threadsData.data.status == "1" ? "Pending" : "Resolved" }}</v-chip
+                  ><br>
+                   Category 
+                   <v-select
+                    v-model="category"
+                    :items="categories"
+                    item-text="name"
+                    item-value="value"
+                    label=""
+                    dense
+                    solo
+                    :disabled="threadsData.data.status == 2"
+                  ></v-select>
+                    <v-btn class="ma-2" v-if="threadsData.data.status == 1" @click="updateScalate(threadsData.data.id)" outlined color="indigo">
+                  UPDATE</v-btn>
+                       
+                </v-list>
+              
+              </v-col>
+              <v-col cols="12" sm="8" > 
+                <v-btn v-if="threadsData.data.status == 2 && checkpermission" class="ma-2" @click="reopen(threadsData.data.id)" outlined color="indigo">
+                   RE OPEN</v-btn>
+                 <br>Escalation Date<br>
+                  {{new Date(threadsData.data.created_at).toLocaleString()}}  
+                  
+                  <v-card-text>
+                    <div class="font-weight-bold ">
+                      Updates
+                    </div>
+                    <v-timeline
+                      align-top
+                      dense
+                    >
+                     <v-sheet
+                        id="scrolling-techniques-7"
+                        class="overflow-y-auto"
+                        max-height="200"
+                      >
+                      <v-timeline-item
+                        v-for="message in threadsData.threads"
+                        :key="message.created_at"
+                         color="green"
+                        small
+                      >
+                       
+                        <div>
+                          <div class="font-weight-normal">
+                            <strong>{{ message.from_bys }}</strong> @{{ message.created_at }}
+                          </div>
+                          <div>{{ message.threads }}</div>
+                        </div>
+                      </v-timeline-item>
+                     </v-sheet>
+                    </v-timeline>
+                  </v-card-text>
+                   <v-list three-line class="pa-6">
+                     <v-textarea
+                        v-model="note"
+                        outlined
+                        name="input-7-4"
+                         v-if="threadsData.data.status == 1"
+                        value=""
+                      ></v-textarea>
+                        <v-col class="text-right">
+                      <v-btn class="ma-2"  v-if="threadsData.data.status == 1" @click="sendThreads(threadsData.data.id)" :disabled="note?false:true" color="grey">
+                        SEND
+                      </v-btn>
+                      </v-col>
+                    </v-list>
+                     
+                     
+                 
+</v-col>
+            </v-row>
+          
+          <v-card-actions> </v-card-actions>
+        </v-card>
+      </v-dialog>
   </div>
+  
 </template>
+
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-btn icon v-on="on" @click="goDark">
@@ -155,6 +252,7 @@
       </v-tooltip>
     </v-app-bar>
   </nav>
+  
 </template>
 
 <script>
@@ -162,42 +260,37 @@ import { mapGetters } from 'vuex';
  
 export default {
      data: () => ({
+      threadsData: {data : { status: ''}},
+      viewThreads: false,
+
+      categories: [
+        { name: "Request-Wty Con", value: "Request-Wty Con" },
+        { name: "Request-Replacement", value: "Request-Replacement" },
+        {
+          name: "Request-Technical Support",
+          value: "Request-Technical Support",
+        },
+        { name: "Request-Admin Support", value: "Request-Admin Support" },
+        {
+          name: "Follow Up-Parts/Unit Arrival",
+          value: "Follow Up-Parts/Unit Arrival",
+        },
+        { name: "Follow Up-Request Status", value: "Follow Up-Request Status" },
+        {
+          name: "Follow Up-Billing Related",
+          value: "Follow Up-Billing Related",
+        },
+      ],
+      usersData: [],
+      category: "",
+      category2: "",
+      note: "",
+      loadings: false,
       fav: true,
       menu: false,
       message: false,
       hints: true,
-        items: [
-        { header: 'Today' },
-        {
-          avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-          title: 'Brunch this weekend?',
-          subtitle: `<span class="text--primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
-        },
-        { divider: true, inset: true },
-        {
-          avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-          title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
-          subtitle: `<span class="text--primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
-        },
-        { divider: true, inset: true },
-        {
-          avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-          title: 'Oui oui',
-          subtitle: '<span class="text--primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
-        },
-        { divider: true, inset: true },
-        {
-          avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-          title: 'Birthday gift',
-          subtitle: '<span class="text--primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?',
-        },
-        { divider: true, inset: true },
-        {
-          avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
-          title: 'Recipe to try',
-          subtitle: '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
-        },
-      ],
+          items: [  ],
     }),
   methods: {
     change(){
@@ -218,14 +311,46 @@ export default {
  
       this.$store.state.goDark = !this.$store.state.goDark;
     },
+    view(data){
+      this.$store.dispatch("app_booking_sys/ViewNotification", data.event_id).then((res)=>{
+        this.threadsData = res.data[0]
+        console.log(res.data)
+      })
+        this.viewThreads = true
+      
+    },
+    sendThreads(data){
+      var datas = {"scalate_id": data, "thread": this.note}
+      this.$store
+        .dispatch("app_booking_sys/scalateSendThreadsBk", datas)
+        .then((res) => {
+          this.loadings = true
+         setTimeout(
+           () => (
+            (
+             this.loadings = false), 
+             this.threadsData.threads.push(res.data[0])), 
+            2000
+          );
+             this.$socket.emit("notification", 1);
+          
+        });
+    },
   },
 
  created() {
     console.log(this.$store.getters.currentUser);
     //this.$store.dispatch("fetchDatabase");
     this.$store.dispatch("app_booking_sys/Notification").then((res)=>{
-      console.log(res);
+      this.items = res.data
     })
+     this.usersData = this.$store.state.currentUser
+      this.sockets.subscribe("notification", (res)=>{
+           this.$store.dispatch("app_booking_sys/Notification").then((res)=>{
+           this.items = res.data
+    })
+      })
+     this.usersData.branch_id
   },
 
   computed: {

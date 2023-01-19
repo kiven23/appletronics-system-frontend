@@ -7,6 +7,7 @@
             <v-btn class="ma-2" @click="create()" outlined color="indigo">
               CREATE NEW ESCALATE</v-btn
             >
+           
                 <v-btn class="ma-2" @click="notify()" outlined color="indigo">
               TEST</v-btn
             >
@@ -78,6 +79,7 @@
           <v-btn class="ma-1" outlined color="indigo" @click="itemView(item)">
             UPDATE
           </v-btn>
+         
           <v-btn  class="ma-1" outlined color="green" v-if="item.data.status == 1 && checkpermission" @click="resolvedScalate(item)">
             RESOLVED
           </v-btn>
@@ -259,6 +261,7 @@ export default {
       loadings: false,
       descriptionLimit: 60,
       entries: [],
+      perm: [],
       isLoading: false,
       model: null,
       searchCustomer: null,
@@ -302,7 +305,7 @@ export default {
         permissions: "userPermissions/getPermission",
     }),
     checkpermission(){
-     return this.permissions.includes("Approved");
+     return this.perm.includes("Approved");
     },
     users() {
       var us = this.usersData.employment.position.id
@@ -337,10 +340,10 @@ export default {
     this.$store.dispatch("app_booking_sys/scalateBk").then((res) => {
       this.datas = res.data;
     });
-    this.$store.dispatch("userPermissions/fetchPermission");
-    this.sockets.subscribe("notify", (res)=>{
-      alert(res)
-    })
+    this.$store.dispatch("userPermissions/fetchPermission").then((res)=>{
+      this.perm = res.data
+    });
+ 
   },
 
   methods: {
@@ -443,9 +446,7 @@ export default {
             this.refresh();
           });
       },
-    notify(){
-       this.$socket.emit("notify", 1);
-    }
+  
   },
 
   watch: {
