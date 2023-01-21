@@ -176,9 +176,9 @@
                           type="date"
                           v-model="data.units.datepurchase"
                         />
-                        <v-chip x-small v-if="reqIdentifier !== 1" class="ma-2"
+                        <!-- <v-chip x-small v-if="reqIdentifier !== 1" class="ma-2"
                           >Quantity</v-chip
-                        >
+                        > -->
                         <!-- <v-text-field
                           v-if="reqIdentifier !== 1"
                           v-model="data.units.qty"
@@ -187,11 +187,11 @@
                           required
                           dense
                         ></v-text-field> -->
-                        <div class="quantity-toggle" v-if="reqIdentifier !== 1">
+                        <!-- <div class="quantity-toggle" v-if="reqIdentifier !== 1">
                           <button @click="decrement()">&mdash;</button>
                           <input type="text" :value="data.units.qty" readonly />
                           <button @click="increment()">&#xff0b;</button>
-                        </div>
+                        </div> -->
                         <!-- <v-select
                           style="margin: 6px"
                           v-model="data.units.demandreplacement"
@@ -369,7 +369,7 @@
                           v-model="data.usage.time"
                           style="margin: 6px"
                         ></vue-timepicker>
-
+ <br>
                         <v-chip x-small>Installation Address</v-chip>
                         
                         <v-radio-group v-model="InstallationAddress" @change="addressV()">
@@ -846,6 +846,11 @@
                       <strong>Special Instruction</strong>
                       <br />{{ customer.specialinstruction }}
                     </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                      <strong>Telephone #</strong>
+                      <br />{{ customer.telephoneno }}
+                    </v-col>
+
                     <v-col cols="12">
                       <strong>Units Details</strong>
                       <br />
@@ -1258,7 +1263,7 @@ export default {
           propertytype: "",
           level: "",
           location: "",
-          area: "",
+          area: 0,
           wallfinish: "",
           withpowersupply: "",
           deliverydate: "",
@@ -1450,7 +1455,7 @@ export default {
       if (this.itemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8081/api2/all.json")
+      fetch("http://192.168.1.19:8012/api2/all.json")
         .then((res) => res.clone().json())
         .then((res) => {
           this.itemsAuto = res;
@@ -1470,7 +1475,7 @@ export default {
       if (this.problemItemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8081/api2/problem.json")
+      fetch("http://192.168.1.19:8012/api2/problem.json")
         .then((res) => res.clone().json())
         .then((res) => {
           this.problemItemsAuto = res;
@@ -2430,6 +2435,7 @@ export default {
         this.usagedetailsListDown.withpowersupply = { name: 'N/A', value: 'N/A' }
         this.data.usage.wallfinish = { name: 'N/A', value: 'N/A'}
         this.data.usage.withpowersupply = { name: 'N/A', value: 'N/A' }
+        this.data.usage.area = 'N/A'
         this.ifcommercial = 1
       }else{
         this.ifcommercial = 0

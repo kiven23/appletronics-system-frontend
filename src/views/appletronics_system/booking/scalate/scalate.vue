@@ -403,7 +403,7 @@ export default {
             2000
           );
          
-
+         this.$socket.emit("notification", 1);
         });
     },
     reopen(id){
@@ -417,6 +417,7 @@ export default {
           this.viewThreads = false;
           //this.threadsData.data.status = 1;
           this.threadsData.threads.push(res.data[0])
+          this.$socket.emit("notification", 1);
           this.refresh();
         });
     },
@@ -431,6 +432,7 @@ export default {
         .then((res) => {
           // this.threadsData.data.status = 2;
           this.threadsData.threads.push(res.data[0])
+          this.$socket.emit("notification", 1);
           this.refresh();
         });
     },
@@ -442,7 +444,7 @@ export default {
         this.$store
           .dispatch("app_booking_sys/scalateCreateBk", data)
           .then((res) => {
-             
+            this.$socket.emit("notification", 1); 
             this.refresh();
           });
       },

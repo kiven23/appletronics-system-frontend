@@ -155,17 +155,18 @@
               :color="selectedEvent.color"
               dark
             >
-        
-              <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
-              <v-spacer></v-spacer>
-         
             
+               <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
+              <v-spacer> </v-spacer>
             </v-toolbar>
             <v-card-text>
-               <!-- <span v-html="selectedEvent.details.customer.barangay"></span><br> -->
-      
-            
-        
+              
+             <strong>CALLID: </strong> <span v-html="selectedEvent.details.callid"></span><br> 
+             <strong>ADDRESS: </strong>  <span v-html="selectedEvent.details.customer.barangay+','+selectedEvent.details.customer.mcity+','+selectedEvent.details.customer.province"></span><br> 
+             <strong>TELEPHONE: </strong> <span v-html="selectedEvent.details.customer.telephoneno"></span><br> 
+             <strong>CONTACT PERSON: </strong>  <span v-html="selectedEvent.details.customer.contactperson"></span><br> 
+             <strong>CP NUMBER: </strong> <span v-html="selectedEvent.details.customer.cpnumber"></span><br> 
+             <strong>EMAIL: </strong><span v-html="selectedEvent.details.customer.emailaddress"></span><br>  
             </v-card-text>
             <!-- <v-card-actions>
               <v-btn
@@ -200,7 +201,19 @@ export default {
         day: 'Day',
         '4day': '4 Days',
       },
-      selectedEvent: {  },
+      selectedEvent: { name:'',color: '',details: {
+        callid: '',
+        customer: {
+          barangay: '',
+          mcity:'',
+          province: '',
+          telephoneno: '',
+          contactperson: '',
+          cpnumber: '',
+          emailaddress: ''
+
+        }
+      } },
       selectedElement: null,
       selectedOpen: false,
       events: [],
