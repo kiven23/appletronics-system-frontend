@@ -8,9 +8,9 @@
               CREATE NEW ESCALATE</v-btn
             >
            
-                <v-btn class="ma-2" @click="notify()" outlined color="indigo">
+                <!-- <v-btn class="ma-2" @click="notify()" outlined color="indigo">
               TEST</v-btn
-            >
+            > -->
              
           </v-col>
         </v-row>
@@ -80,7 +80,7 @@
             UPDATE
           </v-btn>
          
-          <v-btn  class="ma-1" outlined color="green" v-if="item.data.status == 1 && checkpermission" @click="resolvedScalate(item)">
+          <v-btn  class="ma-1" outlined color="green" v-if="item.data.status == 1 && superadminpermission" @click="resolvedScalate(item)">
             RESOLVED
           </v-btn>
         </template>
@@ -333,6 +333,9 @@ export default {
         return Object.assign({}, entry, { Description });
       });
     },
+    superadminpermission(){
+         return this.perm.includes("SuperAdmin");
+     }
   },
 
   mounted() {

@@ -1966,7 +1966,7 @@ export default {
           this.checkoutFinal();
         } else {
           this.reqIdentifier;
-          if (this.reqIdentifier == 3 || this.reqIdentifier == 4) {
+          if (this.reqIdentifier == 3 || this.reqIdentifier == 2) {
             this.checkoutFinal();
           } else {
             alert("Please Attach Sales Invoice to Proceed");

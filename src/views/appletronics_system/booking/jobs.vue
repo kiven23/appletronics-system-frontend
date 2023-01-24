@@ -218,7 +218,7 @@
                   <v-col cols="12" sm="3">
 
                     <!-- INSTALLATION ACCEPTED -->
-                    <v-card class="pa-2" v-if="reqtype == 'INSTALLATION'" style="height: 180px">
+                    <v-card class="pa-2" v-if="reqtype == 'INSTALLATION'" style="height: 185px">
                     <strong>Contact Phone Number</strong><br />
                       {{ jobsData.customer.cpnumber?jobsData.customer.cpnumber  : 'N/A' }}<br />
                       <strong>Last Name</strong><br />
@@ -234,7 +234,7 @@
 
                     <!-- SURVEY REQUEST -->
                  
-                    <v-card class="pa-2" v-if="reqtype == 'SITE SURVEY'" style="height: 180px">
+                    <v-card class="pa-2" v-if="reqtype == 'SITE SURVEY'" style="height: 185px">
                        <strong>Contact Phone Number</strong><br />
                       {{ jobsData.customer.cpnumber?jobsData.customer.cpnumber  : 'N/A' }}<br />
                       <strong>Last Name</strong><br />
@@ -249,7 +249,7 @@
                     <!--END-->
 
                      <!-- REPAIR & CLEANING REQUEST -->
-                    <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 180px">
+                    <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 185px">
                       <strong>Contact Phone Number</strong><br />
                       {{ jobsData.customer.cpnumber?jobsData.customer.cpnumber  : 'N/A' }}<br />
                       <strong>Last Name</strong><br />
@@ -266,7 +266,7 @@
                   <v-col cols="12" sm="3">
 
                      <!-- INSTALLATION ACCEPTED -->
-                    <v-card class="pa-2"  v-if="reqtype == 'INSTALLATION'" style="height: 180px">
+                    <v-card class="pa-2"  v-if="reqtype == 'INSTALLATION'" style="height: 185px">
                       <strong>Contact Email Address</strong><br />
                       {{ jobsData.customer.emailaddress? jobsData.customer.emailaddress : 'N/A' }}<br />
                       <strong>First Name</strong><br />
@@ -279,7 +279,7 @@
                     <!-- END -->
 
                     <!-- SURVEY REQUEST -->
-                    <v-card class="pa-2"  v-if="reqtype == 'SITE SURVEY'" style="height: 180px">
+                    <v-card class="pa-2"  v-if="reqtype == 'SITE SURVEY'" style="height: 185px">
                     <strong>Contact Email Address</strong><br />
                       {{ jobsData.customer.emailaddress? jobsData.customer.emailaddress : 'N/A' }}<br />
                       <strong>First Name</strong><br />
@@ -292,7 +292,7 @@
                     <!--END-->
 
                     <!-- REPAIR & CLEANING REQUEST -->
-                    <v-card class="pa-2"  v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 180px">
+                    <v-card class="pa-2"  v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 185px">
                       <strong>Contact Email Address</strong><br />
                       {{ jobsData.customer.emailaddress? jobsData.customer.emailaddress : 'N/A' }}<br />
                       <strong>First Name</strong><br />
@@ -308,7 +308,7 @@
 
                   <v-col cols="12" sm="3">
                     <!-- INSTALLATION ACCEPTED -->
-                    <v-card class="pa-2" v-if="reqtype == 'INSTALLATION'" style="height: 180px">
+                    <v-card class="pa-2" v-if="reqtype == 'INSTALLATION'" style="height: 185px">
 
                       <strong>Telephone No.  </strong><br />
                       {{ jobsData.customer.telephoneno?  jobsData.customer.telephoneno :'N/A' }}<br />
@@ -321,7 +321,7 @@
                      
                     </v-card>
                     <!-- SURVEY REQUEST -->
-                    <v-card class="pa-2" v-if="reqtype == 'SITE SURVEY'" style="height: 180px">
+                    <v-card class="pa-2" v-if="reqtype == 'SITE SURVEY'" style="height: 185px">
                        <strong>Telephone No.  </strong><br />
                       {{ jobsData.customer.telephoneno?  jobsData.customer.telephoneno :'N/A' }}<br />
                       <strong>Middle Name</strong><br />
@@ -332,7 +332,7 @@
                       {{ jobsData.customer.specialinstruction? jobsData.customer.specialinstruction : 'N/A'}}
                     </v-card>
                     <!-- REPAIR & CLEANING REQUEST -->
-                    <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 180px">
+                    <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 185px">
                      <strong>Telephone No.  </strong><br />
                       {{ jobsData.customer.telephoneno?  jobsData.customer.telephoneno :'N/A' }}<br />
                       <strong>Middle Name</strong><br />
@@ -347,7 +347,7 @@
                   
                   <v-col cols="12" sm="3" >
                      <!-- INSTALLATION ACCEPTED -->
-                    <v-card class="pa-2"  v-if="reqtype == 'INSTALLATION'" style="height: 180px">
+                    <v-card class="pa-2"  v-if="reqtype == 'INSTALLATION'" style="height: 185px">
                      <strong>Contact Person</strong><br />
                       {{ jobsData.customer.contactperson?jobsData.customer.contactperson :'N/A' }}<br />
                       <strong>Province</strong><br />
@@ -358,7 +358,7 @@
                       {{ jobstats !== 'Unassigned'?jobsData.installer  ? jobsData.installer : 'N/A' :''}}<br />
                     </v-card>
                         <!-- SURVEY REQUEST -->
-                    <v-card class="pa-2"  v-if="reqtype == 'SITE SURVEY'" style="height: 180px">
+                    <v-card class="pa-2"  v-if="reqtype == 'SITE SURVEY'" style="height: 185px">
                     <strong>Contact Person</strong><br />
                       {{ jobsData.customer.contactperson?jobsData.customer.contactperson :'N/A' }}<br />
                       <strong>Province</strong><br />
@@ -369,7 +369,7 @@
                       {{ jobstats !== 'Unassigned'?jobsData.installer ? jobsData.installer : 'N/A' :''}}<br />
                     </v-card>
 
-                     <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 180px">
+                     <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 185px">
                       <strong>Contact Person</strong><br />
                       {{ jobsData.customer.contactperson?jobsData.customer.contactperson :'N/A' }}<br />
                       <strong>Province</strong><br />
@@ -387,8 +387,8 @@
             </v-list-item>
           </v-list>
 
-          <v-list three-line subheader>
-            <v-subheader>Job Status Update</v-subheader>
+          <v-list three-line subheader v-if="checkpermission">
+            <v-subheader v-if="superadminpermission">Job Status Update</v-subheader>
             <v-list-item>
               <v-list-item-content>
                 <v-row no-gutters>
@@ -412,7 +412,7 @@
                        </v-text-field>
                      
                       <v-autocomplete
-                      v-if="users == 28 || users == 25 || users == 7"
+                      v-if="users == 28 || users == 25 || users == 7 || superadminpermission"
                         v-model="tech"
                         label="Assign Tech/Installer"
                         :items="installer"
@@ -438,7 +438,7 @@
                       ></v-autocomplete>
                       <br />
                       <vs-input
-                      v-if="users == 28 || users == 25 || users == 7"
+                      v-if="users == 28 || users == 25 || users == 7 || superadminpermission"
                         type="date"
                         v-model="installationdateData"
                         :label="reqtype == 'REPAIR' || reqtype == 'CLEANING'? 'Date Of Service': reqtype == 'INSTALLATION'? 'Date Of Installation':'Date Of Survey'"
@@ -580,6 +580,7 @@ export default {
       ],
       jobupdateDialog: false,
       unitsData: [],
+      perm: [],
       reqtype: '',
       tech: { name: 'N/A', value: 'N/A'},
       jobstatus: "",
@@ -653,6 +654,9 @@ export default {
   },
 
   computed: {
+      ...mapGetters({
+          permissions: "userPermissions/getPermission",
+      }),
       users(){
         var us = this.usersData.employment.position.id?this.usersData.employment.position.id:'';
         return us;
@@ -673,6 +677,12 @@ export default {
       !this.$v.tech.required && errors.push(RequiredError);
       return errors;
     },
+      checkpermission(){
+      return this.perm.includes("Approved");
+      },
+      superadminpermission(){
+         return this.perm.includes("SuperAdmin");
+      }
  
   },
 
@@ -682,7 +692,9 @@ export default {
     this.$store.dispatch("app_booking_sys/fetchJobs").then((res) => {
       this.data = res.data;
     });
-
+    this.$store.dispatch("userPermissions/fetchPermission").then((res)=>{
+      this.perm = res.data
+    });
     this.refresh(0);
     this.usersData = this.$store.state.currentUser
   },
@@ -738,7 +750,7 @@ export default {
                   this.$toast.open({
                     message: res.data.msg,
                     type: res.data.error,
-                    duration: 3000,
+                    duration: 5000,
                     // all of other options may go here
                   });
                 if (res.data.type == 1) {
