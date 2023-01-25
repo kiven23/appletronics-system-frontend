@@ -484,11 +484,23 @@
                         <v-chip x-small class="ma-2"
                           >Telephone No. (OPTIONAL)</v-chip
                         >
+                        <!-- <v-text-field
+                          v-model="customer.telephoneno"
+                          
+                          required
+                          dense
+                          class="ma-2"
+                        ></v-text-field> -->
                         <v-text-field
                           v-model="customer.telephoneno"
                           placeholder="Telephone No. (OPTIONAL)"
-                          required
+                          hide-details
+                          single-line
+                          type="integer"
+                          :maxlength="maxtelephone"
                           dense
+                          required
+                          @keypress="onlyNumber"
                           class="ma-2"
                         ></v-text-field>
                       </v-card>
@@ -825,10 +837,11 @@
 
                     <v-col cols="12" sm="6" md="4">
                       <strong>Address Details</strong>
-                      <br /> {{
+                      <br />  {{
+                      
                         customer.barangay +
                         ", " +
-                        customer.mcity +
+                        customer.customerCity +
                         ", " +
                         customer.province
                       }}
@@ -1166,6 +1179,7 @@ export default {
  
       InstallationAddress: 0,
       max: 10,
+      maxtelephone: 8,
       text: "",
       sqm: "",
       usersData: [],
@@ -2122,7 +2136,20 @@ export default {
         });
     },
     selectedCustomer(data) {
+        (this.addressesListDown.province = {
+        province_name: data.province,
+        brgy_code: data.province,
+      }),
+        (this.addressesListDown.mcity = {
+          city_name: data.mcity,
+          brgy_code: data.mcity,
+        }),
+        (this.addressesListDown.barangay = {
+          brgy_name: data.barangay,
+          brgy_code: data.barangay,
+        }),
       this.customer = {
+        customerCity: data.mcity,
         cpnumber: data.cpnumber,
         lastname: data.firstname,
         firstname: data.lastname,
@@ -2391,7 +2418,7 @@ export default {
     onlyNumber($event) {
       //console.log($event.keyCode); //keyCodes value
       let keyCode = $event.keyCode ? $event.keyCode : $event.which;
-      if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) {
+      if ((keyCode < 48 || keyCode > 57)) {
         // 46 is dot
         $event.preventDefault();
       }

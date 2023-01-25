@@ -112,17 +112,17 @@ const actions = {
         });
     },
   salesInvoiceDownload(context, data){
-    return  axios
+      axios
         .post(DOWNLOADSALESINVOICE, data,{responseType: 'blob'})
         .then((response) => {
-          var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+          var fileURL = window.URL.createObjectURL(new Blob([response.data],
+             {type : response.data.type}));
           var fileLink = document.createElement('a');
-      
           fileLink.href = fileURL;
+          console.log(fileURL)
           fileLink.setAttribute('download', 'Invoice-Attachment-'+Math.ceil(Math.random() * 1000000)+'');
           document.body.appendChild(fileLink);
           fileLink.click();
-          return response
         });
   },
   restoreBk(context, data){

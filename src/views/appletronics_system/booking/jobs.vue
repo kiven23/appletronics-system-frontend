@@ -388,7 +388,7 @@
           </v-list>
 
           <v-list three-line subheader v-if="checkpermission">
-            <v-subheader v-if="superadminpermission">Job Status Update</v-subheader>
+            <v-subheader v-if="superadminpermission && jobstatus !== 'Unassigned'">Job Status Update</v-subheader>
             <v-list-item>
               <v-list-item-content>
                 <v-row no-gutters>
@@ -403,16 +403,19 @@
                     ><br />
                     <br />
                     <v-card class="pa-1">
+                      
                        <v-text-field 
                         label="CALL ID" 
                         v-model="callid"
                         :error-messages="callidError"
                         required
+                        :disabled="callidIden"
+                        @keypress="onlyNumber"
                       > 
                        </v-text-field>
-                     
+                     <!-- users == 28 && users == 25 && users == 7 &&  -->
                       <v-autocomplete
-                      v-if="users == 28 || users == 25 || users == 7 || superadminpermission"
+                      v-if="superadminpermission && jobstatus !== 'Unassigned'"
                         v-model="tech"
                         label="Assign Tech/Installer"
                         :items="installer"
@@ -437,8 +440,9 @@
                         small-chips
                       ></v-autocomplete>
                       <br />
+                      <!-- users == 28 && users == 25 && users == 7 && -->
                       <vs-input
-                      v-if="users == 28 || users == 25 || users == 7 || superadminpermission"
+                      v-if="superadminpermission && jobstatus !== 'Unassigned'"
                         type="date"
                         v-model="installationdateData"
                         :label="reqtype == 'REPAIR' || reqtype == 'CLEANING'? 'Date Of Service': reqtype == 'INSTALLATION'? 'Date Of Installation':'Date Of Survey'"
@@ -682,6 +686,13 @@ export default {
       },
       superadminpermission(){
          return this.perm.includes("SuperAdmin");
+      },
+      callidIden(){
+        if(this.jobstatus === "Accepted" || this.jobstatus === "Dispatch to Other ASC"){
+            return true
+        }else{
+           return false
+        }
       }
  
   },
@@ -849,6 +860,7 @@ export default {
       this.jobsData = data;
       this.unitsData = data.units;
       this.requestID = data.requestid;
+       
     },
     selected(id) {
       if (id == 0) {
@@ -928,6 +940,14 @@ export default {
     },
     jobUpdates() {
       this.jobupdateDialog = true;
+    },
+    onlyNumber($event) {
+      //console.log($event.keyCode); //keyCodes value
+      let keyCode = $event.keyCode ? $event.keyCode : $event.which;
+      if ((keyCode < 48 || keyCode > 57)) {
+        // 46 is dot
+        $event.preventDefault();
+      }
     },
   },
 };

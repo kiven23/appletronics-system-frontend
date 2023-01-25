@@ -278,22 +278,8 @@ export default {
       ],
       createEszalateDialog: false,
       categories: [
-        { name: "Request-Wty Con", value: "Request-Wty Con" },
-        { name: "Request-Replacement", value: "Request-Replacement" },
-        {
-          name: "Request-Technical Support",
-          value: "Request-Technical Support",
-        },
-        { name: "Request-Admin Support", value: "Request-Admin Support" },
-        {
-          name: "Follow Up-Parts/Unit Arrival",
-          value: "Follow Up-Parts/Unit Arrival",
-        },
-        { name: "Follow Up-Request Status", value: "Follow Up-Request Status" },
-        {
-          name: "Follow Up-Billing Related",
-          value: "Follow Up-Billing Related",
-        },
+        { name: "Follow-Up Call ID", value: "Follow-Up Call ID" },
+        
       ],
       category: "",
       category2: "",
