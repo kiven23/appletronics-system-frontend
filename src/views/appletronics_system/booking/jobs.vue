@@ -173,6 +173,7 @@
       <v-dialog
         v-model="jobsInfo"
         hide-overlay
+        fullscreen
         transition="dialog-bottom-transition"
       >
         <v-card>
@@ -191,7 +192,8 @@
             </v-btn>
             <v-toolbar-title
               >Job Status Update:
-              <strong>{{ jobstatus }} / {{ jobsData.callid }}</strong></v-toolbar-title
+              <strong>{{  jobsData.status == 0? 'Unassigned':jobsData.status == 1? 'Accepted': 'Dispatch to Other ASC' }} / {{ jobsData.callid }}</strong>
+              </v-toolbar-title
             >
             <v-spacer></v-spacer>
             <v-toolbar-items> </v-toolbar-items>
@@ -227,8 +229,8 @@
                       {{ jobsData.customer.mcity? jobsData.customer.mcity : 'N/A' }}<br />
                         <strong>Dealer Name</strong><br />
                       {{jobsData.branch.name }}<br />
-                       <strong v-if="jobstatus !== 'Unassigned'">Date of Installation</strong><br />
-                      {{ jobstatus !== 'Unassigned'? jobsData.installationdate  ?jobsData.installationdate: 'N/A': '' }} 
+                       <strong v-if="jobsData.status  != 0">Date of Installation</strong><br />
+                      {{ jobsData.status  != 0? jobsData.installationdate  ?jobsData.installationdate: 'N/A': '' }} 
                     </v-card>
                     <!--END-->
 
@@ -243,8 +245,8 @@
                       {{ jobsData.customer.mcity? jobsData.customer.mcity : 'N/A' }}<br />
                         <strong>Dealer Name</strong><br />
                       {{jobsData.branch.name }}<br />
-                       <strong v-if="jobstatus !== 'Unassigned'">Date of Survey</strong><br />
-                      {{ jobstatus !== 'Unassigned'? jobsData.installationdate   ?jobsData.installationdate: 'N/A': '' }} 
+                       <strong v-if="jobsData.status  != 0">Date of Survey</strong><br />
+                      {{ jobsData.status  != 0? jobsData.installationdate   ?jobsData.installationdate: 'N/A': '' }} 
                     </v-card>
                     <!--END-->
 
@@ -339,8 +341,8 @@
                       {{ jobsData.customer.middlename? jobsData.customer.middlename: 'N/A' }}<br />
                       <strong>Street</strong><br />
                       {{ jobsData.customer.street? jobsData.customer.street : 'N/A' }}<br />
-                        <strong v-if="jobstatus !== 'Unassigned'">Technician</strong><br />
-                       {{ jobstats !== 'Unassigned'?jobsData.installer ? jobsData.installer : 'N/A' :''}}<br />
+                        <strong v-if="jobsData.status  != 0">Technician</strong><br />
+                       {{ jobsData.status  != 0? jobsData.installer ? jobsData.installer : ' ' :''}}<br />
                     </v-card> 
 
                   </v-col>
@@ -348,14 +350,14 @@
                   <v-col cols="12" sm="3" >
                      <!-- INSTALLATION ACCEPTED -->
                     <v-card class="pa-2"  v-if="reqtype == 'INSTALLATION'" style="height: 185px">
-                     <strong>Contact Person</strong><br />
+                      <strong>Contact Person</strong><br />
                       {{ jobsData.customer.contactperson?jobsData.customer.contactperson :'N/A' }}<br />
                       <strong>Province</strong><br />
                       {{jobsData.customer.province}}<br />
                       <strong>House No.</strong><br />
                       {{ jobsData.customer.houseno? jobsData.customer.houseno : 'N/A' }}<br />
-                       <strong v-if="jobstatus !== 'Unassigned'">Installer</strong><br />
-                      {{ jobstats !== 'Unassigned'?jobsData.installer  ? jobsData.installer : 'N/A' :''}}<br />
+                       <strong v-if="jobsData.status  != 0">Installer</strong><br />
+                      {{ jobsData.status  != 0?jobsData.installer  ? jobsData.installer : 'N/A' :''}}<br />
                     </v-card>
                         <!-- SURVEY REQUEST -->
                     <v-card class="pa-2"  v-if="reqtype == 'SITE SURVEY'" style="height: 185px">
@@ -365,8 +367,8 @@
                       {{jobsData.customer.province}}<br />
                       <strong>House No.</strong><br />
                       {{ jobsData.customer.houseno? jobsData.customer.houseno : 'N/A' }}<br />
-                        <strong v-if="jobstatus !== 'Unassigned'">Technician</strong><br />
-                      {{ jobstats !== 'Unassigned'?jobsData.installer ? jobsData.installer : 'N/A' :''}}<br />
+                        <strong v-if="jobsData.status  != 0">Technician</strong><br />
+                      {{ jobsData.status  != 0?jobsData.installer ? jobsData.installer : 'N/A' :''}}<br />
                     </v-card>
 
                      <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 185px">
@@ -376,8 +378,8 @@
                       {{jobsData.customer.province}}<br />
                       <strong>House No.</strong><br />
                       {{ jobsData.customer.houseno? jobsData.customer.houseno : 'N/A' }}<br />
-                     <strong  v-if="jobstatus !== 'Unassigned'">Date of Service</strong><br />
-                      {{ jobstatus !== 'Unassigned'? jobsData.installationdate ?jobsData.installationdate: 'N/A': '' }} 
+                     <strong  v-if="jobsData.status  != 0">Date of Service</strong><br />
+                      {{ jobsData.status  != 0? jobsData.installationdate ?jobsData.installationdate: 'N/A': '' }} 
                     </v-card>
                   </v-col>
                 </v-row>
@@ -388,13 +390,15 @@
           </v-list>
 
           <v-list three-line subheader v-if="checkpermission">
-            <v-subheader v-if="superadminpermission && jobstatus !== 'Unassigned'">Job Status Update</v-subheader>
+            <v-subheader v-if="superadminpermission &&  jobsData.status  != 0">Job Status Update</v-subheader>
             <v-list-item>
               <v-list-item-content>
                 <v-row no-gutters>
                   <v-col cols="12" sm="3">
-                    <strong>Sales Invoice</strong><br />
+                    
+                    <strong v-if="jobsData.attachment">Sales Invoice</strong><br  />
                     <v-btn
+                      v-if="jobsData.attachment"
                       x-small
                       color="success"
                       @click="download(jobsData.id)"
@@ -415,7 +419,7 @@
                        </v-text-field>
                      <!-- users == 28 && users == 25 && users == 7 &&  -->
                       <v-autocomplete
-                      v-if="superadminpermission && jobstatus !== 'Unassigned'"
+                      v-if="superadminpermission &&  jobsData.status  != 0"
                         v-model="tech"
                         label="Assign Tech/Installer"
                         :items="installer"
@@ -442,7 +446,7 @@
                       <br />
                       <!-- users == 28 && users == 25 && users == 7 && -->
                       <vs-input
-                      v-if="superadminpermission && jobstatus !== 'Unassigned'"
+                      v-if="superadminpermission  &&  jobsData.status  != 0"
                         type="date"
                         v-model="installationdateData"
                         :label="reqtype == 'REPAIR' || reqtype == 'CLEANING'? 'Date Of Service': reqtype == 'INSTALLATION'? 'Date Of Installation':'Date Of Survey'"
@@ -688,7 +692,7 @@ export default {
          return this.perm.includes("SuperAdmin");
       },
       callidIden(){
-        if(this.jobstatus === "Accepted" || this.jobstatus === "Dispatch to Other ASC"){
+        if(this.jobsData.status == 1 || this.jobsData.status == 2){
             return true
         }else{
            return false
@@ -854,6 +858,7 @@ export default {
       this.tech = data.installer;
       this.reqtype = data.requesttype 
       this.jobstatus = status;
+      this.callid = data.callid
        //this.jobstat = data.status
       this.installationdateData = data.installationdate;
       this.jobsInfo = true;
