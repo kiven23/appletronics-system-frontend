@@ -11,7 +11,7 @@
         max-height="40"
         style="margin: 5px"
       ></v-img>
-      <v-toolbar-title> <strong>Appletronics Portal</strong>
+      <v-toolbar-title> <strong>Appletronics Portal  {{counting.count}}</strong>
         <p style="font-size: 11px">Appletronics Services Inc.</p></v-toolbar-title>
 
       <v-spacer></v-spacer>
@@ -312,12 +312,16 @@ export default {
       this.$store.state.goDark = !this.$store.state.goDark;
     },
     view(data){
+      
       this.$store.dispatch("app_booking_sys/ViewNotification", data.event_id).then((res)=>{
         this.threadsData = res.data[0]
         console.log(res.data)
       })
         this.viewThreads = true
-      
+        this.$socket.emit("notification", 1);
+         this.$store.dispatch("app_booking_sys/Notification").then((res)=>{
+           this.items = res.data
+      }) 
     },
     sendThreads(data){
       var datas = {"scalate_id": data, "thread": this.note}
@@ -346,14 +350,19 @@ export default {
     })
      this.usersData = this.$store.state.currentUser
       this.sockets.subscribe("notification", (res)=>{
-           this.$store.dispatch("app_booking_sys/Notification").then((res)=>{
+           
+      this.$store.dispatch("app_booking_sys/Notification").then((res)=>{
            this.items = res.data
-    })
+      })
       })
      this.usersData.branch_id
   },
 
   computed: {
+    counting(){
+     
+      return this.items
+    },
     connections(){
      return  this.$store.state.connections;
     },

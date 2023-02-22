@@ -132,13 +132,22 @@
       </v-flex>
       <v-card-title>
         <v-text-field
-          v-model="search"
-          append-icon="mdi-magnify"
-          label="Search"
-          single-line
-          hide-details
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search"
+            single-line
+            hide-details
         ></v-text-field>
+
+         <vs-button
+         
+          @click="refreshData"
+          
+         >
+           <v-icon color="white">mdi-refresh</v-icon>
+        </vs-button>
       </v-card-title>
+
       <v-data-table
         dense
         :headers="headers"
@@ -149,7 +158,7 @@
         :items-per-page="5"
       >
        <template v-slot:item.requestid="{ item }">
-          {{ item.requesttype }}
+          {{ item.requesttype == 'REPAIR'?'SERVICE': item.requesttype}}
         </template>
          <template v-slot:item.callid="{ item }">
           {{item.callid}}
@@ -164,10 +173,21 @@
           </div>
         </template>
         <template v-slot:item.action="{ item }">
-          <vs-button border @click="view(item)"> View </vs-button>
+          <!-- <vs-button border @click="view(item)"> View </vs-button>
+          <vs-button border @click="view(item)"> Trash </vs-button> -->
+          
+            <vs-button-group>
+                  <vs-button icon @click="view(item)" border>
+                     <v-icon> mdi-folder-open</v-icon>
+                  </vs-button>
+                  <vs-button icon  @click="trash(item)" border >
+                    <v-icon style="color: red"> mdi-delete-forever</v-icon>
+                  </vs-button>
+                 
+            </vs-button-group>
         </template>
         <template v-slot:item.created_at="{ item }">
-          {{new Date(item.created_at).toLocaleString()}}
+          {{new Date(item.created_at).toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric',hour: '2-digit', minute:'2-digit'})}}
         </template>
       </v-data-table>
       <v-dialog
@@ -913,6 +933,18 @@ export default {
                     sortable: false,
                     value: "callid",
                   },
+                  {
+                    text: "Sched Date",
+                    align: "start",
+                    sortable: false,
+                    value: "installationdate",
+                  },
+                                      {
+                    text: "Tech Name",
+                    align: "start",
+                    sortable: false,
+                    value: "installer",
+                  },
                     {
                     text: "Request Type",
                     align: "start",
@@ -954,6 +986,34 @@ export default {
         $event.preventDefault();
       }
     },
+    refreshData(){
+      this.refresh(this.selectedID);
+       
+    },
+    trash(data){
+      this.$swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+              this.$store.dispatch("app_booking_sys/TrashJobs", data).then((res)=>{
+                   this.$swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                      )
+                   this.refreshData()
+              })
+           
+        }
+      })
+      
+    }
   },
 };
 </script>

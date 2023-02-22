@@ -17,6 +17,9 @@ const GETSCHEDULE = rootUrl + "/api/jobs/schedules/calendar";
 const GETSCALATECOUNT = rootUrl + "/api/scalate/count";
 const GETNOTIFICATION = rootUrl + "/api/notification";
 const VIEWNOTIFICATION = rootUrl + "/api/notification?q=2";
+
+const TRASHJOBS = rootUrl + "/api/booking/jobs/trash";
+
 const actions = {
   storeBooking(context, data) {
     let formData = new FormData();
@@ -166,8 +169,14 @@ const actions = {
           return res
         });
     },
- 
-     
+ ///jobs/trash
+  TrashJobs(context, data) {
+    return  axios
+        .post(TRASHJOBS,{id: data.id})
+        .then((res) => {
+          return res
+        });
+  },
   
 };
 

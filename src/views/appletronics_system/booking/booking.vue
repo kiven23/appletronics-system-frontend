@@ -39,9 +39,9 @@
                 <v-list-item-content>
                   <v-row no-gutters>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-3" height="900">
+                      <v-card class="pa-3" height="955">
                         <h5>PRODUCT INFORMATION</h5>
-                        <v-chip x-small> Model* </v-chip>
+                        <v-chip x-medium> Model* </v-chip>
                         <v-autocomplete
                           v-model="data.units.model"
                           :items="itemsAuto"
@@ -107,7 +107,7 @@
                           :disabled="true"
                           @change="autoclear()"
                         ></v-text-field>
-                        <v-chip x-small> Product Categories </v-chip>
+                        <v-chip x-medium> Product Categories </v-chip>
                         <v-autocomplete
                           v-model="data.units.prodcategories"
                           :items="productListDown.prodcategories"
@@ -118,7 +118,7 @@
                           dense
                           @change="getindex()"
                         ></v-autocomplete>
-                        <v-chip x-small> Appliance Type </v-chip>
+                        <v-chip x-medium> Appliance Type </v-chip>
                         <v-autocomplete
                           v-model="data.units.appliancetype"
                           :items="productListDown.appliancetype"
@@ -129,7 +129,7 @@
                           required
                           dense
                         ></v-autocomplete>
-                        <v-chip x-small> Brand* </v-chip>
+                        <v-chip x-medium> Brand* </v-chip>
                         <v-autocomplete
                           v-model="data.units.brand"
                           :items="productListDown.brand"
@@ -141,13 +141,13 @@
                           dense
                         ></v-autocomplete>
 
-                        <v-chip x-small> Serial No. </v-chip>
+                        <v-chip x-medium> Serial No. </v-chip>
                         <v-text-field
                           v-model="data.units.serialno"
                           placeholder="Serial No."
                           dense
                         ></v-text-field>
-                        <v-chip x-small>Unit Condition* </v-chip>
+                        <v-chip x-medium>Unit Condition* </v-chip>
                         <v-select
                           style="margin: 6px"
                           v-model="data.units.unitcondition"
@@ -159,7 +159,7 @@
                           required
                           dense
                         ></v-select>
-                        <v-chip x-small> Warranty Condition* </v-chip>
+                        <v-chip x-medium> Warranty Condition* </v-chip>
                         <v-select
                           v-model="data.units.warrantycondition"
                           :items="productListDown.warrantycondition"
@@ -170,13 +170,13 @@
                           required
                           dense
                         ></v-select>
-                        <v-chip x-small class="ma-2">DATE PURCHASE</v-chip
+                        <v-chip x-medium class="ma-2">DATE PURCHASE</v-chip
                         ><br />
                         <vs-input
                           type="date"
                           v-model="data.units.datepurchase"
                         />
-                        <!-- <v-chip x-small v-if="reqIdentifier !== 1" class="ma-2"
+                        <!-- <v-chip x-medium v-if="reqIdentifier !== 1" class="ma-2"
                           >Quantity</v-chip
                         > -->
                         <!-- <v-text-field
@@ -202,7 +202,7 @@
                           required
                           dense
                         ></v-select> -->
-                        <v-chip x-small v-if="reqIdentifier == 1" class="ma-2">
+                        <v-chip x-medium v-if="reqIdentifier == 1" class="ma-2">
                           Problem
                         </v-chip>
                         <v-autocomplete
@@ -211,6 +211,7 @@
                           :items="problemItemsAuto"
                           :loading="isLoading"
                           :search-input.sync="searchP"
+                          :error-messages="problemError"
                           hide-details
                           hide-selected
                           item-text="Name"
@@ -267,7 +268,7 @@
                           dense
                         ></v-text-field>
 
-                        <v-chip x-small class="ma-2">Priority </v-chip>
+                        <v-chip x-medium class="ma-2">Priority </v-chip>
                         <v-select
                           style="margin: 6px"
                           v-model="data.units.priority"
@@ -285,9 +286,9 @@
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="3" v-if="reqIdentifier == 4">
-                      <v-card class="pa-3" height="900">
+                      <v-card class="pa-3" height="955">
                          
-                        <v-chip x-small>Property Type* </v-chip>
+                        <v-chip x-medium>Property Type* </v-chip>
                         <v-select
                           v-model="data.usage.propertytype"
                           :items="usagedetailsListDown.propertytype"
@@ -299,7 +300,7 @@
                           required
                           dense
                         ></v-select>
-                        <v-chip x-small>Level </v-chip>
+                        <v-chip x-medium>Level </v-chip>
                         <v-select
                           v-model="data.usage.level"
                           :items="usagedetailsListDown.level"
@@ -310,7 +311,7 @@
                           :disabled="ifcommercial ==1"
                           dense
                         ></v-select>
-                        <v-chip x-small>Location </v-chip>
+                        <v-chip x-medium>Location </v-chip>
                         <v-select
                           v-model="data.usage.location"
                           :items="usagedetailsListDown.location"
@@ -321,7 +322,7 @@
                           :disabled="ifcommercial ==1"
                           dense
                         ></v-select>
-                        <v-chip x-small>Area </v-chip>
+                        <v-chip x-medium>Area </v-chip>
                         <v-text-field
                           v-model="data.usage.area"
                           prefix="sqm"
@@ -333,7 +334,7 @@
                           :disabled="ifcommercial ==1"
                           dense
                         ></v-text-field>
-                        <v-chip x-small>Wall Finish* </v-chip>
+                        <v-chip x-medium>Wall Finish* </v-chip>
                         <v-select
                           v-model="data.usage.wallfinish"
                           :items="usagedetailsListDown.wallfinish"
@@ -346,7 +347,7 @@
                           required
                           dense
                         ></v-select>
-                        <v-chip x-small>Power Supply Location</v-chip>
+                        <v-chip x-medium>Power Supply Location</v-chip>
                         <v-select
                           v-model="data.usage.withpowersupply"
                           :items="usagedetailsListDown.withpowersupply"
@@ -358,19 +359,19 @@
                           dense
                           :disabled="ifcommercial ==1"
                         ></v-select>
-                        <v-chip x-small>Date of Delivery</v-chip>
+                        <v-chip x-medium>Date of Delivery</v-chip>
 
                         <vs-input
                           type="date"
                           v-model="data.usage.deliverydate"
                         />
-                        <v-chip x-small>Time Of Delivery </v-chip>
+                        <v-chip x-medium>Time Of Delivery </v-chip>
                         <vue-timepicker
                           v-model="data.usage.time"
                           style="margin: 6px"
                         ></vue-timepicker>
  <br>
-                        <v-chip x-small>Installation Address</v-chip>
+                        <v-chip x-medium>Installation Address</v-chip>
                         
                         <v-radio-group v-model="InstallationAddress" @change="addressV()">
                           <v-radio label="Customer" ></v-radio>
@@ -385,19 +386,21 @@
                           required
                           dense
                         ></v-text-field>
-                        <v-chip x-small>Amount Paid(Installation fee)</v-chip>
+                        <v-chip x-medium>Amount Paid(Installation fee)</v-chip>
                         <v-text-field
                           style="margin: 6px"
                           prefix="PHP"
                           v-model="data.usage.paidamoun"
                           placeholder="Amount Paid"
                           required
+                          @keypress="onlyNumber"
                           dense
                         ></v-text-field>
-                        <!-- <v-chip x-small>OR #</v-chip> -->
+                        <!-- <v-chip x-medium>OR #</v-chip> -->
                         <v-text-field
                           style="margin: 6px"
                           prefix="OR#"
+                          @keypress="onlyNumber"
                           v-model="data.usage.or"
                           placeholder="OR #"
                           required
@@ -406,23 +409,25 @@
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-1" height="900">
+                      <v-card class="pa-1" height="955">
                         <h5>CUSTOMER INFORMATION</h5>
-                        <v-chip x-small class="ma-2">
+                        <v-chip x-medium class="ma-2">
                           Contact Phone Number*</v-chip
                         >
+                    
                         <v-text-field
                           v-model="customer.cpnumber"
                           :error-messages="cpnumberError"
                           placeholder="Contact Phone Number*"
                           prefix="+63"
-                          hide-details
+                           
                           single-line
                           type="integer"
                           :maxlength="max"
                           dense
                           required
                           @keypress="onlyNumber"
+                       
                           class="ma-2"
                         ></v-text-field>
 
@@ -435,7 +440,7 @@
                         >
                           CHECK RECORD
                         </vs-button>
-                        <v-chip x-small class="ma-2"
+                        <v-chip x-medium class="ma-2"
                           >Email Address (OPTIONAL)</v-chip
                         >
                         <v-text-field
@@ -445,7 +450,7 @@
                           dense
                           class="ma-2"
                         ></v-text-field>
-                        <v-chip x-small class="ma-2">Last Name</v-chip>
+                        <v-chip x-medium class="ma-2">Last Name</v-chip>
                         <v-text-field
                           v-model="customer.lastname"
                           placeholder="Last Name"
@@ -454,7 +459,7 @@
                           dense
                           class="ma-2"
                         ></v-text-field>
-                        <v-chip x-small class="ma-2">First Name"</v-chip>
+                        <v-chip x-medium class="ma-2">First Name"</v-chip>
                         <v-text-field
                           v-model="customer.firstname"
                           :error-messages="firstnameError"
@@ -463,7 +468,7 @@
                           dense
                           class="ma-2"
                         ></v-text-field>
-                        <v-chip x-small class="ma-2">Middle Name</v-chip>
+                        <v-chip x-medium class="ma-2">Middle Name</v-chip>
                         <v-text-field
                           v-model="customer.middlename"
                           placeholder="Middle Name"
@@ -472,7 +477,7 @@
                           dense
                           class="ma-2"
                         ></v-text-field>
-                        <v-chip x-small class="ma-2">Contact Person</v-chip>
+                        <v-chip x-medium class="ma-2">Contact Person</v-chip>
                         <v-text-field
                           v-model="customer.contactperson"
                           placeholder="Contact Person"
@@ -481,7 +486,7 @@
                           dense
                           class="ma-2"
                         ></v-text-field>
-                        <v-chip x-small class="ma-2"
+                        <v-chip x-medium class="ma-2"
                           >Telephone No. (OPTIONAL)</v-chip
                         >
                         <!-- <v-text-field
@@ -503,11 +508,29 @@
                           @keypress="onlyNumber"
                           class="ma-2"
                         ></v-text-field>
+                        <v-chip x-medium  class="ma-2">LANDMARK</v-chip>
+                        <v-text-field
+                         class="ma-2"
+                          v-model="customer.landmark"
+                          placeholder="LANDMARK "
+                          required
+                        ></v-text-field>
+                        <v-chip x-medium v-if="reqIdentifier == 3"
+                           class="ma-2" >SURVEY LOCATION</v-chip
+                        >
+                        <v-text-field
+                         class="ma-2"
+                          v-if="reqIdentifier == 3"
+                          v-model="data.usage.locationofinstallation"
+                          placeholder="Survey Location"
+                          required
+                        ></v-text-field>
+
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-3" height="900">
-                        <v-chip x-small class="ma-1">Region</v-chip>
+                      <v-card class="pa-3" height="955">
+                        <v-chip x-medium class="ma-1">Region</v-chip>
                         <v-select
                           v-model="customer.region"
                           :items="addressesListDown.region"
@@ -519,7 +542,7 @@
                           class="ma-1"
                           @change="regionD()"
                         ></v-select>
-                        <v-chip x-small class="ma-1">Province</v-chip>
+                        <v-chip x-medium class="ma-1">Province</v-chip>
                         <v-select
                           class="ma-1"
                           v-model="customer.province"
@@ -532,7 +555,7 @@
                           required
                           @change="provinceD()"
                         ></v-select>
-                        <v-chip x-small class="ma-1">Municipality/City</v-chip>
+                        <v-chip x-medium class="ma-1">Municipality/City</v-chip>
                         <v-select
                           class="ma-1"
                           v-model="customer.mcity"
@@ -545,7 +568,7 @@
                           required
                           @change="mcityD()"
                         ></v-select>
-                        <v-chip x-small class="ma-1">Barangay</v-chip>
+                        <v-chip x-medium class="ma-1">Barangay</v-chip>
                         <v-select
                           class="ma-1"
                           v-model="customer.barangay"
@@ -559,7 +582,7 @@
                           @change="brgyD()"
                         ></v-select>
 
-                        <v-chip x-small class="ma-1">Street</v-chip>
+                        <v-chip x-medium class="ma-1">Street</v-chip>
                         <v-text-field
                           v-model="customer.street"
                           :error-messages="streetError"
@@ -568,7 +591,7 @@
                           dense
                           class="ma-1"
                         ></v-text-field>
-                        <v-chip x-small class="ma-1">House No.</v-chip>
+                        <v-chip x-medium class="ma-1">House No.</v-chip>
                         <v-text-field
                           v-model="customer.houseno"
                           placeholder="House No."
@@ -577,7 +600,7 @@
                           dense
                           class="ma-1"
                         ></v-text-field>
-                        <v-chip x-small class="ma-1"
+                        <v-chip x-medium class="ma-1"
                           >{{
                             reqIdentifier == 3 || reqIdentifier == 4
                               ? "NAME OF ORGANIZATION"
@@ -608,7 +631,7 @@
                         ></v-text-field>
 
                         <v-chip
-                          x-small
+                          x-medium
                           color="success"
                           v-if="reqIdentifier == 3 || reqIdentifier == 4"
                           >Is this an organization?</v-chip
@@ -629,7 +652,7 @@
                             reqIdentifier == 3 ||
                             reqIdentifier == 4
                           "
-                          >Sales Invoice/cof/aisf</v-chip
+                          >Sales Invoice/cof/aisf/Mrf</v-chip
                         >
 
                         <v-file-input
@@ -652,22 +675,8 @@
                           rows="1"
                           v-model="customer.specialinstruction"
                         ></v-textarea>
-                        <v-chip x-small>LANDMARK</v-chip>
-                        <v-text-field
-                          v-model="customer.landmark"
-                          placeholder="LANDMARK "
-                          required
-                        ></v-text-field>
-                        <v-chip x-small v-if="reqIdentifier == 3"
-                          >SURVEY LOCATION</v-chip
-                        >
-                        <v-text-field
-                          v-if="reqIdentifier == 3"
-                          v-model="data.usage.locationofinstallation"
-                          placeholder="Survey Location"
-                          required
-                        ></v-text-field>
-
+               
+               
                         <!-- <h3>Any additional request?</h3>
 
                         <vs-checkbox
@@ -688,7 +697,7 @@
                     </v-col>
                     <v-col cols="12" sm="3">
                       <v-card class="pa-1">
-                        <v-chip x-small color="success">UNITS/ITEMS</v-chip>
+                        <v-chip x-medium color="success">UNITS/ITEMS</v-chip>
                         <v-simple-table dense>
                           <template v-slot:default>
                             <thead>
@@ -739,7 +748,7 @@
                         >
                           ADD UNIT +
                         </vs-button>
-                         <v-chip x-small class="ma-2">
+                         <v-chip x-medium class="ma-2">
                           LOGGED BY </v-chip
                         >
                           <v-text-field
@@ -849,7 +858,7 @@
 
                     <v-col cols="12" sm="6" md="4">
                       <strong>Request Type</strong>
-                      <br />{{ requestType }}
+                      <br />{{  activerequest.name }}
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <strong>Dealer Name</strong>
@@ -1145,7 +1154,8 @@ export default {
         brand: { required },
         model: { required },
         unitcondition: { required },
-        warrantycondition: { required },
+        warrantycondition: { required }, 
+        problem: { required }
         /// qty: { required },
       },
 
@@ -1353,8 +1363,13 @@ export default {
         ],
 
         location: [
+          { name: "COMFORT ROOM", value: "COMFORT ROOM" },
+          { name: "ENTERTAINMENT ROOM", value: "ENTERTAINMENT ROOM" },
+          { name: "DINING ROOM", value: "DINING ROOM" },
+          { name: "BED ROOM", value: "BED ROOM" },
+          { name: "LIVING ROOM", value: "LIVING ROOM" },
           { name: "OFFICE", value: "OFFICE" },
-          { name: "HOME", value: "HOME" },
+          { name: "KITCHEN", value: "KITCHEN" },
         ],
         wallfinish: [
           { name: "YES", value: "YES" },
@@ -1469,7 +1484,7 @@ export default {
       if (this.itemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8012/api2/all.json")
+      fetch("http://192.168.1.19:8009/api/random/exec")
         .then((res) => res.clone().json())
         .then((res) => {
           this.itemsAuto = res;
@@ -1489,7 +1504,7 @@ export default {
       if (this.problemItemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8012/api2/problem.json")
+      fetch("http://192.168.1.19:8009/api/random/exec")
         .then((res) => res.clone().json())
         .then((res) => {
           this.problemItemsAuto = res;
@@ -1509,8 +1524,8 @@ export default {
   computed: {
     areaError() {
       const errors = [];
-
       if (parseInt(this.sqm) < this.data.usage.area) {
+        alert("Area is Under Capacity");
         return "MAX SQM UP TO " + this.sqm;
       } else {
         return "";
@@ -1563,6 +1578,15 @@ export default {
       !this.$v.data.units.unitcondition.required && errors.push(RequiredError);
       return errors;
     },
+    problemError(){
+     const errors = [];
+      var RequiredError = null;
+      if (!this.$v.data.units.problem) return errors;
+      RequiredError = "This field is required.";
+      !this.$v.data.units.problem.required &&
+        errors.push(RequiredError);
+      return errors;
+    },
     warrantyconditionError() {
       const errors = [];
       var RequiredError = null;
@@ -1574,12 +1598,15 @@ export default {
     },
     //->CONTACT INFO VALIDATE
     cpnumberError() {
+      
       const errors = [];
       var RequiredError = null;
-      if (!this.$v.customer.cpnumber) return errors;
-      RequiredError = "This field is required.";
-      !this.$v.customer.cpnumber.required && errors.push(RequiredError);
-      return errors;
+      if (this.customer.cpnumber.length !== 10){
+         RequiredError = "Phone Number Atleast 10 digits";
+        errors.push(RequiredError);
+      }
+     return errors
+      
     },
     lastnameError() {
       const errors = [];
@@ -1668,11 +1695,29 @@ export default {
     },
 
     UnitsALLError() {
-      this.$v.data.units.$touch();
-      if (!this.$v.data.units.$error) {
-        return false;
+ 
+ 
+      if(this.activerequest.name == 'REPAIR'){
+        this.$v.data.units.$touch();
+          if (!this.$v.data.units.appliancetype.$error && 
+          !this.$v.data.units.brand.$error &&
+          !this.$v.data.units.unitcondition.$error &&
+          !this.$v.data.units.warrantycondition.$error &&
+          !this.$v.data.units.problem.$error 
+          ){
+                  return false;
+           }
+      }else{
+          if (!this.$v.data.units.appliancetype.$error && 
+          !this.$v.data.units.brand.$error &&
+          !this.$v.data.units.unitcondition.$error &&
+          !this.$v.data.units.warrantycondition.$error  
+          
+          ){
+                  return false;
+           }
       }
-
+ 
       return true;
     },
     withpowersupplyError() {
@@ -1866,10 +1911,13 @@ export default {
     add() {
        
       if (this.activerequest.name == "INSTALLATION") {
-       
         this.$v.data.units.$touch();
         this.$v.data.usage.$touch();
-        if (!this.$v.data.units.$error && !this.$v.data.usage.$error) {
+        if (!this.$v.data.units.appliancetype.$error && 
+            !this.$v.data.units.brand.$error && 
+            !this.$v.data.units.model.$error &&
+            !this.$v.data.units.unitcondition.$error &&
+            !this.$v.data.units.warrantycondition.$error && !this.$v.data.usage.$error) {
           const add = {
             unitid:
               "UNIT-" +
@@ -1905,9 +1953,58 @@ export default {
           this.storeDataFinal.push(add);
         
         }
-      } else {
+      } else if(this.activerequest.name == "REPAIR"){
+ 
+         this.$v.data.units.$touch();
+        
+        if (!this.$v.data.units.appliancetype.$error && 
+            !this.$v.data.units.brand.$error && 
+            !this.$v.data.units.model.$error &&
+            !this.$v.data.units.unitcondition.$error &&
+            !this.$v.data.units.warrantycondition.$error &&
+            !this.$v.data.units.problem.$error ) {
+              
+          const add = {
+            unitid:
+              "UNIT-" +
+              this.data.units.brand +
+              "-" +
+              Math.ceil(Math.random() * 1000000),
+            prodcategories: this.data.units.prodcategories,
+            appliancetype: this.data.units.appliancetype,
+            brand: this.data.units.brand,
+            model: this.data.units.model,
+            serialno: this.data.units.serialno,
+            unitcondition: this.data.units.unitcondition,
+            warrantycondition: this.data.units.warrantycondition,
+            qty: this.data.units.qty,
+            demandreplacement: this.data.units.demandreplacement,
+            priority: this.data.units.priority,
+            datepurchase: this.data.units.datepurchase,
+            problem: this.data.units.problem,
+            //usage
+            ornumber: this.data.usage.or,
+            propertytype: this.data.usage.propertytype,
+            level: this.data.usage.level,
+            location: this.data.usage.location,
+            area: this.data.usage.area,
+            wallfinish: this.data.usage.propertytype,
+            withpowersupply: this.data.usage.wallfinish,
+            deliverydate: this.data.usage.deliverydate,
+            time: this.data.usage.time,
+            locationofinstallation: this.InstallationAddress == 0?0:this.data.usage.locationofinstallation,
+            paidamoun: this.data.usage.paidamoun,
+          };
+          this.units.push(add);
+          this.storeDataFinal.push(add);
+        }
+      } else{
         this.$v.data.units.$touch();
-        if (!this.$v.data.units.$error) {
+        if (!this.$v.data.units.appliancetype.$error && 
+            !this.$v.data.units.brand.$error && 
+            !this.$v.data.units.model.$error &&
+            !this.$v.data.units.unitcondition.$error &&
+            !this.$v.data.units.warrantycondition.$error  ) {
           const add = {
             unitid:
               "UNIT-" +
@@ -2259,6 +2356,7 @@ export default {
    
     },
     modelsActivate(data) {
+      
       this.sqm = data.SQM;
       this.productListDown.prodcategories = data.categories;
       this.productListDown.appliancetype = data.type;
@@ -2266,7 +2364,7 @@ export default {
       this.data.units.brand = data.Brand;
 
       this.data.units.prodcategories = data.categories;
-      if (data.model == "*") {
+      if (data.nomodel == 1) {
         this.productListDown.brand = data.Brand2;
         this.productListDown.prodcategories = data.cat;
         this.productListDown.appliancetype = data.type;
@@ -2447,6 +2545,7 @@ export default {
         );
       }
     },
+ 
     addressV(){
       if(this.InstallationAddress == 1){
           this.data.usage.locationofinstallation = '';
@@ -2456,16 +2555,105 @@ export default {
      console.log(this.data.usage.locationofinstallation) 
     },
     propertyTypeController(){
-      if(this.data.usage.propertytype == 'COMMERCIAL'){
+      if(this.data.usage.propertytype !== 'RESIDENTIAL'){
         
         this.usagedetailsListDown.wallfinish = { name: 'N/A', value: 'N/A' }
         this.usagedetailsListDown.withpowersupply = { name: 'N/A', value: 'N/A' }
+        this.usagedetailsListDown.level = { name: 'N/A', value: 'N/A' }
+        this.usagedetailsListDown.location = { name: 'N/A', value: 'N/A' }
+         this.data.usage.level = { name: 'N/A', value: 'N/A'}
+          this.data.usage.location = { name: 'N/A', value: 'N/A'}
         this.data.usage.wallfinish = { name: 'N/A', value: 'N/A'}
         this.data.usage.withpowersupply = { name: 'N/A', value: 'N/A' }
         this.data.usage.area = 'N/A'
         this.ifcommercial = 1
       }else{
         this.ifcommercial = 0
+         this.usagedetailsListDown = {
+        propertytype: [
+          {
+            name: "UNIVERSITY",
+            value: "UNIVERSITY",
+          },
+          {
+            name: "RESIDENTIAL",
+            value: "RESIDENTIAL",
+          },
+          {
+            name: "COMMERCIAL",
+            value: "COMMERCIAL",
+          },
+          {
+            name: "INDUSTRIAL",
+            value: "INDUSTRIAL",
+          },
+          {
+            name: "LAND",
+            value: "LAND",
+          },
+        ],
+        level: [
+          {
+            name: "1st FLOOR",
+            value: "1st FLOOR",
+          },
+          {
+            name: "2nd FLOOR",
+            value: "2nd FLOOR",
+          },
+          {
+            name: "3rd FLOOR",
+            value: "3rd FLOOR",
+          },
+          {
+            name: "4th FLOOR",
+            value: "4th FLOOR",
+          },
+          {
+            name: "5th FLOOR",
+            value: "5th FLOOR",
+          },
+          {
+            name: "6th FLOOR",
+            value: "6th FLOOR",
+          },
+          {
+            name: "7th FLOOR",
+            value: "7th FLOOR",
+          },
+          {
+            name: "8th FLOOR",
+            value: "8th FLOOR",
+          },
+          {
+            name: "9th FLOOR",
+            value: "9th FLOOR",
+          },
+          {
+            name: "10th FLOOR",
+            value: "10th FLOOR",
+          },
+        ],
+
+        location: [
+          { name: "COMFORT ROOM", value: "COMFORT ROOM" },
+          { name: "ENTERTAINMENT ROOM", value: "ENTERTAINMENT ROOM" },
+          { name: "DINING ROOM", value: "DINING ROOM" },
+          { name: "BED ROOM", value: "BED ROOM" },
+          { name: "LIVING ROOM", value: "LIVING ROOM" },
+          { name: "OFFICE", value: "OFFICE" },
+          { name: "KITCHEN", value: "KITCHEN" },
+        ],
+        wallfinish: [
+          { name: "YES", value: "YES" },
+          { name: "NO", value: "NO" },
+        ],
+        withpowersupply: [
+          { name: "INDOOR", value: "INDOOR" },
+          { name: "OUTDOOR", value: "OUTDOOR" },
+          { name: "NONE", value: "NONE" },
+        ],
+      }
       }
     }
   },

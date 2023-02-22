@@ -13,8 +13,14 @@ import VueSocketIO from 'vue-socket.io'
 import SocketIO from 'socket.io-client'
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
- 
+
+import VueSweetalert2 from 'vue-sweetalert2';
+
+// If you don't need the styles, do not connect
+import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.use(VueToast);
+Vue.use(VueSweetalert2);
+
  
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 

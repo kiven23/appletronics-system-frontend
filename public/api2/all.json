@@ -28446,18 +28446,6 @@
     "SQM": "13"
   },
   {
-    "model": "NO MODEL",
-    "Item No.": "103-000500",
-    "categories": "AIRCON",
-    "Brand": "EVEREST",
-    "Item Group": "AIRCONDITIONS",
-    "In Stock": 0,
-    "Item Cost": 0,
-    "type": "WALL MOUNTED",
-    "Sub Category 2": "1.0 HP",
-    "SQM": "13"
-  },
-  {
     "model": "PDCAR009CO",
     "Item No.": "103-606080",
     "categories": "AIRCON",
@@ -39372,42 +39360,6 @@
     "type": "VRF"
   },
   {
-    "model": "NO MODEL",
-    "Item No.": "103-606148",
-    "categories": "AIRCON",
-    "Brand": "- No Manufacturer -",
-    "Item Group": "AIRCONDITIONS",
-    "In Stock": 0,
-    "Item Cost": 0
-  },
-  {
-    "model": "NO MODEL",
-    "Item No.": "103-000471",
-    "categories": "AIRCON",
-    "Brand": "PANASONIC",
-    "Item Group": "AIRCONDITIONS",
-    "In Stock": 0,
-    "Item Cost": 0
-  },
-  {
-    "model": "NO MODEL",
-    "Item No.": "103-000463",
-    "categories": "AIRCON",
-    "Brand": "GE",
-    "Item Group": "AIRCONDITIONS",
-    "In Stock": 0,
-    "Item Cost": 0
-  },
-  {
-    "model": "NO MODEL",
-    "Item No.": "103-000429",
-    "categories": "AIRCON",
-    "Brand": "NATIONAL",
-    "Item Group": "AIRCONDITIONS",
-    "In Stock": 0,
-    "Item Cost": 0
-  },
-  {
     "model": "NO MODEL AC",
     "Item No.": "103-000493",
     "categories": "AIRCON",
@@ -39970,9 +39922,11 @@
     "In Stock": 0,
     "Item Cost": 0
   },
+  
   {
-    "#": 1246,
-    "model": "*",
+    "#": 454564,
+    "nomodel": 1,
+    "model": "NO MODEL",
     "Item No.": "103-000584",
     "categories": "",
 
@@ -56059,7 +56013,7 @@
       }
     ],
 
-    "Brand": "NO BRAND",
+    "Brand": "NO MODEL",
     "Item Group": "*",
     "In Stock": 0,
     "Item Cost": 0

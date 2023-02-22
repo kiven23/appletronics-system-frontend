@@ -362,7 +362,8 @@ export default {
         .dispatch("app_booking_sys/scalateCreateBk", data)
         .then((res) => {
           console.log(res.data);
-          this.refresh();
+          this.refresh()
+           this.$socket.emit("notification", 1);
         });
     },
     getData(data) {
