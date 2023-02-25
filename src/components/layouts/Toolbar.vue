@@ -11,7 +11,7 @@
         max-height="40"
         style="margin: 5px"
       ></v-img>
-      <v-toolbar-title> <strong>Appletronics Portal  {{counting.count}}</strong>
+      <v-toolbar-title> <strong>Appletronics Portal </strong>
         <p style="font-size: 11px">Appletronics Services Inc.</p></v-toolbar-title>
 
       <v-spacer></v-spacer>

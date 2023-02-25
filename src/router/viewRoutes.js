@@ -86,7 +86,8 @@ import databaseconfigure from "../views/settings/database/configure.vue";
 import booking from "../views/appletronics_system/booking/booking.vue";
 import jobs from "../views/appletronics_system/booking/jobs.vue";
 import scalate from "../views/appletronics_system/booking/scalate/scalate.vue"
-
+import booking_fields from "../views/appletronics_system/booking/booking_fields/custom_fields.vue"
+import booking_items from "../views/appletronics_system/booking/booking_fields/items.vue"
 const viewRoutes = [
   {
     path: "/",
@@ -500,7 +501,26 @@ const viewRoutes = [
         requiresAuth: true
       }
     },
-    
+    //Booking Fields
+  
+    {
+      path: "/app/booking/fields",
+      component: booking_fields,
+      name: "booking_fields",
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/app/booking/items",
+      component: booking_items,
+      name: "booking_items",
+      meta: {
+        requiresAuth: true
+      }
+    },
+
+ 
   
 
 ];

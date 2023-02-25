@@ -180,7 +180,7 @@
                   <vs-button icon @click="view(item)" border>
                      <v-icon> mdi-folder-open</v-icon>
                   </vs-button>
-                  <vs-button icon  @click="trash(item)" border >
+                  <vs-button icon  @click="trash(item)" border v-if="superadminpermission" >
                     <v-icon style="color: red"> mdi-delete-forever</v-icon>
                   </vs-button>
                  

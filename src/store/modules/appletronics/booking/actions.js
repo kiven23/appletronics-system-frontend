@@ -20,6 +20,13 @@ const VIEWNOTIFICATION = rootUrl + "/api/notification?q=2";
 
 const TRASHJOBS = rootUrl + "/api/booking/jobs/trash";
 
+//BOOKINGFIELDS 
+const BOOKINGFIELDS = rootUrl + "/api/fetch/fields";
+const CREATEFIELDS = rootUrl + "/api/create/fields";
+const DELETEFIELDS = rootUrl + "/api/delete/fields";
+const CREATEITEMS = rootUrl + "/api/createitem/fields";
+const DELETEITEMS = rootUrl + "/api/deleteitems/fields";
+ 
 const actions = {
   storeBooking(context, data) {
     let formData = new FormData();
@@ -177,6 +184,40 @@ const actions = {
           return res
         });
   },
+ //Booking Fields Setup
+  FetchFields(context, data){
+      return axios.get(BOOKINGFIELDS+"?id="+data+"&list=1").then((res)=>{
+        return res;
+      })
+  },
+ //Booking Fields List
+ ListDropDownFields(context, data){
+  return axios.get(BOOKINGFIELDS+"?list=2").then((res)=>{
+    return res;
+  })
+  },
+ //Booking Create Fields
+  CreateFields(context, data){
+      return axios.post(CREATEFIELDS, data).then((res)=>{
+        return res;
+      })
+  },
+  DeleteFields(context, data){
+    return axios.post(DELETEFIELDS, data).then((res)=>{
+      return res;
+    })
+  },
+  CreateITEMS(context, data){
+    return axios.post(CREATEITEMS, data).then((res)=>{
+      return res;
+    })
+  },
+  DeleteItems(context, data){
+    return axios.post(DELETEITEMS, data).then((res)=>{
+      return res;
+    })
+  },
+   
   
 };
 
