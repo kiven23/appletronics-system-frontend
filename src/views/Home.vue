@@ -4,7 +4,7 @@
       <v-layout row wrap class="mt-16">
         <v-flex xs12  >
           <v-row  >
-            <v-col cols="12" sm="4">
+            <v-col cols="12" sm="3">
               <v-card
                 class="pa-2"
                 outlined
@@ -22,7 +22,7 @@
                 >
               </v-card>
             </v-col>
-            <v-col cols="12" sm="4">
+            <v-col cols="12" sm="3">
               <v-card
                 class="pa-2"
                 outlined
@@ -39,7 +39,7 @@
                 >
               </v-card>
             </v-col>
-            <v-col cols="12" sm="4">
+            <v-col cols="12" sm="3">
               <v-card
                 class="pa-2"
                 outlined
@@ -53,6 +53,23 @@
                 <strong
                   >Dispatch to Other ASC
                   <h2>{{ jobsCounts.asc }}</h2></strong
+                >
+              </v-card>
+            </v-col>
+                     <v-col cols="12" sm="3">
+              <v-card
+                class="pa-2"
+                outlined
+                tile
+                 
+             
+              >
+                <v-icon style="margin-right: 5px; color: red"
+                  >mdi-account-off</v-icon
+                >
+                <strong
+                  >Rejected
+                  <h2>{{ jobsCounts.rejected }}</h2></strong
                 >
               </v-card>
             </v-col>
@@ -129,7 +146,7 @@
           </v-menu>
         </v-toolbar>
       </v-sheet>
-      <v-sheet height="600">
+      <v-sheet height="500">
         <v-calendar
           ref="calendar"
           v-model="focus"

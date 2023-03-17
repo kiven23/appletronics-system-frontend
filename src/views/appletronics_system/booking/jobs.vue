@@ -65,7 +65,7 @@
       <v-row>
         <v-col
         cols="12"
-        sm="4"
+        sm="3"
       >
         <v-card
           class="pa-2"
@@ -87,7 +87,7 @@
       </v-col>
       <v-col
         cols="12"
-        sm="4"
+        sm="3"
       >
         <v-card
           class="pa-2"
@@ -108,7 +108,7 @@
       </v-col>
       <v-col
         cols="12"
-        sm="4"
+        sm="3"
       >
         <v-card
           class="pa-2"
@@ -123,6 +123,27 @@
                 <strong
                   >Dispatch to Other ASC
                   <h2>{{ jobsCounts.asc }}</h2></strong
+                >
+        
+      </v-card>
+      </v-col>
+            <v-col
+        cols="12"
+        sm="3"
+      >
+        <v-card
+          class="pa-2"
+          outlined
+          tile
+          :color="bgselected3"
+          @click="selected(3)"
+        >
+        <v-icon style="margin-right: 5px; color: red"
+                  >mdi-account-off</v-icon
+                >
+                <strong
+                  >Rejected
+                  <h2>{{ jobsCounts.rejected }}</h2></strong
                 >
         
       </v-card>
@@ -156,6 +177,7 @@
         class="elevation-1"
         :search="search"
         :items-per-page="5"
+         
       >
        <template v-slot:item.requestid="{ item }">
           {{ item.requesttype == 'REPAIR'?'SERVICE': item.requesttype}}
@@ -212,7 +234,7 @@
             </v-btn>
             <v-toolbar-title
               >Job Status Update:
-              <strong>{{  jobsData.status == 0? 'Unassigned':jobsData.status == 1? 'Accepted': 'Dispatch to Other ASC' }} / {{ jobsData.callid }}</strong>
+              <strong>{{  jobsData.status == 0? 'Unassigned':jobsData.status == 1? 'Accepted': jobsData.status == 2? 'Dispatch to Other ASC':'Rejected' }} / {{ jobsData.callid }}</strong>
               </v-toolbar-title
             >
             <v-spacer></v-spacer>
@@ -438,7 +460,7 @@
                       > 
                        </v-text-field>
                      <!-- users == 28 && users == 25 && users == 7 &&  -->
-                      <v-autocomplete
+                      <!-- <v-autocomplete
                       v-if="superadminpermission &&  jobsData.status  != 0"
                         v-model="tech"
                         label="Assign Tech/Installer"
@@ -450,9 +472,9 @@
                         dense
                         deletable-chips
                         small-chips
-                      ></v-autocomplete>
+                      ></v-autocomplete> -->
              
-                      <v-autocomplete
+                      <!-- <v-autocomplete
                         v-model="jobstatus"
                         label="Job Status"
                         :items="jobstat"
@@ -462,21 +484,22 @@
                         dense
                         deletable-chips
                         small-chips
-                      ></v-autocomplete>
-                      <br />
+                      ></v-autocomplete> -->
+                      <!-- <br /> -->
                       <!-- users == 28 && users == 25 && users == 7 && -->
-                      <vs-input
+                      <!-- <vs-input
                       v-if="superadminpermission  &&  jobsData.status  != 0"
                         type="date"
                         v-model="installationdateData"
                         :label="reqtype == 'REPAIR' || reqtype == 'CLEANING'? 'Date Of Service': reqtype == 'INSTALLATION'? 'Date Of Installation':'Date Of Survey'"
                       >
-                      </vs-input>
+                      </vs-input> -->
                       
                       <div>
                         <br />
                         <v-btn color="dark" @click="actions()">
-                          <v-icon>mdi-send</v-icon>
+                          Update CallID
+                           <v-icon>mdi-send</v-icon>  
                         </v-btn>
                       </div>
                     </v-card>
@@ -586,6 +609,7 @@ export default {
       bgselected0: "success",
       bgselected1: "",
       bgselected2: "",
+      bgselected3: "",
       requestID: "",
       updatesData: "",
       reason: "",
@@ -660,10 +684,10 @@ export default {
       jobstat: [
         { name: "Unassigned", value: "Unassigned" },
         { name: "Accepted", value: "Accepted" },
-        { name: "Dispatch to Other ASC", value: "Dispatch to Other ASC" },
+        //{ name: "Dispatch to Other ASC", value: "Dispatch to Other ASC" },
       ],
       installer: [
-         { name: "N/A", value: "N/A" },
+        { name: "N/A", value: "N/A" },
         { name: "Mike Doe", value: "Mike Doe" },
         { name: "Linux Doe", value: "Linux Doe" },
         { name: "James Doe", value: "James Doe" },
@@ -771,7 +795,7 @@ export default {
       this.$v.callid.$touch();
        
 
-      if(!this.$v.callid.$error ){
+     // if(!this.$v.callid.$error ){ 
           Data = {
             requestID: this.requestID,
             installer: this.tech,
@@ -779,7 +803,7 @@ export default {
             callid: this.callid,
             installationData: this.installationdateData,
           };
-          if(this.jobstatus !== 'Unassigned'){
+         // if(this.jobstatus !== 'Unassigned'){
              
                   this.$store.dispatch("app_booking_sys/JobsAction", Data).then((res) => {
                   this.$toast.open({
@@ -793,13 +817,13 @@ export default {
                 }
                 this.refresh(this.selectedID);
               });
-             } 
+//} 
        
-          else{
-            alert('This Action is Only Applicable on Accepted and Distpatch STATUS')
-          }
+        //  else{
+//alert('This Action is Only Applicable on Accepted and Distpatch STATUS')
+        //  }
  
-      }
+     // }
       
       
     },
@@ -873,7 +897,10 @@ export default {
         status = "Accepted";
       } else if (data.status == 2) {
         status = "Dispatch to Other ASC";
+      }else if (data.status == 10) {
+        status = "Rejected";
       }
+       
       this.items = data.bk_jobs_update;
       this.tech = data.installer;
       this.reqtype = data.requesttype 
@@ -892,6 +919,7 @@ export default {
         this.bgselected0 = "success";
         this.bgselected1 = "";
         this.bgselected2 = "";
+        this.bgselected3 = "";
                  this.headers= [
                   {
                     text: "Ticket No",
@@ -899,16 +927,37 @@ export default {
                     sortable: false,
                     value: "ticketno",
                   },
+                   {
+                    text: "Call ID",
+                    align: "start",
+                    sortable: false,
+                    value: "callid",
+                  },
                   {
                     text: "Request Type",
                     align: "start",
                     sortable: false,
                     value: "requestid",
                   },
+                 
                   
                   { text: "Branch", value: "branch.name" },
-                  { text: "Customer Name", value: "customer" },
+                  { text: "Customer Name", value: "customer.fullname" },
+                  
                   { text: "Date of Complain", value: "created_at" },
+              
+                    {
+                    text: "Call Status Reason",
+                    align: "start",
+                    sortable: false,
+                    value: "reason",
+                  },
+                       {
+                    text: "Remarks",
+                    align: "start",
+                    sortable: false,
+                    value: "notes",
+                  },
                   { text: "Appliance Type/Item", value: "producttype" },
                   { text: "Province", value: "customer.province" },
                   { text: "City", value: "customer.mcity" },
@@ -920,6 +969,7 @@ export default {
         this.bgselected0 = "";
         this.bgselected1 = "success";
         this.bgselected2 = "";
+        this.bgselected3 = "";
          this.headers= [
                  {
                     text: "Ticket No",
@@ -927,18 +977,21 @@ export default {
                     sortable: false,
                     value: "ticketno",
                   },
+                  
                   {
                     text: "Call ID",
                     align: "start",
                     sortable: false,
                     value: "callid",
                   },
+
                   {
                     text: "Sched Date",
                     align: "start",
                     sortable: false,
                     value: "installationdate",
                   },
+                  
                                       {
                     text: "Tech Name",
                     align: "start",
@@ -951,8 +1004,20 @@ export default {
                     sortable: false,
                     value: "requestid",
                   },
+                    {
+                    text: "Call Status Reason",
+                    align: "start",
+                    sortable: false,
+                    value: "reason",
+                  },
+                       {
+                    text: "Remarks",
+                    align: "start",
+                    sortable: false,
+                    value: "notes",
+                  },
                   { text: "Branch", value: "branch.name" },
-                  { text: "Customer Name", value: "customer" },
+                  { text: "Customer Name", value: "customer.fullname" },
                   { text: "Date of Complain", value: "created_at" },
                   { text: "Appliance Type/Item", value: "producttype" },
                   { text: "Province", value: "customer.province" },
@@ -965,6 +1030,57 @@ export default {
         this.bgselected0 = "";
         this.bgselected1 = "";
         this.bgselected2 = "success";
+        this.bgselected3 = "";
+      }
+     if (id == 3) {
+        this.bgselected0 = "";
+        this.bgselected1 = "";
+        this.bgselected2 = "";
+        this.bgselected3 = "success";
+         this.headers= [
+                  {
+                    text: "Ticket No",
+                    align: "start",
+                    sortable: false,
+                    value: "ticketno",
+                  },
+                  
+                  {
+                    text: "Call ID",
+                    align: "start",
+                    sortable: false,
+                    value: "callid",
+                  },
+  
+                    {
+                    text: "Request Type",
+                    align: "start",
+                    sortable: false,
+                    value: "requestid",
+                  },
+                    {
+                    text: "Call Status Reason",
+                    align: "start",
+                    sortable: false,
+                    value: "reason",
+                  },
+                       {
+                    text: "Remarks",
+                    align: "start",
+                    sortable: false,
+                    value: "notes",
+                  },
+                  { text: "Branch", value: "branch.name" },
+                  { text: "Customer Name", value: "customer.fullname" },
+                  { text: "Date of Complain", value: "created_at" },
+                  { text: "Appliance Type/Item", value: "producttype" },
+                  { text: "Province", value: "customer.province" },
+                  { text: "City", value: "customer.mcity" },
+                  { text: "Barangay", value: "customer.barangay" },
+                  { text: "Action", value: "action" },
+                   
+                   
+                ]
       }
       this.selectedID = id;
       this.refresh(id);

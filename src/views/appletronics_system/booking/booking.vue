@@ -39,7 +39,7 @@
                 <v-list-item-content>
                   <v-row no-gutters>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-3" height="955">
+                      <v-card class="pa-3" height="1000">
                         <h5>PRODUCT INFORMATION</h5>
                         <v-chip x-medium> Model* </v-chip>
                         <v-autocomplete
@@ -286,7 +286,7 @@
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="3" v-if="reqIdentifier == 4">
-                      <v-card class="pa-3" height="955">
+                      <v-card class="pa-3" height="1000">
                          
                         <v-chip x-medium>Property Type* </v-chip>
                         <v-select
@@ -409,7 +409,7 @@
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-1" height="955">
+                      <v-card class="pa-1" height="1000">
                         <h5>CUSTOMER INFORMATION</h5>
                         <v-chip x-medium class="ma-2">
                           Contact Phone Number*</v-chip
@@ -524,12 +524,14 @@
                           v-model="data.usage.locationofinstallation"
                           placeholder="Survey Location"
                           required
+                                                    dense
+                         
                         ></v-text-field>
 
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-3" height="955">
+                      <v-card class="pa-3" height="1000">
                         <v-chip x-medium class="ma-1">Region</v-chip>
                         <v-select
                           v-model="customer.region"
@@ -1504,7 +1506,7 @@ export default {
       if (this.problemItemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8009/api/random/exec")
+      fetch("http://192.168.1.19:8012/api2/problem.json")
         .then((res) => res.clone().json())
         .then((res) => {
           this.problemItemsAuto = res;
@@ -2440,64 +2442,64 @@ export default {
 
     booknew() {
 
-      // this.confirmdialog = false;
-      // this.storeDataFinal = [];
-      // this.units = [];
-      // this.requestType =
-      //   "REF-" + this.activerequest + "-" + Math.ceil(Math.random() * 1000000);
-      // this.data = {
-      //   units: {
-      //     prodcategories: "",
-      //     appliancetype: "",
-      //     brand: "",
-      //     model: "",
-      //     serialno: "",
-      //     unitcondition: "",
-      //     warrantycondition: "",
-      //     qty: "",
-      //     demandreplacement: "",
-      //     priority: "",
-      //     datepurchase: new Date(
-      //       Date.now() - new Date().getTimezoneOffset() * 60000
-      //     )
-      //       .toISOString()
-      //       .substr(0, 10),
-      //   },
+      this.confirmdialog = false;
+      this.storeDataFinal = [];
+      this.units = [];
+      this.requestType =
+        "REF-" + this.activerequest + "-" + Math.ceil(Math.random() * 1000000);
+      this.data = {
+        units: {
+          prodcategories: "",
+          appliancetype: "",
+          brand: "",
+          model: "",
+          serialno: "",
+          unitcondition: "",
+          warrantycondition: "",
+          qty: "",
+          demandreplacement: "",
+          priority: "",
+          datepurchase: new Date(
+            Date.now() - new Date().getTimezoneOffset() * 60000
+          )
+            .toISOString()
+            .substr(0, 10),
+        },
 
-      //   usage: {
-      //     propertytype: "",
-      //     level: "",
-      //     location: "",
-      //     area: "",
-      //     wallfinish: "",
-      //     withpowersupply: "",
-      //     deliverydate: "",
-      //     time: null,
-      //     locationofinstallation: "",
-      //     paidamoun: "",
-      //   },
-      // };
+        usage: {
+          propertytype: "",
+          level: "",
+          location: "",
+          area: "",
+          wallfinish: "",
+          withpowersupply: "",
+          deliverydate: "",
+          time: null,
+          locationofinstallation: "",
+          paidamoun: "",
+        },
+      };
 
-      // this.customer = {
-      //   cpnumber: "",
-      //   lastname: "",
-      //   firstname: "",
-      //   emailaddress: "",
-      //   middlename: "",
-      //   contactperson: "",
-      //   telephoneno: "",
-      //   houseno: "",
-      //   street: "",
-      //   barangay: "",
-      //   mcity: "",
-      //   province: "",
-      //   locationunit: "",
-      //   organization: "",
-      //   attachment: [],
-      //   specialinstruction: "",
-      //   additionalrequest1: "",
-      //   additionalrequest2: "",
-      // };
+      this.customer = {
+        cpnumber: "",
+        lastname: "",
+        firstname: "",
+        emailaddress: "",
+        middlename: "",
+        contactperson: "",
+        telephoneno: "",
+        houseno: "",
+        street: "",
+        barangay: "",
+        mcity: "",
+        province: "",
+        locationunit: "",
+        organization: "",
+        attachment: [],
+        specialinstruction: "",
+        additionalrequest1: "",
+        additionalrequest2: "",
+      };
     },
 
     autoclear() {
