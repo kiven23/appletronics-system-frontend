@@ -73,8 +73,11 @@
                 >
               </v-card>
             </v-col>
-            <v-col>
-      <v-sheet height="50">
+
+            <!-- CALENDAR -->
+            <v-col >
+
+ <v-sheet height="50">
         <v-toolbar
           flat
         >
@@ -127,6 +130,7 @@
                 <v-icon right>
                   mdi-menu-down
                 </v-icon>
+                
               </v-btn>
             </template>
             <v-list>
@@ -146,7 +150,7 @@
           </v-menu>
         </v-toolbar>
       </v-sheet>
-      <v-sheet height="500">
+      <v-sheet height="500" >
         <v-calendar
           ref="calendar"
           v-model="focus"
@@ -156,8 +160,12 @@
           @click:event="showEvent"
           @click:more="viewDay"
           @click:date="viewDay"
-        ></v-calendar>
-        <v-menu
+        >
+         
+ 
+        </v-calendar>
+       
+         <v-menu
           v-model="selectedOpen"
           :close-on-content-click="false"
           :activator="selectedElement"
@@ -185,19 +193,14 @@
              <strong>CP NUMBER: </strong> <span v-html="selectedEvent.details.customer.cpnumber"></span><br> 
              <strong>EMAIL: </strong><span v-html="selectedEvent.details.customer.emailaddress"></span><br>  
             </v-card-text>
-            <!-- <v-card-actions>
-              <v-btn
-                text
-                color="secondary"
-                @click="selectedOpen = false"
-              >
-                Cancel
-              </v-btn>
-            </v-card-actions> -->
+            
           </v-card>
-        </v-menu>
+        </v-menu>  
       </v-sheet>
-    </v-col>
+
+                
+            </v-col>
+            <!-- END CALENDAR -->
           </v-row>
         </v-flex>
       </v-layout>

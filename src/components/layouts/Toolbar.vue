@@ -96,6 +96,8 @@
               >
         <template v-for="(item, index) in items.data">
           <v-list-item :key="item.categories" @click="view(item)">
+            
+            
             <template>
               <v-list-item-content><strong>From: {{item.name}}</strong>
                 <v-list-item-subtitle
@@ -108,6 +110,27 @@
               <v-list-item-action>
                 <v-list-item-action-text v-text="item.created_at"></v-list-item-action-text>
               </v-list-item-action>
+            </template>
+          </v-list-item>
+          <v-divider
+            v-if="index < items.length - 1"
+            :key="index"
+          ></v-divider>
+        </template>
+                <template v-for="(item, index) in items.notify">
+          <v-list-item :key="item.callid" @click="seen(item)">
+            
+            
+            <template>
+              <v-list-item-content>
+                <strong>{{item.requestid}}</strong>
+                CALL-ID: <v-list-item-subtitle  class="text--primary"  v-text="item.callid"  ></v-list-item-subtitle>
+                STATUS:<v-list-item-subtitle v-text="item.status"></v-list-item-subtitle>
+                TECH/INST:<v-list-item-subtitle v-text="item.installer"></v-list-item-subtitle>
+                DATE:<v-list-item-subtitle v-text="item.installationdate"></v-list-item-subtitle>
+              </v-list-item-content>
+             
+                   
             </template>
           </v-list-item>
           <v-divider
@@ -322,6 +345,9 @@ export default {
          this.$store.dispatch("app_booking_sys/Notification").then((res)=>{
            this.items = res.data
       }) 
+    },
+    seen(data){
+      console.log(data)
     },
     sendThreads(data){
       var datas = {"scalate_id": data, "thread": this.note}

@@ -673,7 +673,7 @@ export default {
           value: "requestid",
         },
         { text: "Branch", value: "branch.name" },
-        { text: "Customer Name", value: "customer" },
+        { text: "Customer Name", value: "customer.fullname" },
         { text: "Date of Complain", value: "created_at" },
         { text: "Appliance Type/Item", value: "producttype" },
         { text: "Province", value: "customer.province" },
