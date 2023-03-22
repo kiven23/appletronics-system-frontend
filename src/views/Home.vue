@@ -160,42 +160,74 @@
           @click:event="showEvent"
           @click:more="viewDay"
           @click:date="viewDay"
+          :interval-height="60"
         >
          
+        
  
+        
         </v-calendar>
        
-         <v-menu
-          v-model="selectedOpen"
-          :close-on-content-click="false"
-          :activator="selectedElement"
-          offset-x
-        >
-          <v-card
-            color="grey lighten-4"
-            min-width="350px"
-            flat
-          >
-            <v-toolbar
-              :color="selectedEvent.color"
-              dark
-            >
-            
-               <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
-              <v-spacer> </v-spacer>
-            </v-toolbar>
-            <v-card-text>
-              
-             <strong>CALLID: </strong> <span v-html="selectedEvent.details.callid"></span><br> 
-             <strong>ADDRESS: </strong>  <span v-html="selectedEvent.details.customer.barangay+','+selectedEvent.details.customer.mcity+','+selectedEvent.details.customer.province"></span><br> 
-             <strong>TELEPHONE: </strong> <span v-html="selectedEvent.details.customer.telephoneno"></span><br> 
-             <strong>CONTACT PERSON: </strong>  <span v-html="selectedEvent.details.customer.contactperson"></span><br> 
-             <strong>CP NUMBER: </strong> <span v-html="selectedEvent.details.customer.cpnumber"></span><br> 
-             <strong>EMAIL: </strong><span v-html="selectedEvent.details.customer.emailaddress"></span><br>  
-            </v-card-text>
-            
-          </v-card>
-        </v-menu>  
+  <v-menu
+  v-model="selectedOpen"
+  :close-on-content-click="false"
+  :activator="selectedElement"
+  offset-x
+   
+>
+  <v-card
+    color="grey lighten-4"
+    min-width="350px"
+    flat
+  >
+    <v-toolbar
+      :color="selectedEvent.color"
+      dark
+    >
+      <v-toolbar-title>{{new Date(selectedEvent.start).toLocaleDateString('en-CA',{ hour: 'numeric' })}}</v-toolbar-title>
+      <v-spacer></v-spacer>
+    </v-toolbar>
+    <v-card-text>
+        
+      <div v-if="selectedEvent.events && selectedEvent.events.length"  style="max-height: 600px; width:500px; "
+       class="overflow-y-auto">
+       
+ 
+        <v-list>
+             <div   v-for="event in selectedEvent.events" :key="event.id">
+                   <template v-if="new Date(event.start).toLocaleDateString('en-CA', { hour: 'numeric' }) === new Date(selectedEvent.start).toLocaleDateString('en-CA', { hour: 'numeric' })">
+                     <v-subheader>
+                        {{event.name}}
+                     </v-subheader>
+                   
+                    <v-list-item>
+                          
+                      <v-list-item-content>
+                        <strong>
+                       SCHEDULE: <span style="color:red">{{event.start}}</span>
+                     </strong>
+                              <strong>CALLID:</strong> <span v-html="event.details.callid"></span><br> 
+                              <strong>ADDRESS:</strong> <span v-html="event.details.customer.barangay+','+event.details.customer.mcity+','+event.details.customer.province"></span><br> 
+                              <strong>TELEPHONE:</strong> <span v-html="event.details.customer.telephoneno"></span><br> 
+                              <strong>CONTACT PERSON:</strong> <span v-html="event.details.customer.contactperson"></span><br> 
+                              <strong>CP NUMBER:</strong> <span v-html="event.details.customer.cpnumber"></span><br> 
+                              <strong>EMAIL:</strong> <span v-html="event.details.customer.emailaddress"></span><br>  
+                      </v-list-item-content>
+                    </v-list-item>
+                    <v-divider>
+                    </v-divider>
+                  </template>
+             </div>
+           
+        </v-list>
+
+
+      </div>
+   
+    </v-card-text>
+  </v-card>
+</v-menu>
+  
       </v-sheet>
 
                 
@@ -214,7 +246,7 @@ export default {
     return {
       jobsCounts: "",
       focus: '',
-      type: 'month',
+      type: 'day',
       typeToLabel: {
         month: 'Month',
         week: 'Week',
@@ -240,7 +272,7 @@ export default {
       
     };
   },
-
+ 
   mounted() {
     // JobsSchedule
     this.$refs.calendar.checkChange()
@@ -269,20 +301,21 @@ export default {
         this.$refs.calendar.next()
       },
       showEvent ({ nativeEvent, event }) {
-        const open = () => {
-          this.selectedEvent = event
-          this.selectedElement = nativeEvent.target
-          requestAnimationFrame(() => requestAnimationFrame(() => this.selectedOpen = true))
-        }
+ 
 
-        if (this.selectedOpen) {
-          this.selectedOpen = false
-          requestAnimationFrame(() => requestAnimationFrame(() => open()))
-        } else {
-          open()
-        }
+   // Filter events with the same time as the clicked event
+    const filteredEvents = this.events.filter(e => e.time === event.time)
+    // Set the filtered events as the selected event
+    this.selectedEvent = { ...event, events: filteredEvents }
+    // Set the selected element as the clicked event element
+    this.selectedElement = event.target
+    // Open the menu
+    this.selectedOpen = true
 
-        nativeEvent.stopPropagation()
+
+
+
+
       },
       
     

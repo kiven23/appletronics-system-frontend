@@ -601,6 +601,7 @@ export default {
         tech: { required },
        
   },
+  
   data() {
     return {
       usersData: [],
@@ -791,6 +792,7 @@ export default {
       });
     },
     actions() {
+
       let Data;
       this.$v.callid.$touch();
        
@@ -828,6 +830,7 @@ export default {
       
     },
     view(data) {
+      console.log(data)
       if(data.requesttype == 'REPAIR'){
         this.unitsHeader =  [
                     { text: "PRODUCT CATEGORY", value: "prodcategories" },

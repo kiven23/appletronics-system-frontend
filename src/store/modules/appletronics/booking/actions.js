@@ -27,6 +27,9 @@ const DELETEFIELDS = rootUrl + "/api/delete/fields";
 const CREATEITEMS = rootUrl + "/api/createitem/fields";
 const DELETEITEMS = rootUrl + "/api/deleteitems/fields";
  
+//SEEN
+const SEEN = rootUrl + "/api/seen/nofication"
+
 const actions = {
   storeBooking(context, data) {
     let formData = new FormData();
@@ -214,6 +217,11 @@ const actions = {
   },
   DeleteItems(context, data){
     return axios.post(DELETEITEMS, data).then((res)=>{
+      return res;
+    })
+  },
+  SeenNotification(context, data){
+    return axios.post(SEEN, {id: data}).then((res)=>{
       return res;
     })
   },
