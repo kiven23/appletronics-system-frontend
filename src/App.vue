@@ -10,10 +10,11 @@
     <Toolbar v-if="isLoggedIn" />
 
     <!-- Content -->
-    <v-content >
-      <router-view></router-view>
-    </v-content>
-
+ <div style="display: flex; flex-direction: column; height: 100vh;">
+  <v-content style="flex: 1;">
+    <router-view></router-view>
+  </v-content>
+</div>
     <!-- Footer -->
     <Footer v-if="isLoggedIn" />
 

@@ -25,6 +25,8 @@ Vue.use(VueSweetalert2);
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 AOS.init();
+import VUppercase from 'v-uppercase'
+Vue.use(VUppercase)
 /* Establish Connection */
   const socketConnection = SocketIO('http://192.168.1.19:3333');
   Vue.use(new VueSocketIO({

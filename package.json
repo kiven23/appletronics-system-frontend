@@ -21,6 +21,7 @@
     "nprogress": "^0.2.0",
     "select-philippines-address": "^1.0.6",
     "toastr": "^2.1.4",
+    "v-uppercase": "^1.0.1",
     "vue": "^2.6.12",
     "vue-awesome-countdown": "^1.1.4",
     "vue-axios-cors": "^1.0.1",

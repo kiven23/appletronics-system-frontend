@@ -5,11 +5,18 @@
         <v-flex xs12  >
           <v-row  >
             <v-col cols="12" sm="3">
+              <v-skeleton-loader
+                class="mx-auto"
+                max-height="80"
+                type="card"
+                :loading="loadingForCount"
+                
+              >
               <v-card
                 class="pa-2"
                 outlined
                 tile
-             
+                
                
               >
                 <v-icon style="margin-right: 5px; color: red"
@@ -21,8 +28,15 @@
                   <h2>{{ jobsCounts.unsigned }}</h2></strong
                 >
               </v-card>
+              </v-skeleton-loader>
             </v-col>
             <v-col cols="12" sm="3">
+              <v-skeleton-loader
+                class="mx-auto"
+                max-height="80"
+                type="card"
+                :loading="loadingForCount"
+              >
               <v-card
                 class="pa-2"
                 outlined
@@ -38,8 +52,15 @@
                   <h2>{{ jobsCounts.accepted }}</h2></strong
                 >
               </v-card>
+              </v-skeleton-loader>
             </v-col>
             <v-col cols="12" sm="3">
+              <v-skeleton-loader
+                class="mx-auto"
+                max-height="80"
+                type="card"
+                :loading="loadingForCount"
+              >
               <v-card
                 class="pa-2"
                 outlined
@@ -55,8 +76,15 @@
                   <h2>{{ jobsCounts.asc }}</h2></strong
                 >
               </v-card>
+              </v-skeleton-loader>
             </v-col>
                      <v-col cols="12" sm="3">
+            <v-skeleton-loader
+              class="mx-auto"
+              max-height="80"
+              type="card"
+              :loading="loadingForCount"
+            >
               <v-card
                 class="pa-2"
                 outlined
@@ -72,11 +100,16 @@
                   <h2>{{ jobsCounts.rejected }}</h2></strong
                 >
               </v-card>
+            </v-skeleton-loader>
             </v-col>
 
             <!-- CALENDAR -->
             <v-col >
-
+ <v-skeleton-loader
+      class="mx-auto"
+       type="table-heading, list-item-two-line, image, table-tfoot"
+      :loading="loadingForTable"
+    >
  <v-sheet height="50">
         <v-toolbar
           flat
@@ -162,9 +195,9 @@
           @click:date="viewDay"
           :interval-height="60"
         >
-         
-        
- 
+          <template v-slot:event="{ event }">
+           {{event.name}}
+          </template>
         
         </v-calendar>
        
@@ -229,6 +262,7 @@
 </v-menu>
   
       </v-sheet>
+ </v-skeleton-loader>
 
                 
             </v-col>
@@ -246,7 +280,7 @@ export default {
     return {
       jobsCounts: "",
       focus: '',
-      type: 'day',
+      type: 'month',
       typeToLabel: {
         month: 'Month',
         week: 'Week',
@@ -269,7 +303,8 @@ export default {
       selectedElement: null,
       selectedOpen: false,
       events: [],
-      
+      loadingForCount: true,
+      loadingForTable: false
     };
   },
  
@@ -277,10 +312,16 @@ export default {
     // JobsSchedule
     this.$refs.calendar.checkChange()
     this.$store.dispatch("app_booking_sys/JobsCount").then((res) => {
+       
       this.jobsCounts = res.data;
+      this.loadingForCount = false
     });
+     this.loadingForTable = true
      this.$store.dispatch("app_booking_sys/JobsSchedule").then((res) => {
+       
       this.events = res.data;
+      this.loadingForTable = false
+      
     });
   },
   methods: {
@@ -301,9 +342,8 @@ export default {
         this.$refs.calendar.next()
       },
       showEvent ({ nativeEvent, event }) {
- 
 
-   // Filter events with the same time as the clicked event
+    // Filter events with the same time as the clicked event
     const filteredEvents = this.events.filter(e => e.time === event.time)
     // Set the filtered events as the selected event
     this.selectedEvent = { ...event, events: filteredEvents }

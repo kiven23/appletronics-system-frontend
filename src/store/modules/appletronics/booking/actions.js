@@ -30,11 +30,45 @@ const DELETEITEMS = rootUrl + "/api/deleteitems/fields";
 //SEEN
 const SEEN = rootUrl + "/api/seen/nofication"
 
+//UPDATE SERIAL
+const UPDATESERIAL = rootUrl + "/api/booking/jobs/updateserial"
+//CLOSERESTORE
+const CLOSERESTORE = rootUrl + "/api/booking/restore/close"
 const actions = {
   storeBooking(context, data) {
+    
     let formData = new FormData();
-    //ATTACHMENT
-    formData.append("attachment", data.customer.attachment[0]);
+   // ATTACHMENT
+   try{
+    if(data.customer.attachment[0].path){
+      formData.append("attachment", data.customer.attachment[0].path);
+      formData.append("attachmentN", data.customer.attachment[0].name);
+    }else{
+      formData.append("attachment", data.customer.attachment[0]);
+    }
+   }catch(error ){
+    formData.append("attachment", '');
+   }
+
+  
+    
+   if (typeof data.customer.region === 'object' && data.customer.region !== null) {
+    formData.append("region", data.customer.region.region_code);
+  } else {
+    formData.append("region", data.customer.region);
+  }
+  
+   
+     
+    // if (
+    // data.customer.region) {
+    // //  formData.append("region", data.customer.region);
+    //   alert('una')
+    // } else {
+    //   alert('huli')
+    // //  formData.append("region", data.customer.region.region_code);
+    // }
+          
     //CUSTOMER INFO
     formData.append("contactperson", data.customer.contactperson);
     formData.append("cpnumber", data.customer.cpnumber);
@@ -54,6 +88,7 @@ const actions = {
     formData.append("additionalrequest1", data.customer.additionalrequest1);
     formData.append("additionalrequest2", data.customer.additionalrequest2);
     formData.append("bookby", data.customer.bookby);
+     
     //SURVEY LOCATION
     formData.append("surveylocation", data.customer.locationofinstallation);
 
@@ -225,6 +260,17 @@ const actions = {
       return res;
     })
   },
+  closeRestore(context, data){
+    return axios.post(CLOSERESTORE, data).then((res)=>{
+      return res
+    })
+
+  },
+  updateSerial(context, data){
+    return axios.post(UPDATESERIAL, data).then((res)=>{
+      return res
+    })
+  }
    
   
 };

@@ -67,6 +67,12 @@
         cols="12"
         sm="3"
       >
+  <v-skeleton-loader
+      class="mx-auto"
+      max-height="80"
+      type="card"
+      :loading="loadingForCount"
+    >
         <v-card
           class="pa-2"
           outlined
@@ -83,12 +89,19 @@
                   <h2>{{ jobsCounts.unsigned }}  </h2></strong
                 >
 
-      </v-card>
+        </v-card>
+        </v-skeleton-loader>
       </v-col>
       <v-col
         cols="12"
         sm="3"
       >
+      <v-skeleton-loader
+      class="mx-auto"
+      max-height="80"
+      type="card"
+      :loading="loadingForCount"
+    >
         <v-card
           class="pa-2"
           outlined
@@ -105,11 +118,18 @@
                 >
         
       </v-card>
+     </v-skeleton-loader>
       </v-col>
       <v-col
         cols="12"
         sm="3"
       >
+        <v-skeleton-loader
+          class="mx-auto"
+          max-height="80"
+          type="card"
+          :loading="loadingForCount"
+        >
         <v-card
           class="pa-2"
           outlined
@@ -126,11 +146,18 @@
                 >
         
       </v-card>
+        </v-skeleton-loader>
       </v-col>
             <v-col
         cols="12"
         sm="3"
       >
+       <v-skeleton-loader
+          class="mx-auto"
+          max-height="80"
+          type="card"
+          :loading="loadingForCount"
+        >
         <v-card
           class="pa-2"
           outlined
@@ -147,6 +174,7 @@
                 >
         
       </v-card>
+       </v-skeleton-loader>
       </v-col>
       </v-row>
         
@@ -168,7 +196,11 @@
            <v-icon color="white">mdi-refresh</v-icon>
         </vs-button>
       </v-card-title>
-
+ <v-skeleton-loader
+      class="mx-auto"
+       type="table-heading, list-item-two-line, image, table-tfoot"
+      :loading="loadingForTable"
+    >
       <v-data-table
         dense
         :headers="headers"
@@ -189,10 +221,22 @@
           {{ item.customer.lastname }},
           {{ item.customer.firstname }}
         </template>
+
         <template v-slot:item.producttype="{ item }">
           <div v-for="(da, $index) in item.units" :key="$index">
             {{ da.prodcategories }}
           </div>
+        </template>
+         <template v-slot:item.notes="{ item }">
+           <v-tooltip bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <span
+                  v-bind="attrs"
+                  v-on="on"
+                >Test</span>
+              </template>
+              <span>{{item.notes}}</span>
+            </v-tooltip>
         </template>
         <template v-slot:item.action="{ item }">
           <!-- <vs-button border @click="view(item)"> View </vs-button>
@@ -212,6 +256,7 @@
           {{new Date(item.created_at).toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric',hour: '2-digit', minute:'2-digit'})}}
         </template>
       </v-data-table>
+ </v-skeleton-loader>
       <v-dialog
         v-model="jobsInfo"
         hide-overlay
@@ -249,7 +294,17 @@
                   :headers="unitsHeader"
                   :items="unitsData"
                   
-                ></v-data-table>
+                >
+                <template v-slot:item.serialno="{ item }">
+                     <v-text-field
+                         v-model="item.serialno"
+                         dense
+                         @keyup="updatedserial({id: item.id, value: item.serialno})"
+                         :disabled="!!checkpermission"
+                      > 
+                      </v-text-field>
+                </template>
+                </v-data-table>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -354,7 +409,7 @@
                     <!-- INSTALLATION ACCEPTED -->
                     <v-card class="pa-2" v-if="reqtype == 'INSTALLATION'" style="height: 185px">
 
-                      <strong>Telephone No.  </strong><br />
+                      <strong>Alternate No  </strong><br />
                       {{ jobsData.customer.telephoneno?  jobsData.customer.telephoneno :'N/A' }}<br />
                       <strong>Middle Name</strong><br />
                       {{ jobsData.customer.middlename? jobsData.customer.middlename: 'N/A' }}<br />
@@ -366,7 +421,7 @@
                     </v-card>
                     <!-- SURVEY REQUEST -->
                     <v-card class="pa-2" v-if="reqtype == 'SITE SURVEY'" style="height: 185px">
-                       <strong>Telephone No.  </strong><br />
+                       <strong>Alternate No  </strong><br />
                       {{ jobsData.customer.telephoneno?  jobsData.customer.telephoneno :'N/A' }}<br />
                       <strong>Middle Name</strong><br />
                       {{ jobsData.customer.middlename? jobsData.customer.middlename: 'N/A' }}<br />
@@ -377,7 +432,7 @@
                     </v-card>
                     <!-- REPAIR & CLEANING REQUEST -->
                     <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 185px">
-                     <strong>Telephone No.  </strong><br />
+                     <strong>Alternate No  </strong><br />
                       {{ jobsData.customer.telephoneno?  jobsData.customer.telephoneno :'N/A' }}<br />
                       <strong>Middle Name</strong><br />
                       {{ jobsData.customer.middlename? jobsData.customer.middlename: 'N/A' }}<br />
@@ -604,6 +659,8 @@ export default {
   
   data() {
     return {
+      loadingForCount: true,
+      loadingForTable: true,
       usersData: [],
       callid: "",
       selectedID: 0,
@@ -761,11 +818,15 @@ export default {
 
   methods: {
     refresh(data) {
+     
       this.$store.dispatch("app_booking_sys/JobsCount").then((res) => {
         this.jobsCounts = res.data;
+        this.loadingForCount = false;
       });
+      this.loadingForTable = true;
       this.$store.dispatch("app_booking_sys/fetchJobs", data).then((res) => {
         this.data = res.data;
+        this.loadingForTable = false;
       });
     },
     send() {
@@ -814,6 +875,7 @@ export default {
                     duration: 5000,
                     // all of other options may go here
                   });
+                  this.$socket.emit("notification", 1);
                 if (res.data.type == 1) {
                   this.jobsInfo = false;
                 }
@@ -1130,6 +1192,12 @@ export default {
               })
            
         }
+      })
+      
+    },
+    updatedserial(data){
+      this.$store.dispatch("app_booking_sys/updateSerial", data).then((res)=>{
+        console.log(res)
       })
       
     }
