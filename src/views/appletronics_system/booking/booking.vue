@@ -107,7 +107,7 @@
                           :disabled="true"
                           @change="autoclear()"
                         ></v-text-field>
-                        <v-chip x-medium> Product Categories </v-chip>
+                        <v-chip x-medium> Product Categories * </v-chip>
                         <v-autocomplete
                           v-model="data.units.prodcategories"
                           :items="productListDown.prodcategories"
@@ -141,15 +141,16 @@
                           dense
                         ></v-autocomplete>
 
-                        <v-chip x-medium> Serial No.* </v-chip>
+                        <v-chip x-medium v-if="activerequest.name !== 'SITE SURVEY'"> Serial No.{{activerequest.name == 'INSTALLATION'? '*':''}}</v-chip>
                         <v-text-field
+                          v-if="activerequest.name !== 'SITE SURVEY'"
                           v-model="data.units.serialno"
                           placeholder="Serial No."
                           :error-messages="serialError"
                           dense
                           required
                         ></v-text-field>
-                        <v-chip x-medium>Unit Condition* </v-chip>
+                        <!-- <v-chip x-medium>Unit Condition* </v-chip>
                         <v-select
                           style="margin: 6px"
                           v-model="data.units.unitcondition"
@@ -160,9 +161,10 @@
                           item-value="value"
                           required
                           dense
-                        ></v-select>
-                        <v-chip x-medium> Warranty Condition* </v-chip>
+                        ></v-select> -->
+                        <v-chip x-medium v-if="reqIdentifier !== 2 && reqIdentifier !== 3" > Warranty Condition* </v-chip>
                         <v-select
+                         v-if="reqIdentifier !== 2 && reqIdentifier !== 3" 
                           v-model="data.units.warrantycondition"
                           :items="productListDown.warrantycondition"
                           :error-messages="warrantyconditionError"
@@ -185,7 +187,7 @@
                           >
                             <template v-slot:activator="{ on, attrs }">
                               <v-text-field
-                                v-model="date"
+                                v-model="data.units.datepurchase"
                                 label="Date Purchased"
                                 prepend-icon="mdi-calendar"
                                 readonly
@@ -305,14 +307,15 @@
                           </template>
                         </v-autocomplete>
 
-                        <v-text-field
+                        <!-- <v-text-field
                           v-if="reqIdentifier == 1"
                           v-model="data.units.problem"
                           placeholder="Problem"
                           required
                           dense
                           v-uppercase
-                        ></v-text-field>
+                           
+                        ></v-text-field> -->
 
                         <v-chip x-medium class="ma-1">Priority </v-chip>
                         <v-select
@@ -517,7 +520,8 @@
                           dense
                           required
                           @keypress="onlyNumber"
-                         
+                          @keydown="checknumber"
+                          
                           class="ma-2"
                         ></v-text-field>
                          
@@ -590,7 +594,7 @@
                           :disabled="checkIdentifier == 1"
                         ></v-text-field>
                         <v-chip x-medium class="ma-2"
-                          >Alternate No. (OPTIONAL)</v-chip
+                          >Contact/Telephone NO. (OPTIONAL)</v-chip
                         >
                         <!-- <v-text-field
                           v-model="customer.telephoneno"
@@ -776,7 +780,7 @@
                             reqIdentifier == 4 ||
                             customer.attachment.length
                           "
-                          >Sales Invoice/cof/aisf/Mrf *</v-chip
+                          >Sales Invoice/cof/aisf/Mrf </v-chip
                         >
                          
                         <v-file-input
@@ -876,7 +880,7 @@
                           :disabled="UnitsALLError"
                           v-if="addIden == 0"
                         >
-                          ADD UNIT +
+                          SUBMIT
                         </vs-button>
                          <v-chip x-medium class="ma-2">
                           LOGGED BY *</v-chip
@@ -980,7 +984,7 @@
 
                     <v-col cols="12" sm="6" md="4">
                       <strong>Address Details</strong>
-                      <br />  {{
+                      <br /> {{
                       
                         customer.barangay +
                         ", " +
@@ -1288,7 +1292,7 @@ export default {
         appliancetype: { required },
         brand: { required },
         model: { required },
-        unitcondition: { required },
+        // unitcondition: { required },
         warrantycondition: { required }, 
         problem: { required },
         customer: { required}
@@ -1324,6 +1328,8 @@ export default {
   },
   data() {
     return {
+      restoreId: '',
+      menu1: '',
       addIden:0,
       Identifier2: 1,
       InstallationAddress: 0,
@@ -1437,88 +1443,10 @@ export default {
         },
       },
       usagedetailsListDown: {
-        propertytype: [
-          {
-            name: "UNIVERSITY",
-            value: "UNIVERSITY",
-          },
-          {
-            name: "RESIDENTIAL",
-            value: "RESIDENTIAL",
-          },
-          {
-            name: "COMMERCIAL",
-            value: "COMMERCIAL",
-          },
-          {
-            name: "INDUSTRIAL",
-            value: "INDUSTRIAL",
-          },
-          {
-            name: "LAND",
-            value: "LAND",
-          },
-        ],
-        level: [
-          {
-            name: "1st FLOOR",
-            value: "1st FLOOR",
-          },
-          {
-            name: "2nd FLOOR",
-            value: "2nd FLOOR",
-          },
-          {
-            name: "3rd FLOOR",
-            value: "3rd FLOOR",
-          },
-          {
-            name: "4th FLOOR",
-            value: "4th FLOOR",
-          },
-          {
-            name: "5th FLOOR",
-            value: "5th FLOOR",
-          },
-          {
-            name: "6th FLOOR",
-            value: "6th FLOOR",
-          },
-          {
-            name: "7th FLOOR",
-            value: "7th FLOOR",
-          },
-          {
-            name: "8th FLOOR",
-            value: "8th FLOOR",
-          },
-          {
-            name: "9th FLOOR",
-            value: "9th FLOOR",
-          },
-          {
-            name: "10th FLOOR",
-            value: "10th FLOOR",
-          },
-          {
-            name: "N/A",
-            value: "N/A",
-          },
-        ],
-
-        location: [
-          { name: "COMFORT ROOM", value: "COMFORT ROOM" },
-          { name: "ENTERTAINMENT ROOM", value: "ENTERTAINMENT ROOM" },
-          { name: "DINING ROOM", value: "DINING ROOM" },
-          { name: "BED ROOM", value: "BED ROOM" },
-          { name: "LIVING ROOM", value: "LIVING ROOM" },
-          { name: "OFFICE", value: "OFFICE" },
-          { name: "KITCHEN", value: "KITCHEN" },
-          {
-            name: "N/A",
-            value: "N/A",
-          },
-        ],
+        propertytype: [],
+        level: [],
+        location: [],
+        
         wallfinish: [
           { name: "YES", value: "YES" },
           { name: "NO", value: "NO" },
@@ -1601,6 +1529,10 @@ export default {
             name: "OUT WARRANTY",
             value: "OUT WARRANTY",
           },
+          {
+            name: "REPOSSESSED",
+            value: "REPOSSESSED",
+          },
         ],
         demandreplacement: [
           {
@@ -1644,7 +1576,7 @@ export default {
       if (this.itemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8009/api/random/exec")
+      fetch(this.$URLs.backend+"/api/random/exec")
         .then((res) => res.clone().json())
         .then((res) => {
           this.itemsAuto = res;
@@ -1664,7 +1596,7 @@ export default {
       if (this.problemItemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8081/api2/problem.json")
+      fetch(this.$URLs.frontend+"/api2/problem.json")
         .then((res) => res.clone().json())
         .then((res) => {
           this.problemItemsAuto = res;
@@ -1677,6 +1609,12 @@ export default {
   },
   created() {
     // this.$store.dispatch("fetchDBAll");
+    this.$store.dispatch("app_booking_sys/FetchUnitFields").then((res)=>{
+        console.log(res.data)
+         this.usagedetailsListDown.propertytype  = res.data.propertytype
+         this.usagedetailsListDown.level = res.data.level
+         this.usagedetailsListDown.location = res.data.level
+    })
     regions().then((region) => (this.addressesListDown.region = region));
 
     this.usersData = this.$store.state.currentUser;
@@ -1749,14 +1687,14 @@ export default {
       !this.$v.data.units.qty.required && errors.push(RequiredError);
       return errors;
     },
-    unitconditionError() {
-      const errors = [];
-      var RequiredError = null;
-      if (!this.$v.data.units.unitcondition) return errors;
-      RequiredError = "This field is required.";
-      !this.$v.data.units.unitcondition.required && errors.push(RequiredError);
-      return errors;
-    },
+    // unitconditionError() {
+    //   const errors = [];
+    //   var RequiredError = null;
+    //   if (!this.$v.data.units.unitcondition) return errors;
+    //   RequiredError = "This field is required.";
+    //   !this.$v.data.units.unitcondition.required && errors.push(RequiredError);
+    //   return errors;
+    // },
     lognameError(){
       const errors = [];
       var RequiredError = null;
@@ -1777,11 +1715,18 @@ export default {
     warrantyconditionError() {
       const errors = [];
       var RequiredError = null;
-      if (!this.$v.data.units.warrantycondition) return errors;
-      RequiredError = "This field is required.";
-      !this.$v.data.units.warrantycondition.required &&
-        errors.push(RequiredError);
-      return errors;
+
+
+      if(this.activerequest.name == 'SITE SURVEY' || this.activerequest.name == 'CLEANING'){
+        return errors;
+      }else{
+          if (!this.$v.data.units.warrantycondition) return errors;
+                RequiredError = "This field is required.";
+                !this.$v.data.units.warrantycondition.required &&
+                  errors.push(RequiredError);
+          return errors;
+      }
+       
     },
     //->CONTACT INFO VALIDATE
     cpnumberError() {
@@ -1797,9 +1742,10 @@ export default {
            var v;
            if (this.customer.cpnumber.length !== 11){
             v = 1;
+             
              }else{
             v = 0
-             
+              
            }
            return v
     },
@@ -1903,7 +1849,7 @@ export default {
         this.$v.data.units.$touch();
           if (!this.$v.data.units.appliancetype.$error && 
           !this.$v.data.units.brand.$error &&
-          !this.$v.data.units.unitcondition.$error &&
+          // !this.$v.data.units.unitcondition.$error &&
           !this.$v.data.units.warrantycondition.$error &&
           !this.$v.data.units.problem.$error 
         
@@ -1911,11 +1857,20 @@ export default {
                   return false;
            }
       
-      }else if(this.activerequest.name == 'SITE SURVEY' || this.activerequest.name == 'CLEANING'){
+      }else if(this.activerequest.name == 'CLEANING'){
           if (!this.$v.data.units.appliancetype.$error && 
-                    !this.$v.data.units.brand.$error &&
-                    !this.$v.data.units.unitcondition.$error &&
-                    !this.$v.data.units.warrantycondition.$error 
+                    !this.$v.data.units.brand.$error  
+                    // !this.$v.data.units.unitcondition.$error &&
+                    //!this.$v.data.units.warrantycondition.$error 
+                  
+                    ){
+                            return false;
+                    }
+      }else if(this.activerequest.name == 'SITE SURVEY'){
+          if (!this.$v.data.units.appliancetype.$error && 
+                    !this.$v.data.units.brand.$error  
+                    // !this.$v.data.units.unitcondition.$error &&
+                    // !this.$v.data.units.warrantycondition.$error 
                   
                     ){
                             return false;
@@ -1923,7 +1878,7 @@ export default {
       }else{
           if (!this.$v.data.units.appliancetype.$error && 
           !this.$v.data.units.brand.$error &&
-          !this.$v.data.units.unitcondition.$error &&
+          // !this.$v.data.units.unitcondition.$error &&
           !this.$v.data.units.warrantycondition.$error &&
           !this.$v.data.units.serialno.$error 
           
@@ -1984,8 +1939,10 @@ export default {
       citiesName(this.customer.mcity).then(
         (city) => (this.customer.customerCity = city[0].city_name)
       );
+       
     },
     getindex: function () {
+     
       const AIRCONDITION = [
         {
           name: "SPLIT TYPE",
@@ -2049,6 +2006,10 @@ export default {
       } else {
         // this.productListDown.appliancetype = EMPTY;
       }
+    this.$store.dispatch("app_booking_sys/getCat", this.data.units.prodcategories).then((res)=>{
+      this.productListDown.appliancetype = res.data
+    })
+      
     },
     gen() {
       var testData = {
@@ -2133,7 +2094,7 @@ export default {
         if (!this.$v.data.units.appliancetype.$error && 
             !this.$v.data.units.brand.$error && 
             !this.$v.data.units.model.$error &&
-            !this.$v.data.units.unitcondition.$error &&
+            // !this.$v.data.units.unitcondition.$error &&
             !this.$v.data.units.warrantycondition.$error && !this.$v.data.usage.$error) {
           const add = {
             unitid:
@@ -2182,7 +2143,7 @@ export default {
         if (!this.$v.data.units.appliancetype.$error && 
             !this.$v.data.units.brand.$error && 
             !this.$v.data.units.model.$error &&
-            !this.$v.data.units.unitcondition.$error &&
+            // !this.$v.data.units.unitcondition.$error &&
             !this.$v.data.units.warrantycondition.$error &&
             !this.$v.data.units.problem.$error ) {
               
@@ -2221,12 +2182,90 @@ export default {
           this.storeDataFinal.push(add);
           this.addIden = 1;
         }
-      } else{
+      }else if(this.activerequest.name == "SITE SURVEY"){
+        
+         this.$v.data.units.$touch();
+        
+        if (!this.$v.data.units.appliancetype.$error && 
+            !this.$v.data.units.brand.$error && 
+            !this.$v.data.units.model.$error 
+            // !this.$v.data.units.unitcondition.$error &&
+            // !this.$v.data.units.warrantycondition.$error &&
+              ) {
+              
+          const add = {
+            unitid:
+              "UNIT-" +
+              this.data.units.brand +
+              "-" +
+              Math.ceil(Math.random() * 1000000),
+            prodcategories: this.data.units.prodcategories,
+            appliancetype: this.data.units.appliancetype,
+            brand: this.data.units.brand,
+            model: this.data.units.model,
+            serialno: this.data.units.serialno,
+            unitcondition: this.data.units.unitcondition,
+            warrantycondition: '',
+            qty: this.data.units.qty,
+            demandreplacement: this.data.units.demandreplacement,
+            priority: this.data.units.priority,
+            datepurchase: this.data.units.datepurchase,
+            problem: this.data.units.problem,
+            //usage
+            ornumber: this.data.usage.or,
+            propertytype: this.data.usage.propertytype,
+            level: this.data.usage.level,
+            location: this.data.usage.location,
+            area: this.data.usage.area,
+            wallfinish: this.data.usage.propertytype,
+            withpowersupply: this.data.usage.wallfinish,
+            deliverydate: this.data.usage.deliverydate,
+            time: this.data.usage.time,
+            locationofinstallation: this.InstallationAddress == 0?0:this.data.usage.locationofinstallation,
+            paidamoun: this.data.usage.paidamoun,
+          };
+          this.units.push(add);
+          this.storeDataFinal.push(add);
+          this.addIden = 1;
+        }
+       }else if(this.activerequest.name == "CLEANING"){
+
+        this.$v.data.units.$touch();
+        if (!this.$v.data.units.appliancetype.$error && 
+            !this.$v.data.units.brand.$error && 
+            !this.$v.data.units.model.$error 
+            // !this.$v.data.units.unitcondition.$error &&
+            ) {
+          const add = {
+            unitid:
+              "UNIT-" +
+              this.data.units.brand +
+              "-" +
+              Math.ceil(Math.random() * 1000000),
+            prodcategories: this.data.units.prodcategories,
+            appliancetype: this.data.units.appliancetype,
+            brand: this.data.units.brand,
+            problem: this.data.units.problem,
+            model: this.data.units.model,
+            serialno: this.data.units.serialno,
+            unitcondition: this.data.units.unitcondition,
+            warrantycondition: this.data.units.warrantycondition,
+            qty: this.data.units.qty,
+            demandreplacement: this.data.units.demandreplacement,
+            priority: this.data.units.priority,
+            datepurchase: this.data.units.datepurchase,
+            locationofinstallation:  this.InstallationAddress == 0?0:this.data.usage.locationofinstallation,
+          };
+          this.units.push(add);
+          this.storeDataFinal.push(add);
+          this.addIden = 1;
+        }
+       } else{
         this.$v.data.units.$touch();
         if (!this.$v.data.units.appliancetype.$error && 
             !this.$v.data.units.brand.$error && 
             !this.$v.data.units.model.$error &&
-            !this.$v.data.units.unitcondition.$error &&
+            // !this.$v.data.units.unitcondition.$error &&
             !this.$v.data.units.warrantycondition.$error  ) {
           const add = {
             unitid:
@@ -2387,6 +2426,7 @@ export default {
         requestType: this.activerequest.name,
         customer: this.customer,
         units: this.storeDataFinal,
+        restoreid: this.restoreId
       };
      
      // SAVE TO DB
@@ -2464,6 +2504,7 @@ export default {
       this.$store
         .dispatch("app_booking_sys/JobsCheckRecords", id)
         .then((res) => {
+          console.log(res.data)
           this.customerList = res.data;
           if(this.customerList[0]){
                this.Identifier2 = 2;
@@ -2524,7 +2565,7 @@ export default {
       });
     },
     restoreNow(restoreData) {
-       
+      
       const DATA = [];
       restoreData.units.map(function (value, key) {
         const add = {
@@ -2604,8 +2645,10 @@ export default {
         additionalrequest1: restoreData.customer.additionalrequest1,
         additionalrequest2: restoreData.customer.additionalrequest2,
       };
-    
-    this.$store.dispatch("app_booking_sys/closeRestore",{id: restoreData['id']}) 
+    this.requestType =
+        "REF-" + restoreData.requesttype + "-" + Math.ceil(Math.random() * 1000000);
+    //this.$store.dispatch("app_booking_sys/closeRestore",{id: restoreData['id']}) 
+    this.restoreId = restoreData['id'];
     this.restoreList.splice(this.restoreList.indexOf(restoreData), 1);
     this.addIden = 1
     this.editItem()
@@ -2777,13 +2820,49 @@ export default {
         // 46 is dot
         $event.preventDefault();
       }
-
+     
+     
+    },
+    checknumber($event){
+      if ($event.key === "Backspace") {
+         
+      // if(this.customer.cpnumber.length !== 11){
+            
+          this.customer = {
+          bookby: "",
+          cpnumber: this.customer.cpnumber,
+          lastname: "",
+          firstname: "",
+          emailaddress: "",
+          middlename: "",
+          contactperson: "",
+          telephoneno: "",
+          houseno: "",
+          street: "",
+          barangay: "",
+          mcity: "",
+          province: "",
+          locationunit: "",
+          organization: "",
+          attachment: [],
+          specialinstruction: "",
+          additionalrequest1: "",
+          additionalrequest2: "",
+        }
+           
+      // }
+      }
     },
     checkrecordauto(){
       if(this.customer.cpnumber.length == 11){
             this.checkRecExist()
-          }
+      }
+      
     },
+    // clearcustomer(){
+    
+    //     this.customerList = ''
+    // },
     checkAreaKey($event) {
       if (parseInt(this.sqm) < this.data.usage.area) {
         if ($event.keyCode > 48) {

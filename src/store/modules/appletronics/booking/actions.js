@@ -26,7 +26,7 @@ const CREATEFIELDS = rootUrl + "/api/create/fields";
 const DELETEFIELDS = rootUrl + "/api/delete/fields";
 const CREATEITEMS = rootUrl + "/api/createitem/fields";
 const DELETEITEMS = rootUrl + "/api/deleteitems/fields";
- 
+const SPECAT = rootUrl + "/api/random/exec";
 //SEEN
 const SEEN = rootUrl + "/api/seen/nofication"
 
@@ -34,6 +34,8 @@ const SEEN = rootUrl + "/api/seen/nofication"
 const UPDATESERIAL = rootUrl + "/api/booking/jobs/updateserial"
 //CLOSERESTORE
 const CLOSERESTORE = rootUrl + "/api/booking/restore/close"
+//FETCHUNIT
+const FETCHUNITFIELDS = rootUrl + "/api/fetch/fields/units"
 const actions = {
   storeBooking(context, data) {
     
@@ -100,6 +102,7 @@ const actions = {
     formData.append("identify", data.identify);
     formData.append("requestType", data.requestType);
     formData.append("requestid", data.requestid);
+    formData.append("restoreid", data.restoreid);
     formData.append("units", JSON.stringify(data.units));
     return axios
       .post(STOREBOOKING, formData, {
@@ -228,6 +231,12 @@ const actions = {
         return res;
       })
   },
+   //fetch unit fields
+  FetchUnitFields(context, data){
+      return axios.get(FETCHUNITFIELDS).then((res)=>{
+        return res;
+      })
+},
  //Booking Fields List
  ListDropDownFields(context, data){
   return axios.get(BOOKINGFIELDS+"?list=2").then((res)=>{
@@ -268,6 +277,11 @@ const actions = {
   },
   updateSerial(context, data){
     return axios.post(UPDATESERIAL, data).then((res)=>{
+      return res
+    })
+  },
+  getCat(context, data){
+    return axios.get(SPECAT+"?cat="+data).then((res)=>{
       return res
     })
   }

@@ -13,9 +13,9 @@ import VueSocketIO from 'vue-socket.io'
 import SocketIO from 'socket.io-client'
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
-
+import { URLs } from '../src/globalurl'
 import VueSweetalert2 from 'vue-sweetalert2';
-
+Vue.prototype.$URLs = URLs;
 // If you don't need the styles, do not connect
 import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.use(VueToast);
@@ -28,7 +28,7 @@ AOS.init();
 import VUppercase from 'v-uppercase'
 Vue.use(VUppercase)
 /* Establish Connection */
-  const socketConnection = SocketIO('http://192.168.1.19:3333');
+  const socketConnection = SocketIO(URLs.socketIO);
   Vue.use(new VueSocketIO({
      debug: false,
      connection:socketConnection 

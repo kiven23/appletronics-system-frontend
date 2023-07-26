@@ -1,11 +1,11 @@
 import axios from "axios";
 import { setAuthorization } from "./general";
-
+import {URLs} from '../globalurl'
 export function login(credentials) {
   return new Promise((res, rej) => {
     axios
       .post(
-        "http://192.168.1.19:8009/api/auth/login",
+        `${URLs.backend}/api/auth/login`,
         credentials
       )
       .then(response => {

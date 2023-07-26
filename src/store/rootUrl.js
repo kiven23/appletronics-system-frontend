@@ -1,3 +1,4 @@
-const rootUrl = "http://192.168.1.19:8009";
+import {URLs} from '../globalurl'
+const rootUrl = URLs.backend;
 
 export default rootUrl;

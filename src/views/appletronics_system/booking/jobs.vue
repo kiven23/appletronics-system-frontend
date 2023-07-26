@@ -233,7 +233,7 @@
                 <span
                   v-bind="attrs"
                   v-on="on"
-                >Test</span>
+                >{{ truncateString(item.notes, 15) }}</span>
               </template>
               <span>{{item.notes}}</span>
             </v-tooltip>
@@ -296,13 +296,30 @@
                   
                 >
                 <template v-slot:item.serialno="{ item }">
-                     <v-text-field
-                         v-model="item.serialno"
-                         dense
-                         @keyup="updatedserial({id: item.id, value: item.serialno})"
-                         :disabled="!!checkpermission"
-                      > 
-                      </v-text-field>
+                      <v-row>
+                      <v-col cols="9" >
+                        <v-text-field
+                          v-model="item.serialno"
+                          dense   
+                          :disabled="item.serialstatus != 1 || checkpermission?false:true"
+                          @keyup="unlichange({id: item.id, value: item.serialno, direct: 0})"
+                        > 
+                        </v-text-field>
+                      </v-col>
+                      <v-col v-if="item.serialstatus != 1 || checkpermission">
+                        <v-btn
+                          
+                          x-small
+                          color="secondary"
+                          dark
+                          dense
+                          style="margin: -20px; margin-top: 5px;"
+                          @click="updatedserial({id: item.id, value: item.serialno})"
+                        >
+                          Update
+                        </v-btn>
+                      </v-col>
+                    </v-row>
                 </template>
                 </v-data-table>
               </v-list-item-content>
@@ -504,7 +521,7 @@
                     ><br />
                     <br />
                     <v-card class="pa-1">
-                      
+                    
                        <v-text-field 
                         label="CALL ID" 
                         v-model="callid"
@@ -682,7 +699,7 @@ export default {
         // { text: "Qty", value: "qty" },
         { text: "Model", value: "model" },
         { text: "Serial No.", value: "serialno" },
-        { text: "Unit Condition", value: "unitcondition" },
+        //{ text: "Unit Condition", value: "unitcondition" },
         { text: "Warranty Condition", value: "warrantycondition" },
         { text: "Date of Purchase", value: "datepurchase" },
         // { text: "Installation Address", value: "locationofinstallation" },
@@ -817,6 +834,10 @@ export default {
   },
 
   methods: {
+    unlichange(data){
+        this.$store.dispatch("app_booking_sys/updateSerial", data)
+      
+    },
     refresh(data) {
      
       this.$store.dispatch("app_booking_sys/JobsCount").then((res) => {
@@ -902,7 +923,7 @@ export default {
                     // { text: "Qty", value: "qty" },
                     { text: "MODEL", value: "model" },
                     { text: "SERIAL NO.", value: "serialno" },
-                    { text: "UNIT CONDITION", value: "unitcondition" },
+                    //{ text: "UNIT CONDITION", value: "unitcondition" },
                     { text: "WARRANTY CON", value: "warrantycondition" },
                     { text: "DOP", value: "datepurchase" },
                     { text: "LOCATION OF UNIT", value: "locationofinstallation" },
@@ -917,7 +938,7 @@ export default {
                     // { text: "QTY", value: "qty" },
                     { text: "Model", value: "model" },
                     { text: "Serial No.", value: "serialno" },
-                    { text: "Unit Condition", value: "unitcondition" },
+                    //{ text: "Unit Condition", value: "unitcondition" },
                     { text: "Warranty Condition", value: "warrantycondition" },
                     { text: "Date of Purchase", value: "datepurchase" },
                      { text: "LOCATION OF UNIT", value: "locationofinstallation" },
@@ -932,7 +953,7 @@ export default {
                     // { text: "QTY", value: "qty" },
                     { text: "Model", value: "model" },
                     { text: "Serial No.", value: "serialno" },
-                    { text: "Unit Condition", value: "unitcondition" },
+                    //{ text: "Unit Condition", value: "unitcondition" },
                     { text: "Warranty Condition", value: "warrantycondition" },
                     { text: "Date of Purchase", value: "datepurchase" },
                      { text: "INSTALLATION ADDRESS", value: "locationofinstallation" },
@@ -947,7 +968,7 @@ export default {
                     // { text: "QTY", value: "qty" },
                     { text: "Model", value: "model" },
                     { text: "Serial No.", value: "serialno" },
-                    { text: "Unit Condition", value: "unitcondition" },
+                    //{ text: "Unit Condition", value: "unitcondition" },
                     { text: "Warranty Condition", value: "warrantycondition" },
                     { text: "Date of Purchase", value: "datepurchase" },
                      { text: "SURVEY LOCATION", value: "locationofinstallation" },
@@ -1171,6 +1192,13 @@ export default {
       this.refresh(this.selectedID);
        
     },
+      truncateString(text, maxLength) {
+      if (text.length <= maxLength) {
+        return text;
+      } else {
+        return text.substring(0, maxLength) + '...';
+      }
+    },
     trash(data){
       this.$swal.fire({
         title: 'Are you sure?',
@@ -1196,8 +1224,38 @@ export default {
       
     },
     updatedserial(data){
-      this.$store.dispatch("app_booking_sys/updateSerial", data).then((res)=>{
-        console.log(res)
+      var msg;
+      if(data.serialstatus != 1){
+            if(this.checkpermission){
+                msg = "Please Yes to proceed."
+            }else{
+                msg = "You won't be able to revert this. You can do this at once."
+            }
+      }
+     
+
+
+      this.$swal.fire({
+        title: 'Are you sure?',
+        text: msg,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Update Serial!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+              
+                this.$store.dispatch("app_booking_sys/updateSerial", data).then((res)=>{
+                this.$swal.fire(
+                        'Update!',
+                        'The Serial has been update to Serial: '+data.value,
+                        'success'
+                      )
+               })
+           this.refreshData()
+           this.jobsInfo = false
+        }
       })
       
     }

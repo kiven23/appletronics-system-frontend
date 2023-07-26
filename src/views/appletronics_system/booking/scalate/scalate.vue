@@ -445,7 +445,7 @@ export default {
     searchCustomer(val) {
       this.isLoading = true;
       // Lazily load input items
-      fetch("http://192.168.1.19:8009/api/jobs/customers/list?q=" + val)
+      fetch(this.$URLs.backend+"/api/jobs/customers/list?q=" + val)
         .then((res) => res.json())
         .then((res) => {
           this.entries = res;

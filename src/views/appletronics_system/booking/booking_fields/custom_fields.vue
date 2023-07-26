@@ -36,7 +36,7 @@
             <v-spacer></v-spacer>
                <v-select
                     v-on="on"
-                    :items="[{name: 'TYPE', value: 1},{name: 'CATEGORIES', value: 2},{name: 'BRAND', value: 3},{name: 'ITEMS', value: 4}]"
+                    :items="[{name: 'TYPE', value: 1},{name: 'CATEGORIES', value: 3},{name: 'BRAND', value: 2},{name: 'ITEMS', value: 4},{name: 'PROPERTY TYPE', value: 5},{name: 'LEVEL', value: 6},{name: 'LOCATION', value: 7}]"
                     label="Select Fields"
                     item-text="name"
                     item-value="value"
@@ -82,6 +82,8 @@
         </template>
                
       </v-data-table>
+
+      
               <v-dialog
                 v-model="CreateDialog"
                 max-width="300px"
@@ -106,13 +108,26 @@
                         >
                           <v-select
                              v-model="fields"
-                             :items="[{name: 'TYPE', value: 1},{name: 'CATEGORIES', value: 2},{name: 'BRAND', value: 3}]"
+                             :items="[{name: 'TYPE', value: 1},{name: 'CATEGORIES', value: 3},{name: 'BRAND', value: 2},{name: 'ITEMS', value: 4},{name: 'PROPERTY TYPE', value: 5},{name: 'LEVEL', value: 6},{name: 'LOCATION', value: 7}]"
                              label="Field Type"
                              item-text="name"
                              item-value="value"
                              required
+                          ></v-select>  </v-col>
+                          <v-col
+                          cols="12"
+                          sm="6"
+                        >
+                          <v-select
+                             v-if="fields == 1"
+                             v-model="cats"
+                             :items="cat"
+                             label="Options"
+                             item-text="name"
+                             item-value="value"
+                             required
                           ></v-select>
-                        </v-col>
+                       </v-col>
                            
                         
                       </v-row>
@@ -131,7 +146,7 @@
                     <v-btn
                       color="blue darken-1"
                       text
-                      @click="CreateDialog = false || save()"
+                      @click="save()"
                     >
                       Save
                     </v-btn>
@@ -253,7 +268,8 @@ export default {
       CreateDialog: false,
       identify: 0,
       itemName: '',
-
+      cat: [],
+      cats: '',
       CreateModel: false,
 
       modelfields: '',
@@ -275,7 +291,7 @@ export default {
     },
 
     formTitle() {
-      return this.identify == 0 ? "New Fields" : "Edit Fields";
+      return this.identify == 0 ?  "New Fields": "Edit Fields";
     },
 
  
@@ -285,6 +301,11 @@ export default {
     this.$store.dispatch("app_booking_sys/FetchFields", this.default).then((response)=> {
         this.fields_data = response.data;
     });
+    this.$store.dispatch("app_booking_sys/ListDropDownFields").then((res)=>{
+         
+           this.cat = res.data.cat
+           
+       })
   },
 
   methods: {
@@ -342,21 +363,23 @@ export default {
                 type: this.fields,
                 fields: this.itemName,
                 id: this.editID,
+                option: this.cats,
                 identify: 1
                       }
         }else{
               data = {
                 type: this.fields,
                 fields: this.itemName,
+                option: this.cats,
                 identify: 0
             }
         }
-        
-       this.$store.dispatch("app_booking_sys/CreateFields", data);
+         
+     this.$store.dispatch("app_booking_sys/CreateFields", data);
        this.selectFields();
     },
     selectFields(){
-       
+         
       this.default = this.fields
       if(this.fields == 4){
         this.headers = [
