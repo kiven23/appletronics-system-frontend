@@ -822,6 +822,20 @@ export default {
       });
     });
     this.usersData.branch_id;
+     this.sockets.subscribe("maintenance", (data) => {
+      
+    if (data.active === 1) {
+       alert("Maintenance mode is actived")
+       this.$router.push("/maintenance");
+       } else if(data.active === 0){
+       alert("Maintenance mode has ended please login")
+       this.$router.push("/login");
+    }else if(data.active === 2){
+          window.location.reload(true)
+    }
+  });
+
+    
   },
 
   computed: {

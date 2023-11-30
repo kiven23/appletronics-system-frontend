@@ -62,10 +62,12 @@
             </vs-card>
           </vs-col>
         </vs-row> -->
-      <v-row>
+    
+      <v-row  >
         <v-col
         cols="12"
         sm="3"
+         
       >
   <v-skeleton-loader
       class="mx-auto"
@@ -148,7 +150,7 @@
       </v-card>
         </v-skeleton-loader>
       </v-col>
-            <v-col
+      <v-col
         cols="12"
         sm="3"
       >
@@ -177,9 +179,10 @@
        </v-skeleton-loader>
       </v-col>
       </v-row>
-        
+          
       </v-flex>
-      <v-card-title>
+      
+      <v-card-title >
         <v-text-field
             v-model="search"
             append-icon="mdi-magnify"
@@ -195,20 +198,26 @@
          >
            <v-icon color="white">mdi-refresh</v-icon>
         </vs-button>
+        
       </v-card-title>
+      
  <v-skeleton-loader
       class="mx-auto"
        type="table-heading, list-item-two-line, image, table-tfoot"
       :loading="loadingForTable"
+       
     >
+    <div>
       <v-data-table
+        fixed-header
+ height="400"
         dense
         :headers="headers"
         :items="data"
         item-key="requestid"
-        class="elevation-1"
+        class="elevation-1 headersk"
         :search="search"
-        :items-per-page="5"
+        :items-per-page="15"
          
       >
        <template v-slot:item.requestid="{ item }">
@@ -256,6 +265,7 @@
           {{new Date(item.created_at).toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric',hour: '2-digit', minute:'2-digit'})}}
         </template>
       </v-data-table>
+      </div>
  </v-skeleton-loader>
       <v-dialog
         v-model="jobsInfo"
@@ -283,17 +293,24 @@
               </v-toolbar-title
             >
             <v-spacer></v-spacer>
-            <v-toolbar-items> </v-toolbar-items>
+            <v-toolbar-items> <v-btn
+                      x-small
+                      @click="print(jobsData.id)"
+                    >
+                      <v-icon>mdi-printer</v-icon> </v-btn
+                    ></v-toolbar-items>
           </v-toolbar>
           <v-list three-line subheader>
             <v-subheader>Product Information</v-subheader>
             <v-list-item>
               <v-list-item-content>
+                
                 <v-data-table
                   dense
                   :headers="unitsHeader"
                   :items="unitsData"
-                  
+                  :fixed-header="true"
+                  class="my-custom-table"
                 >
                 <template v-slot:item.serialno="{ item }">
                       <v-row>
@@ -327,7 +344,8 @@
           </v-list>
           <v-list three-line subheader>
       
-            <v-subheader>Customer Information</v-subheader>
+            <v-subheader>Customer Information     </v-subheader>
+           
             <v-list-item>
               <v-list-item-content >
                 <v-row no-gutters>
@@ -495,6 +513,12 @@
                      <strong  v-if="jobsData.status  != 0">Date of Service</strong><br />
                       {{ jobsData.status  != 0? jobsData.installationdate ?jobsData.installationdate: 'N/A': '' }} 
                     </v-card>
+                  </v-col>
+
+                  <v-col cols="12" sm="3">
+                    <br />
+                     <strong>Log By: {{jobsData.bookby}}</strong><br />
+
                   </v-col>
                 </v-row>
 
@@ -676,6 +700,7 @@ export default {
   
   data() {
     return {
+      printid: '',
       loadingForCount: true,
       loadingForTable: true,
       usersData: [],
@@ -741,6 +766,12 @@ export default {
               sortable: false,
               value: "ticketno",
          },
+         {
+                    text: "Call ID",
+                    align: "start",
+                    sortable: false,
+                    value: "callid",
+                  },
         {
           text: "Request Type",
           align: "start",
@@ -750,6 +781,18 @@ export default {
         { text: "Branch", value: "branch.name" },
         { text: "Customer Name", value: "customer.fullname" },
         { text: "Date of Complain", value: "created_at" },
+         {
+                    text: "Call Status Reason",
+                    align: "start",
+                    sortable: false,
+                    value: "reason",
+                  },
+                       {
+                    text: "Remarks",
+                    align: "start",
+                    sortable: false,
+                    value: "notes",
+                  },
         { text: "Appliance Type/Item", value: "producttype" },
         { text: "Province", value: "customer.province" },
         { text: "City", value: "customer.mcity" },
@@ -900,7 +943,7 @@ export default {
                 if (res.data.type == 1) {
                   this.jobsInfo = false;
                 }
-                this.refresh(this.selectedID);
+                //this.refresh(this.selectedID);
               });
 //} 
        
@@ -912,13 +955,22 @@ export default {
       
       
     },
+    print(){
+      var currentDate = new Date();
+      var id = btoa(btoa(btoa(btoa(this.printid+'-'+'stevefox_linux23theMaster'+'-'+'38840078394'+currentDate))))
+      var second = btoa(btoa(btoa(btoa(id))))
+      
+
+      var url = `${this.$URLs.backend}/api/appletronics/reports/requestform?print=${second}`;
+      window.open(url, '_blank');
+    },
     view(data) {
-      console.log(data)
+      this.printid = data.id
       if(data.requesttype == 'REPAIR'){
         this.unitsHeader =  [
                     { text: "PRODUCT CATEGORY", value: "prodcategories" },
                     { text: "APPLIANCE TYPE", value: "appliancetype" },
-                    { text: "Request Type", value: "problem" },
+                    { text: "PROBLEM", value: "problem" },
                     { text: "BRAND", value: "brand" },
                     // { text: "Qty", value: "qty" },
                     { text: "MODEL", value: "model" },
@@ -947,17 +999,29 @@ export default {
       }else if(data.requesttype == 'INSTALLATION'){
                 this.unitsHeader =  [
                     { text: "Product Category", value: "prodcategories" },
-                    { text: "Appliance Type", value: "appliancetype" },
+                    { text: "Appliance Type", value: "appliancetype" , fixed: true, width: '140px'  },
                     // { text: "Request Type", value: "branch.name" },
                     { text: "Brand", value: "brand" },
                     // { text: "QTY", value: "qty" },
                     { text: "Model", value: "model" },
-                    { text: "Serial No.", value: "serialno" },
+                    { text: "Serial No.", value: "serialno", fixed: true, width: '230px'  },
                     //{ text: "Unit Condition", value: "unitcondition" },
                     { text: "Warranty Condition", value: "warrantycondition" },
                     { text: "Date of Purchase", value: "datepurchase" },
                      { text: "INSTALLATION ADDRESS", value: "locationofinstallation" },
                     { text: "Priority", value: "priority" },
+                    // { text: "More Info", value: "more" },
+
+                    { text: "Property Type", value: "propertytype" },
+                    { text: "Level", value: "level" },
+                    { text: "Location", value: "location" },
+                    { text: "Area", value: "area" },
+                    { text: "Wall Finish", value: "wallfinish" },
+                    { text: "Power Supply Location", value: "withpowersupply" },
+                    { text: "Date Of Delivery", value: "deliverydate" },
+                    { text: "Amount", value: "paidamoun" },
+                    { text: "OR #", value: "ornumber" },
+
         ];
       }else if(data.requesttype == 'SITE SURVEY'){
                 this.unitsHeader =  [
@@ -1262,3 +1326,27 @@ export default {
   },
 };
 </script>
+<style>
+
+/* .floating-row {
+  position: fixed;
+  width: 75%; top: 90px; z-index: 100; justify-content: center; align-items: center;
+  
+} */
+ 
+ 
+
+.header-container {
+  position: relative; /* Set the container as relative */
+  overflow: auto; /* Enable scrolling for the container */
+  max-height: 500px; /* Set the maximum height of the container */
+}
+ 
+ .my-custom-table {
+  width: 100%; /* Set the width of the table */
+  max-width: 3000px; /* Optional: Set a maximum width if needed */
+  margin: 0 auto; /* Optional: Center the table on the page */
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+</style>
+ 

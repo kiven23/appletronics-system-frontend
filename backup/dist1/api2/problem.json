@@ -1,0 +1,1534 @@
+[
+    {
+      "#": 1,
+      "Name": "NOT HEATING"
+    },
+    {
+      "#": 2,
+      "Name": "NOT COOLING"
+    },
+    {
+      "#": 3,
+      "Name": "NOT WASHING"
+    },
+    {
+      "#": 4,
+      "Name": "NOT SPINNING"
+    },
+    {
+      "#": 5,
+      "Name": "NOT DRAINING"
+    },
+    {
+      "#": 6,
+      "Name": "NOT ICING"
+    },
+    {
+      "#": 7,
+      "Name": "NOT IGNITE"
+    },
+    {
+      "#": 8,
+      "Name": "NOT FUNCTIONING"
+    },
+    {
+      "#": 9,
+      "Name": "NOISY MOTOR"
+    },
+    {
+      "#": 10,
+      "Name": "WATER LEAK"
+    },
+    {
+      "#": 11,
+      "Name": "GAS LEAK"
+    },
+    {
+      "#": 12,
+      "Name": "OIL LEAK"
+    },
+    {
+      "#": 13,
+      "Name": "CONTINOUS DRAIN"
+    },
+    {
+      "#": 14,
+      "Name": "CONTINOUS OPERATION"
+    },
+    {
+      "#": 15,
+      "Name": "NO POWER"
+    },
+    {
+      "#": 16,
+      "Name": "SHUT OFF"
+    },
+    {
+      "#": 17,
+      "Name": "NO CONTINOUS OPRT"
+    },
+    {
+      "#": 18,
+      "Name": "PUNCTURED"
+    },
+    {
+      "#": 19,
+      "Name": "DENTED"
+    },
+    {
+      "#": 20,
+      "Name": "SCRATCHES"
+    },
+    {
+      "#": 21,
+      "Name": "FADED COLOR"
+    },
+    {
+      "#": 22,
+      "Name": "BUBBLES ON PAINT"
+    },
+    {
+      "#": 23,
+      "Name": "CORRODED BODY"
+    },
+    {
+      "#": 24,
+      "Name": "CORRODED EVAP"
+    },
+    {
+      "#": 25,
+      "Name": "CORRODED CONDENSER"
+    },
+    {
+      "#": 26,
+      "Name": "CORRODED DOOR LINING"
+    },
+    {
+      "#": 27,
+      "Name": "LOOSE CONNECTION"
+    },
+    {
+      "#": 28,
+      "Name": "LOOSE GASKET"
+    },
+    {
+      "#": 29,
+      "Name": "LOOSE MAGNET"
+    },
+    {
+      "#": 30,
+      "Name": "GASKET GAP"
+    },
+    {
+      "#": 31,
+      "Name": "BURN OUT BOARD"
+    },
+    {
+      "#": 32,
+      "Name": "BURN OUT MOTOR"
+    },
+    {
+      "#": 33,
+      "Name": "STUCK UP MOTOR"
+    },
+    {
+      "#": 34,
+      "Name": "STUCK UP SWITCH"
+    },
+    {
+      "#": 35,
+      "Name": "MIS-ALIGNED DOOR"
+    },
+    {
+      "#": 36,
+      "Name": "MIS-ALIGNED MOTOR"
+    },
+    {
+      "#": 37,
+      "Name": "MIS-ALIGNED PULLEY"
+    },
+    {
+      "#": 38,
+      "Name": "CRACK BOARD"
+    },
+    {
+      "#": 39,
+      "Name": "CRACK ACCESSORIES"
+    },
+    {
+      "#": 40,
+      "Name": "CRACK CABINET"
+    },
+    {
+      "#": 41,
+      "Name": "CRACK DOR FREZER CVR"
+    },
+    {
+      "#": 42,
+      "Name": "CRACK BODY"
+    },
+    {
+      "#": 43,
+      "Name": "CRACK PANEL"
+    },
+    {
+      "#": 44,
+      "Name": "CRACK COVER"
+    },
+    {
+      "#": 45,
+      "Name": "BROKEN FREEZER DOOR"
+    },
+    {
+      "#": 46,
+      "Name": "BROKEN ACCESSORY"
+    },
+    {
+      "#": 47,
+      "Name": "BROKEN BODY"
+    },
+    {
+      "#": 48,
+      "Name": "BROKEN GLASS"
+    },
+    {
+      "#": 49,
+      "Name": "BROKEN TUBE"
+    },
+    {
+      "#": 50,
+      "Name": "BLOWN OUT FUSE"
+    },
+    {
+      "#": 51,
+      "Name": "BUSTED FUSE"
+    },
+    {
+      "#": 52,
+      "Name": "BUSTED CAPACITOR"
+    },
+    {
+      "#": 53,
+      "Name": "BUSTED COMPRESSOR"
+    },
+    {
+      "#": 54,
+      "Name": "TERMINAL"
+    },
+    {
+      "#": 55,
+      "Name": "NO DISPLAY"
+    },
+    {
+      "#": 56,
+      "Name": "NOT COOKING"
+    },
+    {
+      "#": 57,
+      "Name": "MALFUNCTION TIER"
+    },
+    {
+      "#": 58,
+      "Name": "BURN MICA INSULATOR"
+    },
+    {
+      "#": 59,
+      "Name": "STAND BY POWER"
+    },
+    {
+      "#": 60,
+      "Name": "NO SOUND"
+    },
+    {
+      "#": 61,
+      "Name": "NO DISPLAY W/ SOUND"
+    },
+    {
+      "#": 62,
+      "Name": "DISTORTED SOUND"
+    },
+    {
+      "#": 63,
+      "Name": "DISC ERROR"
+    },
+    {
+      "#": 64,
+      "Name": "NO RECEPTION"
+    },
+    {
+      "#": 65,
+      "Name": "TAPE NOT FUNCTION"
+    },
+    {
+      "#": 66,
+      "Name": "NO VIDEO"
+    },
+    {
+      "#": 67,
+      "Name": "TRAY ERROR"
+    },
+    {
+      "#": 68,
+      "Name": "TRAY OPEN / CLOSE"
+    },
+    {
+      "#": 69,
+      "Name": "USB NOT FUNCTION"
+    },
+    {
+      "#": 70,
+      "Name": "BLINKING DISPLAY"
+    },
+    {
+      "#": 71,
+      "Name": "GRAPHIC PICTURE"
+    },
+    {
+      "#": 72,
+      "Name": "MIC NOT FUNCTION"
+    },
+    {
+      "#": 73,
+      "Name": "TAPE NOT PLAY"
+    },
+    {
+      "#": 74,
+      "Name": "REMOTE NOT FUNCTION"
+    },
+    {
+      "#": 75,
+      "Name": "NO SOUND W/ PICTURE"
+    },
+    {
+      "#": 76,
+      "Name": "POWER SHUT OFF"
+    },
+    {
+      "#": 77,
+      "Name": "INTERMITTENT SOUND"
+    },
+    {
+      "#": 78,
+      "Name": "INTERMITTENT PICTURE"
+    },
+    {
+      "#": 79,
+      "Name": "HORIZONTAL LINE"
+    },
+    {
+      "#": 80,
+      "Name": "VERTICAL LINE"
+    },
+    {
+      "#": 81,
+      "Name": "RETRACE LINE"
+    },
+    {
+      "#": 82,
+      "Name": "BLURRED PICTURE"
+    },
+    {
+      "#": 83,
+      "Name": "PICTURE WITH STAIN"
+    },
+    {
+      "#": 84,
+      "Name": "NO COLOR"
+    },
+    {
+      "#": 85,
+      "Name": "KEYS MALFUNCTION"
+    },
+    {
+      "#": 86,
+      "Name": "NO AUDIO / VIDEO IN"
+    },
+    {
+      "#": 87,
+      "Name": "STAND NOT COMPATIBLE"
+    },
+    {
+      "#": 88,
+      "Name": "WHITE SCREEN"
+    },
+    {
+      "#": 89,
+      "Name": "STAND BY"
+    },
+    {
+      "#": 90,
+      "Name": "HDMI MALFUNCTION"
+    },
+    {
+      "#": 91,
+      "Name": "CAN'T READ USB"
+    },
+    {
+      "#": 92,
+      "Name": "FLICKERING PICTURE"
+    },
+    {
+      "#": 93,
+      "Name": "INTERNET PROBLEM"
+    },
+    {
+      "#": 94,
+      "Name": "CANT ACCES W/ REMOTE"
+    },
+    {
+      "#": 95,
+      "Name": "COLOR SPREAD"
+    },
+    {
+      "#": 96,
+      "Name": "PIXEL WITH DOT"
+    },
+    {
+      "#": 97,
+      "Name": "SCREEN SIZE"
+    },
+    {
+      "#": 98,
+      "Name": "SCREEN CUT / FREEZE"
+    },
+    {
+      "#": 99,
+      "Name": "OBJECT REFLECTION"
+    },
+    {
+      "#": 100,
+      "Name": "MIRROR DAMAGE"
+    },
+    {
+      "#": 101,
+      "Name": "FOCUS"
+    },
+    {
+      "#": 102,
+      "Name": "CONVERGENCE"
+    },
+    {
+      "#": 103,
+      "Name": "SCREEN DISTORTION"
+    },
+    {
+      "#": 104,
+      "Name": "SCREEN MURA"
+    },
+    {
+      "#": 105,
+      "Name": "START LATE"
+    },
+    {
+      "#": 106,
+      "Name": "BUTTON OPERATION"
+    },
+    {
+      "#": 107,
+      "Name": "DEFECT"
+    },
+    {
+      "#": 108,
+      "Name": "LIP SYNC"
+    },
+    {
+      "#": 109,
+      "Name": "MMRY FNCT NOT WRKNG"
+    },
+    {
+      "#": 110,
+      "Name": "VID STTING NOT WORKN"
+    },
+    {
+      "#": 111,
+      "Name": "TIME STTING NOT WORK"
+    },
+    {
+      "#": 112,
+      "Name": "CAPTION DEFECT"
+    },
+    {
+      "#": 113,
+      "Name": "EXTERNAL INPUT"
+    },
+    {
+      "#": 114,
+      "Name": "CHANGE NOT WORKING"
+    },
+    {
+      "#": 115,
+      "Name": "SILENT NOT WORKING"
+    },
+    {
+      "#": 116,
+      "Name": "SCREEN"
+    },
+    {
+      "#": 117,
+      "Name": "GLITTERING/VIBRATION"
+    },
+    {
+      "#": 118,
+      "Name": "SCREEN BLACK"
+    },
+    {
+      "#": 119,
+      "Name": "HORIZONTAL BAR"
+    },
+    {
+      "#": 120,
+      "Name": "VERTICAL BAY"
+    },
+    {
+      "#": 121,
+      "Name": "SOUND MTPLX/STR DEF"
+    },
+    {
+      "#": 122,
+      "Name": "GIVE OUT"
+    },
+    {
+      "#": 123,
+      "Name": "HEAD OVR HT/MT/BURN"
+    },
+    {
+      "#": 124,
+      "Name": "BNT/DEF/GAT/VIS GAP"
+    },
+    {
+      "#": 125,
+      "Name": "COS/BROKEN/DMG"
+    },
+    {
+      "#": 126,
+      "Name": "FOR INSTALLATION"
+    },
+    {
+      "#": 127,
+      "Name": "FOR DISMANTLING"
+    },
+    {
+      "#": 128,
+      "Name": "DISCOLORATION"
+    },
+    {
+      "#": 129,
+      "Name": "NOT DISPENSING"
+    },
+    {
+      "#": 130,
+      "Name": "POOR COOLING"
+    },
+    {
+      "#": 131,
+      "Name": "FOR CLEANING"
+    },
+    {
+      "#": 132,
+      "Name": "HALF ICING"
+    },
+    {
+      "#": 133,
+      "Name": "AUTO SHUT OFF"
+    },
+    {
+      "#": 134,
+      "Name": "UNBALANCE TUB"
+    },
+    {
+      "#": 135,
+      "Name": "KEYS NOT FUNCTIONING"
+    },
+    {
+      "#": 136,
+      "Name": "NOT OPEN"
+    },
+    {
+      "#": 137,
+      "Name": "FOR SURVEY"
+    },
+    {
+      "#": 138,
+      "Name": "NO LIGHT"
+    },
+    {
+      "#": 139,
+      "Name": "AUTO DEFROST"
+    },
+    {
+      "#": 140,
+      "Name": "FOR ORIENTATION"
+    },
+    {
+      "#": 141,
+      "Name": "YELLOW FLAME"
+    },
+    {
+      "#": 142,
+      "Name": "HAZING SOUND"
+    },
+    {
+      "#": 143,
+      "Name": "FLOODED UNIT"
+    },
+    {
+      "#": 144,
+      "Name": "POOR HEATING"
+    },
+    {
+      "#": 145,
+      "Name": "MALFUNCTIONING"
+    },
+    {
+      "#": 146,
+      "Name": "BULGED BATTERY"
+    },
+    {
+      "#": 147,
+      "Name": "INCOMPLETE ACCS"
+    },
+    {
+      "#": 148,
+      "Name": "NOT SWING"
+    },
+    {
+      "#": 149,
+      "Name": "EXCESSIVE COOLING"
+    },
+    {
+      "#": 150,
+      "Name": "OVERHEATING"
+    },
+    {
+      "#": 151,
+      "Name": "POWER FLUCTUATE"
+    },
+    {
+      "#": 152,
+      "Name": "NOT CHARGING"
+    },
+    {
+      "#": 153,
+      "Name": "MISSING PARTS"
+    },
+    {
+      "#": 154,
+      "Name": "UNPLEASANT SMELL"
+    },
+    {
+      "#": 155,
+      "Name": "DISALIGN STAND"
+    },
+    {
+      "#": 156,
+      "Name": "NOT ROTATING"
+    },
+    {
+      "#": 157,
+      "Name": "NO WATER SUPPLY"
+    },
+    {
+      "#": 158,
+      "Name": "GROUNDED"
+    },
+    {
+      "#": 159,
+      "Name": "DEF. INLET VALVE"
+    },
+    {
+      "#": 160,
+      "Name": "CRACKED SPIN TUB"
+    },
+    {
+      "#": 161,
+      "Name": "SURVEY"
+    },
+    {
+      "#": 162,
+      "Name": "MICRO LEAK"
+    },
+    {
+      "#": 163,
+      "Name": "BLACK SPOT"
+    },
+    {
+      "#": 164,
+      "Name": "DISMANTLING"
+    },
+    {
+      "#": 165,
+      "Name": "WHITE SPOT"
+    },
+    {
+      "#": 166,
+      "Name": "LIGHT LEAKAGE"
+    },
+    {
+      "#": 167,
+      "Name": "LOW COOLING"
+    },
+    {
+      "#": 168,
+      "Name": "LINE ON SCREEN"
+    },
+    {
+      "#": 169,
+      "Name": "INTERNAL LEAK"
+    },
+    {
+      "#": 170,
+      "Name": "RUSTY PANEL"
+    },
+    {
+      "#": 171,
+      "Name": "FOR RE-INSTALLATION"
+    },
+    {
+      "#": 172,
+      "Name": "LOOSE FRAME"
+    },
+    {
+      "#": 173,
+      "Name": "AUTO VOLUME"
+    },
+    {
+      "#": 174,
+      "Name": "WATER MARK"
+    },
+    {
+      "#": 175,
+      "Name": "VIBRATING"
+    },
+    {
+      "#": 176,
+      "Name": "MELT BURNER"
+    },
+    {
+      "#": 177,
+      "Name": "DARK SPOT"
+    },
+    {
+      "#": 178,
+      "Name": "DISALIGNED DOOR"
+    },
+    {
+      "#": 179,
+      "Name": "DEFECTIVE PANEL"
+    },
+    {
+      "#": 180,
+      "Name": "STOCK"
+    },
+    {
+      "#": 181,
+      "Name": "TUBE EAT BY RAT"
+    },
+    {
+      "#": 182,
+      "Name": "ICING"
+    },
+    {
+      "#": 183,
+      "Name": "NO REMOTE"
+    },
+    {
+      "#": 184,
+      "Name": "NOISY DOOR"
+    },
+    {
+      "#": 185,
+      "Name": "NO PICTURE"
+    },
+    {
+      "#": 186,
+      "Name": "RUSTY"
+    },
+    {
+      "#": 187,
+      "Name": "LEAKING"
+    },
+    {
+      "#": 188,
+      "Name": "DEFECTIVE TIMER"
+    },
+    {
+      "#": 189,
+      "Name": "AUTO DRAINING"
+    },
+    {
+      "#": 190,
+      "Name": "NOT OPERATE"
+    },
+    {
+      "#": 191,
+      "Name": "DEFECTIVE WASHER"
+    },
+    {
+      "#": 192,
+      "Name": "NOISY DRUM"
+    },
+    {
+      "#": 193,
+      "Name": "ERROR"
+    },
+    {
+      "#": 194,
+      "Name": "MOIST UNIT"
+    },
+    {
+      "#": 195,
+      "Name": "CRACKED BLOWER FAN"
+    },
+    {
+      "#": 196,
+      "Name": "FOR SYSTEM REPROCESS"
+    },
+    {
+      "#": 197,
+      "Name": "NOISY WASHER"
+    },
+    {
+      "#": 198,
+      "Name": "DEFECTIVE OUTDOORFAN"
+    },
+    {
+      "#": 199,
+      "Name": "NOISY"
+    },
+    {
+      "#": 200,
+      "Name": "DISPLAY MIRAGE"
+    },
+    {
+      "#": 201,
+      "Name": "DEFECTIVE COMPRESSOR"
+    },
+    {
+      "#": 202,
+      "Name": "STUCK ON START UP"
+    },
+    {
+      "#": 203,
+      "Name": "CHECK UP"
+    },
+    {
+      "#": 204,
+      "Name": "DEFECTIVE PULSATOR"
+    },
+    {
+      "#": 205,
+      "Name": "FOR DEMO"
+    },
+    {
+      "#": 206,
+      "Name": "CRACK FAN BLADE"
+    },
+    {
+      "#": 207,
+      "Name": "FOR APPROVAL"
+    },
+    {
+      "#": 208,
+      "Name": "WORN-OUT"
+    },
+    {
+      "#": 209,
+      "Name": "MIS ALIGNED"
+    },
+    {
+      "#": 210,
+      "Name": "BROKEN"
+    },
+    {
+      "#": 211,
+      "Name": "BUSTED BULB"
+    },
+    {
+      "#": 212,
+      "Name": "CRACKED BASE"
+    },
+    {
+      "#": 213,
+      "Name": "OVER ICE BUILD"
+    },
+    {
+      "#": 214,
+      "Name": "BURNED BURNER CAP"
+    },
+    {
+      "#": 215,
+      "Name": "DEFECTIVE MAINBOARD"
+    },
+    {
+      "#": 216,
+      "Name": "DETACHED RUBBER"
+    },
+    {
+      "#": 217,
+      "Name": "DETACHED THERMOSTAT"
+    },
+    {
+      "#": 218,
+      "Name": "MELTED"
+    },
+    {
+      "#": 219,
+      "Name": "INTERMITTENT POWER"
+    },
+    {
+      "#": 220,
+      "Name": "DEFORMED"
+    },
+    {
+      "#": 221,
+      "Name": "INTERMITTENT"
+    },
+    {
+      "#": 222,
+      "Name": "DIM DISPLAY"
+    },
+    {
+      "#": 223,
+      "Name": "HEATING"
+    },
+    {
+      "#": 224,
+      "Name": "DETACHED"
+    },
+    {
+      "#": 225,
+      "Name": "GREEN DISPLAY"
+    },
+    {
+      "#": 226,
+      "Name": "STUCK UP WASH TIMER"
+    },
+    {
+      "#": 227,
+      "Name": "CUSTOMER COMPLAINT"
+    },
+    {
+      "#": 228,
+      "Name": "CLOGGED GAS BULB"
+    },
+    {
+      "#": 229,
+      "Name": "BURNED"
+    },
+    {
+      "#": 230,
+      "Name": "NO INTERNET"
+    },
+    {
+      "#": 231,
+      "Name": "CRACKED SPIN DRYER"
+    },
+    {
+      "#": 232,
+      "Name": "BLINKING POWER"
+    },
+    {
+      "#": 233,
+      "Name": "LEAKAGE"
+    },
+    {
+      "#": 234,
+      "Name": "NO BACKLIGHT"
+    },
+    {
+      "#": 235,
+      "Name": "BLACK AND WHITE"
+    },
+    {
+      "#": 236,
+      "Name": "BLUE SCREEN"
+    },
+    {
+      "#": 237,
+      "Name": "DISCONTINUED FUNCT."
+    },
+    {
+      "#": 238,
+      "Name": "DISALIGNED SPIN"
+    },
+    {
+      "#": 239,
+      "Name": "POOR RECEPTION"
+    },
+    {
+      "#": 240,
+      "Name": "HALF DISPLAY"
+    },
+    {
+      "#": 241,
+      "Name": "VERTICAL BAR"
+    },
+    {
+      "#": 242,
+      "Name": "SHORT CIRCUIT"
+    },
+    {
+      "#": 243,
+      "Name": "ICE BUILD UP"
+    },
+    {
+      "#": 244,
+      "Name": "CONTINUOUS SUPPLY"
+    },
+    {
+      "#": 245,
+      "Name": "CLOGGED DRAIN VALVE"
+    },
+    {
+      "#": 246,
+      "Name": "POOR PERFORMANCE"
+    },
+    {
+      "#": 247,
+      "Name": "LOOSE HANDLE"
+    },
+    {
+      "#": 248,
+      "Name": "FOR EVALUATION"
+    },
+    {
+      "#": 249,
+      "Name": "BLINKING INDICATOR"
+    },
+    {
+      "#": 250,
+      "Name": "AUTO DISCHARGE"
+    },
+    {
+      "#": 251,
+      "Name": "AUTO SWITCH ON/OFF"
+    },
+    {
+      "#": 252,
+      "Name": "SUDDEN STOP"
+    },
+    {
+      "#": 253,
+      "Name": "WIFI MALFUNCTION"
+    },
+    {
+      "#": 254,
+      "Name": "INSECT INSIDE UNIT"
+    },
+    {
+      "#": 255,
+      "Name": "BLACK SCREEN"
+    },
+    {
+      "#": 256,
+      "Name": "DEFECTIVE THERMOSTAT"
+    },
+    {
+      "#": 257,
+      "Name": "CLOGGED EVAPORATOR"
+    },
+    {
+      "#": 258,
+      "Name": "FOR REPAIR"
+    },
+    {
+      "#": 259,
+      "Name": "BURNED PLUGGED"
+    },
+    {
+      "#": 260,
+      "Name": "SENSOR BOARD"
+    },
+    {
+      "#": 261,
+      "Name": "LOOSE NUB"
+    },
+    {
+      "#": 262,
+      "Name": "PANEL WITH LINE"
+    },
+    {
+      "#": 263,
+      "Name": "AUTO CHANNEL"
+    },
+    {
+      "#": 264,
+      "Name": "DAMAGE PIPE"
+    },
+    {
+      "#": 265,
+      "Name": "CRACKED TUBE"
+    },
+    {
+      "#": 266,
+      "Name": "NO SIGNAL"
+    },
+    {
+      "#": 267,
+      "Name": "UNUSUAL SOUND"
+    },
+    {
+      "#": 268,
+      "Name": "DRYER NOT FUNCTION"
+    },
+    {
+      "#": 269,
+      "Name": "VENT EVAPORATOR"
+    },
+    {
+      "#": 270,
+      "Name": "CRACKED"
+    },
+    {
+      "#": 271,
+      "Name": "LOOSE"
+    },
+    {
+      "#": 272,
+      "Name": "HDMI NOT WORKING"
+    },
+    {
+      "#": 273,
+      "Name": "LOOSE FILTER"
+    },
+    {
+      "#": 274,
+      "Name": "IGNITER NOT FUNCTION"
+    },
+    {
+      "#": 275,
+      "Name": "NOT FREEZING"
+    },
+    {
+      "#": 276,
+      "Name": "DOOR CANT CLOSE"
+    },
+    {
+      "#": 277,
+      "Name": "CAN'T READ CD &DVD"
+    },
+    {
+      "#": 278,
+      "Name": "FAN NOT FUNCTIONING"
+    },
+    {
+      "#": 279,
+      "Name": "CANT DISPENSE"
+    },
+    {
+      "#": 280,
+      "Name": "DISALIGN PIPE"
+    },
+    {
+      "#": 281,
+      "Name": "BACK LIGHT"
+    },
+    {
+      "#": 282,
+      "Name": "UNUSUAL SMELL"
+    },
+    {
+      "#": 283,
+      "Name": "AUTO TUNNING"
+    },
+    {
+      "#": 284,
+      "Name": "DOUBLE IMAGE'"
+    },
+    {
+      "#": 285,
+      "Name": "OVER FLOW"
+    },
+    {
+      "#": 286,
+      "Name": "DELAYED DISPLAY"
+    },
+    {
+      "#": 287,
+      "Name": "DEAD PIXEL"
+    },
+    {
+      "#": 288,
+      "Name": "LOW FIRE"
+    },
+    {
+      "#": 289,
+      "Name": "LAGGING"
+    },
+    {
+      "#": 290,
+      "Name": "STUCK UP WATER"
+    },
+    {
+      "#": 291,
+      "Name": "HANG LOGO"
+    },
+    {
+      "#": 292,
+      "Name": "CLOGGED"
+    },
+    {
+      "#": 293,
+      "Name": "LOW VOLUME"
+    },
+    {
+      "#": 294,
+      "Name": "POOR SPINNING"
+    },
+    {
+      "#": 295,
+      "Name": "DEAD SET"
+    },
+    {
+      "#": 296,
+      "Name": "STUCK UP IGNITER"
+    },
+    {
+      "#": 297,
+      "Name": "STUCK UP THERMOSTAT"
+    },
+    {
+      "#": 298,
+      "Name": "FOR WALL PUTTY"
+    },
+    {
+      "#": 299,
+      "Name": "CAN'T CONNECT"
+    },
+    {
+      "#": 300,
+      "Name": "CAN'T SUPPLY WATER"
+    },
+    {
+      "#": 301,
+      "Name": "BROKEN PANEL"
+    },
+    {
+      "#": 302,
+      "Name": "DISALIGNED BODY TUB"
+    },
+    {
+      "#": 303,
+      "Name": "AUTO PROGRAM"
+    },
+    {
+      "#": 304,
+      "Name": "DEFECTIVE FREEZER"
+    },
+    {
+      "#": 305,
+      "Name": "DISALIGNED"
+    },
+    {
+      "#": 306,
+      "Name": "DEFECTIVE DRYER"
+    },
+    {
+      "#": 307,
+      "Name": "SMUDGE"
+    },
+    {
+      "#": 308,
+      "Name": "SYSTEM REPROCESS"
+    },
+    {
+      "#": 309,
+      "Name": "DEFECTIVE NUB"
+    },
+    {
+      "#": 310,
+      "Name": "SLOW FIRE"
+    },
+    {
+      "#": 311,
+      "Name": "HIGH FLAME"
+    },
+    {
+      "#": 312,
+      "Name": "AUTO DISCONNECT"
+    },
+    {
+      "#": 313,
+      "Name": "BLINKING LIGHT"
+    },
+    {
+      "#": 314,
+      "Name": "INVERTED SUNCTION"
+    },
+    {
+      "#": 315,
+      "Name": "BITEN BY RAT"
+    },
+    {
+      "#": 316,
+      "Name": "HOLE IN CONDENSER"
+    },
+    {
+      "#": 317,
+      "Name": "SMOKE IN THE BACK"
+    },
+    {
+      "#": 318,
+      "Name": "SMOKE IN DRYER"
+    },
+    {
+      "#": 319,
+      "Name": "RED ON SCREEN"
+    },
+    {
+      "#": 320,
+      "Name": "RE-PIPING"
+    },
+    {
+      "#": 321,
+      "Name": "RUBBER ADDING"
+    },
+    {
+      "#": 322,
+      "Name": "DEFECTIVE USB PORT"
+    },
+    {
+      "#": 323,
+      "Name": "NO FLAME"
+    },
+    {
+      "#": 324,
+      "Name": "PLASTERED"
+    },
+    {
+      "#": 325,
+      "Name": "BULDGED"
+    },
+    {
+      "#": 326,
+      "Name": "INVERTED LOGO"
+    },
+    {
+      "#": 327,
+      "Name": "FRAME GAP"
+    },
+    {
+      "#": 328,
+      "Name": "BURNER NOT FUNCTION"
+    },
+    {
+      "#": 329,
+      "Name": "DEFECTIVE FREZEER"
+    },
+    {
+      "#": 330,
+      "Name": "OVEN NOT FUNCTIONING"
+    },
+    {
+      "#": 331,
+      "Name": "STAND BY TEMPERATURE"
+    },
+    {
+      "#": 332,
+      "Name": "SETTING NOT FUNCTION"
+    },
+    {
+      "#": 333,
+      "Name": "DETACHED COVER"
+    },
+    {
+      "#": 334,
+      "Name": "SENSOR NOT WORKING"
+    },
+    {
+      "#": 335,
+      "Name": "NOT DEFROSTING"
+    },
+    {
+      "#": 336,
+      "Name": "TIGHT GASKET"
+    },
+    {
+      "#": 337,
+      "Name": "CAN'T PRINT"
+    },
+    {
+      "#": 338,
+      "Name": "DETACHED HANDLE"
+    },
+    {
+      "#": 339,
+      "Name": "AC CORD BURNT"
+    },
+    {
+      "#": 340,
+      "Name": "DEFECTIVE BUTTON"
+    },
+    {
+      "#": 341,
+      "Name": "OVER SPINNING"
+    },
+    {
+      "#": 342,
+      "Name": "LOOSE BULB"
+    },
+    {
+      "#": 343,
+      "Name": "FOR SET UP"
+    },
+    {
+      "#": 344,
+      "Name": "PAPER JAM"
+    },
+    {
+      "#": 345,
+      "Name": "INK LEAK"
+    },
+    {
+      "#": 346,
+      "Name": "DOOR CAN'T OPEN"
+    },
+    {
+      "#": 347,
+      "Name": "CLOOGED JOCK"
+    },
+    {
+      "#": 348,
+      "Name": "DEFECTIVE PAPER FEED"
+    },
+    {
+      "#": 349,
+      "Name": "DEFECTIVE GRILL"
+    },
+    {
+      "#": 350,
+      "Name": "DAMAGE PARTS"
+    },
+    {
+      "#": 351,
+      "Name": "DEFECTIVE BURNER"
+    },
+    {
+      "#": 352,
+      "Name": "BURNT SMELL"
+    },
+    {
+      "#": 353,
+      "Name": "NOT FEEDING PAPER"
+    },
+    {
+      "#": 354,
+      "Name": "DETACHED HOSE"
+    },
+    {
+      "#": 355,
+      "Name": "INCOMPLETE PRINT OUT"
+    },
+    {
+      "#": 356,
+      "Name": "INVERTED DISPLAY"
+    },
+    {
+      "#": 357,
+      "Name": "FOR TESTING"
+    },
+    {
+      "#": 358,
+      "Name": "DETACHED DOOR"
+    },
+    {
+      "#": 359,
+      "Name": "POOR DISPLAY"
+    },
+    {
+      "#": 360,
+      "Name": "DEFECTIVE LIGHT"
+    },
+    {
+      "#": 361,
+      "Name": "CORD BITTEN BY RAT"
+    },
+    {
+      "#": 362,
+      "Name": "DEFECTIVE SCANNER"
+    },
+    {
+      "#": 363,
+      "Name": "DEFECTIVE MOTOR"
+    },
+    {
+      "#": 364,
+      "Name": "CAN'T OPEN"
+    },
+    {
+      "#": 365,
+      "Name": "QUALITY ISSUE"
+    },
+    {
+      "#": 366,
+      "Name": "LOOSE DOOR"
+    },
+    {
+      "#": 367,
+      "Name": "DEFECTIVE FILTER"
+    },
+    {
+      "#": 368,
+      "Name": "FOR RELLOCATION"
+    },
+    {
+      "#": 369,
+      "Name": "WASHER NOT FUNCTION"
+    },
+    {
+      "#": 370,
+      "Name": "EXPLODE UNIT"
+    },
+    {
+      "#": 371,
+      "Name": "SMOKE IN WASH AREA"
+    },
+    {
+      "#": 372,
+      "Name": "STUCK UP NUB"
+    },
+    {
+      "#": 373,
+      "Name": "NO CONNECTION"
+    },
+    {
+      "#": 374,
+      "Name": "DEFECTIVE GEAR BOX"
+    },
+    {
+      "#": 375,
+      "Name": "DEFECTIVE SPEAKER"
+    },
+    {
+      "#": 376,
+      "Name": "CONTINOUS POURING"
+    },
+    {
+      "#": 377,
+      "Name": "OVER FREEZING"
+    },
+    {
+      "#": 378,
+      "Name": "DEFECTIVE HOSE"
+    },
+    {
+      "#": 379,
+      "Name": "SPEAKER NOT FUNCTION"
+    },
+    {
+      "#": 380,
+      "Name": "DISALIGNED BRACKET"
+    },
+    {
+      "#": 381,
+      "Name": "NOT SPINNING DRYER"
+    },
+    {
+      "#": 382
+    },
+    {
+      "#": 383,
+      "Name": "N/A"
+    }
+ 
+]

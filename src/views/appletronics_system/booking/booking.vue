@@ -174,7 +174,7 @@
                           required
                           dense
                         ></v-select>
-                        <v-chip x-medium class="ma-2">DATE PURCHASE *</v-chip
+                        <v-chip x-medium class="ma-2">DATE PURCHASE </v-chip
                         ><br />
                         <v-menu
                             ref="menu1"
@@ -1616,8 +1616,17 @@ export default {
          this.usagedetailsListDown.location = res.data.level
     })
     regions().then((region) => (this.addressesListDown.region = region));
-
+    
     this.usersData = this.$store.state.currentUser;
+     fetch(this.$URLs.backend+"/api/random/exec")
+        .then((res) => res.clone().json())
+        .then((res) => {
+          this.itemsAuto = res;
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => (this.isLoading = false));
   },
   computed: {
 

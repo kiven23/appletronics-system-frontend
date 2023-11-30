@@ -52,7 +52,8 @@ import revolving_fund from "../views/revolving_fund/revolving_fund.vue";
 
 //Raffle Draw
 import raffle from "../components/standalone/raffle.vue";
-
+//Maintenance Mode
+import maintenance from "../components/standalone/maintenance.vue";
 //SmS Gift Code
 import giftcode from "../views/sms_system/automated_giftcode/giftcode.vue";
 
@@ -359,6 +360,14 @@ const viewRoutes = [
     path: "/raffle",
     component: raffle,
     name: "raffle",
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path: "/maintenance",
+    component: maintenance,
+    name: "maintenance",
     meta: {
       requiresAuth: false
     }

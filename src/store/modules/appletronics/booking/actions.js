@@ -36,6 +36,7 @@ const UPDATESERIAL = rootUrl + "/api/booking/jobs/updateserial"
 const CLOSERESTORE = rootUrl + "/api/booking/restore/close"
 //FETCHUNIT
 const FETCHUNITFIELDS = rootUrl + "/api/fetch/fields/units"
+const PRINTREQUEST = rootUrl + "/api/appletronics/reports/requestform"
 const actions = {
   storeBooking(context, data) {
     
@@ -282,6 +283,11 @@ const actions = {
   },
   getCat(context, data){
     return axios.get(SPECAT+"?cat="+data).then((res)=>{
+      return res
+    })
+  },
+  printrequest(context, data){
+    return axios.get(PRINTREQUEST+"?id="+data).then((res)=>{
       return res
     })
   }
