@@ -83,12 +83,20 @@ import databaseconfigure from "../views/settings/database/configure.vue";
 
 
 
-//APPLETRONICS ROUTE
+//APPLETRONICS ROUTE BOOKING
 import booking from "../views/appletronics_system/booking/booking.vue";
 import jobs from "../views/appletronics_system/booking/jobs.vue";
 import scalate from "../views/appletronics_system/booking/scalate/scalate.vue"
 import booking_fields from "../views/appletronics_system/booking/booking_fields/custom_fields.vue"
 import booking_items from "../views/appletronics_system/booking/booking_fields/items.vue"
+
+//APPLETRONICS ROUTE FOR TECHNICIAN
+import calendar from "../views/appletronics_system/technician/calendar.vue";
+import itinerary from "../views/appletronics_system/technician/itinerary.vue";
+import myjobs from "../views/appletronics_system/technician/myjobs.vue";
+import orderedpart from "../views/appletronics_system/technician/orderedparts.vue";
+
+
 const viewRoutes = [
   {
     path: "/",
@@ -528,6 +536,42 @@ const viewRoutes = [
         requiresAuth: true
       }
     },
+    //TECHNICIAN PARTS
+  
+    {
+      path: "/app/tech/calendar",
+      component: calendar,
+      name: "calendar",
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/app/tech/itinerary",
+      component: itinerary,
+      name: "itinerary",
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/app/tech/myjob",
+      component: myjobs,
+      name: "myjobs",
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/app/tech/orderparts",
+      component: orderedpart,
+      name: "orderedpart",
+      meta: {
+        requiresAuth: true
+      }
+    },
+
+    //END TECHNICIAN
 
  
   

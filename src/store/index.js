@@ -104,9 +104,11 @@ import searching_of_vehicles_parts from "./modules/sap_reports/searching_of_vehi
 import summary_of_customer_depostiapplied from "./modules/sap_reports/summary_of_customer_depositapplied/index";
 
 
-//APPLETRONICS SYSTEM
+//APPLETRONICS BOOKING SYSTEM
 import appletronics_booking from "./modules/appletronics/booking/index"
-
+ 
+//APPLETRONICS TECHNICIAN SYSTEM
+import appletronics_technician from "./modules/appletronics/technician/index"
 
 
 
@@ -179,8 +181,9 @@ export default new Vuex.Store({
      summary_of_customer_depostiapplied: summary_of_customer_depostiapplied,
 
      //APPLETRONICS BOOKING SYSTEM
-     app_booking_sys: appletronics_booking
- 
+     app_booking_sys: appletronics_booking,
+    //APPLETRONICS TECHNICIAN SYSTEM
+     app_technician_sys: appletronics_technician
 
   },
   state: {
