@@ -230,21 +230,11 @@
             </v-btn>
             <v-toolbar-title
               ><strong>DETAILS</strong>
-              
-              
             </v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-toolbar-items>
-              <v-btn x-small @click="print(jobsData.id)">
-                <v-icon>mdi-printer</v-icon>
-              </v-btn></v-toolbar-items
-            >
           </v-toolbar>
-
-          
            <v-row no-gutters>
                   <v-col cols="12" sm="8">
-                     <v-list three-line subheader>
+                     <v-list three-line subheader dense>
                       <v-subheader>SERVICE DETAILS</v-subheader>
                       <v-list-item>
                         <v-list-item-content>
@@ -253,17 +243,19 @@
                                     :headers="serviceheader"
                                     :items="serviceitems"
                                     hide-default-footer
+                                    dense
                               ></v-data-table>
                                <v-data-table
                                     :headers="serviceheader2"
                                     :items="serviceitems"
                                     hide-default-footer
+                                    dense
                               ></v-data-table>
                           </v-card>
                         </v-list-item-content>
                       </v-list-item>
                     </v-list>
-                    <v-list three-line subheader>
+                    <v-list three-line subheader dense>
                       <v-subheader>ITEM DETAILS</v-subheader>
                       <v-list-item>
                         <v-list-item-content>
@@ -271,12 +263,13 @@
                                     :headers="itemsdetails"
                                     :items="serviceitems"
                                     hide-default-footer
+                                    dense
                               ></v-data-table>
                               </v-card>
                         </v-list-item-content>
                       </v-list-item>
                     </v-list>
-                    <v-list three-line subheader>
+                    <v-list three-line subheader dense>
                       <v-subheader>CLIENT DETAILS</v-subheader>
                       <v-list-item>
                         <v-list-item-content>
@@ -284,11 +277,12 @@
                                     :headers="clientdetails"
                                     :items="serviceitems"
                                     hide-default-footer
+                                    dense
                               ></v-data-table></v-card>
                         </v-list-item-content>
                       </v-list-item>
                     </v-list>
-                    <v-list three-line subheader>
+                    <v-list three-line subheader dense>
                       <v-subheader>CLIENT ADDRESS</v-subheader>
                       <v-list-item>
                         <v-list-item-content>
@@ -296,13 +290,14 @@
                                     :headers="clientaddress"
                                     :items="serviceitems"
                                     hide-default-footer
+                                    dense
                               ></v-data-table></v-card>
                         </v-list-item-content>
                       </v-list-item>
                     </v-list>
                   </v-col>
                    <v-col cols="12" sm="4">
-                    <v-list three-line subheader>
+                    <v-list three-line subheader dense>
                       <v-subheader>ACTIONS</v-subheader>
                       <v-list-item>
                         <v-list-item-content>
@@ -328,22 +323,302 @@
                                 <v-tabs-items v-model="tab">
                                   <v-tab-item>
                                     <v-card flat>
-                                      <v-card-text >1</v-card-text>
+                                      <v-card-text >
+                                          <v-autocomplete
+                                                auto-select-first
+                                                chips
+                                                deletable-chips
+                                                dense
+                                                rounded
+                                                small-chips
+                                                solo
+                                                label='Select Technician'
+                                              >
+                                          </v-autocomplete>
+                                          <v-autocomplete
+                                                auto-select-first
+                                                chips
+                                                deletable-chips
+                                                dense
+                                                rounded
+                                                small-chips
+                                                solo
+                                                label='Transfer Reason'
+                                              >
+                                          </v-autocomplete>
+                                           <v-textarea
+                                                outlined
+                                                name="input-7-4"
+                                                label="Remarks"
+                                                 
+                                              ></v-textarea>
+                                              <v-bottom-sheet
+                                                    v-model="sheet"
+                                                    persistent
+                                                  >
+                                                    <template v-slot:activator="{ on, attrs }">
+                                                      <v-btn
+                                                        color="green"
+                                                        dark
+                                                        v-bind="attrs"
+                                                        v-on="on"
+                                                      >
+                                                        TRANSFER
+                                                      </v-btn>
+                                                    </template>
+                                                    <v-sheet
+                                                      class="text-center"
+                                                      height="200px"
+                                                    >
+                                                      <v-btn
+                                                        class="mt-6"
+                                                        text
+                                                        color="error"
+                                                        @click="sheet = !sheet"
+                                                      >
+                                                        close
+                                                      </v-btn>
+                                                      <div class="py-3">
+                                                        
+WARNING: IRREVERSIBLE ACTION
+
+⚠️ CAUTION: YOU CANNOT REVERT THIS ACTION ONCE YOU TRANSFER
+
+Proceeding with this transfer will result in permanent changes that cannot be undone. Please ensure that you have verified all details and are certain about the recipient and the amount before initiating the transfer.<br><strong>To proceed with the transfer, click "PROCEED." If you do not wish to proceed, click "CLOSE."</strong>
+                                                      
+                                                      </div><v-btn
+                                                      elevation="2"
+                                                      color="primary"
+                                                      outlined
+                                                      small
+                                                      x-small
+                                                        >
+                                                    PROCEED</v-btn>
+                                                    </v-sheet>
+                                                  </v-bottom-sheet>
+                                        </v-card-text>
                                     </v-card>
                                   </v-tab-item>
                                   <v-tab-item>
                                     <v-card flat>
-                                      <v-card-text >2</v-card-text>
+                                      <v-card-text >
+                                        <v-autocomplete
+                                                    auto-select-first
+                                                    chips
+                                                    deletable-chips
+                                                    dense
+                                                    rounded
+                                                    small-chips
+                                                    solo
+                                                    label='Reschedule Reason'
+                                              >
+                                          </v-autocomplete>
+                                          <v-textarea
+                                                outlined
+                                                name="input-7-4"
+                                                label="Remarks"
+                                                 
+                                          ></v-textarea>
+                                           <v-date-picker v-model="scheduledate" :landscape='true'></v-date-picker>
+                                            
+                                            <v-bottom-sheet
+                                                    v-model="sheet"
+                                                    persistent
+                                                  >
+                                                    <template v-slot:activator="{ on, attrs }">
+                                                     
+                                                      <v-btn
+                                                        color="green"
+                                                        dark
+                                                        v-bind="attrs"
+                                                        v-on="on"
+                                                        style="margin-top: 10px;"
+                                                      >
+                                                        RESCHEDULE
+                                                      </v-btn>
+                                                    </template>
+                                                    <v-sheet
+                                                      class="text-center"
+                                                      height="200px"
+                                                    >
+                                                      <v-btn
+                                                        class="mt-6"
+                                                        text
+                                                        color="error"
+                                                        @click="sheet = !sheet"
+                                                      >
+                                                        close
+                                                      </v-btn>
+                                                      <div class="py-3">
+                                                        
+WARNING: IRREVERSIBLE ACTION
+
+⚠️ CAUTION: YOU CANNOT REVERT THIS ACTION ONCE YOU RESCHEDULE
+
+Proceeding with this action will result in permanent changes that cannot be undone. Please ensure that you have verified all details and are certain about the recipient and the amount before initiating the action.<br><strong>To proceed with the action, click "PROCEED." If you do not wish to proceed, click "CLOSE."</strong>
+                                                      
+                                                      </div><v-btn
+                                                      elevation="2"
+                                                      color="primary"
+                                                      outlined
+                                                      small
+                                                      x-small
+                                                        >
+                                                    PROCEED</v-btn>
+                                                    </v-sheet>
+                                                  </v-bottom-sheet>
+                                          </v-card-text>
                                     </v-card>
                                   </v-tab-item>
                                   <v-tab-item>
                                     <v-card flat>
-                                      <v-card-text >3</v-card-text>
+                                      <v-card-text >
+
+                                         <v-autocomplete
+                                                auto-select-first
+                                                chips
+                                                deletable-chips
+                                                dense
+                                                rounded
+                                                small-chips
+                                                solo
+                                                label='Escalate to'
+                                              >
+                                          </v-autocomplete>
+                                          <v-autocomplete
+                                                auto-select-first
+                                                chips
+                                                deletable-chips
+                                                dense
+                                                rounded
+                                                small-chips
+                                                solo
+                                                label='Reason of Escalation'
+                                              >
+                                          </v-autocomplete>
+                                           <v-textarea
+                                                outlined
+                                                name="input-7-4"
+                                                label="Remarks"
+                                                 
+                                              ></v-textarea>
+                                              <v-bottom-sheet
+                                                    v-model="sheet"
+                                                    persistent
+                                                  >
+                                                    <template v-slot:activator="{ on, attrs }">
+                                                      <v-btn
+                                                        color="green"
+                                                        dark
+                                                        v-bind="attrs"
+                                                        v-on="on"
+                                                      >
+                                                        ESCALATE
+                                                      </v-btn>
+                                                    </template>
+                                                    <v-sheet
+                                                      class="text-center"
+                                                      height="200px"
+                                                    >
+                                                      <v-btn
+                                                        class="mt-6"
+                                                        text
+                                                        color="error"
+                                                        @click="sheet = !sheet"
+                                                      >
+                                                        close
+                                                      </v-btn>
+                                                      <div class="py-3">
+                                                        
+WARNING: IRREVERSIBLE ACTION
+
+⚠️ CAUTION: YOU CANNOT REVERT THIS ACTION ONCE YOU ESCALATE
+
+Proceeding with this action will result in permanent changes that cannot be undone. Please ensure that you have verified all details and are certain about the recipient and the amount before initiating the transfer.<br><strong>To proceed with the action, click "PROCEED." If you do not wish to proceed, click "CLOSE."</strong>
+                                                      
+                                                      </div><v-btn
+                                                      elevation="2"
+                                                      color="primary"
+                                                      outlined
+                                                      small
+                                                      x-small
+                                                        >
+                                                    PROCEED</v-btn>
+                                                    </v-sheet>
+                                                  </v-bottom-sheet>
+
+
+                                      </v-card-text>
                                     </v-card>
                                   </v-tab-item>
                                   <v-tab-item>
                                     <v-card flat>
-                                      <v-card-text >4</v-card-text>
+                                      <v-card-text >
+
+                                        
+                                          <v-autocomplete
+                                                auto-select-first
+                                                chips
+                                                deletable-chips
+                                                dense
+                                                rounded
+                                                small-chips
+                                                solo
+                                                label='Reject Reason'
+                                              >
+                                          </v-autocomplete>
+                                           <v-textarea
+                                                outlined
+                                                name="input-7-4"
+                                                label="Remarks"
+                                                 
+                                              ></v-textarea>
+                                              <v-bottom-sheet
+                                                    v-model="sheet"
+                                                    persistent
+                                                  >
+                                                    <template v-slot:activator="{ on, attrs }">
+                                                      <v-btn
+                                                        color="red"
+                                                        dark
+                                                        v-bind="attrs"
+                                                        v-on="on"
+                                                      >
+                                                        REJECT
+                                                      </v-btn>
+                                                    </template>
+                                                    <v-sheet
+                                                      class="text-center"
+                                                      height="200px"
+                                                    >
+                                                      <v-btn
+                                                        class="mt-6"
+                                                        text
+                                                        color="error"
+                                                        @click="sheet = !sheet"
+                                                      >
+                                                        close
+                                                      </v-btn>
+                                                      <div class="py-3">
+                                                        
+WARNING: IRREVERSIBLE ACTION
+
+⚠️ CAUTION: YOU CANNOT REVERT THIS ACTION ONCE YOU REJECT
+
+Proceeding with this transfer will result in permanent changes that cannot be undone. Please ensure that you have verified all details and are certain about the recipient and the amount before initiating the action.<br><strong>To proceed with the action, click "PROCEED." If you do not wish to proceed, click "CLOSE."</strong>
+                                                      
+                                                      </div><v-btn
+                                                      elevation="2"
+                                                      color="primary"
+                                                      outlined
+                                                      small
+                                                      x-small
+                                                        >
+                                                    PROCEED</v-btn>
+                                                    </v-sheet>
+                                                  </v-bottom-sheet>
+
+                                      </v-card-text>
                                     </v-card>
                                   </v-tab-item>
                                 </v-tabs-items>
@@ -375,9 +650,11 @@ export default {
 
   data() {
     return {
+      scheduledate: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+      sheet: false,
       tab: null,
       tabitem: [
-          'TANSFER', 'RESCHEDULE', 'ESCALATE', 'REJECT',
+          'TRANSFER', 'RESCHEDULE', 'ESCALATE', 'REJECT',
         ],
       serviceheader: [
         { text: 'CALL ID', align: 'start', value: 'callid' },
@@ -390,14 +667,12 @@ export default {
       { text: 'CALL TYPE', align: 'start', value: 'requesttype' },
       { text: 'PROBLEM TYPE', value: 'problem' },
       { text: 'CUSTOMER INSTRUCTION', value: 'specialinstruction' }
-     
       ],
        clientdetails: [
       { text: 'NAME', align: 'start', value: 'customer.fullname' },
       { text: 'BRANCH', value: 'branch.name' },
       { text: 'CONTACT NO', value: 'customer.cpnumber' },
       { text: 'CONTACT PERSON', value: 'customer.contactperson' }
-     
       ],
        itemsdetails: [
       { text: 'BRAND', align: 'start', value: 'units[0].brand' },
@@ -411,12 +686,8 @@ export default {
       { text: 'CITY', value: 'customer.mcity' },
       { text: 'PROVINCE', value: 'customer.province' },
       { text: 'LANDMARK', value: 'landmark' }
-     
       ],
       serviceitems: [],
-
-
-      printid: "",
       loadingForCount: true,
       loadingForTable: true,
       usersData: [],
@@ -427,39 +698,11 @@ export default {
       bgselected2: "",
       bgselected3: "",
       requestID: "",
-      updatesData: "",
-      reason: "",
       items: [],
-      jobsCounts: "",
-       
       jobupdateDialog: false,
-      unitsData: [],
-      perm: [],
-      reqtype: "",
-      tech: { name: "N/A", value: "N/A" },
-      jobstatus: "",
-      jobsInfo: false,
-      jobsData: {
-        customer: {
-          firstname: "",
-          lastname: "",
-          middlename: "",
-          barangay: "",
-          contactperson: "",
-          cpnumber: "",
-          emailaddress: "",
-          houseno: "",
-          mcity: "",
-          organization: "",
-          province: "",
-          specialinstruction: "",
-          street: "",
-          telephoneno: "",
-        },
-        branch: { name: "N/A" },
-      },
       search: "",
       data: [],
+      jobsInfo: false,
       headers: [
         {
           text: "Ticket No",
@@ -499,28 +742,7 @@ export default {
         { text: "City", value: "customer.mcity" },
         { text: "Barangay", value: "customer.barangay" },
         { text: "Action", value: "action" },
-      ],
-      jobstat: [
-        { name: "Unassigned", value: "Unassigned" },
-        { name: "Accepted", value: "Accepted" },
-        //{ name: "Dispatch to Other ASC", value: "Dispatch to Other ASC" },
-      ],
-      installer: [
-        { name: "N/A", value: "N/A" },
-        { name: "Mike Doe", value: "Mike Doe" },
-        { name: "Linux Doe", value: "Linux Doe" },
-        { name: "James Doe", value: "James Doe" },
-      ],
-      reasonItem: [
-        { name: "Rescheduled", value: "Rescheduled" },
-        { name: "Parts", value: "Parts" },
-        { name: "Under Observation", value: "Under Observation" },
-        { name: "Quotation Approval", value: "Quotation Approval" },
-        { name: "Waiting Permit", value: "Waiting Permit" },
-        { name: "Follow-Up", value: "Follow-Up" },
-        { name: "BP-Service Update", value: "BP-Service Update" },
-        { name: "Unit Replacement", value: "Unit Replacement" },
-      ],
+      ] 
     };
   },
 
@@ -533,36 +755,7 @@ export default {
         ? this.usersData.employment.position.id
         : "";
       return us;
-    },
-    callidError() {
-      const errors = [];
-      var RequiredError = null;
-      if (!this.$v.callid.$dirty) return errors;
-      RequiredError = "Required CALL ID";
-      !this.$v.callid.required && errors.push(RequiredError);
-      return errors;
-    },
-    techError() {
-      const errors = [];
-      var RequiredError = null;
-      if (!this.$v.tech.$dirty) return errors;
-      RequiredError = "Required CALL ID";
-      !this.$v.tech.required && errors.push(RequiredError);
-      return errors;
-    },
-    checkpermission() {
-      return this.perm.includes("Approved");
-    },
-    superadminpermission() {
-      return this.perm.includes("SuperAdmin");
-    },
-    callidIden() {
-      if (this.jobsData.status == 1 || this.jobsData.status == 2) {
-        return true;
-      } else {
-        return false;
-      }
-    },
+    } 
   },
 
   watch: {},
@@ -579,9 +772,7 @@ export default {
   },
 
   methods: {
-    unlichange(data) {
-      this.$store.dispatch("app_booking_sys/updateSerial", data);
-    },
+ 
     refresh(data) {
       this.loadingForTable = true;
       this.$store
@@ -591,88 +782,8 @@ export default {
           this.loadingForTable = false;
         });
     },
-    send() {
-      let Data;
-      Data = {
-        requestID: this.requestID,
-        reason: this.reason,
-        updates: this.updatesData,
-      };
-      this.$store.dispatch("app_booking_sys/JobsUpdate", Data).then((res) => {
-        this.items = res.data;
-        if (res.data.msg) {
-          this.$toast.open({
-            message: res.data.msg,
-            type: res.data.error,
-            // all of other options may go here
-          });
-        }
-        this.$toast.open({
-          message: "Success Sent..!",
-          type: "success",
-          // all of other options may go here
-        });
-      });
-    },
-    actions() {
-      let Data;
-      this.$v.callid.$touch();
-
-      // if(!this.$v.callid.$error ){
-      Data = {
-        requestID: this.requestID,
-        installer: this.tech,
-        status: this.jobstatus,
-        callid: this.callid,
-        installationData: this.installationdateData,
-      };
-      // if(this.jobstatus !== 'Unassigned'){
-
-      this.$store.dispatch("app_booking_sys/JobsAction", Data).then((res) => {
-        this.$toast.open({
-          message: res.data.msg,
-          type: res.data.error,
-          duration: 5000,
-          // all of other options may go here
-        });
-        this.$socket.emit("notification", 1);
-        if (res.data.type == 1) {
-          this.jobsInfo = false;
-        }
-        //this.refresh(this.selectedID);
-      });
-      //}
-
-      //  else{
-      //alert('This Action is Only Applicable on Accepted and Distpatch STATUS')
-      //  }
-
-      // }
-    },
-    print() {
-      var currentDate = new Date();
-      var id = btoa(
-        btoa(
-          btoa(
-            btoa(
-              this.printid +
-                "-" +
-                "stevefox_linux23theMaster" +
-                "-" +
-                "38840078394" +
-                currentDate
-            )
-          )
-        )
-      );
-      var second = btoa(btoa(btoa(btoa(id))));
-
-      var url = `${this.$URLs.backend}/api/appletronics/reports/requestform?print=${second}`;
-      window.open(url, "_blank");
-    },
+     
     view(data) {
-      
-    
       this.jobsInfo = true;
       console.log(data)
  
@@ -708,95 +819,11 @@ export default {
       this.selectedID = id;
       this.refresh(id);
     },
-    download(id) {
-      let ids = {
-        id: id,
-      };
-      this.$store.dispatch("app_booking_sys/salesInvoiceDownload", ids);
-    },
-    jobUpdates() {
-      this.jobupdateDialog = true;
-    },
-    onlyNumber($event) {
-      //console.log($event.keyCode); //keyCodes value
-      let keyCode = $event.keyCode ? $event.keyCode : $event.which;
-      if (keyCode < 48 || keyCode > 57) {
-        // 46 is dot
-        $event.preventDefault();
-      }
-    },
+ 
     refreshData() {
       this.refresh(this.selectedID);
     },
-    truncateString(text, maxLength) {
-      if (text.length <= maxLength) {
-        return text;
-      } else {
-        return text.substring(0, maxLength) + "...";
-      }
-    },
-    trash(data) {
-      this.$swal
-        .fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        })
-        .then((result) => {
-          if (result.isConfirmed) {
-            this.$store
-              .dispatch("app_booking_sys/TrashJobs", data)
-              .then((res) => {
-                this.$swal.fire(
-                  "Deleted!",
-                  "Your file has been deleted.",
-                  "success"
-                );
-                this.refreshData();
-              });
-          }
-        });
-    },
-    updatedserial(data) {
-      var msg;
-      if (data.serialstatus != 1) {
-        if (this.checkpermission) {
-          msg = "Please Yes to proceed.";
-        } else {
-          msg = "You won't be able to revert this. You can do this at once.";
-        }
-      }
-
-      this.$swal
-        .fire({
-          title: "Are you sure?",
-          text: msg,
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, Update Serial!",
-        })
-        .then((result) => {
-          if (result.isConfirmed) {
-            this.$store
-              .dispatch("app_booking_sys/updateSerial", data)
-              .then((res) => {
-                this.$swal.fire(
-                  "Update!",
-                  "The Serial has been update to Serial: " + data.value,
-                  "success"
-                );
-              });
-            this.refreshData();
-            this.jobsInfo = false;
-          }
-        });
-    },
+ 
   },
 };
 </script>
