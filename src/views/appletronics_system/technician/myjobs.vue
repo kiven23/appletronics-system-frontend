@@ -324,10 +324,15 @@
                                   <v-tab-item>
                                     <v-card flat>
                                       <v-card-text >
+                                         
                                           <v-autocomplete
+                                                v-model="technicianVALUE"
+                                                :items="techniciaDATA"
                                                 auto-select-first
                                                 chips
                                                 deletable-chips
+                                                item-text="name"
+                                                item-value="value"
                                                 dense
                                                 rounded
                                                 small-chips
@@ -336,6 +341,10 @@
                                               >
                                           </v-autocomplete>
                                           <v-autocomplete
+                                                v-model="transferreasonVALUE"
+                                                :items="transferReasonDATA"
+                                                item-text="name"
+                                                item-value="value"
                                                 auto-select-first
                                                 chips
                                                 deletable-chips
@@ -348,8 +357,9 @@
                                           </v-autocomplete>
                                            <v-textarea
                                                 outlined
-                                                name="input-7-4"
+                                                name="transferremarks"
                                                 label="Remarks"
+                                                v-model="transferremarksVALUE"
                                                  
                                               ></v-textarea>
                                               <v-bottom-sheet
@@ -403,6 +413,10 @@ Proceeding with this transfer will result in permanent changes that cannot be un
                                     <v-card flat>
                                       <v-card-text >
                                         <v-autocomplete
+                                                    v-model="rescheduleVALUE"
+                                                    :items="reschedulereasonDATA"
+                                                    item-text="name"
+                                                    item-value="value"
                                                     auto-select-first
                                                     chips
                                                     deletable-chips
@@ -415,7 +429,8 @@ Proceeding with this transfer will result in permanent changes that cannot be un
                                           </v-autocomplete>
                                           <v-textarea
                                                 outlined
-                                                name="input-7-4"
+                                                name="rescheduleremarks"
+                                                v-model="rescheduleremarksVALUE"
                                                 label="Remarks"
                                                  
                                           ></v-textarea>
@@ -475,6 +490,10 @@ Proceeding with this action will result in permanent changes that cannot be undo
                                       <v-card-text >
 
                                          <v-autocomplete
+                                                v-model="escalateVALUE"
+                                                :items="techniciaDATA"
+                                                item-text="name"
+                                                item-value="value"
                                                 auto-select-first
                                                 chips
                                                 deletable-chips
@@ -486,6 +505,10 @@ Proceeding with this action will result in permanent changes that cannot be undo
                                               >
                                           </v-autocomplete>
                                           <v-autocomplete
+                                                v-model="escalatereasonVALUE"
+                                                :items="escalatereasonDATA"
+                                                item-text="name"
+                                                item-value="value"
                                                 auto-select-first
                                                 chips
                                                 deletable-chips
@@ -498,8 +521,9 @@ Proceeding with this action will result in permanent changes that cannot be undo
                                           </v-autocomplete>
                                            <v-textarea
                                                 outlined
-                                                name="input-7-4"
+                                                name="escalatesremarks"
                                                 label="Remarks"
+                                                v-model="escalateremarksVALUE"
                                                  
                                               ></v-textarea>
                                               <v-bottom-sheet
@@ -555,8 +579,11 @@ Proceeding with this action will result in permanent changes that cannot be undo
                                     <v-card flat>
                                       <v-card-text >
 
-                                        
                                           <v-autocomplete
+                                                v-model="rejectreasonVALUE"
+                                                :items="rejectreasonDATA"
+                                                item-text="name"
+                                                item-value="value"
                                                 auto-select-first
                                                 chips
                                                 deletable-chips
@@ -569,8 +596,9 @@ Proceeding with this action will result in permanent changes that cannot be undo
                                           </v-autocomplete>
                                            <v-textarea
                                                 outlined
-                                                name="input-7-4"
+                                                name="rejectremarks"
                                                 label="Remarks"
+                                                v-model="rejectremarksVALUE"
                                                  
                                               ></v-textarea>
                                               <v-bottom-sheet
@@ -650,6 +678,30 @@ export default {
 
   data() {
     return {
+      //LIST DATA
+      techniciaDATA: [],
+      transferReasonDATA: [{name: 'TRANSFER REASON 1', value: 'SAMPLE REASON 1'},{name: 'SAMPLE REASON 2', value: 'SAMPLE REASON 2'}],
+      reschedulereasonDATA: [{name: 'SCHEDULE REASON 1', value: 'SCHEDULE REASON 1'},{name: 'SCHEDULE REASON 2', value: 'SCHEDULE REASON 2'}],
+      escalatereasonDATA: [{name: 'ESCALATE REASON 1', value: 'ESCALATE REASON 1'},{name: 'ESCALATE REASON 2', value: 'ESCALATE REASON 2'}],
+      rejectreasonDATA: [{name: 'REJECT REASON 1', value: 'REJECT REASON 1'},{name: 'REJECT REASON 2', value: 'REJECT REASON 2'}],
+     //V-MODEL DATA
+      //TRANSFER
+      technicianVALUE: '',
+      transferreasonVALUE: '',
+      transferremarksVALUE: '',
+      //RESCHEDULE
+      rescheduleVALUE: '',
+      rescheduleremarksVALUE: '',
+      //ESCALATE
+      escalateVALUE: '',
+      escalatereasonVALUE: '',
+      escalateremarksVALUE: '',
+      //REJECT
+      rejectreasonVALUE: '',
+      rejectremarksVALUE: '',
+
+
+
       scheduledate: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
       sheet: false,
       tab: null,
@@ -763,6 +815,13 @@ export default {
   mounted() {
     this.$store.dispatch("app_technician_sys/fetchMyJobs").then((res) => {
       this.data = res.data;
+      var tech = [];
+      var technician = this.data.count.technician
+      technician.forEach((item, index)=>{
+        tech.push({name: item.lastName+', '+item.firstName ,  value: item.lastName+', '+item.firstName}) 
+      })
+      this.techniciaDATA = tech
+
     });
     this.$store.dispatch("userPermissions/fetchPermission").then((res) => {
       this.perm = res.data;
