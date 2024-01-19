@@ -90,11 +90,14 @@ import scalate from "../views/appletronics_system/booking/scalate/scalate.vue"
 import booking_fields from "../views/appletronics_system/booking/booking_fields/custom_fields.vue"
 import booking_items from "../views/appletronics_system/booking/booking_fields/items.vue"
 
-//APPLETRONICS ROUTE FOR TECHNICIAN
+//APPLETRONICS ROUTE FOR TECHNICIAN\import orderedpart from "../views/appletronics_system/technician/orderedparts.vue";
+import dashboard from "../views/appletronics_system/technician/dashboard.vue";
 import calendar from "../views/appletronics_system/technician/calendar.vue";
 import itinerary from "../views/appletronics_system/technician/itinerary.vue";
 import myjobs from "../views/appletronics_system/technician/myjobs.vue";
 import orderedpart from "../views/appletronics_system/technician/orderedparts.vue";
+//TECHNICIAN ADMIN VIEW
+import techjobsqueue from "../views/appletronics_system/technician/admin/queue.vue";
 
 
 const viewRoutes = [
@@ -570,6 +573,22 @@ const viewRoutes = [
         requiresAuth: true
       }
     },
+    {
+      path: "/app/tech/dashboard",
+      component: dashboard,
+      name: "dashboard",
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/app/tech/admin/jobs",
+      component: techjobsqueue,
+      name: "techjobsqueue",
+      meta: {
+        requiresAuth: true
+      }
+    }
 
     //END TECHNICIAN
 

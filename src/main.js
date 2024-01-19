@@ -20,7 +20,9 @@ Vue.prototype.$URLs = URLs;
 import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.use(VueToast);
 Vue.use(VueSweetalert2);
+import VueApexCharts from 'vue-apexcharts'
 
+Vue.component('apexchart', VueApexCharts)
  
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 

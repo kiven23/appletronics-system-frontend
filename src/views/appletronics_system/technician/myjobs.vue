@@ -166,16 +166,7 @@
                 {{ da.prodcategories }}
               </div>
             </template>
-            <template v-slot:item.notes="{ item }">
-              <v-tooltip bottom>
-                <template v-slot:activator="{ on, attrs }">
-                  <span v-bind="attrs" v-on="on">{{
-                    truncateString(item.notes, 15)
-                  }}</span>
-                </template>
-                <span>{{ item.notes }}</span>
-              </v-tooltip>
-            </template>
+       
             <template v-slot:item.action="{ item }">
               <!-- <vs-button border @click="view(item)"> View </vs-button>
           <vs-button border @click="view(item)"> Trash </vs-button> -->
@@ -363,7 +354,7 @@
                                                  
                                               ></v-textarea>
                                               <v-bottom-sheet
-                                                    v-model="sheet"
+                                                    v-model="sheet1"
                                                     persistent
                                                   >
                                                     <template v-slot:activator="{ on, attrs }">
@@ -384,7 +375,7 @@
                                                         class="mt-6"
                                                         text
                                                         color="error"
-                                                        @click="sheet = !sheet"
+                                                        @click="sheet1 = !sheet1"
                                                       >
                                                         close
                                                       </v-btn>
@@ -396,14 +387,17 @@ WARNING: IRREVERSIBLE ACTION
 
 Proceeding with this transfer will result in permanent changes that cannot be undone. Please ensure that you have verified all details and are certain about the recipient and the amount before initiating the transfer.<br><strong>To proceed with the transfer, click "PROCEED." If you do not wish to proceed, click "CLOSE."</strong>
                                                       
-                                                      </div><v-btn
+                                                      </div>
+                                                      <v-btn
                                                       elevation="2"
                                                       color="primary"
                                                       outlined
                                                       small
                                                       x-small
+                                                      @click="proceed(1)"
                                                         >
-                                                    PROCEED</v-btn>
+                                                    TRANSFER
+                                                    </v-btn>
                                                     </v-sheet>
                                                   </v-bottom-sheet>
                                         </v-card-text>
@@ -437,7 +431,7 @@ Proceeding with this transfer will result in permanent changes that cannot be un
                                            <v-date-picker v-model="scheduledate" :landscape='true'></v-date-picker>
                                             
                                             <v-bottom-sheet
-                                                    v-model="sheet"
+                                                    v-model="sheet2"
                                                     persistent
                                                   >
                                                     <template v-slot:activator="{ on, attrs }">
@@ -460,7 +454,7 @@ Proceeding with this transfer will result in permanent changes that cannot be un
                                                         class="mt-6"
                                                         text
                                                         color="error"
-                                                        @click="sheet = !sheet"
+                                                        @click="sheet2 = !sheet2"
                                                       >
                                                         close
                                                       </v-btn>
@@ -478,6 +472,7 @@ Proceeding with this action will result in permanent changes that cannot be undo
                                                       outlined
                                                       small
                                                       x-small
+                                                      @click="proceed(2)"
                                                         >
                                                     PROCEED</v-btn>
                                                     </v-sheet>
@@ -491,7 +486,7 @@ Proceeding with this action will result in permanent changes that cannot be undo
 
                                          <v-autocomplete
                                                 v-model="escalateVALUE"
-                                                :items="techniciaDATA"
+                                                :items="escalatetoDATA"
                                                 item-text="name"
                                                 item-value="value"
                                                 auto-select-first
@@ -527,7 +522,7 @@ Proceeding with this action will result in permanent changes that cannot be undo
                                                  
                                               ></v-textarea>
                                               <v-bottom-sheet
-                                                    v-model="sheet"
+                                                    v-model="sheet3"
                                                     persistent
                                                   >
                                                     <template v-slot:activator="{ on, attrs }">
@@ -548,7 +543,7 @@ Proceeding with this action will result in permanent changes that cannot be undo
                                                         class="mt-6"
                                                         text
                                                         color="error"
-                                                        @click="sheet = !sheet"
+                                                        @click="sheet3 = !sheet3"
                                                       >
                                                         close
                                                       </v-btn>
@@ -566,6 +561,7 @@ Proceeding with this action will result in permanent changes that cannot be undo
                                                       outlined
                                                       small
                                                       x-small
+                                                      @click="proceed(3)"
                                                         >
                                                     PROCEED</v-btn>
                                                     </v-sheet>
@@ -602,7 +598,7 @@ Proceeding with this action will result in permanent changes that cannot be undo
                                                  
                                               ></v-textarea>
                                               <v-bottom-sheet
-                                                    v-model="sheet"
+                                                    v-model="sheet4"
                                                     persistent
                                                   >
                                                     <template v-slot:activator="{ on, attrs }">
@@ -623,7 +619,7 @@ Proceeding with this action will result in permanent changes that cannot be undo
                                                         class="mt-6"
                                                         text
                                                         color="error"
-                                                        @click="sheet = !sheet"
+                                                        @click="sheet4 = !sheet4"
                                                       >
                                                         close
                                                       </v-btn>
@@ -641,6 +637,7 @@ Proceeding with this transfer will result in permanent changes that cannot be un
                                                       outlined
                                                       small
                                                       x-small
+                                                      @click="proceed(4)"
                                                         >
                                                     PROCEED</v-btn>
                                                     </v-sheet>
@@ -678,13 +675,18 @@ export default {
 
   data() {
     return {
+      //TECHNICIANNAME
+      techname:'',
+
       //LIST DATA
       techniciaDATA: [],
-      transferReasonDATA: [{name: 'TRANSFER REASON 1', value: 'SAMPLE REASON 1'},{name: 'SAMPLE REASON 2', value: 'SAMPLE REASON 2'}],
-      reschedulereasonDATA: [{name: 'SCHEDULE REASON 1', value: 'SCHEDULE REASON 1'},{name: 'SCHEDULE REASON 2', value: 'SCHEDULE REASON 2'}],
-      escalatereasonDATA: [{name: 'ESCALATE REASON 1', value: 'ESCALATE REASON 1'},{name: 'ESCALATE REASON 2', value: 'ESCALATE REASON 2'}],
-      rejectreasonDATA: [{name: 'REJECT REASON 1', value: 'REJECT REASON 1'},{name: 'REJECT REASON 2', value: 'REJECT REASON 2'}],
-     //V-MODEL DATA
+      transferReasonDATA: [{name: 'FOR SYSTEM RE-PROCESS', value: 'FOR SYSTEM RE-PROCESS'},{name: 'HARD TROUBLE', value: 'HARD TROUBLE'}],
+      reschedulereasonDATA: [{name: 'CUSTOMER IS OUT', value: 'CUSTOMER IS OUT'},{name: 'NO POWER SUPPLY', value: 'NO POWER SUPPLY'},{name: 'NO UNIT', value: 'NO UNIT'}],
+      escalatereasonDATA: [{name: 'NO FEEDBACK FROM IMPLEMENTATION', value: 'NO FEEDBACK FROM IMPLEMENTATION'},{name: 'NO FEEDBACK FROM SUPERVISOR', value: 'NO FEEDBACK FROM SUPERVISOR'}],
+      escalatetoDATA: [{name: 'SERVICE MANAGER', value: 'SERVICE MANAGER'},{name: 'IMPLEMENTATION SUPERVISOR', value: 'IMPLEMENTATION SUPERVISOR'},{name: 'IMPLEMENTATION', value: 'IMPLEMENTATION'}],
+      rejectreasonDATA: [{name: 'BEYOND COVERAGE AREA', value: 'BEYOND COVERAGE AREA'},{name: 'DOUBLE DISPATCH', value: 'DOUBLE DISPATCH'},{name: 'WRONG INFO/ENCODE', value: 'WRONG INFO/ENCODE'}],
+     
+      //V-MODEL DATA
       //TRANSFER
       technicianVALUE: '',
       transferreasonVALUE: '',
@@ -703,7 +705,10 @@ export default {
 
 
       scheduledate: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-      sheet: false,
+      sheet4: false,
+      sheet3: false,
+      sheet2: false,
+      sheet1: false,
       tab: null,
       tabitem: [
           'TRANSFER', 'RESCHEDULE', 'ESCALATE', 'REJECT',
@@ -815,6 +820,7 @@ export default {
   mounted() {
     this.$store.dispatch("app_technician_sys/fetchMyJobs").then((res) => {
       this.data = res.data;
+      this.techname = res.data[0][0].installer
       var tech = [];
       var technician = this.data.count.technician
       technician.forEach((item, index)=>{
@@ -831,7 +837,82 @@ export default {
   },
 
   methods: {
- 
+    newitem(){
+      //TRANSFER
+      this.technicianVALUE = ''
+      this.transferreasonVALUE=''
+      this.transferremarksVALUE=''
+      //RESCHEDULE
+      this.rescheduleVALUE=''
+      this.rescheduleremarksVALUE=''
+      //ESCALATE
+      this.escalateVALUE=''
+      this.escalatereasonVALUE=''
+      this. escalateremarksVALUE=''
+      //REJECT
+      this.rejectreasonVALUE=''
+      this. rejectremarksVALUE=''
+    },
+    activator(data){
+      return this.$store.dispatch("app_technician_sys/insertDATA", data).then((res)=>{
+       this.$toast.open({
+        message: res.data.msg,
+        type: res.data.color,
+        position: "top",
+        duration: 5000, // Set your desired duration
+        queue: false, // Optional, set to false to prevent stacking of toasts
+        containerClass: "toast-center", // Add a custom class for styling
+      });
+      this.sheet1 = false;
+      this.sheet2 = false;
+      this.sheet3 = false;
+      this.sheet4 = false;
+      })
+    },
+    types(type){
+      var data;
+      if(type == 1){
+        data = {
+          totech: this.technicianVALUE,
+          reason: this.transferreasonVALUE,
+          remarks: this.transferremarksVALUE,
+        }
+      }else if(type == 2){
+        data = {
+          reason: this.rescheduleVALUE,
+          scheduledate: this.scheduledate,
+          remarks: this.rescheduleremarksVALUE,
+        }
+      }else if(type == 3){
+        data = {
+           escalateto: this.escalateVALUE,
+           reason: this.escalatereasonVALUE,
+           remarks: this.escalateremarksVALUE,
+        }
+      }else if(type == 4){
+        data = {
+          reason: this.rejectreasonVALUE,
+          remarks: this.rejectremarksVALUE,
+        }
+      }
+      return data
+    },
+    proceed(type){
+          
+         const information = {
+             data: {
+                techname: this.techname,
+                type: type,
+                callid: this.callid,
+                actions: {
+                  info: this.types(type)
+                }
+             }
+         }  
+         this.activator(information)
+          
+    },  
+    
     refresh(data) {
       this.loadingForTable = true;
       this.$store
@@ -843,12 +924,10 @@ export default {
     },
      
     view(data) {
+      this.newitem()
       this.jobsInfo = true;
-      console.log(data)
- 
+      this.callid = data.callid
       this.serviceitems = [data]
-  
-      
     },
     selected(id) {
       if (id == 0) {
@@ -905,5 +984,12 @@ export default {
   margin: 0 auto; /* Optional: Center the table on the page */
   overflow-x: auto; /* Enable horizontal scrolling */
 }
+.toast-center {
+  left: 50%;
+  top: auto;
+  bottom: auto;
+  transform: translateX(-50%);
+}
+
 </style>
  
