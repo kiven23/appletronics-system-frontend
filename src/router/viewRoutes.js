@@ -86,10 +86,11 @@ import databaseconfigure from "../views/settings/database/configure.vue";
 //APPLETRONICS ROUTE BOOKING
 import booking from "../views/appletronics_system/booking/booking.vue";
 import jobs from "../views/appletronics_system/booking/jobs.vue";
+import tracking from "../views/appletronics_system/booking/tracking.vue";
 import scalate from "../views/appletronics_system/booking/scalate/scalate.vue"
 import booking_fields from "../views/appletronics_system/booking/booking_fields/custom_fields.vue"
 import booking_items from "../views/appletronics_system/booking/booking_fields/items.vue"
-
+import techjob from "../views/appletronics_system/booking/calendar.vue";
 //APPLETRONICS ROUTE FOR TECHNICIAN\import orderedpart from "../views/appletronics_system/technician/orderedparts.vue";
 import dashboard from "../views/appletronics_system/technician/dashboard.vue";
 import calendar from "../views/appletronics_system/technician/calendar.vue";
@@ -494,6 +495,15 @@ const viewRoutes = [
   },
 
   //APPLETRONICS SYSTEM
+   //BOOKING
+   {
+    path: "/app/booking/index/:mapid",
+    component: booking,
+    name: "booking",
+    meta: {
+      requiresAuth: true
+    }
+  },
     //BOOKING
     {
       path: "/app/booking/index",
@@ -512,11 +522,21 @@ const viewRoutes = [
         requiresAuth: true
       }
     },
+    
     //Scalate
     {
       path: "/app/booking/scalate",
       component: scalate,
       name: "scalate",
+      meta: {
+        requiresAuth: true
+      }
+    },
+    //Tracking
+    {
+      path: "/app/booking/tracking",
+      component: tracking,
+      name: "tracking",
       meta: {
         requiresAuth: true
       }
@@ -539,6 +559,14 @@ const viewRoutes = [
         requiresAuth: true
       }
     },
+    {
+      path: "/app/booking/techjob",
+      component: techjob,
+      name: "techjob",
+      meta: {
+        requiresAuth: true
+      }
+    },
     //TECHNICIAN PARTS
   
     {
@@ -553,6 +581,14 @@ const viewRoutes = [
       path: "/app/tech/itinerary",
       component: itinerary,
       name: "itinerary",
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/app/tech/myjob/:jobId",
+      component: myjobs,
+      name: "myjobs",
       meta: {
         requiresAuth: true
       }

@@ -1,0 +1,8310 @@
+[
+ {
+  "model": "1FE418N7D-PH",
+  "brand": "FEDDERS",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "1HPSANYO",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "1KE418N7C",
+  "brand": "FEDDERS",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "1KY200717M-PH",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "1KY201817MPH",
+  "brand": "FEDDERS",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "271X00J4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "2FY200717L",
+  "brand": "FEDDERS",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "2FY200917L",
+  "brand": "FEDDERS",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "38ASB600DC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSET"
+ },
+ {
+  "model": "38CHS012308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "38CSH018308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "38CVCR013",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "38CVGS013-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "38CVSR0022-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "38KCE012308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "38LVC009\/42LUC009",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "422VE0016703P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type2": 1.5
+ },
+ {
+  "model": "42C1V009308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "42CD018308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "42CIV922398",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "42CSD022308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "42CSH009308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "42CSH012308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "42CSP022308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "42CST0-12308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "42CVUR016103",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "42CVUR022",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "42EXP013",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "42KCE009308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "42KCE018308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "42KCE024308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "42KCE024308",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "42KSH018313",
+  "brand": "CONDITION",
+  "categories": "AIRCONDITIONS",
+  "type1": 0
+ },
+ {
+  "model": "42LUC009308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "42LUC012308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "42LUC022308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "42PPA028",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "53CCG004-ASC04H",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSET"
+ },
+ {
+  "model": "53CCG-ASC",
+  "brand": "AIRCONDITION",
+  "categories": "AIRCONDITIONS",
+  "type1": 0,
+  "type2": "CEILING"
+ },
+ {
+  "model": "53CFE-ASC004",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "53CFE-ASC006",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "53FLG004-ASC04H",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "UNDERCEILING",
+  "type2": "AIRCON"
+ },
+ {
+  "model": "A5UQ36GFA0\/AMN12GTRA2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type2": "VRF"
+ },
+ {
+  "model": "A5UQ36GFA0\/AMNC09GTUA0",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type2": "VRF"
+ },
+ {
+  "model": "A5UQ36GFA0\/AMNC18GTQA2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type2": "VRF"
+ },
+ {
+  "model": "A8UQ54GFA0\/AMNC18GTQA2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type2": "VRF"
+ },
+ {
+  "model": "AB1BCRNK0",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AC024MN4PKH\/VN",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AC036JNCDKC\/AC036JXADKC\/VN",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "AC036KN4DKH\/AC036KXADKH\/TC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "AC036KN4DKH\/AC036KXADKH\/TC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AC036MN4PKH\/AC036MXADKH\/VN",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AC048BNPDKC\/AC048BXPDKC\/TC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "AC048KN4DKH\/AC048KXADKH\/TC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AC048MN4PKH\/AC048MXADKH\/V",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AC100TN4DKC\/AC100TXADKC-TC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "AE1BC18NKO",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AE1BC22NKO",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AED09KL",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AED09KP",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AED12KL",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AEE07KP",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AEE09KB",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AEE09KP",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AEE12KB",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AEE12KP",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AEE18KB",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AEE24KP",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "AEV05KB",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AEV05KP",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AEV07KB",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AEV07KP",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AEV09KB",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AEV09KP",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AEV12KP",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "AEV18KP",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AEV24KB",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF28FVJDAWKNST",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AF36MV1MAEENT",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AF36MV1MAEENTC\/AF36MV1MAEEXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "AIRCON",
+  "type2": "3TR"
+ },
+ {
+  "model": "AF48MV1MAEENTC\/AF48MV1MAEEXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "AF-A950PR",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-G1012CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": 898.6,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "AF-G1012CR",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-G1013CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": 498.6
+ },
+ {
+  "model": "AF-G1013CR",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AF-G1020CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-G1020CR",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-G1512CR",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AF-G1513CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-G1513CR",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AF-G1520CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-G1520CR",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-G2013CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-G502CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-G520CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-G820CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-G820CR",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-T1017CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-T1017CR",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "-"
+ },
+ {
+  "model": "AF-T1517CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-T1517CR",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-T2017CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-T517CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": 0
+ },
+ {
+  "model": "AF-T517CM-P",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-T517CM-P",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "AF-T817CM",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-T817CR",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AF-X10SCF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type2": 1
+ },
+ {
+  "model": "AF-X15SCF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "AF-X20SCF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "AHP14MF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AHP20MP",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-X10ZF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-X15ZF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-X20ZF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-X25ZF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-XP10SF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-XP10UF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XP10VF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XP10WF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AH-XP10YHF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-XP10YMF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE-INVERTER"
+ },
+ {
+  "model": "AHXP11MF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XP11MF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XP14MF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XP15FP",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type2": 1.5
+ },
+ {
+  "model": "AH-XP15SF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XP15UF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-XP15VF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-"
+ },
+ {
+  "model": "AH-XP15WF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AH-XP15YHF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-XP15YMF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-XP20MF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": 298.6,
+  "type2": "WALL"
+ },
+ {
+  "model": "AH-XP20SF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XP20UF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": 248.7,
+  "type2": "WALL"
+ },
+ {
+  "model": "AH-XP20WF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XP20YHF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-XP20YMF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-XP25SF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-XP25UF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AH-XP25WF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AH-XP25YHF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AH-XP25YMF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-XP26MF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XS10SF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XS10UF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XS10VF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XS10WF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AH-XS10ZF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-"
+ },
+ {
+  "model": "AH-XS15SF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XS15UF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AH-XS15VF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AH-XS15WF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTE"
+ },
+ {
+  "model": "AH-XS15YMF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTE"
+ },
+ {
+  "model": "AH-XS15ZF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-"
+ },
+ {
+  "model": "AH-XS20SF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XS20UF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AH-XS20VF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AH-XS20WF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AH-XS25SF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AH-XS25ST",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AH-XS25UF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "AIRCON",
+  "type2": "SPLIT"
+ },
+ {
+  "model": "AH-XS25VF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AH-XS25WF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-"
+ },
+ {
+  "model": "AJV05KA",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AK18VSEDUUNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AM009KNQDCH\/TC",
+  "brand": "103-001238",
+  "categories": "AIRCONDITIONS",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "AM009KNQDCH\/TC\/\/AM280KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM012KN4DCH\/AA\/AM300KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM012KN4DCH\/AA\/AM300KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM012KN4DCH\/AA\/AM300KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM012KNQDCH\/TC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF-",
+  "type2": "INDOOR"
+ },
+ {
+  "model": "AM012NN1DCH\/AZ\/AM280KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM018FN2DCH\/TC\/AM300KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM018FN2DCH\/TC\/AM300KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM018KN4DCH\/AA",
+  "brand": "103-606063",
+  "categories": "AIRCONDITIONS",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "AM018KNQDCH\/TC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF-",
+  "type2": "INDOOR"
+ },
+ {
+  "model": "AM020KNQDCH\/TC",
+  "brand": "103-606064",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "AM024FN2DCH\/TC\/AM300KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM024KN4DCH\/AA",
+  "brand": "103-606066",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "AM024KNQDCH\/TC",
+  "brand": "103-606065",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "AM028TNVDKH\/EU\/AM280KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM030KN4DCH\/AA\/AM300KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM032MNQDCH\/AA",
+  "brand": "103-606062",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "AM036KN4DCH\/AA",
+  "brand": "103-606075",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0,
+  "Column6": "22.0HP"
+ },
+ {
+  "model": "AM036KN4DCH\/AA",
+  "brand": "103-606077",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0,
+  "Column6": "24.0HP"
+ },
+ {
+  "model": "AM036KN4DCH\/AA\/AM200JXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM036KN4DCH\/AA\/AM280KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM036KN4DCH\/AA\/AM300KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM036TNVDKH\/EU\/\/AM280KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM048KN4DCH\/AA",
+  "brand": "103-606074",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0,
+  "Column6": "22.0HP"
+ },
+ {
+  "model": "AM048KN4DCH\/AA",
+  "brand": "103-606076",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0,
+  "Column6": "\/",
+  "Column7": "24.0HP"
+ },
+ {
+  "model": "AM048KN4DCH\/AA\/AM200JXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM048KN4DCH\/AA\/AM300KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "AM140JNPDKH\/TK\/AM260KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "AM260KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "DVMS",
+  "type2": 26
+ },
+ {
+  "model": "AM280KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "DVMS",
+  "type2": 28
+ },
+ {
+  "model": "AM300KXVANH\/TL",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "DVMS",
+  "type2": 30
+ },
+ {
+  "model": "AMNC12GTRA2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AP24LMF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AP36MOANXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "APNQ36GKAO",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "APNQ36GR5A3",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "APNQ36GR5A4\/AUUQ36GH4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "APNQ36GRAO",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "APNQ48GT3E3\/APUQ48GT3E3",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "APNQ48GT3E4\/5",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "APNQ48GT3E4\/AUUQ48GH4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "APNQ60GT3E4\/APUQ60GT3E4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "APO2424211",
+  "brand": "TOSHIBA",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "APQ36GR5A3",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "APQ36GR5A4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "APQ36GRA0",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "APQ48GT3E3",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "APQ48GTA0",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "APQ48GTA2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "APQ48JJA2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "APUQ48GT3E3",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "APXRE130BA",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "APXRE195BA",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "APXRM195BA",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "APXRT100BA",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AQ-RV127BP",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AQ-RV97BP",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AR09HCFNR",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR09HVFSB",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR09HVSDQ",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": 996.53,
+  "type2": "WALL"
+ },
+ {
+  "model": "AR09IVFSBWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR09JCFNRWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR09JVFSB",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR09JVFSBWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR09KVPDQWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR09MVFHHWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR09MVFSBWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR09NVFXAWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR09NVFXAWKXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR09TYGCGWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR09TYHYEWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR10AYKAGWKN\/TC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AR10BYHAMWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AR10NVPXAWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AR12HCFNR",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR12HVFSB",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR12JVFSB",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR12MVFHHWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR12MVFSBWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR12NVFXAWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR12NVFXAWKNXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR12TYGCGWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR12TYHYEWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR13AYKAGWKN\/TC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AR13BYHAMWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AR13FVSEDUUX",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR13HVSDQWKN",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR13KVPDQWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AR13NVPXAWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "AIRCON",
+  "type2": 1.5
+ },
+ {
+  "model": "AR13TYCAGWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AR18AYKAGWKN\/TC",
+  "brand": "SAMSUNG",
+  "categories": "ITEMS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AR18BYHAMWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AR18FVSED",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR18HCFNR",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR18HVFSBWXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR18HVSDQ",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR18JVFSBWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR18KVPDQWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR18MVFHHWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR18MVFSBWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR18NVFXAWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR18NVPXAWKN",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AR18TYGCGWKN\/TC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR18TYHYEWKN",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR24AYKAGWKN\/TC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AR24BYHAMWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AR24FVSED",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR24HVFSBWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR24HVFSBWKX",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR24HVSDQWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AR24JVFSBWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR24KVPDQWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AR24MVFHH",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR24MVFSB",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR24NVFXAWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR24NVPXA",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "AR24TYGCGWKN\/TC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR24TYHYEWKN\/XTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AR36M0ANXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "ARC-555",
+  "brand": "COOLER",
+  "categories": "DOWELL",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "ARNU12GTRA2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "MULTI-V",
+  "type2": "4.0TR"
+ },
+ {
+  "model": "ARNU243TTD4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASETTE"
+ },
+ {
+  "model": "ARNU48GTMC2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ARNU48GTMC2\/ARU140LTS4\/ARUV200LTS4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type2": "VRF"
+ },
+ {
+  "model": "ARU140LTS4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ARUV080BTSA\/ARNU36GTNC4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ARUV080BTSA\/ARNU48GTMC4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ARUV120BTS4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ARUV200LTS4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ARV24HVFSBWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AS-09TSLN",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AS09UULN",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AS-09VBCX",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AS12FCNXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AS-12ISLN",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AS-12ISM",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AS12TSLN",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AS12TSLXXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AS12UANXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AS13PSLNXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AS-18TSLN\/X",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AS1CD12DBO",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AS24TSLXXTC3",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ASBFM3600BA",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "ASCM09BXR",
+  "brand": "MABE",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ASCM12BX",
+  "brand": "MABE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "ASCM18BX",
+  "brand": "MABE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "ASCM22BX",
+  "brand": "MABE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "ASICD22DB0",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ASK09",
+  "brand": "WHIRLPOOL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ASK18",
+  "brand": "WHIRLPOOL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ASK24",
+  "brand": "WHIRLPOOL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AS-Q182C5UO",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AS-Q242C5UO",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "ASV10PSLX",
+  "brand": "CONDITION",
+  "categories": "SAMSUNG",
+  "type1": 0
+ },
+ {
+  "model": "ASV13ESQNXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ASV-13PSLN",
+  "brand": "SAMSUNG",
+  "categories": "DOMESTIC",
+  "type1": 0
+ },
+ {
+  "model": "ASV13PSLX",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ASV18PSLNXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ASV24ESLN",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ASV24ESQ",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ASV24PSLNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ASV24PSLXXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ASV24SLPNXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ASV24TSLNXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ATNQ18GTLA1\/ATUQ18GTLA1",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "ATNQ24GPLE6\/ATUQ24GPLE6",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type2": "COMMERCIAL"
+ },
+ {
+  "model": "ATNQ36GNLE6\/ATUQ36GNLE6",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "ATNQ36GNLE7\/AUUQ36GH4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "ATNQ48GM280",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "ATNQ48GMLE1\/AUUQ48GH1",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "ATNQ48GMLE5\/AUUQ48GH1",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "ATNQ48GMLE5\/AUUQ48GH2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type2": "COMMERCIAL"
+ },
+ {
+  "model": "ATNQ48GMLE6\/ATUQ48GMLE6",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "ATNQ48GMLE7\/AUUQ48GH4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "ATQ36GMLE3",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type2": "COMMERCIAL"
+ },
+ {
+  "model": "AVNQ40GM1A4\/AUUQ40GH4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AVNQ48GLLA0\/AUUQ48GH1",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AVNQ48GLLA0\/AUUQ48GH2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AVNQ48GM2A0\/AVUQ48GM2A0",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AVNQ60GM2A0\/AVUQ60GM2A0",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AV-Q36GKLA0",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "AV-XS10SF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AW05N0B",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AW07L1B",
+  "brand": "CONDITION",
+  "categories": "SAMSUNG",
+  "type1": 0,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "AW09AYHGAWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AW-09L1B",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AW-09L2B",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AW1261CXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AW12AYHGAWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AW12L1C",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AW12L2B",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AW18AYHGAWKNTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "AW18FIC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AW8CXTC",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "AX-THL1",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "BALTAZARLGWT",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "BALTAZARPANWT",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "BS-Q182C501",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "BS-Q182CARZ",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "BS-Q242CA",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "BSQ92B3UZ",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "BS-Q92B3VC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CACW-06M",
+  "brand": "CAMEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "CACW-12M",
+  "brand": "CAMEL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CAPITANCCAC2.5HP",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CAWE12ER",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CM13EC-01",
+  "brand": "COOLER",
+  "categories": "IWATA",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "CQXRM195BA",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CS\/CU-PU12WKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/CU-PU18WKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/CU-PU9WKQ",
+  "brand": "PANASONIC",
+  "categories": "ITEMS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/CUS-28TKV",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CS\/CU-VU12UKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/CU-XPU09WKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/CU-XPU12WKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/CU-XPU18WKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/CU-XU12VKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/CU-XU18VKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/CU-XU24VKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/CU-XU30VKQ",
+  "brand": "PANASONIC",
+  "categories": "HOME",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "CS\/CU-XU9VKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/PU-12VKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "CS\/U-C18CKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/UC24BKNG",
+  "brand": "NATIONAL",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-C9CKN",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PC12DKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PC12EKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-PC12QKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PC12SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-PC18SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/UPC24MKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PC24MKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PC24SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PC9EKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PC9ETQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PN12UKQ",
+  "brand": "CONDITION",
+  "categories": "PANASONIC",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "CS\/U-PN18UKQ",
+  "brand": "CONDITION",
+  "categories": "PANASONIC",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "CS\/U-PN24UKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "CS\/U-PN9UKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-PS12KKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PS12NKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PS12PKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PS12QKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "CS\/U-PS12SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PS18KKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-PS18MKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-PS18NKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-PS18SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PS24KKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type2": 2.5
+ },
+ {
+  "model": "CS\/U-PS24NKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-PS24PKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PS24SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PS9NKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-PS9QKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PS9SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PU12TKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-PU12VKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "AIRCON",
+  "type2": "1.O"
+ },
+ {
+  "model": "CS\/U-PU18TKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PU18VKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-PU24TKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-PU24VKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-"
+ },
+ {
+  "model": "CS\/U-PU24VLQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CS\/U-PU9TKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-"
+ },
+ {
+  "model": "CS\/U-PU9VKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "CS\/US12GKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-S12KKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-S12PKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-S12RKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/US12SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-S18PKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-S18RKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-S18SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-S24JKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-S24MKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-S24NKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-S24PKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-S24RKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-S24SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-S9KKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-S9MKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-S9PKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-S9RKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-S9SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-U12TKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-U18TKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-U24TKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-U9TKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-UV18SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS\/U-VU12UKQ",
+  "brand": "CONDITION",
+  "categories": "PANASONIC",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "CS\/U-VU18SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-VU18UKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS\/U-XU12VKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "AIRCON",
+  "type2": 1
+ },
+ {
+  "model": "CS\/U-XU18VKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS-12KKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS-C18DKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS-C24BKN",
+  "brand": "NATIONAL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CS-C24CKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CS-C9DKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS-C9GKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CS-E28NFQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS-PC18MKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS-PC24KKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS-PC24MKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS-PC24NKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CS-PS24MKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS-PS9MKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS-S12PKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS-S9HKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CS-XU24VKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type2": 2.5
+ },
+ {
+  "model": "CU\/PS18KDQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CU\/PS18SKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CU\/PU18TKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CU-C18BKN",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CU-P12PKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CU-PC12EKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CU-PC18DKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CU-PC24DKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CU-PC24MKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CU-PS24HKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CU-S12KKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CU-S12PKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "CU-S18KKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CU-S24HKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CU-S24KKQ",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-1808VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-C70APH",
+  "brand": "NATIONAL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-C84JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-CS124VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-MC65JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-MC95JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-MN620JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-MN920JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-N1220VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-N2420EPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-N920JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-SC100APH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-SC101VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-SC104PH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-SC105VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-SC124VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-SC125VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-SC184EPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-SC185EPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-SC64JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-SC65JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-SC85JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-SC94JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-SC95JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-XC102VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-XC104VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-XC105VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-XC124VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-XC125VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-XC181EPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "AC"
+ },
+ {
+  "model": "CW-XC182EPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-XC182VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-XC241EPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-XC244EPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-XC65JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "CW-XC84JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-XC85JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-XC95JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": 474,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "CW-XN1020VPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-XN620JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-XN820JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "CW-XN920JPH",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "DB31-00279F",
+  "brand": "TYPE",
+  "categories": "FAN",
+  "type1": "MOTOR",
+  "type2": 0
+ },
+ {
+  "model": "DIO2.5HP",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type2": 2.5
+ },
+ {
+  "model": "EAC-2006W",
+  "brand": "EUROTEK",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "EAC-2010W",
+  "brand": "EUROTEK",
+  "categories": "ITEMS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "EAC-705W",
+  "brand": "EUROTEK",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "EF-S20ST",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ERASE",
+  "brand": "AIRCON",
+  "categories": "IDEC",
+  "type1": 0,
+  "type2": "WALL"
+ },
+ {
+  "model": "ERASE",
+  "brand": "AIRCON",
+  "categories": "CONDORA",
+  "type1": 0
+ },
+ {
+  "model": "ERASE",
+  "brand": "AIRCON",
+  "categories": "KOPPEL",
+  "type1": 0
+ },
+ {
+  "model": "ERASE",
+  "brand": "AIRCON",
+  "categories": "PANASONIC",
+  "type1": 0
+ },
+ {
+  "model": "ERASE",
+  "brand": "AIRCON",
+  "categories": "SAMSUNG",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "ET-05WD-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-05WDR2-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET10POR\/M-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "PORTABLE",
+  "type2": "AIRCON"
+ },
+ {
+  "model": "ET-20WD(M)",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ET-36FS\/M",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET60FS\/M2",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "ET-A10WD\/AT",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ET-A10WD\/M-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ET-A10WDR2-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ET-A10WDR3-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-A15WDHF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ET-A15WDR2-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-A20WDR2-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "ETAC500M",
+  "brand": "COOLER",
+  "categories": "EVEREST",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "ETCP36-INT\/ETCP36-EXT",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ETIV10-AST",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "ET-IV10AST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "ET-IV10AWD\/G",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV10BST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "ET-IV10BSTR3-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ETIV10CFWD\/G",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV10STR3-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV10UVST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV10VST",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "ET-IV15AST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "ET-IV15AWD",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV15BST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "ET-IV15BSTR3-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV15STR3-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV15UVST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV20AST",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV20BST3-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "ET-IV20BSTR3-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV20STR3-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV20UVST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV25AST",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV25BST",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "ET-IV25BSTR3",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "ET-IV25STR3-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-IV25UVST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ETIV36FS\/M",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "ETIV36FSR2\/M",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "ETIV36SD\/M",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "ETIV601FS\/M",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "ET-M05WDR3-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ETM06WD\/G",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ET-M06WDR2-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "ET-M06WDR3-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ETM-07WD-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ETM10WD\/MWF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ETM10WDR3-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ETM15WDL-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "ETM15WDR2-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "ETR210AST",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "ET-R210AST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "ET-R215AST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-R215ST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-R220AST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-R225AST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ETR236FS\/M",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "ETR-S225AST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-S10ST-HF",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "ETS10ST-INT",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-S15ST",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-S20ST",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "ET-S25ST",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "EWA",
+  "brand": "AIRCON",
+  "categories": "EUREKA",
+  "type1": 0,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "EWA-1.0HP",
+  "brand": "EUREKA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FAC-PANASONIC",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FB51QSXRAC",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FEA",
+  "brand": "AIRCON",
+  "categories": "FUJIDENZO",
+  "type1": 0,
+  "type2": "AIR"
+ },
+ {
+  "model": "FEA-5000",
+  "brand": "FUJIDENZO",
+  "categories": "AIRCONDITIONS",
+  "type1": 72
+ },
+ {
+  "model": "FEA-7000",
+  "brand": "FUJIDENZO",
+  "categories": "AIRCONDITIONS",
+  "type1": "EVAPORATIVE",
+  "type2": "AIR"
+ },
+ {
+  "model": "FP-35CVUR010-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-38CVUR010-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-38CVUR016-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-38KAF022313",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FP-38KSH012313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-38KSH022313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-38MMY-MAP1204HT7",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-38MMY-MAP1404HT7",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": "14.0HP"
+ },
+ {
+  "model": "FP-38MMY-MAP1604HT7",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-40MMD-AP0181BH",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": "2.0HP(5.6KW)"
+ },
+ {
+  "model": "FP-40MMD-AP0274BH-E",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": "2.5HP(8.0KW)"
+ },
+ {
+  "model": "FP-40MMD-AP0484BH-E",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": "5.0HP(14.0KW)"
+ },
+ {
+  "model": "FP-40MMD-AP0564BH-E",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": "6.0HP"
+ },
+ {
+  "model": "FP-40MMU-AP0074YH",
+  "brand": "TOSHIBA",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": "0.8HP"
+ },
+ {
+  "model": "FP-40MMU-AP0122H",
+  "brand": "CARRIER",
+  "categories": "HOME",
+  "type1": 0,
+  "type2": "VRF"
+ },
+ {
+  "model": "FP-40MMU-AP0182H",
+  "brand": "TOSHIBA",
+  "categories": "DOMESTIC",
+  "type1": 0
+ },
+ {
+  "model": "FP-40MMU-AP0242H",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": 2.5
+ },
+ {
+  "model": "FP-40MMU-AP0272H",
+  "brand": "TOSHIBA",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": "3.0HP"
+ },
+ {
+  "model": "FP-40MMU-AP0302H",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": "3.2HP"
+ },
+ {
+  "model": "FP-40MMU-AP0362H",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": 4
+ },
+ {
+  "model": "FP-40MMU-AP0482H",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": 5
+ },
+ {
+  "model": "FP-40MMU-AP0562H",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": "6.0HP(16.0KW)"
+ },
+ {
+  "model": "FP-42AST010KEIV-B2",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP42AST015KEV-W2",
+  "brand": "MIDEA",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FP-42CH018-308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FP-42CSD018308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FP-42CVUR010-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-42MMC-AP0364H-E",
+  "brand": "TOSHIBA",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": "4.0HP"
+ },
+ {
+  "model": "FP-42MMF-AP0244H-E",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": 2.5
+ },
+ {
+  "model": "FP-453C5N009308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-51ARA015HENV-N5",
+  "brand": "MIDEA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-REMOTE"
+ },
+ {
+  "model": "FP-51CHIRACCARF08KEEPC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FP51MXKACCARP19KEDP3C",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FP-53ASBFE600",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53ASBFM360BA",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "FP-53ASBFM360ES",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "FP-53ASBFM360EW",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "FP-53ASBFM360LP",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "FP-53ASBFM360P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "FP53ASBHM360P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53AST010KEIV-G4",
+  "brand": "MIDEA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53AST010KEIV-W2",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type2": 1
+ },
+ {
+  "model": "FP53AST015KEV-W2",
+  "brand": "MIDEA",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FP-53CAF009308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CAF012308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CAF018308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CAF022308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CAV036308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "CASSETTE",
+  "type2": "-"
+ },
+ {
+  "model": "FP-53CFM-ASC-C04",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FP-53CFV036308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING-"
+ },
+ {
+  "model": "FP-53CFV055308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "FP-53CGF009308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53CGF012-308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53CHD00930",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FP-53CIV009308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CIV022308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53CIV030308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53CPV040308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CPV050308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MONTED"
+ },
+ {
+  "model": "FP-53CR75FCSL",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP53CSD009308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53CSD009308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CSD012-308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CSD018308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53CSF018308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CSH009308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CSH009308",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CSH012308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CSH018308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CSH022308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CSHD30308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "FP-53CUUR010",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CUUR013-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CUUR0B703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FP-53CUV036308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FP-53CVES010-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53CVES013-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53CVES016-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53CVES016-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53CVES022-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53CVGS010",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53CVGS010-303",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CVGS013",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53CVGS016-303",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53CVGS022",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CVGS024-303",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53CVSR013",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53CVUR010-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53CVUR013-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53CVUR016-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53CVUR022-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53CVUR0B-703",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53CXV030308",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53DFE-CAR-006",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "FP-53FLG-ASC",
+  "brand": "FS",
+  "categories": "103-001085",
+  "type1": "AIRCONDITIONS",
+  "type2": 0
+ },
+ {
+  "model": "FP-53GCV010-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53GCV013-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53GCVB010-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53GCVB013-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53GCVB016-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53GCVB024",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53GCVBE010-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53GCVBE013-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53GCVBE016-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53GCVBE018-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53GCVBS010-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53GCVBS013-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53GCVBS016-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53GCVBS024-303P",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53GKX036-2",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "FP-53GKX060-2",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "FP-53KAF009313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53KAF012313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53KAF018313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53KAF022313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPILT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53KAV012313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53KAV018313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53KAV022313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53KAV09313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53KHV022313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53KSD009313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53KSD012313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53KSH009313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53KSH012313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53KSH018",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53KSH018313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53KSV009313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53KSV012313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53KSV018313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FP-53KSV024313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "FP-53KXV009313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53KXV009313",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53KXV012313",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53KXV018313",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53LUC022",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "MOUNT"
+ },
+ {
+  "model": "FP-53RDSFM360B2",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53RDSFM360S2",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53RDSFM360W2",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "FP-53SKV030-WP8T",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "FP-53SLA090-5",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "FP-53TKV024-10THP",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type2": 2.5
+ },
+ {
+  "model": "FPA-360C",
+  "brand": "FUJIDENZO",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "FPA360IG",
+  "brand": "AIRCON",
+  "categories": "FUJIDENZO",
+  "type1": 0,
+  "type2": "FLOOR"
+ },
+ {
+  "model": "FPA400",
+  "brand": "AIRCONDITION",
+  "categories": "FUJIDENZO",
+  "type1": 0,
+  "type2": "FLOOR"
+ },
+ {
+  "model": "FTKF25AVL\/RKF25AVL",
+  "brand": "DAIKIN",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FTKF35AVL\/RKF35AVL",
+  "brand": "DAIKIN",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FTKF50AVL\/RKF50AVL",
+  "brand": "DAIKIN",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "FTN50AXVL9",
+  "brand": "DAIKIN",
+  "categories": "AIRCONDITIONS",
+  "type1": 2,
+  "type2": "HP"
+ },
+ {
+  "model": "FTN60AXVL9",
+  "brand": "DAIKIN",
+  "categories": "AIRCONDITIONS",
+  "type1": 2.5,
+  "type2": "HP"
+ },
+ {
+  "model": "FV36PEVJ",
+  "brand": "CONDITION",
+  "categories": "DAIKIN",
+  "type1": 0
+ },
+ {
+  "model": "FVRN71AXVL\/RR71AGXVL",
+  "brand": "DAIKIN",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "F-WF4W40WSP",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "GEWACHELEN",
+  "brand": "GE",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "GS\/GU-C36SCF",
+  "brand": "FLOOR",
+  "categories": "MOUNTED",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "GS\/GU-X60SCF",
+  "brand": "FLOOR",
+  "categories": "MOUNTED",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "GS-X36SCF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "3TR"
+ },
+ {
+  "model": "GX\/GU-X36SCF",
+  "brand": "SHARP",
+  "categories": "AIRCONDITIONS",
+  "type1": "CASETTE",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HIS100C2",
+  "brand": "AIRCON",
+  "categories": "FUJIDENZO",
+  "type1": 0,
+  "type2": "WALL"
+ },
+ {
+  "model": "HIS150C2",
+  "brand": "AIRCON",
+  "categories": "FUJIDENZO",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "HIS200C2",
+  "brand": "AIRCON",
+  "categories": "FUJIDENZO",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "HIS250C2",
+  "brand": "AIRCON",
+  "categories": "FUJIDENZO",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "HITACHISAC2.5",
+  "brand": "HITACHI",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09ADP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "HS-09APC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MAOUNTED-"
+ },
+ {
+  "model": "HS-09APD",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09APX",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09IP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09IPA",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-"
+ },
+ {
+  "model": "HS-09IPB",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-09IPC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HS-09IPM",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-09IPX",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09IS",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09ISB",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09ISH",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09ISM",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-09ISP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09ISQ",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HS-09ISS",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HS-09IST",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09ISW",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09ISY",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09IV",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-09IVP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09SG",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-09SN",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12APC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HS-12APD",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HS-12APX",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12IP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12IPA",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HS-12IPB",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12IPC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HS-12IPM",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-12IPX",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12IS",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12ISB",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12ISM",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-12ISP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12ISQ",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "HS-12ISS",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "HS-12ISS",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": 399.15,
+  "type2": "WALL"
+ },
+ {
+  "model": "HS-12IST",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12ISW",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12ISY",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLI",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12IV",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12IVP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12SG",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-12SN",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-12SV",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-181PC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": 2,
+  "type2": "HP"
+ },
+ {
+  "model": "HS-181SI",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-181ST",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-18APD",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-18APX",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-18IDB",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-18IP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-18IPA",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HS-18IPI",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-18IPM",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-18IPX",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-18IS",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-18ISB",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-18ISI",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-18ISM",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-18ISP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-18ISQ",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-18ISS",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HS-18IST",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": 145,
+  "type2": "WALL"
+ },
+ {
+  "model": "HS-18ISW",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-18ISY",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLI",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-18IV",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-18IV2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-18IVP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-18IX",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-18SG",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-18SN",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-21IPA",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "HS-24APD",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-24APX",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-24IP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": 920.99,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "HS-24IPA",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HS-24IPC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HS-24IPI",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-24IPM",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-24IPN",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-24IPX",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-24IS",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-24ISI",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": 999.4,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "HS-24ISM",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-24ISP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-24ISQ",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "HS-24ISS",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": 519.28,
+  "type2": "WALL"
+ },
+ {
+  "model": "HS-24IST",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-24ISW",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-24ISY",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-24IV",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-24IV2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-24IVP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-24IX",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HS-24RSW",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HS-24SG",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-24SN2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-30IPA",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-30IPC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-C092YF70",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-C122SG",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-C1825SAO",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSN09SG\/HSU09SG",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSN-12VHJ",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HS-N18ISM",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSNC1224F72",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSU09ISP",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": 316.6,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "HSU-09KSU13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type2": 1
+ },
+ {
+  "model": "HSU-09NS13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSU-09NSV13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HSU09VHJ",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSU-10TSP13(DC)-SC",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-"
+ },
+ {
+  "model": "HSU-10TSV13(DC)-SC",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-"
+ },
+ {
+  "model": "HSU-12LEK13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSU-12NSV13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSU-12NSV13(DC)-SC",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "HSU-12TSP13(DC)-SC",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSU-12TSV13(DC)-SC",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HSU12VHT",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSU-18NSV13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSU-18TSV13(DC)-SC",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "HSU18VHJ",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSU-24ISI",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSU-24LEK13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSU-24NSV13(DC)-SC",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HSU-24TSV13(DC)-SC",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": 598.7,
+  "type2": "WALL"
+ },
+ {
+  "model": "HW-05LMB13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": 177,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "HW-05MCQ",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HW-07LMB13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": 727.8,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "HW-07MCQ",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": 750.95,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "HW-07MCQ13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HW-09LM13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HW-09LN13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": 383.75,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "HW-09MCQ13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type2": 1
+ },
+ {
+  "model": "HW-09RCQ13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "HW-12LM13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HW-12LN13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": 470.25,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "HW-12MCQ13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type2": "1.5HP"
+ },
+ {
+  "model": "HW-12RCQ13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type2": "1.5HP"
+ },
+ {
+  "model": "HW-18LNA13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "HW-18RCQ13",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "IV-10BEI182588",
+  "brand": "EVEREST",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "IWAR-120",
+  "brand": "AIRCON",
+  "categories": "FUJIDENZO",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "IWAR120G",
+  "brand": "TYPE",
+  "categories": "FUJIDENZO",
+  "type1": 0,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "IWAR-90G",
+  "brand": "FUJIDENZO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KA-08CMW",
+  "brand": "KOLIN",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KAG-100DRA",
+  "brand": "KOLIN",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KAG-150DRA",
+  "brand": "KOLIN",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KAG-150DRE",
+  "brand": "KOLIN",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KAG-190DME",
+  "brand": "KOLIN",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KCA36R3A\/KPC36IH1A",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "CASETTE",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KCA60R1\/KPC60JH1",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "KCM-36R1A\/W",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "KCM-36RIA\/KPC-361HOA",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "KCM-60R1A\/KPC-60IH0A",
+  "brand": "CONDITIONS",
+  "categories": "KOPPEL",
+  "type1": 0,
+  "type2": "CEILING"
+ },
+ {
+  "model": "KF35-02",
+  "brand": "IWATA",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "KF-451",
+  "brand": "GREE",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "KFM-36E0A",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "3TR",
+  "type2": "FLOOR"
+ },
+ {
+  "model": "KFM-36E2\/KPC-361H2",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "KFM-36E21KPC-361H2",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "KFM-60E0A",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "KPC09HH5B",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KPC-12HH5B2",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KPC-3636H2",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "TUNNER"
+ },
+ {
+  "model": "KPC-60JH1",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "KRV-9BP",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KSG20B1",
+  "brand": "KOLIN",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KSM-100B1E",
+  "brand": "AIRCONDITION",
+  "categories": "KOLIN",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "KSW-09R5B2\/KPC-09HH5B",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KSW-12R5B2\/KPC-12HH5B2",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KSW-18RSCA",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KSW-24R5B2\/KPC-24HH5B",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KV09WM\/OD-ARF21C",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KV09WM-ARF21B",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "KV12WM\/OD-ARF21C",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "KV12WM-ARF21B",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "KV12WR-ARF31",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "KV18WM\/OD-ARF21C",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KV18WM-ARF21B",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "KV24CC\/ODU-ARF21C",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASETTE-"
+ },
+ {
+  "model": "KV24CC-ARF21C",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "KV24WM\/OD-ARF21C",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KV24WM-ARF21B",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "KV27WM\/OD-ARF21B",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KV27WM\/OD-ARF21C",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KV27WM\/OD-ARF21C2",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE-INVERTER"
+ },
+ {
+  "model": "KV36CM\/ODU-ARF21C",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "KV36FM\/ODU-ARF21C",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "KV36FM-ARF21",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "KWR-05M4",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "KWR-07MB4C",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "KWR-07R5A",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "KWR-09M4",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "KWR-09RB4C",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "KWR12R5A",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "KWR-12RB4C",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "KWR-18RB4",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA060MB",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA-060MB",
+  "brand": "LG",
+  "categories": "ITEMS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA060RB",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA080EC",
+  "brand": "TYPE",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "LA080FC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA080LC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "LA080MG",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA080PC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LA080RB",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA080RC",
+  "brand": "LG",
+  "categories": "ITEMS",
+  "type1": 864.3
+ },
+ {
+  "model": "LA080SC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA080TC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA080WC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "LA090PC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type2": "WINDOW"
+ },
+ {
+  "model": "LA100CC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "LA100EC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "LA100FC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "LA100LC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "LA100MA",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LA-100MA",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA100MP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA100PC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": 711.75,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "LA100RA",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA100RC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA-100RC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": 572,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "LA100RG7",
+  "brand": "LG",
+  "categories": "ITEMS"
+ },
+ {
+  "model": "LA100SC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-W\/"
+ },
+ {
+  "model": "LA-100TC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": 897,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "LA100VC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA100WC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LA150EC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA150FC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA150LC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA150MA",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LA150MC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA150MG",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA150PC",
+  "brand": "WINDOW",
+  "categories": "TYPE",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "LA150R",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA-150RC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA150SC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA150TB",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA-150TC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA150VC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LA150WC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "LA200EC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA200FC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA200MA",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LA200MB",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LA200MC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA200PC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA200RA",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA200RC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA200SC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA250EC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA250M",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LA250MB",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LA250MC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LANCARSLGWT",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LDEA200ACL",
+  "brand": "OTHERS",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LGSP",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LGWT",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LP-C362KAO",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "LPNC-C362KAO",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type2": "3TR"
+ },
+ {
+  "model": "LS-C122RMAO",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "LWC093GSAE1",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LWC1232DAS",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LWM1834QCG",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "LWM1836DAS",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "MAEVILLARLGWT",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "MAEVILLARSAMWT",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "MEE07VQ",
+  "brand": "MABE",
+  "categories": "DOMESTIC",
+  "type1": 0,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "MEE09VQ",
+  "brand": "MABE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "MEI09VR",
+  "brand": "MABE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "MEI12VR",
+  "brand": "MABE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "MEV05VQ",
+  "brand": "MABE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "MEV05VV",
+  "brand": "MABE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "MEV07VQ",
+  "brand": "MABE",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "MEV09VV",
+  "brand": "MABE",
+  "categories": "DOMESTIC",
+  "type1": 0,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "MEZ66668919",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "MMD-274BH-E",
+  "brand": "TOSHIBA",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "MMD-AP0276BH-E",
+  "brand": "TOSHIBA",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "MMK-AP0073H",
+  "brand": "TOSHIBA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "MMK-AP0093H",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": "1.0HP"
+ },
+ {
+  "model": "MMK-AP0123H",
+  "brand": "CONDITIONS",
+  "categories": "CARRIER",
+  "type1": 0,
+  "type2": "VRF"
+ },
+ {
+  "model": "MMK-AP0153H",
+  "brand": "CONDITIONS",
+  "categories": "TOSHIBA",
+  "type1": 0,
+  "type2": "VRF"
+ },
+ {
+  "model": "MMK-AP0243H",
+  "brand": "TOSHIBA",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF",
+  "type2": 2.5
+ },
+ {
+  "model": "MMK-AP093H",
+  "brand": "TOSHIBA",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "CASSETTE"
+ },
+ {
+  "model": "MMU-AP0152H",
+  "brand": "CONDITIONS",
+  "categories": "TOSHIBA",
+  "type1": 0,
+  "type2": "VRF"
+ },
+ {
+  "model": "MMU-AP0182H",
+  "brand": "CONDITIONS",
+  "categories": "TOSHIBA",
+  "type1": 0,
+  "type2": "VRF"
+ },
+ {
+  "model": "MMU-AP0242H",
+  "brand": "CONDITIONS",
+  "categories": "TOSHIBA",
+  "type1": 0,
+  "type2": "VRF"
+ },
+ {
+  "model": "MMU-AP0302H",
+  "brand": "TOSHIBA",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF"
+ },
+ {
+  "model": "MMU-AP0362H",
+  "brand": "TOSHIBA",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF"
+ },
+ {
+  "model": "MMU-AP0562H",
+  "brand": "TOSHIBA",
+  "categories": "AIRCONDITIONS",
+  "type1": "VRF"
+ },
+ {
+  "model": "MWF1-09CRN8-NC0",
+  "brand": "MIDEA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "NO",
+  "brand": "AIRCON",
+  "categories": "-",
+  "type1": "-",
+  "type2": "AIRCONDITIONS"
+ },
+ {
+  "model": "NO",
+  "brand": "AIRCON",
+  "categories": "PANASONIC",
+  "type1": 0
+ },
+ {
+  "model": "NO",
+  "brand": "AIRCON",
+  "categories": "GE",
+  "type1": 0
+ },
+ {
+  "model": "NO",
+  "brand": "AIRCON",
+  "categories": "NATIONAL",
+  "type1": 0
+ },
+ {
+  "model": "NO",
+  "brand": "AIRCON",
+  "categories": "EVEREST",
+  "type1": 0,
+  "type2": "WALL"
+ },
+ {
+  "model": "NO",
+  "brand": "103-000493",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "NO",
+  "brand": "103-000545",
+  "categories": "AIRCON",
+  "type1": "Manufacturer",
+  "type2": "-"
+ },
+ {
+  "model": "NO",
+  "brand": "103-000521",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "NO",
+  "brand": "103-000522",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "NO",
+  "brand": "103-000322",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "NO",
+  "brand": "103-000589",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "NO",
+  "brand": "103-000555",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "NO",
+  "brand": "103-000572",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "NO",
+  "brand": "CONDURA",
+  "categories": "103-000609",
+  "type1": "AIRCONDITIONS",
+  "type2": 0
+ },
+ {
+  "model": "NO",
+  "brand": "EVEREST",
+  "categories": "103-000643",
+  "type1": "AIRCONDITIONS",
+  "type2": 0
+ },
+ {
+  "model": "NO",
+  "brand": "EVEREST",
+  "categories": "103-606081",
+  "type1": "AIRCONDITIONS",
+  "type2": 0
+ },
+ {
+  "model": "NO",
+  "brand": "103-000613",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "NOMODEL",
+  "brand": "103-000604",
+  "categories": "AIRCON",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "NOMODELKOPPEL",
+  "brand": "KOPPEL",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "PAC-100AIG",
+  "brand": "FUJIDENZO",
+  "categories": "AIRCONDITIONS",
+  "type1": "PORTABLE",
+  "type2": "AIRCON"
+ },
+ {
+  "model": "PDCAR009CO",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "PORTABLE",
+  "type2": "AIRCON"
+ },
+ {
+  "model": "PIS100T",
+  "brand": "AIRCON",
+  "categories": "FUJIDENZO",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "PIS150T",
+  "brand": "AIRCON",
+  "categories": "FUJIDENZO",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "RA-20MA",
+  "brand": "HITACHI",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "RA-326B",
+  "brand": "HITACHI",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "RAC-5AA",
+  "brand": "HITACHI",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "RAS-3286",
+  "brand": "HITACHI",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "RSA1NTIS",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "S\/U-34PT2Q6",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "S\/U-38PB2Q6",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "MOUNTED-INVERTER"
+ },
+ {
+  "model": "S\/U-43PB2Q6",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "S186NS",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SA-126P",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SA-127P",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SA-186P",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SA-56BP",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SA-76P",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SA-96P",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "SA-97BP",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "SA-97P",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SACCARDELUXE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "SAC-HITACHI",
+  "brand": "OTHERS",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "SACPANASONIC",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "SANYOSAC",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SAP",
+  "brand": "AIRCON",
+  "categories": "SANYO",
+  "type1": 0,
+  "type2": "WALL"
+ },
+ {
+  "model": "SAP-C186P",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW"
+ },
+ {
+  "model": "SAP-F360P",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SAP-K\/CRV12AP\/BP",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "SAP-K\/CRV18BP",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "SAP-K\/CRV2280",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SAP-K\/CRV22AP",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLI",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SAP-K\/CRV22BP",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SAP-K\/CRV9AP",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "SAP-K\/CRV9AP\/BP",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "SAP-K126P",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SAP-K96P",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SAP-KCRV9BP",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SAP-KRV18AP",
+  "brand": "SANYO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WALL",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "SF",
+  "brand": "AIRCON",
+  "categories": "KOPPEL",
+  "type1": 0
+ },
+ {
+  "model": "SIA",
+  "brand": "AIRCON",
+  "categories": "WHIRLPOOL",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "SIA",
+  "brand": "AIRCON",
+  "categories": "WHIRLPOOL",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "SIA",
+  "brand": "AIRCON",
+  "categories": "WHIRLPOOL",
+  "type1": 0,
+  "type2": "SPLIT"
+ },
+ {
+  "model": "SIA",
+  "brand": "AIRCON",
+  "categories": "WHIRLPOOL",
+  "type1": 0,
+  "type2": "WALL"
+ },
+ {
+  "model": "SIA90C0",
+  "brand": "WHIRLPOOL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "SINDALANWAC",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "SL36\/PC36",
+  "brand": "CONDITION",
+  "categories": "KOPPEL",
+  "type1": 0,
+  "type2": 0
+ },
+ {
+  "model": "TAACAHAIERSAC",
+  "brand": "HAIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "TAC-09CWM\/E",
+  "brand": "TCL",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "TK-224C",
+  "brand": "TEKA",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "TP-C362TLA0",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "TP-C362TLA3",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "TP-C362TLA5",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "TP-C362TLA5",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "TPC-60BTLA4",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "FLOOR",
+  "type2": "STANDING"
+ },
+ {
+  "model": "TS-C092YDA0",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "TS-C1825DA0",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "TS-C1825DA1",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "TS-C2425DA0",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "TVC362KLA0",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "TVC362TLA0",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "TVC60BLLA3",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "TVNC362KLAO",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "CEILING",
+  "type2": "MOUNTED"
+ },
+ {
+  "model": "U-1000SEW",
+  "brand": "UNI-AIR",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "URNU48GVLA2",
+  "brand": "LG",
+  "categories": "AIRCONDITIONS",
+  "type1": "MULTI-V"
+ },
+ {
+  "model": "W0B0LB",
+  "brand": "SAMSUNG",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "WA10A090",
+  "brand": "WHITE",
+  "categories": "WESTINGHOUSE",
+  "type1": 0
+ },
+ {
+  "model": "WACCAR001",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "WAM150IG",
+  "brand": "FUJIDENZO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WAM-55I",
+  "brand": "FUJIDENZO",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "WAM-60IG2",
+  "brand": "FUJIDENZO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WAR-120",
+  "brand": "AIRCON",
+  "categories": "FUJIDENZO",
+  "type1": 0
+ },
+ {
+  "model": "WAR-180C",
+  "brand": "FUJIDENZO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WAR-70",
+  "brand": "AIRCON",
+  "categories": "FUJIDENZO",
+  "type1": 0,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "WAR-70C",
+  "brand": "FUJIDENZO",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WAR-90",
+  "brand": "AIRCON",
+  "categories": "FUJIDENZO",
+  "type1": 0,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "WCAK2006FC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARF008EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARF010EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARG008EA",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARG010EA",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARG010EC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARG010EEB",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "WCARG010EES",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARG014ED",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARG014EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARG014EES",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "WCARG19EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARH008EC1",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARH009EEV",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARH010EA",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARH010EC1",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "WCARH010ECP",
+  "brand": "CARRIER",
+  "categories": "HOME",
+  "type1": 0,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "WCARH010EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE-"
+ },
+ {
+  "model": "WCARH010EE1",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARH012EEV",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "AIRCON",
+  "type2": "WINDOW"
+ },
+ {
+  "model": "WCARH014EC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "AIRCON",
+  "type2": "WINDOW"
+ },
+ {
+  "model": "WCARH014EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "AIRCON",
+  "type2": "WINDOW"
+ },
+ {
+  "model": "WCARH019EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARH019EEV",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARH024EC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARH024EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARJ008EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARJ010EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARK006EECG",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARK008EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARL006EC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "WCARL008EC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "WCARL010EC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "WCARM014ED",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARM014EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "WCARM14KEE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARP019EA",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARY06EC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARY08EC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARY10EC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARZ006EC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARZ006ECI",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARZ006EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARZ006FC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARZ008EC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARZ008EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARZ010EC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCARZ010EE",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONA0108A",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "WCONC010EC",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONH008EC1",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONH008EC2",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONH009EEV",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONH010EC1",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONH010EC2",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONH010EE1",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONH012EEV1",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONH014EE",
+  "brand": "CONDORA",
+  "categories": "ITEMS"
+ },
+ {
+  "model": "WCONH019ED",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONH019EEV",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONX008EC1",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONX010EC",
+  "brand": "CONDORA",
+  "categories": "ITEMS"
+ },
+ {
+  "model": "WCONX014EC1",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONZ006EC",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONZ008EC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONZ010EC",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WCONZ010EC1",
+  "brand": "CONDORA",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WESTERNUNIONWAC",
+  "brand": "PANASONIC",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "WKELW007EC",
+  "brand": "KELVINATOR",
+  "categories": "AIRCONDITIONS",
+  "type1": "WINDOW",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WMX160CB",
+  "brand": "WHIRLPOOL",
+  "categories": "AIRCONDITIONS",
+  "type1": "SPLIT",
+  "type2": "TYPE"
+ },
+ {
+  "model": "WRC008AC",
+  "brand": "CARRIER",
+  "categories": "AIRCONDITIONS"
+ },
+ {
+  "model": "XACWT05",
+  "brand": "XTREME",
+  "categories": "HOME",
+  "type1": 0,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "XACWT10R",
+  "brand": "XTREME",
+  "categories": "HOME",
+  "type1": 0,
+  "type2": "WINDOW"
+ },
+ {
+  "model": "YCAW363B-SWL",
+  "brand": "YORK",
+  "categories": "AIRCONDITIONS"
+ }
+]

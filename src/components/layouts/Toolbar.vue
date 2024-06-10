@@ -4,7 +4,7 @@
       dark
       app
       clipped-left
-      style="background: linear-gradient(137deg,rgba(0, 0, 0, 1) 9%,rgba(231, 95, 94, 0.5872549703475141) 100% );border-radius: 10px;color: white; "
+      style="background:  linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(1,3,4,0.999019676229867) 9%, rgba(121,9,20,1) 43%);border-radius: 10px;color: white; "
     >
       <!-- <v-app-bar-nav-icon @click.stop="drawer"></v-app-bar-nav-icon> -->
       <v-btn icon @click.stop="drawer">
@@ -678,7 +678,7 @@ export default {
           console.log(res.data);
         });
       this.viewThreads = true;
-      this.$socket.emit("notification", 1);
+      // this.$socket.emit("notification", 1);
       this.$store.dispatch("app_booking_sys/Notification").then((res) => {
         this.items = res.data;
       });
@@ -800,22 +800,35 @@ export default {
     });
     this.usersData = this.$store.state.currentUser;
     this.sockets.subscribe("notification", (res) => {
+      // const information =
+      //       "Branch: " +
+      //       this.items.notify[0].branch.SAP_BRANCH +
+      //       ", Ticket-No: " +
+      //       this.items.notify[0].ticketno +
+      //       ", Created: " +
+      //       this.items.notify[0].created_at;
+      //     this.$toast.open({
+      //       message: information,
+      //       type: "success",
+      //     });
+      //     console.log(information);
+      //     this.Sound();
+      if(res !== 1){
+         const information = "Branch: " + res.data.branch
+                  +
+                ", Ticket-No: " +
+                res.data.ref  ;
+                this.$toast.open({
+                  message: information,
+                  type: "success",
+                });
+              
+                this.Sound(); 
+      }
       this.$store.dispatch("app_booking_sys/Notification").then((res) => {
         if (JSON.stringify(this.items) !== JSON.stringify(res.data)) {
           this.items = res.data;
-          const information =
-            "Branch: " +
-            this.items.notify[0].branch.SAP_BRANCH +
-            ", Ticket-No: " +
-            this.items.notify[0].ticketno +
-            ", Created: " +
-            this.items.notify[0].created_at;
-          this.$toast.open({
-            message: information,
-            type: "success",
-          });
-          console.log(information);
-          this.Sound();
+          
         } else {
           // The old "items" array is the same as the new response array
         }

@@ -4,7 +4,7 @@
 // export const URLs = {
 //     backend: `https://api-asia-backend.appletronics.com.ph:2031`,     //Online Port 8009
 //     frontend: routeURL,
-//     socketIO: `http://socket2.appletronics.com.ph:3334`    //Online Port 84 
+//     socketIO: `https://socket2.appletronics.com.ph:3333`    //Online Port 84 
 //     //Address http://appletronics.com.ph:84
 //   };
   

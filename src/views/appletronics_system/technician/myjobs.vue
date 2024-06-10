@@ -141,7 +141,7 @@
         <div>
           <v-data-table
             fixed-header
-            height="400"
+            height="300"
             dense
             :headers="headers"
             :items="data[0]"
@@ -817,8 +817,12 @@ export default {
 
   watch: {},
 
-  mounted() {
-    this.$store.dispatch("app_technician_sys/fetchMyJobs").then((res) => {
+ async mounted() {
+    const jobId = this.$route.params.jobId;
+    
+    // Show an alert with the parameter
+     
+   await this.$store.dispatch("app_technician_sys/fetchMyJobs").then((res) => {
       this.data = res.data;
       this.techname = res.data[0][0].installer
       var tech = [];
@@ -834,6 +838,23 @@ export default {
     });
     this.refresh(0);
     this.usersData = this.$store.state.currentUser;
+    ///
+
+
+    
+     
+     if(jobId){
+      var rowData = [];
+          this.data[0].forEach((value, index)=> {
+                if(jobId == value.id){
+                  rowData = value
+                }
+          })
+      this.view(rowData)
+     }
+     
+     
+
   },
 
   methods: {

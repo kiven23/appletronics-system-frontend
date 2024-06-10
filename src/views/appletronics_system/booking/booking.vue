@@ -1,6 +1,8 @@
 <template>
   <div>
     <v-container text-xs-center>
+     
+     
       <div class="center">
         <v-dialog
           v-model="bookingmodal"
@@ -19,16 +21,18 @@
                 );
               "
             >
-              <v-btn icon dark @click="bookingmodal = false || reset()">
+              <v-btn icon dark  v-if="!checkrebook" @click="bookingmodal = false || reset()">
                 <v-icon>mdi-close</v-icon>
               </v-btn>
               <v-toolbar-title>
-                REQUEST-<strong>{{
+                 <strong>REQUEST- {{
                   activerequest.name
-                }}</strong></v-toolbar-title
+                }}</strong> 
+                <strong v-if="checkrebook"> / UPDATE - {{checkrebook}}</strong>
+                </v-toolbar-title
               >
               <v-spacer></v-spacer>
-              <v-btn @click="restore()" color="primary" absolute right fab>
+              <v-btn @click="restore()" v-if="!checkrebook" color="primary" absolute right fab>
                 <v-icon>mdi-backup-restore</v-icon>
               </v-btn>
               <v-toolbar-items> </v-toolbar-items>
@@ -141,7 +145,14 @@
                           dense
                         ></v-autocomplete>
 
-                        <v-chip x-medium v-if="activerequest.name !== 'SITE SURVEY'"> Serial No.{{activerequest.name == 'INSTALLATION'? '*':''}}</v-chip>
+                        <v-chip
+                          x-medium
+                          v-if="activerequest.name !== 'SITE SURVEY'"
+                        >
+                          Serial No.{{
+                            activerequest.name == "INSTALLATION" ? "*" : ""
+                          }}</v-chip
+                        >
                         <v-text-field
                           v-if="activerequest.name !== 'SITE SURVEY'"
                           v-model="data.units.serialno"
@@ -162,9 +173,14 @@
                           required
                           dense
                         ></v-select> -->
-                        <v-chip x-medium v-if="reqIdentifier !== 2 && reqIdentifier !== 3" > Warranty Condition* </v-chip>
+                        <v-chip
+                          x-medium
+                          v-if="reqIdentifier !== 2 && reqIdentifier !== 3"
+                        >
+                          Warranty Condition*
+                        </v-chip>
                         <v-select
-                         v-if="reqIdentifier !== 2 && reqIdentifier !== 3" 
+                          v-if="reqIdentifier !== 2 && reqIdentifier !== 3"
                           v-model="data.units.warrantycondition"
                           :items="productListDown.warrantycondition"
                           :error-messages="warrantyconditionError"
@@ -177,46 +193,42 @@
                         <v-chip x-medium class="ma-2">DATE PURCHASE </v-chip
                         ><br />
                         <v-menu
-                            ref="menu1"
-                            v-model="menu1"
-                            :close-on-content-click="false"
-                            :return-value.sync="date"
-                            transition="scale-transition"
-                            offset-y
-                            min-width="auto"
-                          >
-                            <template v-slot:activator="{ on, attrs }">
-                              <v-text-field
-                                v-model="data.units.datepurchase"
-                                label="Date Purchased"
-                                prepend-icon="mdi-calendar"
-                                readonly
-                                v-bind="attrs"
-                                v-on="on"
-                              ></v-text-field>
-                            </template>
-                            <v-date-picker
+                          ref="menu1"
+                          v-model="menu1"
+                          :close-on-content-click="false"
+                          :return-value.sync="date"
+                          transition="scale-transition"
+                          offset-y
+                          min-width="auto"
+                        >
+                          <template v-slot:activator="{ on, attrs }">
+                            <v-text-field
                               v-model="data.units.datepurchase"
-                              no-title
-                              scrollable
+                              label="Date Purchased"
+                              prepend-icon="mdi-calendar"
+                              readonly
+                              v-bind="attrs"
+                              v-on="on"
+                            ></v-text-field>
+                          </template>
+                          <v-date-picker
+                            v-model="data.units.datepurchase"
+                            no-title
+                            scrollable
+                          >
+                            <v-spacer></v-spacer>
+                            <v-btn text color="primary" @click="menu1 = false">
+                              Cancel
+                            </v-btn>
+                            <v-btn
+                              text
+                              color="primary"
+                              @click="$refs.menu1.save(data.units.datepurchase) || showalert()"
                             >
-                              <v-spacer></v-spacer>
-                              <v-btn
-                                text
-                                color="primary"
-                                @click="menu1 = false"
-                              >
-                                Cancel
-                              </v-btn>
-                              <v-btn
-                                text
-                                color="primary"
-                                @click="$refs.menu1.save(data.units.datepurchase)"
-                              >
-                                OK
-                              </v-btn>
-                            </v-date-picker>
-                          </v-menu>
+                              OK
+                            </v-btn>
+                          </v-date-picker>
+                        </v-menu>
                         <!-- <vs-input
                           type="date"
                           v-model="data.units.datepurchase"
@@ -262,9 +274,9 @@
                           hide-selected
                           item-text="Name"
                           item-value="Name"
-                          label="Search Problem"
-                          
+                           
                         >
+                     
                           <template v-slot:no-data>
                             <v-list-item>
                               <v-list-item-title>
@@ -336,7 +348,6 @@
                     </v-col>
                     <v-col cols="12" sm="3" v-if="reqIdentifier == 4">
                       <v-card class="pa-3" height="1100">
-                         
                         <v-chip x-medium>Property Type* </v-chip>
                         <v-select
                           v-model="data.usage.propertytype"
@@ -345,7 +356,7 @@
                           placeholder="Property Type*"
                           item-text="name"
                           item-value="value"
-                         @change="propertyTypeController()"
+                          @change="propertyTypeController()"
                           required
                           dense
                         ></v-select>
@@ -357,7 +368,7 @@
                           item-text="name"
                           item-value="value"
                           required
-                          :disabled="ifcommercial ==1"
+                          :disabled="ifcommercial == 1"
                           dense
                         ></v-select>
                         <v-chip x-medium>Location </v-chip>
@@ -368,7 +379,7 @@
                           item-text="name"
                           item-value="value"
                           required
-                          :disabled="ifcommercial ==1"
+                          :disabled="ifcommercial == 1"
                           dense
                         ></v-select>
                         <v-chip x-medium>Area </v-chip>
@@ -379,9 +390,8 @@
                           :error-messages="areaError"
                           @input="$v.data.usage.area.$touch()"
                           @keypress="checkAreaKey"
-                          
                           required
-                          :disabled="ifcommercial ==1"
+                          :disabled="ifcommercial == 1"
                           dense
                         ></v-text-field>
                         <v-chip x-medium>Wall Finish* </v-chip>
@@ -393,7 +403,7 @@
                           placeholder="Wall Finish*"
                           item-text="name"
                           item-value="value"
-                          :disabled="ifcommercial ==1"
+                          :disabled="ifcommercial == 1"
                           required
                           dense
                         ></v-select>
@@ -407,7 +417,7 @@
                           item-value="value"
                           required
                           dense
-                          :disabled="ifcommercial ==1"
+                          :disabled="ifcommercial == 1"
                         ></v-select>
                         <v-chip x-medium>Date of Delivery</v-chip>
 
@@ -415,64 +425,60 @@
                           type="date"
                           v-model="data.usage.deliverydate"
                         /> -->
-                          <v-menu
-                              ref="menu3"
-                              v-model="menu3"
-                              :close-on-content-click="false"
-                              :return-value.sync="data.usage.deliverydate"
-                              transition="scale-transition"
-                              offset-y
-                              min-width="auto"
+                        <v-menu
+                          ref="menu3"
+                          v-model="menu3"
+                          :close-on-content-click="false"
+                          :return-value.sync="data.usage.deliverydate"
+                          transition="scale-transition"
+                          offset-y
+                          min-width="auto"
+                        >
+                          <template v-slot:activator="{ on, attrs }">
+                            <v-text-field
+                              v-model="data.usage.deliverydate"
+                              label="Delivery Date"
+                              prepend-icon="mdi-calendar"
+                              readonly
+                              v-bind="attrs"
+                              v-on="on"
+                            ></v-text-field>
+                          </template>
+                          <v-date-picker
+                            v-model="data.usage.deliverydate"
+                            no-title
+                            scrollable
+                          >
+                            <v-spacer></v-spacer>
+                            <v-btn text color="primary" @click="menu3 = false">
+                              Cancel
+                            </v-btn>
+                            <v-btn
+                              text
+                              color="primary"
+                              @click="$refs.menu3.save(data.usage.deliverydate)"
                             >
-                              <template v-slot:activator="{ on, attrs }">
-                                <v-text-field
-                                  v-model="data.usage.deliverydate"
-                                  label="Delivery Date"
-                                  prepend-icon="mdi-calendar"
-                                  readonly
-                                  v-bind="attrs"
-                                  v-on="on"
-                                ></v-text-field>
-                              </template>
-                              <v-date-picker
-                                v-model="data.usage.deliverydate"
-                                no-title
-                                scrollable
-                              >
-                                <v-spacer></v-spacer>
-                                <v-btn
-                                  text
-                                  color="primary"
-                                  @click="menu3 = false"
-                                >
-                                  Cancel
-                                </v-btn>
-                                <v-btn
-                                  text
-                                  color="primary"
-                                  @click="$refs.menu3.save(data.usage.deliverydate)"
-                                >
-                                  OK
-                                </v-btn>
-                              </v-date-picker>
-                            </v-menu>
-
-
-
+                              OK
+                            </v-btn>
+                          </v-date-picker>
+                        </v-menu>
 
                         <v-chip x-medium>Time Of Delivery </v-chip>
                         <vue-timepicker
                           v-model="data.usage.time"
                           style="margin: 6px"
                         ></vue-timepicker>
- <br>
+                        <br />
                         <v-chip x-medium>Installation Address</v-chip>
-                        
-                        <v-radio-group v-model="InstallationAddress" @change="addressV()">
-                          <v-radio label="Customer" ></v-radio>
+
+                        <v-radio-group
+                          v-model="InstallationAddress"
+                          @change="addressV()"
+                        >
+                          <v-radio label="Customer"></v-radio>
                           <v-radio label="Others"></v-radio>
                         </v-radio-group>
-                   
+
                         <v-text-field
                           v-if="InstallationAddress == 1"
                           style="margin: 6px"
@@ -509,7 +515,7 @@
                         <v-chip x-medium class="ma-2">
                           Contact Phone Number*</v-chip
                         >
-                       <!-- changes @keyup="checkrecordauto" -->
+                        <!-- changes @keyup="checkrecordauto" -->
                         <v-text-field
                           v-model="customer.cpnumber"
                           :error-messages="cpnumberError"
@@ -521,24 +527,22 @@
                           required
                           @keypress="onlyNumber"
                           @keydown="checknumber"
-                          
                           class="ma-2"
                         ></v-text-field>
-                         
+
                         <vs-button
                           class="ma-2"
                           outlined
                           color="indigo"
                           @click="checkRecExist()"
                           size="mini"
-                           
                         >
                           CHECK RECORD
                         </vs-button>
                         <v-chip x-medium class="ma-2"
                           >Email Address (OPTIONAL)</v-chip
                         >
-                        
+
                         <v-text-field
                           v-model="customer.emailaddress"
                           placeholder="Email Address (OPTIONAL)"
@@ -547,7 +551,6 @@
                           class="ma-2"
                           v-uppercase
                           :disabled="checkIdentifier == 1"
-                           
                         ></v-text-field>
                         <v-chip x-medium class="ma-2">Last Name *</v-chip>
                         <v-text-field
@@ -609,28 +612,27 @@
                           hide-details
                           single-line
                           type="integer"
-                           :maxlength="max"
+                          :maxlength="max"
                           dense
                           required
-
                           @keypress="onlyNumber"
                           class="ma-2"
                           :disabled="checkIdentifier == 1"
                         ></v-text-field>
-                        <v-chip x-medium  class="ma-2">LANDMARK</v-chip>
+                        <v-chip x-medium class="ma-2">LANDMARK</v-chip>
                         <v-text-field
-                         class="ma-2"
+                          class="ma-2"
                           v-model="customer.landmark"
                           placeholder="LANDMARK "
                           required
                           v-uppercase
                           :disabled="checkIdentifier == 1"
                         ></v-text-field>
-                        <v-chip x-medium v-if="reqIdentifier == 3"
-                           class="ma-2" >SURVEY LOCATION</v-chip
+                        <v-chip x-medium v-if="reqIdentifier == 3" class="ma-2"
+                          >SURVEY LOCATION</v-chip
                         >
                         <v-text-field
-                         class="ma-2"
+                          class="ma-2"
                           v-if="reqIdentifier == 3"
                           v-model="data.usage.locationofinstallation"
                           placeholder="Survey Location"
@@ -639,7 +641,6 @@
                           v-uppercase
                           :disabled="checkIdentifier == 1"
                         ></v-text-field>
-
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
@@ -672,7 +673,9 @@
                           @change="provinceD()"
                           :disabled="checkIdentifier == 1"
                         ></v-select>
-                        <v-chip x-medium class="ma-1">Municipality/City *</v-chip>
+                        <v-chip x-medium class="ma-1"
+                          >Municipality/City *</v-chip
+                        >
                         <v-select
                           class="ma-1"
                           v-model="customer.mcity"
@@ -780,9 +783,9 @@
                             reqIdentifier == 4 ||
                             customer.attachment.length
                           "
-                          >Sales Invoice/cof/aisf/Mrf </v-chip
-                        >
-                         
+                          >Sales Invoice/cof/aisf/Mrf
+                        </v-chip>
+
                         <v-file-input
                           v-if="
                             checkwarranty ||
@@ -791,14 +794,26 @@
                             reqIdentifier == 4 ||
                             customer.attachment.length
                           "
+                          :label="filenamelabel"
                           counter
                           multiple
-                           
                           truncate-length="15"
                           v-model="customer.attachment"
-                           
-                        > </v-file-input>
-                         
+                        >
+                        
+                        </v-file-input>
+                    
+                        <v-chip x-medium v-if="reqIdentifier == 4"
+                          >Sketch
+                        </v-chip>
+
+                        <v-file-input
+                          v-if="reqIdentifier == 4"
+                          counter
+                          truncate-length="15"
+                          v-model="customer.sketch"
+                        >
+                        </v-file-input>
                         <v-textarea
                           prepend-inner-icon="mdi-comment"
                           class="mx-2"
@@ -808,8 +823,7 @@
                           v-uppercase
                           :disabled="checkIdentifier == 1"
                         ></v-textarea>
-               
-               
+
                         <!-- <h3>Any additional request?</h3>
 
                         <vs-checkbox
@@ -868,11 +882,10 @@
                           color="indigo"
                           @click="checkout()"
                           :disabled="CustomerALLError"
-                         
                         >
                           REVIEW AND CHECKOUT
                         </vs-button>
-                         <vs-button
+                        <vs-button
                           class="ma-2"
                           @click="add()"
                           outlined
@@ -882,20 +895,18 @@
                         >
                           SUBMIT
                         </vs-button>
-                         <v-chip x-medium class="ma-2">
-                          LOGGED BY *</v-chip
-                        >
-                          <v-text-field
-                            outlined
-                            v-model="customer.bookby"
-                            name="LOGGED BY :"
-                            label="Enter Your Complete Name"
-                            :error-messages="lognameError"
-                            @input="$v.customer.bookby.$touch()"
-                            required
-                            v-uppercase
-                          ></v-text-field>
-                           
+                        <v-chip x-medium class="ma-2"> LOGGED BY *   </v-chip>
+                       
+                        <v-text-field
+                          outlined
+                          v-model="customer.bookby"
+                          name="LOGGED BY :"
+                          :label="logbylabel"
+                          :error-messages="lognameError"
+                          @input="$v.customer.bookby.$touch()"
+                          required
+                          v-uppercase
+                        ></v-text-field>
                       </v-card>
                     </v-col>
                   </v-row>
@@ -931,7 +942,7 @@
             </v-card>
           </v-dialog>
 
-          <v-dialog v-model="restoreBK" width="500">
+          <v-dialog v-model="restoreBK" width="500" v-if="!checkrebook">
             <v-card>
               <v-card-title class="text-h5 grey lighten-2">
                 RESTORE DRAFT
@@ -984,8 +995,8 @@
 
                     <v-col cols="12" sm="6" md="4">
                       <strong>Address Details</strong>
-                      <br /> {{
-                      
+                      <br />
+                      {{
                         customer.barangay +
                         ", " +
                         customer.customerCity +
@@ -996,7 +1007,7 @@
 
                     <v-col cols="12" sm="6" md="4">
                       <strong>Request Type</strong>
-                      <br />{{  activerequest.name }}
+                      <br />{{ activerequest.name }}
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <strong>Dealer Name</strong>
@@ -1006,7 +1017,7 @@
                       <strong>Special Instruction</strong>
                       <br />{{ customer.specialinstruction }}
                     </v-col>
-                      <v-col cols="12" sm="6" md="4">
+                    <v-col cols="12" sm="6" md="4">
                       <strong>Telephone #</strong>
                       <br />{{ customer.telephoneno }}
                     </v-col>
@@ -1044,11 +1055,12 @@
                   color="blue darken-1"
                   text
                   @click="confirmdialog = false || submit(5)"
+                   v-if="!checkrebook"
                 >
                   DRAFT
                 </v-btn>
                 <v-btn color="blue darken-1" text @click="submit(1)">
-                  SUBMIT SERVICE REQUEST
+                   {{checkrebook ? 'UPDATE SERVICE REQUEST':'SUBMIT SERVICE REQUEST'}}
                 </v-btn>
                 <v-btn
                   color="blue darken-1"
@@ -1178,6 +1190,18 @@
           </v-card>
         </v-col>
       </v-row>
+          <v-dialog v-model="purchaseorderalert" max-width="400">
+          <v-card>
+            <v-card-title>Purchased Order Date Verification</v-card-title>
+            <v-card-text>
+               Please Verify Purchased Order Date Before Proceed
+            </v-card-text>
+            <v-card-actions>
+              <v-btn color="primary" @click="proceed">Proceed</v-btn>
+             
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       <!-- <vs-row>
         <vs-button
           style="background-color: white; min-width: 70px; color: black"
@@ -1257,6 +1281,9 @@
 </template>
   
   <script>
+var bookbyid;
+var mapid;
+
 // import
 // Main JS (in UMD format)
 import VueTimepicker from "vue2-timepicker";
@@ -1288,14 +1315,14 @@ export default {
   validations: {
     data: {
       units: {
-        serialno: {required},
+        serialno: { required },
         appliancetype: { required },
         brand: { required },
         model: { required },
         // unitcondition: { required },
-        warrantycondition: { required }, 
+        warrantycondition: { required },
         problem: { required },
-        customer: { required}
+        customer: { required },
         /// qty: { required },
       },
 
@@ -1328,9 +1355,14 @@ export default {
   },
   data() {
     return {
-      restoreId: '',
-      menu1: '',
-      addIden:0,
+      logbylabel: 'Enter Your Complete Name',
+      filenamelabel: '',
+      purchaseorderalert: false,
+      customerid: '',
+      rebookid: '',
+      restoreId: "",
+      menu1: "",
+      addIden: 0,
       Identifier2: 1,
       InstallationAddress: 0,
       max: 11,
@@ -1346,8 +1378,8 @@ export default {
       ifcommercial: 0,
       problemItemsAuto: [],
       problemAuto: null,
-      searchP: null,
-
+      searchP: '',
+       
       restoreBK: false,
       restoreHead: [
         { text: "REQUEST TYPE", value: "requesttype" },
@@ -1404,10 +1436,11 @@ export default {
         organization: "",
         organizationname: "",
         attachment: [],
+        sketch: [],
         specialinstruction: "N/A",
         additionalrequest1: "N/A",
         additionalrequest2: "N/A",
-        bookby: ''
+        bookby: "ddd",
       },
       data: {
         units: {
@@ -1446,7 +1479,7 @@ export default {
         propertytype: [],
         level: [],
         location: [],
-        
+
         wallfinish: [
           { name: "YES", value: "YES" },
           { name: "NO", value: "NO" },
@@ -1556,7 +1589,6 @@ export default {
           {
             name: "MEDIUM",
             value: "MEDIUM",
-          
           },
           {
             name: "LOW",
@@ -1567,6 +1599,7 @@ export default {
     };
   },
   watch: {
+    
     modelAuto(val) {
       if (val != null) this.tab = 0;
       else this.tab = null;
@@ -1576,10 +1609,11 @@ export default {
       if (this.itemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch(this.$URLs.backend+"/api/random/exec")
+      fetch(this.$URLs.backend + "/api/random/exec")
         .then((res) => res.clone().json())
         .then((res) => {
           this.itemsAuto = res;
+          console.log(res)
         })
         .catch((err) => {
           console.log(err);
@@ -1592,13 +1626,15 @@ export default {
       else this.tab = null;
     },
     searchP(val) {
+      
       // Items have already been loaded
       if (this.problemItemsAuto.length > 0) return;
       this.isLoading = true;
       // Lazily load input items
-      fetch(this.$URLs.frontend+"/api2/problem.json")
+      fetch(this.$URLs.frontend + "/api2/problem.json")
         .then((res) => res.clone().json())
         .then((res) => {
+        
           this.problemItemsAuto = res;
         })
         .catch((err) => {
@@ -1607,29 +1643,115 @@ export default {
         .finally(() => (this.isLoading = false));
     },
   },
-  created() {
-    // this.$store.dispatch("fetchDBAll");
-    this.$store.dispatch("app_booking_sys/FetchUnitFields").then((res)=>{
-        console.log(res.data)
-         this.usagedetailsListDown.propertytype  = res.data.propertytype
-         this.usagedetailsListDown.level = res.data.level
-         this.usagedetailsListDown.location = res.data.level
-    })
-    regions().then((region) => (this.addressesListDown.region = region));
+  async mounted() {
+     mapid = this.$route.params.mapid;
+    if (mapid) {
+      var data = JSON.parse(atob(mapid));
+       
+       this.$store
+        .dispatch("app_booking_sys/getRequest", data.requestID)
+        .then((res)   =>  {
+          console.log(res)
+           
+          this.CopyDataRebook(res.data[0])
+     
+          if (res.data[0].requesttype == "INSTALLATION") {
+     
+            this.request2({ name: "INSTALLATION", id: 4 ,  requestid: res.data[0].requestid });
+          } else if (res.data[0].requesttype == "REPAIR") {
+     
+           this.request2({ name: "REPAIR", id: 1 ,  requestid: res.data[0].requestid  });
+          } else if (res.data[0].requesttype == "CLEANING") {
     
+            this.request2({ name: "CLEANING", id: 2 ,  requestid: res.data[0].requestid  });
+          } else if (res.data[0].requesttype == "SITE SURVEY") {
+      
+            this.request2({ name: "SITE SURVEY", id: 3 ,  requestid: res.data[0].requestid  });
+          }
+          //this.customer.cpnumber = res.data[0].customer.cpnumber;
+          //bookbyid =  res.data[0].bookby
+          //this.data.units = res.data[0].units[0]
+          //this.data.usage = res.data[0].units[0]
+           
+          //this.filenamelabel = res.data[0].filename
+          //this.logbylabel = bookbyid
+          var data = {
+              id: 20,
+              Brand: res.data[0].units[0].brand,
+              model: res.data[0].units[0].model,
+              nomodel: '',
+              type:  res.data[0].units[0].appliancetype,
+              categories: res.data[0].units[0].prodcategories,
+              SQM: '' 
+          }
+         
+          //this.checkRecExist()
+          this.modelsActivate(data)
+          this.units = []
+          this.addIden = 0
+
+          // this.data = {
+          //   units: {
+          //     problem: "dddd",
+          //     prodcategories: "",
+          //     appliancetype: "",
+          //     brand: "",
+          //     model: "",
+          //     serialno: "333",
+          //     unitcondition: "",
+          //     warrantycondition: "",
+          //     qty: 1,
+          //     demandreplacement: "",
+          //     priority: "",
+          //     datepurchase: new Date(
+          //       Date.now() - new Date().getTimezoneOffset() * 60000
+          //     )
+          //       .toISOString()
+          //       .substr(0, 10),
+          //   },
+          //   usage: {
+          //     or: "",
+          //     propertytype: "",
+          //     level: "",
+          //     location: "",
+          //     wallfinish: "",
+          //     withpowersupply: "",
+          //     area: 0,
+          //     deliverydate: "",
+          //     time: null,
+          //     locationofinstallation: "",
+          //     paidamoun: "",
+          //   },
+          // };
+        });
+    }
+  },
+  created() {
+ 
+    // this.$store.dispatch("fetchDBAll");
+    this.$store.dispatch("app_booking_sys/FetchUnitFields").then((res) => {
+      console.log(res.data);
+      this.usagedetailsListDown.propertytype = res.data.propertytype;
+      this.usagedetailsListDown.level = res.data.level;
+      this.usagedetailsListDown.location = res.data.level;
+    });
+    regions().then((region) => (this.addressesListDown.region = region));
+
     this.usersData = this.$store.state.currentUser;
-     fetch(this.$URLs.backend+"/api/random/exec")
-        .then((res) => res.clone().json())
-        .then((res) => {
-          this.itemsAuto = res;
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-        .finally(() => (this.isLoading = false));
+    fetch(this.$URLs.backend + "/api/random/exec")
+      .then((res) => res.clone().json())
+      .then((res) => {
+        this.itemsAuto = res;
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => (this.isLoading = false));
   },
   computed: {
-
+    checkrebook(){
+      return this.rebookid
+    },
     areaError() {
       const errors = [];
       if (parseFloat(this.sqm) < parseFloat(this.data.usage.area)) {
@@ -1665,20 +1787,18 @@ export default {
     serialError() {
       const errors = [];
       var RequiredError = null;
-      if(this.activerequest.name == 'REPAIR'){
-         return errors;
-      }else if(this.activerequest.name == 'SITE SURVEY'){
-         return errors;
-      
-      }else if(this.activerequest.name == 'CLEANING'){
-         return errors;
-      }else{
-      if (!this.$v.data.units.serialno.$dirty) return errors;
-            RequiredError = "This field is required.";
-            !this.$v.data.units.serialno.required && errors.push(RequiredError);
-            return errors;
+      if (this.activerequest.name == "REPAIR") {
+        return errors;
+      } else if (this.activerequest.name == "SITE SURVEY") {
+        return errors;
+      } else if (this.activerequest.name == "CLEANING") {
+        return errors;
+      } else {
+        if (!this.$v.data.units.serialno.$dirty) return errors;
+        RequiredError = "This field is required.";
+        !this.$v.data.units.serialno.required && errors.push(RequiredError);
+        return errors;
       }
-       
     },
     modelError() {
       const errors = [];
@@ -1704,7 +1824,7 @@ export default {
     //   !this.$v.data.units.unitcondition.required && errors.push(RequiredError);
     //   return errors;
     // },
-    lognameError(){
+    lognameError() {
       const errors = [];
       var RequiredError = null;
       if (!this.$v.customer.bookby) return errors;
@@ -1712,51 +1832,49 @@ export default {
       !this.$v.customer.bookby.required && errors.push(RequiredError);
       return errors;
     },
-    problemError(){
-     const errors = [];
+    problemError() {
+      const errors = [];
       var RequiredError = null;
       if (!this.$v.data.units.problem) return errors;
       RequiredError = "This field is required.";
-      !this.$v.data.units.problem.required &&
-        errors.push(RequiredError);
+      !this.$v.data.units.problem.required && errors.push(RequiredError);
       return errors;
     },
     warrantyconditionError() {
       const errors = [];
       var RequiredError = null;
 
-
-      if(this.activerequest.name == 'SITE SURVEY' || this.activerequest.name == 'CLEANING'){
+      if (
+        this.activerequest.name == "SITE SURVEY" ||
+        this.activerequest.name == "CLEANING"
+      ) {
         return errors;
-      }else{
-          if (!this.$v.data.units.warrantycondition) return errors;
-                RequiredError = "This field is required.";
-                !this.$v.data.units.warrantycondition.required &&
-                  errors.push(RequiredError);
-          return errors;
+      } else {
+        if (!this.$v.data.units.warrantycondition) return errors;
+        RequiredError = "This field is required.";
+        !this.$v.data.units.warrantycondition.required &&
+          errors.push(RequiredError);
+        return errors;
       }
-       
     },
     //->CONTACT INFO VALIDATE
     cpnumberError() {
       const errors = [];
       var RequiredError = null;
-      if (this.customer.cpnumber.length !== 11){
-         RequiredError = "Ex: 09152212736";
-         errors.push(RequiredError);
-      } 
-     return errors
+      if (this.customer.cpnumber.length !== 11) {
+        RequiredError = "Ex: 09152212736";
+        errors.push(RequiredError);
+      }
+      return errors;
     },
-    checkIdentifier(){
-           var v;
-           if (this.customer.cpnumber.length !== 11){
-            v = 1;
-             
-             }else{
-            v = 0
-              
-           }
-           return v
+    checkIdentifier() {
+      var v;
+      if (this.customer.cpnumber.length !== 11) {
+        v = 1;
+      } else {
+        v = 0;
+      }
+      return v;
     },
     lastnameError() {
       const errors = [];
@@ -1853,49 +1971,48 @@ export default {
     },
 
     UnitsALLError() {
-  // || this.activerequest.name == 'SITE SURVEY' || this.activerequest.name == 'CLEANING'
-      if(this.activerequest.name == 'REPAIR' ){
+      // || this.activerequest.name == 'SITE SURVEY' || this.activerequest.name == 'CLEANING'
+      if (this.activerequest.name == "REPAIR") {
         this.$v.data.units.$touch();
-          if (!this.$v.data.units.appliancetype.$error && 
+        if (
+          !this.$v.data.units.appliancetype.$error &&
           !this.$v.data.units.brand.$error &&
           // !this.$v.data.units.unitcondition.$error &&
           !this.$v.data.units.warrantycondition.$error &&
-          !this.$v.data.units.problem.$error 
-        
-          ){
-                  return false;
-           }
-      
-      }else if(this.activerequest.name == 'CLEANING'){
-          if (!this.$v.data.units.appliancetype.$error && 
-                    !this.$v.data.units.brand.$error  
-                    // !this.$v.data.units.unitcondition.$error &&
-                    //!this.$v.data.units.warrantycondition.$error 
-                  
-                    ){
-                            return false;
-                    }
-      }else if(this.activerequest.name == 'SITE SURVEY'){
-          if (!this.$v.data.units.appliancetype.$error && 
-                    !this.$v.data.units.brand.$error  
-                    // !this.$v.data.units.unitcondition.$error &&
-                    // !this.$v.data.units.warrantycondition.$error 
-                  
-                    ){
-                            return false;
-                    }
-      }else{
-          if (!this.$v.data.units.appliancetype.$error && 
+          !this.$v.data.units.problem.$error
+        ) {
+          return false;
+        }
+      } else if (this.activerequest.name == "CLEANING") {
+        if (
+          !this.$v.data.units.appliancetype.$error &&
+          !this.$v.data.units.brand.$error
+          // !this.$v.data.units.unitcondition.$error &&
+          //!this.$v.data.units.warrantycondition.$error
+        ) {
+          return false;
+        }
+      } else if (this.activerequest.name == "SITE SURVEY") {
+        if (
+          !this.$v.data.units.appliancetype.$error &&
+          !this.$v.data.units.brand.$error
+          // !this.$v.data.units.unitcondition.$error &&
+          // !this.$v.data.units.warrantycondition.$error
+        ) {
+          return false;
+        }
+      } else {
+        if (
+          !this.$v.data.units.appliancetype.$error &&
           !this.$v.data.units.brand.$error &&
           // !this.$v.data.units.unitcondition.$error &&
           !this.$v.data.units.warrantycondition.$error &&
-          !this.$v.data.units.serialno.$error 
-          
-          ){
-                  return false;
-           }
+          !this.$v.data.units.serialno.$error
+        ) {
+          return false;
+        }
       }
- 
+
       return true;
     },
     withpowersupplyError() {
@@ -1923,10 +2040,11 @@ export default {
       !this.$v.data.usage.propertytype.required && errors.push(RequiredError);
       return errors;
     },
- 
   },
   methods: {
- 
+    getBook() {
+      alert();
+    },
     regionD() {
       provinces(this.customer.region).then(
         (province) => (this.addressesListDown.province = province)
@@ -1948,10 +2066,8 @@ export default {
       citiesName(this.customer.mcity).then(
         (city) => (this.customer.customerCity = city[0].city_name)
       );
-       
     },
     getindex: function () {
-     
       const AIRCONDITION = [
         {
           name: "SPLIT TYPE",
@@ -2015,10 +2131,11 @@ export default {
       } else {
         // this.productListDown.appliancetype = EMPTY;
       }
-    this.$store.dispatch("app_booking_sys/getCat", this.data.units.prodcategories).then((res)=>{
-      this.productListDown.appliancetype = res.data
-    })
-      
+      this.$store
+        .dispatch("app_booking_sys/getCat", this.data.units.prodcategories)
+        .then((res) => {
+          this.productListDown.appliancetype = res.data;
+        });
     },
     gen() {
       var testData = {
@@ -2094,157 +2211,70 @@ export default {
       }
     },
     add() {
-       
       if (this.activerequest.name == "INSTALLATION") {
-          
-            if(this.data.usage.area !== ''){
-        this.$v.data.units.$touch();
-        this.$v.data.usage.$touch();
-        if (!this.$v.data.units.appliancetype.$error && 
-            !this.$v.data.units.brand.$error && 
-            !this.$v.data.units.model.$error &&
-            // !this.$v.data.units.unitcondition.$error &&
-            !this.$v.data.units.warrantycondition.$error && !this.$v.data.usage.$error) {
-          const add = {
-            unitid:
-              "UNIT-" +
-              this.data.units.brand +
-              "-" +
-              Math.ceil(Math.random() * 1000000),
-            prodcategories: this.data.units.prodcategories,
-            appliancetype: this.data.units.appliancetype,
-            brand: this.data.units.brand,
-            model: this.data.units.model,
-            serialno: this.data.units.serialno,
-            unitcondition: this.data.units.unitcondition,
-            warrantycondition: this.data.units.warrantycondition,
-            qty: this.data.units.qty,
-            demandreplacement: this.data.units.demandreplacement,
-            priority: this.data.units.priority,
-            datepurchase: this.data.units.datepurchase,
-            problem: this.data.units.problem,
-            //usage
-            ornumber: this.data.usage.or,
-            propertytype: this.data.usage.propertytype,
-            level: this.data.usage.level,
-            location: this.data.usage.location,
-            area: this.data.usage.area,
-            wallfinish: this.data.usage.wallfinish,
-            withpowersupply: this.data.usage.withpowersupply,
-            deliverydate: this.data.usage.deliverydate,
-            time: this.data.usage.time,
-            locationofinstallation: this.InstallationAddress == 0?0:this.data.usage.locationofinstallation,
-            paidamoun: this.data.usage.paidamoun,
-          };
-          this.units.push(add);
-          this.storeDataFinal.push(add);
-        this.addIden = 1;
-        }
-            }else{
-              alert('Area Required!')
-            }
-
-        
-      } else if(this.activerequest.name == "REPAIR"){
-         
-         this.$v.data.units.$touch();
-        
-        if (!this.$v.data.units.appliancetype.$error && 
-            !this.$v.data.units.brand.$error && 
+        if (this.data.usage.area !== "") {
+          this.$v.data.units.$touch();
+          this.$v.data.usage.$touch();
+          if (
+            !this.$v.data.units.appliancetype.$error &&
+            !this.$v.data.units.brand.$error &&
             !this.$v.data.units.model.$error &&
             // !this.$v.data.units.unitcondition.$error &&
             !this.$v.data.units.warrantycondition.$error &&
-            !this.$v.data.units.problem.$error ) {
-              
-          const add = {
-            unitid:
-              "UNIT-" +
-              this.data.units.brand +
-              "-" +
-              Math.ceil(Math.random() * 1000000),
-            prodcategories: this.data.units.prodcategories,
-            appliancetype: this.data.units.appliancetype,
-            brand: this.data.units.brand,
-            model: this.data.units.model,
-            serialno: this.data.units.serialno,
-            unitcondition: this.data.units.unitcondition,
-            warrantycondition: this.data.units.warrantycondition,
-            qty: this.data.units.qty,
-            demandreplacement: this.data.units.demandreplacement,
-            priority: this.data.units.priority,
-            datepurchase: this.data.units.datepurchase,
-            problem: this.data.units.problem,
-            //usage
-            ornumber: this.data.usage.or,
-            propertytype: this.data.usage.propertytype,
-            level: this.data.usage.level,
-            location: this.data.usage.location,
-            area: this.data.usage.area,
-            wallfinish: this.data.usage.propertytype,
-            withpowersupply: this.data.usage.wallfinish,
-            deliverydate: this.data.usage.deliverydate,
-            time: this.data.usage.time,
-            locationofinstallation: this.InstallationAddress == 0?0:this.data.usage.locationofinstallation,
-            paidamoun: this.data.usage.paidamoun,
-          };
-          this.units.push(add);
-          this.storeDataFinal.push(add);
-          this.addIden = 1;
+            !this.$v.data.usage.$error
+          ) {
+            const add = {
+              unitid:
+                "UNIT-" +
+                this.data.units.brand +
+                "-" +
+                Math.ceil(Math.random() * 1000000),
+              prodcategories: this.data.units.prodcategories,
+              appliancetype: this.data.units.appliancetype,
+              brand: this.data.units.brand,
+              model: this.data.units.model,
+              serialno: this.data.units.serialno,
+              unitcondition: this.data.units.unitcondition,
+              warrantycondition: this.data.units.warrantycondition,
+              qty: this.data.units.qty,
+              demandreplacement: this.data.units.demandreplacement,
+              priority: this.data.units.priority,
+              datepurchase: this.data.units.datepurchase,
+              problem: this.data.units.problem,
+              //usage
+              ornumber: this.data.usage.or,
+              propertytype: this.data.usage.propertytype,
+              level: this.data.usage.level,
+              location: this.data.usage.location,
+              area: this.data.usage.area,
+              wallfinish: this.data.usage.wallfinish,
+              withpowersupply: this.data.usage.withpowersupply,
+              deliverydate: this.data.usage.deliverydate,
+              time: this.data.usage.time,
+              locationofinstallation:
+                this.InstallationAddress == 0
+                  ? 0
+                  : this.data.usage.locationofinstallation,
+              paidamoun: this.data.usage.paidamoun,
+            };
+            this.units.push(add);
+            this.storeDataFinal.push(add);
+            this.addIden = 1;
+          }
+        } else {
+          alert("Area Required!");
         }
-      }else if(this.activerequest.name == "SITE SURVEY"){
-        
-         this.$v.data.units.$touch();
-        
-        if (!this.$v.data.units.appliancetype.$error && 
-            !this.$v.data.units.brand.$error && 
-            !this.$v.data.units.model.$error 
-            // !this.$v.data.units.unitcondition.$error &&
-            // !this.$v.data.units.warrantycondition.$error &&
-              ) {
-              
-          const add = {
-            unitid:
-              "UNIT-" +
-              this.data.units.brand +
-              "-" +
-              Math.ceil(Math.random() * 1000000),
-            prodcategories: this.data.units.prodcategories,
-            appliancetype: this.data.units.appliancetype,
-            brand: this.data.units.brand,
-            model: this.data.units.model,
-            serialno: this.data.units.serialno,
-            unitcondition: this.data.units.unitcondition,
-            warrantycondition: '',
-            qty: this.data.units.qty,
-            demandreplacement: this.data.units.demandreplacement,
-            priority: this.data.units.priority,
-            datepurchase: this.data.units.datepurchase,
-            problem: this.data.units.problem,
-            //usage
-            ornumber: this.data.usage.or,
-            propertytype: this.data.usage.propertytype,
-            level: this.data.usage.level,
-            location: this.data.usage.location,
-            area: this.data.usage.area,
-            wallfinish: this.data.usage.propertytype,
-            withpowersupply: this.data.usage.wallfinish,
-            deliverydate: this.data.usage.deliverydate,
-            time: this.data.usage.time,
-            locationofinstallation: this.InstallationAddress == 0?0:this.data.usage.locationofinstallation,
-            paidamoun: this.data.usage.paidamoun,
-          };
-          this.units.push(add);
-          this.storeDataFinal.push(add);
-          this.addIden = 1;
-        }
-       }else if(this.activerequest.name == "CLEANING"){
+      } else if (this.activerequest.name == "REPAIR") {
+        this.$v.data.units.$touch();
 
-        this.$v.data.units.$touch();
-        if (!this.$v.data.units.appliancetype.$error && 
-            !this.$v.data.units.brand.$error && 
-            !this.$v.data.units.model.$error 
-            // !this.$v.data.units.unitcondition.$error &&
-            ) {
+        if (
+          !this.$v.data.units.appliancetype.$error &&
+          !this.$v.data.units.brand.$error &&
+          !this.$v.data.units.model.$error &&
+          // !this.$v.data.units.unitcondition.$error &&
+          !this.$v.data.units.warrantycondition.$error &&
+          !this.$v.data.units.problem.$error
+        ) {
           const add = {
             unitid:
               "UNIT-" +
@@ -2254,7 +2284,6 @@ export default {
             prodcategories: this.data.units.prodcategories,
             appliancetype: this.data.units.appliancetype,
             brand: this.data.units.brand,
-            problem: this.data.units.problem,
             model: this.data.units.model,
             serialno: this.data.units.serialno,
             unitcondition: this.data.units.unitcondition,
@@ -2263,19 +2292,83 @@ export default {
             demandreplacement: this.data.units.demandreplacement,
             priority: this.data.units.priority,
             datepurchase: this.data.units.datepurchase,
-            locationofinstallation:  this.InstallationAddress == 0?0:this.data.usage.locationofinstallation,
+            problem: this.data.units.problem,
+            //usage
+            ornumber: this.data.usage.or,
+            propertytype: this.data.usage.propertytype,
+            level: this.data.usage.level,
+            location: this.data.usage.location,
+            area: this.data.usage.area,
+            wallfinish: this.data.usage.propertytype,
+            withpowersupply: this.data.usage.wallfinish,
+            deliverydate: this.data.usage.deliverydate,
+            time: this.data.usage.time,
+            locationofinstallation:
+              this.InstallationAddress == 0
+                ? 0
+                : this.data.usage.locationofinstallation,
+            paidamoun: this.data.usage.paidamoun,
           };
           this.units.push(add);
           this.storeDataFinal.push(add);
           this.addIden = 1;
         }
-       } else{
+      } else if (this.activerequest.name == "SITE SURVEY") {
         this.$v.data.units.$touch();
-        if (!this.$v.data.units.appliancetype.$error && 
-            !this.$v.data.units.brand.$error && 
-            !this.$v.data.units.model.$error &&
-            // !this.$v.data.units.unitcondition.$error &&
-            !this.$v.data.units.warrantycondition.$error  ) {
+
+        if (
+          !this.$v.data.units.appliancetype.$error &&
+          !this.$v.data.units.brand.$error &&
+          !this.$v.data.units.model.$error
+          // !this.$v.data.units.unitcondition.$error &&
+          // !this.$v.data.units.warrantycondition.$error &&
+        ) {
+          const add = {
+            unitid:
+              "UNIT-" +
+              this.data.units.brand +
+              "-" +
+              Math.ceil(Math.random() * 1000000),
+            prodcategories: this.data.units.prodcategories,
+            appliancetype: this.data.units.appliancetype,
+            brand: this.data.units.brand,
+            model: this.data.units.model,
+            serialno: this.data.units.serialno,
+            unitcondition: this.data.units.unitcondition,
+            warrantycondition: "",
+            qty: this.data.units.qty,
+            demandreplacement: this.data.units.demandreplacement,
+            priority: this.data.units.priority,
+            datepurchase: this.data.units.datepurchase,
+            problem: this.data.units.problem,
+            //usage
+            ornumber: this.data.usage.or,
+            propertytype: this.data.usage.propertytype,
+            level: this.data.usage.level,
+            location: this.data.usage.location,
+            area: this.data.usage.area,
+            wallfinish: this.data.usage.propertytype,
+            withpowersupply: this.data.usage.wallfinish,
+            deliverydate: this.data.usage.deliverydate,
+            time: this.data.usage.time,
+            locationofinstallation:
+              this.InstallationAddress == 0
+                ? 0
+                : this.data.usage.locationofinstallation,
+            paidamoun: this.data.usage.paidamoun,
+          };
+          this.units.push(add);
+          this.storeDataFinal.push(add);
+          this.addIden = 1;
+        }
+      } else if (this.activerequest.name == "CLEANING") {
+        this.$v.data.units.$touch();
+        if (
+          !this.$v.data.units.appliancetype.$error &&
+          !this.$v.data.units.brand.$error &&
+          !this.$v.data.units.model.$error
+          // !this.$v.data.units.unitcondition.$error &&
+        ) {
           const add = {
             unitid:
               "UNIT-" +
@@ -2294,7 +2387,46 @@ export default {
             demandreplacement: this.data.units.demandreplacement,
             priority: this.data.units.priority,
             datepurchase: this.data.units.datepurchase,
-            locationofinstallation:  this.InstallationAddress == 0?0:this.data.usage.locationofinstallation,
+            locationofinstallation:
+              this.InstallationAddress == 0
+                ? 0
+                : this.data.usage.locationofinstallation,
+          };
+          this.units.push(add);
+          this.storeDataFinal.push(add);
+          this.addIden = 1;
+        }
+      } else {
+        this.$v.data.units.$touch();
+        if (
+          !this.$v.data.units.appliancetype.$error &&
+          !this.$v.data.units.brand.$error &&
+          !this.$v.data.units.model.$error &&
+          // !this.$v.data.units.unitcondition.$error &&
+          !this.$v.data.units.warrantycondition.$error
+        ) {
+          const add = {
+            unitid:
+              "UNIT-" +
+              this.data.units.brand +
+              "-" +
+              Math.ceil(Math.random() * 1000000),
+            prodcategories: this.data.units.prodcategories,
+            appliancetype: this.data.units.appliancetype,
+            brand: this.data.units.brand,
+            problem: this.data.units.problem,
+            model: this.data.units.model,
+            serialno: this.data.units.serialno,
+            unitcondition: this.data.units.unitcondition,
+            warrantycondition: this.data.units.warrantycondition,
+            qty: this.data.units.qty,
+            demandreplacement: this.data.units.demandreplacement,
+            priority: this.data.units.priority,
+            datepurchase: this.data.units.datepurchase,
+            locationofinstallation:
+              this.InstallationAddress == 0
+                ? 0
+                : this.data.usage.locationofinstallation,
           };
           this.units.push(add);
           this.storeDataFinal.push(add);
@@ -2304,15 +2436,20 @@ export default {
     },
 
     editItem() {
-      var items = this.units[0]
-      this.productListDown.prodcategories = {name: items.prodcategories, value: items.prodcategories}
-      this.productListDown.appliancetype = {name: items.appliancetype, value: items.appliancetype}
-      this.productListDown.brand = {name: items.brand, value: items.brand}
-      
-      
+      var items = this.units[0];
+      this.productListDown.prodcategories = {
+        name: items.prodcategories,
+        value: items.prodcategories,
+      };
+      this.productListDown.appliancetype = {
+        name: items.appliancetype,
+        value: items.appliancetype,
+      };
+      this.productListDown.brand = { name: items.brand, value: items.brand };
+
       this.data = {
         units: {
-          prodcategories:  items.prodcategories,
+          prodcategories: items.prodcategories,
           appliancetype: items.appliancetype,
           brand: items.brand,
           model: items.model,
@@ -2336,12 +2473,12 @@ export default {
           time: items.time,
           locationofinstallation: items.locationofinstallation,
           paidamoun: items.paidamoun,
-          or: items.ornumber
+          or: items.ornumber,
         },
       };
     },
     trashUnits(item) {
-      this.addIden = 0
+      this.addIden = 0;
       this.units.splice(this.units.indexOf(item), 1);
       this.storeDataFinal.splice(this.storeDataFinal.indexOf(item), 1);
     },
@@ -2351,20 +2488,54 @@ export default {
       }
     },
     checkout() {
-      this.$v.customer.$touch();
-      if (this.checkwarranty == true) {
-        if (this.customer.attachment.length !== 0) {
-          this.checkoutFinal();
-        } else {
-          this.reqIdentifier;
-          if (this.reqIdentifier == 3 || this.reqIdentifier == 2) {
+      alert("Please Verify Purchased Order Date Before Proceed")
+      var message =
+        "Please ensure that all required attachments are provided:\n\n" +
+        "- Sketch\n" +
+        "- Invoice - Required if Items are Warranty\n" +
+        "Failure to include these files may impact the processing of your request.";
+
+      if (this.reqIdentifier == 4) {
+        if (this.checkwarranty == true) {
+          //true
+          if (this.customer.attachment.length !== 0 && this.customer.sketch) {
             this.checkoutFinal();
           } else {
-            alert("Please Attach Sales Invoice to Proceed");
+            this.reqIdentifier;
+            if (this.reqIdentifier == 3 || this.reqIdentifier == 2) {
+              this.checkoutFinal();
+            } else {
+              alert(message);
+            }
+          }
+        } else {
+          //false
+          if (this.customer.sketch) {
+            this.checkoutFinal();
+          } else {
+            this.reqIdentifier;
+            if (this.reqIdentifier == 3 || this.reqIdentifier == 2) {
+              this.checkoutFinal();
+            } else {
+              alert(message);
+            }
           }
         }
       } else {
-        this.checkoutFinal();
+        if (this.reqIdentifier == 1) {
+          if (this.checkwarranty == true) {
+            //true
+            if (this.customer.attachment.length !== 0) {
+              this.checkoutFinal();
+            } else {
+              alert(message);
+            }
+          } else {
+            this.checkoutFinal();
+          }
+        } else {
+          this.checkoutFinal();
+        }
       }
     },
 
@@ -2379,7 +2550,7 @@ export default {
       }
     },
     rebook() {
-      this.addIden = 0
+      this.addIden = 0;
       this.confirmdialog = false;
       this.storeDataFinal = [];
       this.units = [];
@@ -2419,40 +2590,76 @@ export default {
         },
       };
     },
-    request(data) {
+   request(data) { 
       this.clearcookies();
       //this.bookingmodals = true;
       this.bookingmodal = true;
       this.activerequest = data;
       this.reqIdentifier = data.id;
+      console.log(data);
       this.requestType =
         "REF-" + data.name + "-" + Math.ceil(Math.random() * 1000000);
+      this.rebookid = data.requestid
+           
+    },
+    request2(data) { 
+    
+      //this.bookingmodals = true;
+      this.bookingmodal = true;
+      this.activerequest = data;
+      this.reqIdentifier = data.id;
+      console.log(data);
+      this.requestType =
+        "REF-" + data.name + "-" + Math.ceil(Math.random() * 1000000);
+      this.rebookid = data.requestid
+           
     },
     submit(req) {
+     
       const d = {
         identify: req,
         requestid: this.requestType,
         requestType: this.activerequest.name,
         customer: this.customer,
-        units: this.storeDataFinal,
-        restoreid: this.restoreId
+        units: this.units,
+        restoreid: this.restoreId,
+        rebookid: this.rebookid
       };
-     
-     // SAVE TO DB
-      this.$store.dispatch("app_booking_sys/storeBooking", d).then((res) => {
-        this.msg = res;
-        this.RefDialog = true;
-        this.$socket.emit("notification", 1); 
-      });
-       
+    
+      if(this.rebookid){
+        
+        var dta = JSON.parse(atob(mapid));
+          this.$store.dispatch("app_booking_sys/RebookBooking", d).then((res) => {
+            this.msg = res;
+            this.RefDialog = true;
+            this.$socket.emit("notification", res);
+             this.$store.dispatch("app_booking_sys/RebookAction", dta)
+             
+             this.$swal.fire(
+                          "Rebook",
+                          "Your file has been Rebook",
+                          "success"
+                        );
+             this.$router.push('/app/booking/jobs/');
+           });
+      }else{
+              this.$store.dispatch("app_booking_sys/storeBooking", d).then((res) => {
+                  this.msg = res;
+                  this.RefDialog = true;
+                  this.$socket.emit("notification", res);
+                
+                });
+      }
+      
     },
+    
     refresh() {},
     clearcookies() {
       this.storeDataFinal = [];
       this.units = [];
       (this.reqIdentifier = 0),
         (this.customer = {
-          bookby: "",
+          
           cpnumber: "",
           lastname: "",
           firstname: "",
@@ -2508,25 +2715,23 @@ export default {
     },
     trash(data) {},
     checkRecExist() {
-      
       let id = { number: this.customer.cpnumber };
       this.$store
         .dispatch("app_booking_sys/JobsCheckRecords", id)
         .then((res) => {
-          console.log(res.data)
+          console.log(res.data);
           this.customerList = res.data;
-          if(this.customerList[0]){
-               this.Identifier2 = 2;
-               this.selectedCustomer(this.customerList[0])
-               //this.checkrecords = true;
-          }else{
+          if (this.customerList[0]) {
+            this.Identifier2 = 2;
+            this.selectedCustomer(this.customerList[0]);
+            //this.checkrecords = true;
+          } else {
             this.Identifier2 = 2;
           }
-       
         });
     },
     selectedCustomer(data) {
-        (this.addressesListDown.province = {
+      (this.addressesListDown.province = {
         province_name: data.province,
         brgy_code: data.province,
       }),
@@ -2538,24 +2743,23 @@ export default {
           brgy_name: data.barangay,
           brgy_code: data.barangay,
         }),
-         
-      this.customer = {
-        customerCity: data.mcity,
-        cpnumber: data.cpnumber,
-        lastname: data.firstname,
-        firstname: data.lastname,
-        emailaddress: data.emailaddress,
-        middlename: data.middlename,
-        contactperson: data.contactperson,
-        telephoneno: data.telephoneno,
-        attachment: [],
-        region:  data.region_id,
-        houseno: data.houseno,
-        street: data.street,
-        barangay: data.barangay,
-        mcity: data.mcity,
-        province: data.province,
-      };
+        (this.customer = {
+          customerCity: data.mcity,
+          cpnumber: data.cpnumber,
+          lastname: data.firstname,
+          firstname: data.lastname,
+          emailaddress: data.emailaddress,
+          middlename: data.middlename,
+          contactperson: data.contactperson,
+          telephoneno: data.telephoneno,
+          attachment: [],
+          region: data.region_id,
+          houseno: data.houseno,
+          street: data.street,
+          barangay: data.barangay,
+          mcity: data.mcity,
+          province: data.province,
+        });
       this.checkrecords = false;
     },
 
@@ -2566,15 +2770,12 @@ export default {
         type: this.requestType,
       };
       this.$store.dispatch("app_booking_sys/restoreBk", data).then((res) => {
-         
- this.restoreList = res.data;
-        
-         
-        console.log(res.data)
+        this.restoreList = res.data;
+
+        console.log(res.data);
       });
     },
     restoreNow(restoreData) {
-      
       const DATA = [];
       restoreData.units.map(function (value, key) {
         const add = {
@@ -2603,14 +2804,13 @@ export default {
           time: value.time,
           locationofinstallation: value.locationofinstallation,
           paidamoun: value.paidamoun,
-          
         };
 
         DATA.push(add);
       });
       this.units = DATA;
       this.storeDataFinal = DATA;
-         (this.addressesListDown.province = {
+      (this.addressesListDown.province = {
         province_name: restoreData.customer.province,
         brgy_code: restoreData.customer.province,
       }),
@@ -2622,48 +2822,149 @@ export default {
           brgy_name: restoreData.customer.barangay,
           brgy_code: restoreData.customer.barangay,
         }),
+        (this.customer = {
+          organizationname: restoreData.organizationname,
+          bookby: restoreData.bookby,
+          customerCity: restoreData.customer.mcity,
+          cpnumber: restoreData.customer.cpnumber,
+          lastname: restoreData.customer.lastname,
+          firstname: restoreData.customer.firstname,
+          region: { region_code: restoreData.customer.region_id },
+          emailaddress:
+            restoreData.customer.emailaddress == "null"
+              ? "N/A"
+              : restoreData.customer.emailaddress,
+          middlename: restoreData.customer.middlename,
+          contactperson: restoreData.customer.contactperson,
+          telephoneno:
+            restoreData.customer.telephoneno == "null"
+              ? "N/A"
+              : restoreData.customer.telephoneno,
+          landmark: restoreData.landmark,
+          houseno: restoreData.customer.houseno,
+          street: restoreData.customer.street,
+          barangay: restoreData.customer.barangay,
+          mcity: restoreData.customer.mcity,
+          province: restoreData.customer.province,
+          locationunit: restoreData.customer.locationunit,
+          organization: restoreData.customer.organization,
+          attachment: restoreData.attachment
+            ? [{ name: restoreData.filename, path: restoreData.attachment }]
+            : "",
+          specialinstruction: restoreData.customer.specialinstruction,
+          additionalrequest1: restoreData.customer.additionalrequest1,
+          additionalrequest2: restoreData.customer.additionalrequest2,
+          sketch: [{ name: restoreData.attachfiles[0].name, path: restoreData.attachfiles[0].attachment_loc }]
+        });
+      this.requestType =
+        "REF-" +
+        restoreData.requesttype +
+        "-" +
+        Math.ceil(Math.random() * 1000000);
+      //this.$store.dispatch("app_booking_sys/closeRestore",{id: restoreData['id']})
+      this.restoreId = restoreData["id"];
+      this.restoreList.splice(this.restoreList.indexOf(restoreData), 1);
+      this.addIden = 1;
+      this.editItem();
+    },
+    CopyDataRebook(restoreData) {
+       let attachData = restoreData.attachfiles?.[0] ? [{ 
+          name: restoreData.attachfiles[0].name, 
+          path: restoreData.attachfiles[0].attachment_loc 
+      }] : "";
+      const DATA = [];
+      restoreData.units.map(function (value, key) {
+        const add = {
+          unitid:
+            "UNIT-" + value.brand + "-" + Math.ceil(Math.random() * 1000000),
+          prodcategories: value.prodcategories,
+          appliancetype: value.appliancetype,
+          brand: value.brand,
+          model: value.model,
+          serialno: value.serialno,
+          unitcondition: value.unitcondition,
+          warrantycondition: value.warrantycondition,
+          qty: value.qty,
+          demandreplacement: value.demandreplacement,
+          priority: value.priority,
+          datepurchase: value.datepurchase,
+          problem: value.problem,
+          //usage
+          propertytype: value.propertytype,
+          level: value.level,
+          location: value.location,
+          area: value.area,
+          wallfinish: value.wallfinish,
+          withpowersupply: value.withpowersupply,
+          deliverydate: value.deliverydate,
+          time: value.time,
+          locationofinstallation: value.locationofinstallation,
+          paidamoun: value.paidamoun,
+        };
 
-      this.customer = {
-        organizationname: restoreData.organizationname,
-        bookby: restoreData.bookby,
-        customerCity: restoreData.customer.mcity,
-        cpnumber: restoreData.customer.cpnumber,
-        lastname: restoreData.customer.lastname,
-        firstname: restoreData.customer.firstname,
-        region:  {  region_code:  restoreData.customer.region_id} ,
-        emailaddress:
-          restoreData.customer.emailaddress == "null"
-            ? "N/A"
-            : restoreData.customer.emailaddress,
-        middlename: restoreData.customer.middlename,
-        contactperson: restoreData.customer.contactperson,
-        telephoneno:
-          restoreData.customer.telephoneno == "null"
-            ? "N/A"
-            : restoreData.customer.telephoneno,
-        landmark: restoreData.landmark ,   
-        houseno: restoreData.customer.houseno,
-        street: restoreData.customer.street,
-        barangay: restoreData.customer.barangay,
-        mcity: restoreData.customer.mcity,
-        province: restoreData.customer.province,
-        locationunit: restoreData.customer.locationunit,
-        organization: restoreData.customer.organization,
-        attachment: restoreData.attachment?[{name: restoreData.filename, path: restoreData.attachment }]:'',
-        specialinstruction: restoreData.customer.specialinstruction,
-        additionalrequest1: restoreData.customer.additionalrequest1,
-        additionalrequest2: restoreData.customer.additionalrequest2,
-      };
-    this.requestType =
-        "REF-" + restoreData.requesttype + "-" + Math.ceil(Math.random() * 1000000);
-    //this.$store.dispatch("app_booking_sys/closeRestore",{id: restoreData['id']}) 
-    this.restoreId = restoreData['id'];
-    this.restoreList.splice(this.restoreList.indexOf(restoreData), 1);
-    this.addIden = 1
-    this.editItem()
+        DATA.push(add);
+      });
+      this.units = DATA;
+      this.storeDataFinal = DATA;
+      (this.addressesListDown.province = {
+        province_name: restoreData.customer.province,
+        brgy_code: restoreData.customer.province,
+      }),
+        (this.addressesListDown.mcity = {
+          city_name: restoreData.customer.mcity,
+          brgy_code: restoreData.customer.mcity,
+        }),
+        (this.addressesListDown.barangay = {
+          brgy_name: restoreData.customer.barangay,
+          brgy_code: restoreData.customer.barangay,
+        }),
+        (this.customer = {
+          organizationname: restoreData.organizationname,
+          bookby: restoreData.bookby,
+          customerCity: restoreData.customer.mcity,
+          cpnumber: restoreData.customer.cpnumber,
+          lastname: restoreData.customer.lastname,
+          firstname: restoreData.customer.firstname,
+          region: { region_code: restoreData.customer.region_id },
+          emailaddress:
+            restoreData.customer.emailaddress == "null"
+              ? "N/A"
+              : restoreData.customer.emailaddress,
+          middlename: restoreData.customer.middlename,
+          contactperson: restoreData.customer.contactperson,
+          telephoneno:
+            restoreData.customer.telephoneno == "null"
+              ? "N/A"
+              : restoreData.customer.telephoneno,
+          landmark: restoreData.landmark,
+          houseno: restoreData.customer.houseno,
+          street: restoreData.customer.street,
+          barangay: restoreData.customer.barangay,
+          mcity: restoreData.customer.mcity,
+          province: restoreData.customer.province,
+          locationunit: restoreData.customer.locationunit,
+          organization: restoreData.customer.organization,
+           attachment: restoreData.attachment
+            ? [{ name: restoreData.filename, path: restoreData.attachment }]
+            : "",
+          specialinstruction: restoreData.customer.specialinstruction,
+          additionalrequest1: restoreData.customer.additionalrequest1,
+          additionalrequest2: restoreData.customer.additionalrequest2,
+          sketch:  attachData 
+        });
+      this.requestType =
+        "REF-" +
+        restoreData.requesttype +
+        "-" +
+        Math.ceil(Math.random() * 1000000);
+      //this.$store.dispatch("app_booking_sys/closeRestore",{id: restoreData['id']})
+      
+      this.restoreList.splice(this.restoreList.indexOf(restoreData), 1);
+      this.addIden = 1;
+      this.editItem();
     },
     modelsActivate(data) {
-      
+       
       this.sqm = data.SQM;
       this.productListDown.prodcategories = data.categories;
       this.productListDown.appliancetype = data.type;
@@ -2743,15 +3044,19 @@ export default {
           this.productListDown.appliancetype = EMPTY;
         }
       }
+         
     },
 
     booknew() {
-      this.addIden = 0
+      this.addIden = 0;
       this.confirmdialog = false;
       this.storeDataFinal = [];
       this.units = [];
       this.requestType =
-        "REF-" + this.activerequest.name + "-" + Math.ceil(Math.random() * 1000000);
+        "REF-" +
+        this.activerequest.name +
+        "-" +
+        Math.ceil(Math.random() * 1000000);
       this.data = {
         units: {
           prodcategories: "",
@@ -2821,23 +3126,18 @@ export default {
       }
     },
     onlyNumber($event) {
-     
-       
       //console.log($event.keyCode); //keyCodes value
       let keyCode = $event.keyCode ? $event.keyCode : $event.which;
-      if ((keyCode < 48 || keyCode > 57)) {
+      if (keyCode < 48 || keyCode > 57) {
         // 46 is dot
         $event.preventDefault();
       }
-     
-     
     },
-    checknumber($event){
+    checknumber($event) {
       if ($event.key === "Backspace") {
-         
-      // if(this.customer.cpnumber.length !== 11){
-            
-          this.customer = {
+        // if(this.customer.cpnumber.length !== 11){
+
+        this.customer = {
           bookby: "",
           cpnumber: this.customer.cpnumber,
           lastname: "",
@@ -2857,19 +3157,18 @@ export default {
           specialinstruction: "",
           additionalrequest1: "",
           additionalrequest2: "",
-        }
-           
-      // }
+        };
+
+        // }
       }
     },
-    checkrecordauto(){
-      if(this.customer.cpnumber.length == 11){
-            this.checkRecExist()
+    checkrecordauto() {
+      if (this.customer.cpnumber.length == 11) {
+        this.checkRecExist();
       }
-      
     },
     // clearcustomer(){
-    
+
     //     this.customerList = ''
     // },
     checkAreaKey($event) {
@@ -2896,120 +3195,127 @@ export default {
         );
       }
     },
- 
-    addressV(){
-      if(this.InstallationAddress == 1){
-          this.data.usage.locationofinstallation = '';
-      }else{
-         this.data.usage.locationofinstallation = 0;
+
+    addressV() {
+      if (this.InstallationAddress == 1) {
+        this.data.usage.locationofinstallation = "";
+      } else {
+        this.data.usage.locationofinstallation = 0;
       }
-     console.log(this.data.usage.locationofinstallation) 
+      console.log(this.data.usage.locationofinstallation);
     },
-    propertyTypeController(){
-      if(this.data.usage.propertytype !== 'RESIDENTIAL'){
-        
+    propertyTypeController() {
+      if (this.data.usage.propertytype !== "RESIDENTIAL") {
         // this.usagedetailsListDown.wallfinish = { name: 'N/A', value: 'N/A' }
         // this.usagedetailsListDown.withpowersupply = { name: 'N/A', value: 'N/A' }
         // this.usagedetailsListDown.level = { name: 'N/A', value: 'N/A' }
         // this.usagedetailsListDown.location = { name: 'N/A', value: 'N/A' }
-         this.data.usage.level = 'N/A'
-        this.data.usage.location =  'N/A'
-        this.data.usage.wallfinish =  'N/A'
-        this.data.usage.withpowersupply =  'N/A'
-        this.data.usage.area = 'N/A'
-        this.ifcommercial = 1
-      }else{
-        this.ifcommercial = 0
-         this.usagedetailsListDown = {
-        propertytype: [
-          {
-            name: "UNIVERSITY",
-            value: "UNIVERSITY",
-          },
-          {
-            name: "RESIDENTIAL",
-            value: "RESIDENTIAL",
-          },
-          {
-            name: "COMMERCIAL",
-            value: "COMMERCIAL",
-          },
-          {
-            name: "INDUSTRIAL",
-            value: "INDUSTRIAL",
-          },
-          {
-            name: "LAND",
-            value: "LAND",
-          },
-        ],
-        level: [
-          {
-            name: "1st FLOOR",
-            value: "1st FLOOR",
-          },
-          {
-            name: "2nd FLOOR",
-            value: "2nd FLOOR",
-          },
-          {
-            name: "3rd FLOOR",
-            value: "3rd FLOOR",
-          },
-          {
-            name: "4th FLOOR",
-            value: "4th FLOOR",
-          },
-          {
-            name: "5th FLOOR",
-            value: "5th FLOOR",
-          },
-          {
-            name: "6th FLOOR",
-            value: "6th FLOOR",
-          },
-          {
-            name: "7th FLOOR",
-            value: "7th FLOOR",
-          },
-          {
-            name: "8th FLOOR",
-            value: "8th FLOOR",
-          },
-          {
-            name: "9th FLOOR",
-            value: "9th FLOOR",
-          },
-          {
-            name: "10th FLOOR",
-            value: "10th FLOOR",
-          },
-        ],
+        this.data.usage.level = "N/A";
+        this.data.usage.location = "N/A";
+        this.data.usage.wallfinish = "N/A";
+        this.data.usage.withpowersupply = "N/A";
+        this.data.usage.area = "N/A";
+        this.ifcommercial = 1;
+      } else {
+        this.ifcommercial = 0;
+        this.usagedetailsListDown = {
+          propertytype: [
+            {
+              name: "UNIVERSITY",
+              value: "UNIVERSITY",
+            },
+            {
+              name: "RESIDENTIAL",
+              value: "RESIDENTIAL",
+            },
+            {
+              name: "COMMERCIAL",
+              value: "COMMERCIAL",
+            },
+            {
+              name: "INDUSTRIAL",
+              value: "INDUSTRIAL",
+            },
+            {
+              name: "LAND",
+              value: "LAND",
+            },
+          ],
+          level: [
+            {
+              name: "1st FLOOR",
+              value: "1st FLOOR",
+            },
+            {
+              name: "2nd FLOOR",
+              value: "2nd FLOOR",
+            },
+            {
+              name: "3rd FLOOR",
+              value: "3rd FLOOR",
+            },
+            {
+              name: "4th FLOOR",
+              value: "4th FLOOR",
+            },
+            {
+              name: "5th FLOOR",
+              value: "5th FLOOR",
+            },
+            {
+              name: "6th FLOOR",
+              value: "6th FLOOR",
+            },
+            {
+              name: "7th FLOOR",
+              value: "7th FLOOR",
+            },
+            {
+              name: "8th FLOOR",
+              value: "8th FLOOR",
+            },
+            {
+              name: "9th FLOOR",
+              value: "9th FLOOR",
+            },
+            {
+              name: "10th FLOOR",
+              value: "10th FLOOR",
+            },
+          ],
 
-        location: [
-          { name: "COMFORT ROOM", value: "COMFORT ROOM" },
-          { name: "ENTERTAINMENT ROOM", value: "ENTERTAINMENT ROOM" },
-          { name: "DINING ROOM", value: "DINING ROOM" },
-          { name: "BED ROOM", value: "BED ROOM" },
-          { name: "LIVING ROOM", value: "LIVING ROOM" },
-          { name: "OFFICE", value: "OFFICE" },
-          { name: "KITCHEN", value: "KITCHEN" },
-        ],
-        wallfinish: [
-          { name: "YES", value: "YES" },
-          { name: "NO", value: "NO" },
-        ],
-        withpowersupply: [
-          { name: "INDOOR", value: "INDOOR" },
-          { name: "OUTDOOR", value: "OUTDOOR" },
-          { name: "NONE", value: "NONE" },
-        ],
-      }
+          location: [
+            { name: "COMFORT ROOM", value: "COMFORT ROOM" },
+            { name: "ENTERTAINMENT ROOM", value: "ENTERTAINMENT ROOM" },
+            { name: "DINING ROOM", value: "DINING ROOM" },
+            { name: "BED ROOM", value: "BED ROOM" },
+            { name: "LIVING ROOM", value: "LIVING ROOM" },
+            { name: "OFFICE", value: "OFFICE" },
+            { name: "KITCHEN", value: "KITCHEN" },
+          ],
+          wallfinish: [
+            { name: "YES", value: "YES" },
+            { name: "NO", value: "NO" },
+          ],
+          withpowersupply: [
+            { name: "INDOOR", value: "INDOOR" },
+            { name: "OUTDOOR", value: "OUTDOOR" },
+            { name: "NONE", value: "NONE" },
+          ],
+        };
       }
     },
-    reset(){
-       this.addIden = 0 
-    }
+    reset() {
+      this.addIden = 0;
+    },
+    showalert(){
+      this.purchaseorderalert = true
+    },
+    proceed(){
+      this.purchaseorderalert = false
+    },
+    
+    
   },
 };
 </script>
@@ -3027,5 +3333,4 @@ pre {
   padding: 1rem;
   border-radius: 5px;
 }
- 
 </style>

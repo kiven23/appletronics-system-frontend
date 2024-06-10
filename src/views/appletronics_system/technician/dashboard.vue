@@ -91,7 +91,8 @@
             </v-card>
           </v-col>
             <v-col cols="12" sm="6">
-            <v-card class="pa-2" outlined tile>
+            
+            <v-card class="pa-2"  >   <h4>PENDING JOBS</h4>
               <apexchart 
                    type="bar" 
                   :options="options" :series="series" >
@@ -100,9 +101,9 @@
             </v-card>
           </v-col>
              <v-col cols="12" sm="6">
-            <v-card class="pa-2" outlined tile>
+               
+            <v-card class="pa-2"  > <h4>COMPLETED JOBS</h4>
                <apexchart type="pie"    :options="chartOptions" :series="piedata"></apexchart>
-              
             </v-card>
           </v-col>
         </v-row>
@@ -130,7 +131,6 @@ export default {
         id: 'vuechart-example',
        
       },  
-      labels: ['LABEL'],
       xaxis: {
         categories: [
          "1",

@@ -4,7 +4,7 @@
       <v-layout row wrap class="mt-16">
         <v-flex xs12  >
           <v-row  >
-            <v-col cols="12" sm="3">
+            <v-col cols="12" sm="2">
               <v-skeleton-loader
                 class="mx-auto"
                 max-height="80"
@@ -30,7 +30,7 @@
               </v-card>
               </v-skeleton-loader>
             </v-col>
-            <v-col cols="12" sm="3">
+            <v-col cols="12" sm="2">
               <v-skeleton-loader
                 class="mx-auto"
                 max-height="80"
@@ -48,13 +48,37 @@
                   >mdi-account-check</v-icon
                 >
                 <strong
-                  >Accepted
+                  >Hold
+                  <h2>{{ jobsCounts.hold }}</h2></strong
+                >
+              </v-card>
+              </v-skeleton-loader>
+            </v-col>
+            <v-col cols="12" sm="2">
+              <v-skeleton-loader
+                class="mx-auto"
+                max-height="80"
+                type="card"
+                :loading="loadingForCount"
+              >
+              <v-card
+                class="pa-2"
+                outlined
+                tile
+               
+                
+              >
+                <v-icon style="margin-right: 5px; color: yellowgreen"
+                  >mdi-account-check</v-icon
+                >
+                <strong
+                  >Pending
                   <h2>{{ jobsCounts.accepted }}</h2></strong
                 >
               </v-card>
               </v-skeleton-loader>
             </v-col>
-            <v-col cols="12" sm="3">
+            <v-col cols="12" sm="2">
               <v-skeleton-loader
                 class="mx-auto"
                 max-height="80"
@@ -78,7 +102,31 @@
               </v-card>
               </v-skeleton-loader>
             </v-col>
-                     <v-col cols="12" sm="3">
+            <v-col cols="12" sm="2">
+              <v-skeleton-loader
+                class="mx-auto"
+                max-height="80"
+                type="card"
+                :loading="loadingForCount"
+              >
+              <v-card
+                class="pa-2"
+                outlined
+                tile
+                 
+             
+              >
+                <v-icon style="margin-right: 5px; color: green"
+                  >mdi-account-check</v-icon
+                >
+                <strong
+                  >Completed
+                  <h2>{{ jobsCounts.completed }}</h2></strong
+                >
+              </v-card>
+              </v-skeleton-loader>
+            </v-col>
+                     <v-col cols="12" sm="2">
             <v-skeleton-loader
               class="mx-auto"
               max-height="80"
