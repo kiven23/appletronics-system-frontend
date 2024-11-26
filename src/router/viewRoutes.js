@@ -100,6 +100,10 @@ import orderedpart from "../views/appletronics_system/technician/orderedparts.vu
 //TECHNICIAN ADMIN VIEW
 import techjobsqueue from "../views/appletronics_system/technician/admin/queue.vue";
 
+//CUSTOMER SELFSERVICE BOOKING
+import phoneverify from "../components/standalone/phoneverification/verify.vue";
+import customerbooking from "../components/standalone/customerbooking/guestbooking.vue";
+
 
 const viewRoutes = [
   {
@@ -624,10 +628,28 @@ const viewRoutes = [
       meta: {
         requiresAuth: true
       }
-    }
+    },
 
     //END TECHNICIAN
+     
+    //QRCODE CUSTOMER - SELF SERVICE
 
+    {
+      path: "/verify",
+      component: phoneverify,
+      name: "phoneverify",
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/booking/guest",
+      component: customerbooking,
+      name: "customerbooking",
+      meta: {
+        requiresAuth: false
+      }
+    }
  
   
 
