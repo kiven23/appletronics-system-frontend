@@ -7,7 +7,7 @@
             Phone Number Verification
           </v-card-title>
           <v-card-text>
-            <v-form ref="form" v-model="valid">
+            <v-form ref="form" v-model="valid" style="margin-top:  50px;">
               <!-- Full Name -->
               <v-text-field
                 v-model="fullName"
@@ -99,23 +99,81 @@ export default {
      this.DecodeBranch()
   },
   methods: {
+    localIp(){
+        return new Promise((resolve, reject) => {
+            const ips = [];
+            const rtcPeerConnection = new RTCPeerConnection({ iceServers: [] });
+
+            rtcPeerConnection.createDataChannel('');
+
+            rtcPeerConnection.createOffer().then((offer) => {
+              rtcPeerConnection.setLocalDescription(offer);
+
+              rtcPeerConnection.onicecandidate = (event) => {
+                if (event && event.candidate && event.candidate.candidate) {
+                  const candidate = event.candidate.candidate;
+                  const ipRegex = /(?:\d{1,3}\.){3}\d{1,3}/g; // Regex to extract IPs
+                  const ipMatch = candidate.match(ipRegex);
+                  if (ipMatch) {
+                    ipMatch.forEach((ip) => {
+                      if (!ips.includes(ip)) {
+                        ips.push(ip);
+                      }
+                    });
+                  }
+                } else {
+                  resolve(ips);
+                }
+              };
+            }).catch(reject);
+          });
+    },
     DecodeBranch(){
     return  this.branch = atob(atob(atob(atob(this.$route.query.token))))
 
     },
     async getIPAddress() {
-      try {
-        const response = await axios.get('https://api.ipify.org?format=json');
-         return response.data.ip;
+       try {
+        const response = await fetch('https://api.ipify.org?format=json');
+
+        // Ensure the response is successful
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        // Parse the JSON response
+        const data = await response.json();
+        return data.ip; // Access the 'ip' field from the parsed response
       } catch (error) {
-         return '123.123.123.123'
+        return error.message; // Return the error message
       }
+
     },
-    sendOtp() {
+ async sendOtp() {
+        var ip = await this.getIPAddress()
+        var data = {
+        name: this.fullName,
+        phone: this.phoneNumber,
+        branch: this.branch,
+        ipaddress: ip,
+        token: this.$route.query.token 
+        
+      }
+      console.log(ip)
       // Placeholder for sending OTP logic
       if(this.$route.query.key == 'SHhikA97phXxk4jCye9SPpPxr0gnJarPdFUtt779KSTANZg7DBMzHaDpvHUrgDz0ok4uBfoguOtQKJU1lerQ'){
-      this.otpSent = true;
-      console.log("OTP sent to:", this.phoneNumber);
+       await this.$store.dispatch("app_booking_sys/sendOtp", data).then((res)=>{
+       if(res.data == 1){
+        alert('Please Try Again Tomorrow Or Goto Near Branch to file booking schedule')
+       }else{
+         this.otpSent = true;
+         console.log("OTP sent to:", this.phoneNumber);
+         console.log(res)
+       }
+             
+        })
+        
+    
       }else{
          alert('Not Authenticate')
       }
@@ -126,13 +184,28 @@ export default {
         phone: this.phoneNumber,
         branch: this.branch,
         ipaddress: await this.getIPAddress(),
-        
+        otp: this.otpCode,
+        token: this.$route.query.token 
       }
       
       if(this.$route.query.key == 'SHhikA97phXxk4jCye9SPpPxr0gnJarPdFUtt779KSTANZg7DBMzHaDpvHUrgDz0ok4uBfoguOtQKJU1lerQ'){
-           this.$store.dispatch("app_booking_sys/verifyPhone", data).then((res)=>{
-                console.log(res)
-           })
+        await this.$store.dispatch("app_booking_sys/verifyPhone", data).then((res)=>{
+            if(res.data.token){
+              var token = res.data.token.original.access_token
+            } 
+            
+            if(token){
+           
+              localStorage.setItem("token", `Bearer ${token}`);
+              localStorage.setItem("user", JSON.stringify(res.data.data));
+              axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+              
+              this.$router.push('/booking/guest')
+            }else{
+                 this.$swal.fire(this.otpCode, "Invalid OTP", "warning" );
+            }
+            
+             })
       }else{
         alert('Not Authenticate')
       }

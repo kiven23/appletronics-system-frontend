@@ -31,10 +31,10 @@
                 <strong v-if="checkrebook"> / UPDATE - {{checkrebook}}</strong>
                 </v-toolbar-title
               >
-              <v-spacer></v-spacer>
+              <!-- <v-spacer></v-spacer>
               <v-btn @click="restore()" v-if="!checkrebook" color="primary" absolute right fab>
                 <v-icon>mdi-backup-restore</v-icon>
-              </v-btn>
+              </v-btn> -->
               <v-toolbar-items> </v-toolbar-items>
             </v-toolbar>
 
@@ -43,7 +43,7 @@
                 <v-list-item-content>
                   <v-row no-gutters>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-3" height="1100">
+                      <v-card class="pa-3"  >
                         <h5>PRODUCT INFORMATION</h5>
                         <v-chip x-medium> Model* </v-chip>
                         <v-autocomplete
@@ -161,18 +161,7 @@
                           dense
                           required
                         ></v-text-field>
-                        <!-- <v-chip x-medium>Unit Condition* </v-chip>
-                        <v-select
-                          style="margin: 6px"
-                          v-model="data.units.unitcondition"
-                          :items="productListDown.unitcondition"
-                          :error-messages="unitconditionError"
-                          placeholder="Unit Condition*"
-                          item-text="name"
-                          item-value="value"
-                          required
-                          dense
-                        ></v-select> -->
+                      
                         <v-chip
                           x-medium
                           v-if="reqIdentifier !== 2 && reqIdentifier !== 3"
@@ -347,7 +336,7 @@
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="3" v-if="reqIdentifier == 4">
-                      <v-card class="pa-3" height="1100">
+                      <v-card class="pa-3"  >
                         <v-chip x-medium>Property Type* </v-chip>
                         <v-select
                           v-model="data.usage.propertytype"
@@ -510,7 +499,7 @@
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-1" height="1100">
+                      <v-card class="pa-1"  >
                         <h5>CUSTOMER INFORMATION</h5>
                         <v-chip x-medium class="ma-2">
                           Contact Phone Number*</v-chip
@@ -644,7 +633,7 @@
                       </v-card>
                     </v-col>
                     <v-col cols="12" sm="2">
-                      <v-card class="pa-3" height="1100">
+                      <v-card class="pa-3" >
                         <v-chip x-medium class="ma-1">Region *</v-chip>
                         <v-select
                           v-model="customer.region"
@@ -1050,7 +1039,7 @@
                 </v-container>
               </v-card-text>
               <v-card-actions>
-                <v-spacer></v-spacer>
+                <!-- <v-spacer></v-spacer>
                 <v-btn
                   color="blue darken-1"
                   text
@@ -1058,7 +1047,7 @@
                    v-if="!checkrebook"
                 >
                   DRAFT
-                </v-btn>
+                </v-btn> -->
                 <v-btn color="blue darken-1" text @click="submit(1)">
                    {{checkrebook ? 'UPDATE SERVICE REQUEST':'SUBMIT SERVICE REQUEST'}}
                 </v-btn>
@@ -1112,8 +1101,189 @@
           </v-dialog>
         </v-dialog>
       </div>
+     <fieldset class="ma-2 pa-2">
+      <legend>Status</legend>
+       <v-row >  
+         
+        <v-col cols='12'  sm="2">
+          <v-card
+                class="pa-2"
+                outlined
+                tile
+                :color="bgselected0"
+                @click="selected(0)"
+              >
+                <v-icon style="margin-right: 5px; color: red"
+                  >mdi-email-alert</v-icon
+                >
+                <strong
+                  >Unassigned
+                  <h2>{{ jobsCounts.unsigned }}</h2></strong
+                >
+              </v-card>
+        </v-col>
+        <v-col cols='12'  sm="2">
+            <v-card
+                class="pa-2"
+                outlined
+                tile
+                :color="bgselected4"
+                @click="selected(4)"
+                
+              >
+                <v-icon style="margin-right: 5px; color: red"> </v-icon>
+                <strong
+                  >Hold 
+
+                  <h2> {{ jobsCounts.hold }}</h2></strong
+                >
+              </v-card>
+        </v-col>
+         <v-col cols='12'  sm="2">
+            <v-card
+                class="pa-2"
+                outlined
+                tile
+                :color="bgselected1"
+                @click="selected(1)"
+              >
+                <v-icon style="margin-right: 5px; color: yellowgreen"
+                  >mdi-account-check</v-icon
+                >
+                <strong
+                  >Pending
+                  <h2>{{ jobsCounts.accepted }}</h2></strong
+                >
+              </v-card>
+        </v-col>
+         <v-col cols='12'  sm="2">
+             <v-card
+                class="pa-2"
+                outlined
+                tile
+                :color="bgselected2"
+                @click="selected(2)"
+              >
+                <v-icon style="margin-right: 5px; color: blue"
+                  >mdi-teamviewer</v-icon
+                >
+                <strong
+                  >Dispatch to ASC
+                  <h2>{{ jobsCounts.asc }}</h2></strong
+                >
+              </v-card>
+        </v-col>
+        <v-col cols='12'  sm="2">
+           <v-card
+                class="pa-2"
+                outlined
+                tile
+                :color="bgselected5"
+                @click="selected(5)"
+              >
+                <v-icon style="margin-right: 5px; color: green"
+                  >mdi-account-check</v-icon
+                >
+                <strong
+                  >Completed
+                  <h2>{{ jobsCounts.completed }}</h2></strong
+                >
+              </v-card>
+        </v-col>
+        <v-col cols='12'  sm="2">
+           <v-card
+                class="pa-2"
+                outlined
+                tile
+                :color="bgselected3"
+                @click="selected(3)"
+              >
+                <v-icon style="margin-right: 5px; color: red"
+                  >mdi-account-off</v-icon
+                >
+                <strong
+                  >Rejected
+                  <h2>{{ jobsCounts.rejected }}</h2></strong
+                >
+              </v-card>
+        </v-col>
+       
+      </v-row>
+      </fieldset>
+       <fieldset class="ma-2 pa-2">
+      <legend>Book Information</legend>
+      <v-row>
+          <v-col cols="12"  >
+            <v-simple-table dense>
+                  <template v-slot:default>
+                    <thead>
+                      <tr>
+                        <th class="text-left">
+                          Ticket No
+                        </th> 
+                        <!-- <th class="text-left">
+                          CallID
+                        </th> -->
+                        <!-- <th class="text-left">
+                          Request Type
+                        </th> -->
+                         <!-- <th class="text-left">
+                          Customer Name
+                        </th> -->
+                        <th class="text-left">
+                          Date Of Complain
+                        </th>
+                        <th class="text-left">
+                         Remarks
+                        </th>
+                         <!-- <th class="text-left">
+                         Appliance Type
+                        </th> -->
+                        <!-- <th class="text-left">
+                         Province
+                        </th>
+                         <th class="text-left">
+                         City
+                        </th>
+                        <th class="text-left">
+                         Barangay
+                        </th> -->
+                        <!-- <th class="text-left">
+                         Action
+                        </th> -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        v-for="item in tableData"
+                        :key="item.requestid"
+                      >
+                         <td><a @click="view(item)">{{ item.requestid }}</a></td>  
+                        <!-- <td>{{ item.callid }}</td> -->
+                        <!-- <td>{{ item.requesttype == "REPAIR" ? "SERVICE" : item.requesttype }}</td> -->
+                        <!-- <td>  {{ item.customer.lastname }},
+                              {{ item.customer.firstname }}</td> -->
+                        <td>{{item.created_at}}</td>
+                      
+                        <td>{{item.notes}}</td>
+                         <!-- <td><div v-if="item.units && item.units.length > 0">
+                          {{ item.units[0].prodcategories }}
+                        </div></td> -->
+                        <!-- <td>{{item.customer.province}}</td>
+                        <td>{{item.customer.mcity}}</td>
+                        <td>{{item.customer.barangay}}</td> -->
+                      </tr>
+                    </tbody>
+                  </template>
+                </v-simple-table>
+              
+          </v-col>
+      </v-row>
+      </fieldset>
+      <fieldset class="ma-2 pa-3">
+      <legend>Booking</legend>
       <v-row no-gutters>
-        <v-col cols="12" sm="4">
+        <v-col cols="12" sm="2">
           <v-card class="pa-2" outlined tile>
             <vs-button
               style="background-color: white; min-width: 70px; color: black"
@@ -1132,7 +1302,7 @@
             </vs-button>
           </v-card>
         </v-col>
-        <v-col cols="12" sm="4">
+        <v-col cols="12" sm="3">
           <v-card class="pa-2" outlined tile>
             <vs-button
               style="background-color: white; min-width: 70px; color: black"
@@ -1151,7 +1321,7 @@
             </vs-button>
           </v-card>
         </v-col>
-        <v-col cols="12" sm="4">
+        <v-col cols="12" sm="3">
           <v-card class="pa-2" outlined tile>
             <vs-button
               style="background-color: white; min-width: 70px; color: black"
@@ -1170,7 +1340,10 @@
             </vs-button>
           </v-card>
         </v-col>
-        <v-col cols="12" sm="4">
+
+          
+
+        <v-col cols="12" sm="3">
           <v-card class="pa-2" outlined tile>
             <vs-button
               style="background-color: white; min-width: 70px; color: black"
@@ -1189,7 +1362,11 @@
             </vs-button>
           </v-card>
         </v-col>
+
+        
       </v-row>
+      </fieldset>
+      
           <v-dialog v-model="purchaseorderalert" max-width="400">
           <v-card>
             <v-card-title>Purchased Order Date Verification</v-card-title>
@@ -1202,80 +1379,228 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-      <!-- <vs-row>
-        <vs-button
-          style="background-color: white; min-width: 70px; color: black"
-          @click="request({ name: 'REPAIR', id: 1 })"
-          animation-type="scale"
-        >
-          <v-img src="/repair.png" style="width: 100px"> </v-img
-          ><strong>REPAIR</strong>
-          <template #animate>
-            <strong style="margin-left: 10px">REQUEST &#9881;</strong>
-            <v-img src="/repair.png" style="width: 70px; height: 70px"></v-img>
-          </template>
-        </vs-button>
-        <vs-button
-          style="background-color: white; min-width: 70px; color: black"
-          @click="request({ name: 'CLEANING', id: 2 })"
-          animation-type="scale"
-        >
-          <v-img src="/cleaning.png" style="width: 90px"> </v-img
-          ><strong>CLEANING</strong>
-          <template #animate>
-            <strong style="margin-left: 10px">REQUEST &#9881;</strong>
-            <v-img
-              src="/cleaning.png"
-              style="width: 70px; height: 70px"
-            ></v-img>
-          </template>
-        </vs-button>
+    <v-dialog
+        v-model="jobsInfo"
+        hide-overlay
+        transition="dialog-bottom-transition"
+      >
+        <v-card>
+          <v-toolbar
+            color="success"
+            style="
+              background: linear-gradient(
+                137deg,
+                rgba(0, 0, 0, 1) 9%,
+                rgba(231, 95, 94, 0.5872549703475141) 100%
+              );
+            "
+          >
+            <v-btn icon dark @click="jobsInfo = false">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+            <v-toolbar-title
+              >Job Status Update:
+              <strong>{{  jobsData.status == 0? 'Unassigned':jobsData.status == 1? 'Accepted': jobsData.status == 2? 'Dispatch to Other ASC':'Rejected' }} / {{ jobsData.callid }}</strong>
+              </v-toolbar-title
+            >
+            <v-spacer></v-spacer>
+            <v-toolbar-items> </v-toolbar-items>
+          </v-toolbar>
+          <v-list three-line subheader>
+            <v-subheader>Product Information</v-subheader>
+            <v-list-item>
+              <v-list-item-content>
+                <v-data-table
+                  dense
+                  :headers="unitsHeader"
+                  :items="unitsData"
+                  
+                ></v-data-table>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+          <v-list three-line subheader>
+      
+            <v-subheader>Customer Information</v-subheader>
+            <v-list-item>
+              <v-list-item-content >
+                <v-row no-gutters>
+                  <v-col cols="12" sm="3">
 
-        <vs-button
-          style="background-color: white; min-width: 70px; color: black"
-          @click="request({ name: 'SITE SURVEY', id: 3 })"
-          animation-type="scale"
-        >
-          <v-img src="/survey.png" style="width: 100px"> </v-img
-          ><strong>SITE SURVEY</strong>
-          <template #animate>
-            <strong style="margin-left: 10px">REQUEST &#9881;</strong>
-            <v-img src="/survey.png" style="width: 70px; height: 70px"></v-img>
-          </template>
-        </vs-button>
+                    <!-- INSTALLATION ACCEPTED -->
+                    <v-card class="pa-2" v-if="reqtype == 'INSTALLATION'" style="height: 185px">
+                    <strong>Contact Phone Number</strong><br />
+                      {{ jobsData.customer.cpnumber?jobsData.customer.cpnumber  : 'N/A' }}<br />
+                      <strong>Last Name</strong><br />
+                      {{ jobsData.customer.lastname? jobsData.customer.lastname : 'N/A' }}<br />
+                      <strong>Municipality</strong><br />
+                      {{ jobsData.customer.mcity? jobsData.customer.mcity : 'N/A' }}<br />
+                        <strong>Dealer Name</strong><br />
+                      {{jobsData.branch.name }}<br />
+                       <strong v-if="jobsData.status  != 0">Date of Installation</strong><br />
+                      {{ jobsData.status  != 0? jobsData.installationdate  ?jobsData.installationdate: 'N/A': '' }} 
+                    </v-card>
+                    <!--END-->
 
-        <vs-button
-          style="background-color: white; min-width: 70px; color: black"
-          @click="request({ name: 'INSTALLATION', id: 4 })"
-          animation-type="scale"
-        >
-          <v-img src="/installation.png" style="width: 100px"> </v-img
-          ><strong>INSTALLATION</strong>
-          <template #animate>
-            <strong style="margin-left: 10px">REQUEST &#9881;</strong>
-            <v-img
-              src="/installation.png"
-              style="width: 70px; height: 70px"
-            ></v-img>
-          </template>
-        </vs-button>
+                    <!-- SURVEY REQUEST -->
+                 
+                    <v-card class="pa-2" v-if="reqtype == 'SITE SURVEY'" style="height: 185px">
+                       <strong>Contact Phone Number</strong><br />
+                      {{ jobsData.customer.cpnumber?jobsData.customer.cpnumber  : 'N/A' }}<br />
+                      <strong>Last Name</strong><br />
+                      {{ jobsData.customer.lastname? jobsData.customer.lastname : 'N/A' }}<br />
+                      <strong>Municipality</strong><br />
+                      {{ jobsData.customer.mcity? jobsData.customer.mcity : 'N/A' }}<br />
+                        <strong>Dealer Name</strong><br />
+                      {{jobsData.branch.name }}<br />
+                       <strong v-if="jobsData.status  != 0">Date of Survey</strong><br />
+                      {{ jobsData.status  != 0? jobsData.installationdate   ?jobsData.installationdate: 'N/A': '' }} 
+                    </v-card>
+                    <!--END-->
 
-        <vs-button
-          style="background-color: white; min-width: 70px; color: black"
-          @click="request({ name: 'INSTALLATION', id: 4 })"
-          animation-type="scale"
-        >
-          <v-img src="/installation.png" style="width: 100px"> </v-img
-          ><strong>INSTALLATION</strong>
-          <template #animate>
-            <strong style="margin-left: 10px">TEST &#9881;</strong>
-            <v-img
-              src="/installation.png"
-              style="width: 70px; height: 70px"
-            ></v-img>
-          </template>
-        </vs-button>
-      </vs-row> -->
+                     <!-- REPAIR & CLEANING REQUEST -->
+                    <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 185px">
+                      <strong>Contact Phone Number</strong><br />
+                      {{ jobsData.customer.cpnumber?jobsData.customer.cpnumber  : 'N/A' }}<br />
+                      <strong>Last Name</strong><br />
+                      {{ jobsData.customer.lastname? jobsData.customer.lastname : 'N/A' }}<br />
+                      <strong>Municipality</strong><br />
+                      {{ jobsData.customer.mcity? jobsData.customer.mcity : 'N/A' }}<br />
+                        <strong>Dealer Name</strong><br />
+                      {{jobsData.branch.name }}<br />
+                      
+                    </v-card>
+                    <!--END-->
+
+                  </v-col>
+                  <v-col cols="12" sm="3">
+
+                     <!-- INSTALLATION ACCEPTED -->
+                    <v-card class="pa-2"  v-if="reqtype == 'INSTALLATION'" style="height: 185px">
+                      <strong>Contact Email Address</strong><br />
+                      {{ jobsData.customer.emailaddress? jobsData.customer.emailaddress : 'N/A' }}<br />
+                      <strong>First Name</strong><br />
+                      {{ jobsData.customer.firstname? jobsData.customer.firstname: 'N/A'}}<br />
+                        <strong>Barangay</strong><br />
+                      {{ jobsData.customer.barangay? jobsData.customer.barangay : 'N/A' }}<br />
+                       <strong>Name Of Organization</strong><br />
+                      {{jobsData.organizationname? jobsData.organizationname : 'N/A'}}<br />
+                    </v-card>
+                    <!-- END -->
+
+                    <!-- SURVEY REQUEST -->
+                    <v-card class="pa-2"  v-if="reqtype == 'SITE SURVEY'" style="height: 185px">
+                    <strong>Contact Email Address</strong><br />
+                      {{ jobsData.customer.emailaddress? jobsData.customer.emailaddress : 'N/A' }}<br />
+                      <strong>First Name</strong><br />
+                      {{ jobsData.customer.firstname? jobsData.customer.firstname: 'N/A'}}<br />
+                        <strong>Barangay</strong><br />
+                      {{ jobsData.customer.barangay? jobsData.customer.barangay : 'N/A' }}<br />
+                       <strong>Name Of Organization</strong><br />
+                      {{jobsData.organizationname? jobsData.organizationname : 'N/A'}}<br />
+                    </v-card>
+                    <!--END-->
+
+                    <!-- REPAIR & CLEANING REQUEST -->
+                    <v-card class="pa-2"  v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 185px">
+                      <strong>Contact Email Address</strong><br />
+                      {{ jobsData.customer.emailaddress? jobsData.customer.emailaddress : 'N/A' }}<br />
+                      <strong>First Name</strong><br />
+                      {{ jobsData.customer.firstname? jobsData.customer.firstname: 'N/A'}}<br />
+                        <strong>Barangay</strong><br />
+                      {{ jobsData.customer.barangay? jobsData.customer.barangay : 'N/A' }}<br />
+                        <strong>Special Request</strong><br />
+                      {{ jobsData.customer.specialinstruction? jobsData.customer.specialinstruction : 'N/A'}}
+                    </v-card>
+                    <!--END-->
+
+                  </v-col>
+
+                  <v-col cols="12" sm="3">
+                    <!-- INSTALLATION ACCEPTED -->
+                    <v-card class="pa-2" v-if="reqtype == 'INSTALLATION'" style="height: 185px">
+
+                      <strong>Telephone No.  </strong><br />
+                      {{ jobsData.customer.telephoneno?  jobsData.customer.telephoneno :'N/A' }}<br />
+                      <strong>Middle Name</strong><br />
+                      {{ jobsData.customer.middlename? jobsData.customer.middlename: 'N/A' }}<br />
+                      <strong>Street</strong><br />
+                      {{ jobsData.customer.street? jobsData.customer.street : 'N/A' }}<br />
+                      <strong>Special Request</strong><br />
+                      {{ jobsData.customer.specialinstruction? jobsData.customer.specialinstruction : 'N/A'}}
+                     
+                    </v-card>
+                    <!-- SURVEY REQUEST -->
+                    <v-card class="pa-2" v-if="reqtype == 'SITE SURVEY'" style="height: 185px">
+                       <strong>Telephone No.  </strong><br />
+                      {{ jobsData.customer.telephoneno?  jobsData.customer.telephoneno :'N/A' }}<br />
+                      <strong>Middle Name</strong><br />
+                      {{ jobsData.customer.middlename? jobsData.customer.middlename: 'N/A' }}<br />
+                      <strong>Street</strong><br />
+                      {{ jobsData.customer.street? jobsData.customer.street : 'N/A' }}<br />
+                      <strong>Special Request</strong><br />
+                      {{ jobsData.customer.specialinstruction? jobsData.customer.specialinstruction : 'N/A'}}
+                    </v-card>
+                    <!-- REPAIR & CLEANING REQUEST -->
+                    <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 185px">
+                     <strong>Telephone No.  </strong><br />
+                      {{ jobsData.customer.telephoneno?  jobsData.customer.telephoneno :'N/A' }}<br />
+                      <strong>Middle Name</strong><br />
+                      {{ jobsData.customer.middlename? jobsData.customer.middlename: 'N/A' }}<br />
+                      <strong>Street</strong><br />
+                      {{ jobsData.customer.street? jobsData.customer.street : 'N/A' }}<br />
+                        <strong v-if="jobsData.status  != 0">Technician</strong><br />
+                       {{ jobsData.status  != 0? jobsData.installer ? jobsData.installer : ' ' :''}}<br />
+                    </v-card> 
+
+                  </v-col>
+                  
+                  <v-col cols="12" sm="3" >
+                     <!-- INSTALLATION ACCEPTED -->
+                    <v-card class="pa-2"  v-if="reqtype == 'INSTALLATION'" style="height: 185px">
+                      <strong>Contact Person</strong><br />
+                      {{ jobsData.customer.contactperson?jobsData.customer.contactperson :'N/A' }}<br />
+                      <strong>Province</strong><br />
+                      {{jobsData.customer.province}}<br />
+                      <strong>House No.</strong><br />
+                      {{ jobsData.customer.houseno? jobsData.customer.houseno : 'N/A' }}<br />
+                       <strong v-if="jobsData.status  != 0">Installer</strong><br />
+                      {{ jobsData.status  != 0?jobsData.installer  ? jobsData.installer : 'N/A' :''}}<br />
+                    </v-card>
+                        <!-- SURVEY REQUEST -->
+                    <v-card class="pa-2"  v-if="reqtype == 'SITE SURVEY'" style="height: 185px">
+                    <strong>Contact Person</strong><br />
+                      {{ jobsData.customer.contactperson?jobsData.customer.contactperson :'N/A' }}<br />
+                      <strong>Province</strong><br />
+                      {{jobsData.customer.province}}<br />
+                      <strong>House No.</strong><br />
+                      {{ jobsData.customer.houseno? jobsData.customer.houseno : 'N/A' }}<br />
+                        <strong v-if="jobsData.status  != 0">Technician</strong><br />
+                      {{ jobsData.status  != 0?jobsData.installer ? jobsData.installer : 'N/A' :''}}<br />
+                    </v-card>
+
+                     <v-card class="pa-2" v-if="reqtype == 'REPAIR' || reqtype == 'CLEANING'" style="height: 185px">
+                      <strong>Contact Person</strong><br />
+                      {{ jobsData.customer.contactperson?jobsData.customer.contactperson :'N/A' }}<br />
+                      <strong>Province</strong><br />
+                      {{jobsData.customer.province}}<br />
+                      <strong>House No.</strong><br />
+                      {{ jobsData.customer.houseno? jobsData.customer.houseno : 'N/A' }}<br />
+                     <strong  v-if="jobsData.status  != 0">Date of Service</strong><br />
+                      {{ jobsData.status  != 0? jobsData.installationdate ?jobsData.installationdate: 'N/A': '' }} 
+                    </v-card>
+                  </v-col>
+                </v-row>
+
+             
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+
+         
+        </v-card>
+         
+      </v-dialog>
     </v-container>
   </div>
 </template>
@@ -1355,6 +1680,70 @@ export default {
   },
   data() {
     return {
+      mobile: '',
+      tech: '',
+      reqtype: '',
+      jobstatus: '',
+      callid: '',
+      installationdateData: '',
+      jobsInfo: false,
+      jobsData: [],
+ 
+      requestID: '',
+      unitsHeader: [
+      { text: "Product Category", value: "prodcategories" },
+      { text: "Appliance Type", value: "appliancetype" },
+      { text: "Brand", value: "brand" },
+      { text: "Model", value: "model" },
+      { text: "Serial No.", value: "serialno" },
+      { text: "Unit Condition", value: "unitcondition" },
+      { text: "Warranty Condition", value: "warrantycondition" },
+      { text: "Date of Purchase", value: "datepurchase" },
+      { text: "Priority", value: "priority" },
+     ],
+     unitsData: [],
+      jobsCounts: [],
+      tableData: [],
+      headers: [
+        {
+          text: "Ticket No",
+          align: "start",
+          sortable: false,
+          value: "ticketno",
+        },
+        {
+          text: "Call ID",
+          align: "start",
+          sortable: false,
+          value: "callid",
+        },
+        {
+          text: "Request Type",
+          align: "start",
+          sortable: false,
+          value: "requestid",
+        },
+        { text: "Branch", value: "branch.name" },
+        { text: "Customer Name", value: "customer.fullname" },
+        { text: "Date of Complain", value: "created_at" },
+        {
+          text: "Call Status Reason",
+          align: "start",
+          sortable: false,
+          value: "reason",
+        },
+        {
+          text: "Remarks",
+          align: "start",
+          sortable: false,
+          value: "notes",
+        },
+        { text: "Appliance Type/Item", value: "producttype" },
+        { text: "Province", value: "customer.province" },
+        { text: "City", value: "customer.mcity" },
+        { text: "Barangay", value: "customer.barangay" },
+        { text: "Action", value: "action" },
+      ],
       logbylabel: 'Enter Your Complete Name',
       filenamelabel: '',
       purchaseorderalert: false,
@@ -1643,7 +2032,17 @@ export default {
         .finally(() => (this.isLoading = false));
     },
   },
-  async mounted() {
+  async mounted() { 
+   const getMobile = JSON.parse(localStorage.getItem('user'));   
+   this.mobile = getMobile.phone
+    
+   await  this.$store.dispatch("app_booking_sys/JobsCount").then((res) => {
+     this.jobsCounts = res.data
+     })
+    await this.$store.dispatch("app_booking_sys/fetchJobs", 0).then((res) => {
+      this.tableData = res.data;
+    });
+     
     
      mapid = this.$route.params.mapid;
     if (mapid) {
@@ -1726,9 +2125,11 @@ export default {
           // };
         });
     }
+     
   },
-  created() {
-    
+ async created() {
+     
+ 
     if(!axios.defaults.headers.common["Authorization"]){
         this.$router.push('/verify');
     }
@@ -2047,6 +2448,22 @@ export default {
     },
   },
   methods: {
+    view(data){
+      this.tech = data.installer;
+      this.reqtype = data.requesttype;
+      this.jobstatus = 2;
+      this.callid = data.callid;
+      this.installationdateData = data.installationdate;
+      this.jobsInfo = true;
+      this.jobsData = data;
+      this.unitsData = data.units;
+      this.requestID = data.requestid;
+    },
+    selected(x){
+      this.$store.dispatch("app_booking_sys/fetchJobs", x).then((res) => {
+      this.tableData = res.data;
+       });
+    },
     getBook() {
       alert();
     },
@@ -2605,7 +3022,9 @@ export default {
       this.requestType =
         "REF-" + data.name + "-" + Math.ceil(Math.random() * 1000000);
       this.rebookid = data.requestid
-           
+         
+      this.customer.cpnumber = this.mobile
+      this.checkRecExist()
     },
     request2(data) { 
     
@@ -2617,7 +3036,7 @@ export default {
       this.requestType =
         "REF-" + data.name + "-" + Math.ceil(Math.random() * 1000000);
       this.rebookid = data.requestid
-           
+          
     },
     submit(req) {
      

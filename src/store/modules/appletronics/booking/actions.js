@@ -1,7 +1,8 @@
 import axios from "axios";
 import rootUrl from "../../../rootUrl";
 
-const PHONEVERIFY = rootUrl + "/api/guest/customer/verify"
+const SENDOTP = rootUrl + "/api/guest/customer/sendOtp";
+const PHONEVERIFY = rootUrl + "/api/guest/customer/verify";
 const SELFBOOKING = rootUrl + "/api/booking/quest/customer/store"
 const STOREBOOKING = rootUrl + "/api/booking/store";
 const REBOOK = rootUrl + "/api/booking/rebookrequest";
@@ -53,6 +54,20 @@ const TRACKING = rootUrl + "/api/booking/appletronics/tracking"
 const CALENDARDATA = rootUrl + "/api/jobs/tech/schedules/calendar";
 const actions = {
    
+  sendOtp(context, data) { 
+    return axios
+      .post(SENDOTP, data, {
+        
+      })
+      .then((response) => {
+        return response;
+      })
+      .catch((error) => {
+        context.commit("SCHEDULE_ERROR", error.response.data); // get error from backend
+        context.commit("LOADING_STATUS", false, { root: true }); // stop loading
+      });
+  },
+
   verifyPhone(context, data) { 
     return axios
       .post(PHONEVERIFY, data, {
@@ -311,7 +326,17 @@ const actions = {
       });
   },
   fetchJobs(context, data) {
-    return axios.get(FETCHJOBS+'?id='+data).then((res) => {
+     
+    const user = JSON.parse(localStorage.getItem('user'));
+     
+    var link
+    if(user.id){
+       link = FETCHJOBS+'?id='+data+'&key='+user.id
+    }else{
+       link = FETCHJOBS+'?id='+data
+    }
+    return axios.get(link).then((res) => {
+      
       return res;
     });
   },
@@ -352,8 +377,15 @@ const actions = {
       });
   },
   JobsCount(context, data) {
+    const user = JSON.parse(localStorage.getItem('user'));
+    var link
+    if(user.id){
+       link = GETCOUNT+'?key='+user.id
+    }else{
+       link = GETCOUNT
+    }
     return  axios
-        .get(GETCOUNT)
+        .get(link)
         .then((res) => {
          return res
         });
