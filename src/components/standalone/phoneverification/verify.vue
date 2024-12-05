@@ -3,7 +3,7 @@
     <v-layout align-center justify-center>
       <v-flex xs12 sm8 md6>
         <v-card elevation="12">
-          <v-card-title class="headline grey lighten-2">
+          <v-card-title class="headline grey lighten-2" style="background:  linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(1,3,4,0.999019676229867) 9%, rgba(121,9,20,1) 43%);border-radius: 10px;color: white; ">
             Phone Number Verification
           </v-card-title>
           <v-card-text>
@@ -54,7 +54,7 @@
                 outlined
                 clearable
               ></v-text-field>
-
+              <h3  v-if="otpSent">OTP Expiration: {{countdown}}</h3>
               <!-- Verify OTP Button -->
               <v-btn
                 v-if="otpSent"
@@ -62,7 +62,7 @@
                 @click="verifyOtp"
                 :disabled="otpCode.length !== 6"
               >
-                Verify OTP
+                Verify OTP 
               </v-btn>
             </v-form>
           </v-card-text>
@@ -80,6 +80,8 @@ import axios from "axios";
 export default {
   data() {
     return {
+      setInterval: '',
+      countdown: '',
       fullName: '',
       branch: '',
       phoneNumber: "",
@@ -150,6 +152,8 @@ export default {
 
     },
  async sendOtp() {
+         
+         
         var ip = await this.getIPAddress()
         var data = {
         name: this.fullName,
@@ -167,8 +171,11 @@ export default {
         alert('Please Try Again Tomorrow Or Goto Near Branch to file booking schedule')
        }else{
          this.otpSent = true;
-         console.log("OTP sent to:", this.phoneNumber);
-         console.log(res)
+         
+         let count = 60; // Use let instead of const
+         this.setInterval = setInterval(() => {
+             this.countdown = count-- 
+          },   1000); // 3 minutes in milliseconds
        }
              
         })
@@ -190,6 +197,7 @@ export default {
       
       if(this.$route.query.key == 'SHhikA97phXxk4jCye9SPpPxr0gnJarPdFUtt779KSTANZg7DBMzHaDpvHUrgDz0ok4uBfoguOtQKJU1lerQ'){
         await this.$store.dispatch("app_booking_sys/verifyPhone", data).then((res)=>{
+            clearInterval(this.setInterval)
             if(res.data.token){
               var token = res.data.token.original.access_token
             } 
@@ -202,7 +210,8 @@ export default {
               
               this.$router.push('/booking/guest')
             }else{
-                 this.$swal.fire(this.otpCode, "Invalid OTP", "warning" );
+                 
+                 this.$swal.fire(this.otpCode, res.data, "warning" );
             }
             
              })
