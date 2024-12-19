@@ -7,6 +7,7 @@ const SELFBOOKING = rootUrl + "/api/booking/quest/customer/store"
 const STOREBOOKING = rootUrl + "/api/booking/store";
 const REBOOK = rootUrl + "/api/booking/rebookrequest";
 const FETCHJOBS = rootUrl + "/api/booking/jobs";
+const FETCHUNASSIGNED = rootUrl + "/api/booking/unassigned";
 const JOBSACTIONS = rootUrl + "/api/booking/jobs/action";
 const REBOOKACTIONS = rootUrl + "/api/booking/jobs/rebookrequest";
 const CANCELLEDACTIONS = rootUrl + "/api/booking/jobs/cancelled";
@@ -52,6 +53,7 @@ const PRINTREQUEST = rootUrl + "/api/appletronics/reports/requestform"
 //TRACKING
 const TRACKING = rootUrl + "/api/booking/appletronics/tracking"
 const CALENDARDATA = rootUrl + "/api/jobs/tech/schedules/calendar";
+ 
 const actions = {
    
   sendOtp(context, data) { 
@@ -324,6 +326,21 @@ const actions = {
         context.commit("SCHEDULE_ERROR", error.response.data); // get error from backend
         context.commit("LOADING_STATUS", false, { root: true }); // stop loading
       });
+  },
+  fetchUnassigned(context, data) {
+     
+    const user = JSON.parse(localStorage.getItem('user'));
+     
+    var link
+    if(user.id){
+       link = FETCHUNASSIGNED+'?id='+data+'&key='+user.id
+    }else{
+       link = FETCHUNASSIGNED+'?id='+data
+    }
+    return axios.get(link).then((res) => {
+      
+      return res;
+    });
   },
   fetchJobs(context, data) {
      

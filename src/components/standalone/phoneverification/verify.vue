@@ -6,6 +6,7 @@
           <v-card-title class="headline grey lighten-2" style="background:  linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(1,3,4,0.999019676229867) 9%, rgba(121,9,20,1) 43%);border-radius: 10px;color: white; ">
             Phone Number Verification
           </v-card-title>
+          
           <v-card-text>
             <v-form ref="form" v-model="valid" style="margin-top:  50px;">
               <!-- Full Name -->
@@ -38,12 +39,21 @@
                 outlined
                 clearable
               ></v-text-field>
-
+        
               <!-- Send OTP Button -->
-              <v-btn color="primary" @click="sendOtp" :disabled="!valid">
+              <v-btn color="primary" @click="sendOtp" :disabled="!valid" :loading="loading">
                 Send OTP
               </v-btn>
-
+              <v-card-text>
+                  <v-alert
+                    border="bottom"
+                    colored-border
+                    type="warning"
+                    elevation="2"
+                  >
+                     Access to this system is restricted to Appletronics customers only.
+                  </v-alert>
+              </v-card-text>
               <!-- OTP Code -->
               <v-text-field
                 v-if="otpSent"
@@ -68,7 +78,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn text @click="resendOtp">Resend OTP</v-btn>
+            <v-btn text @click="sendOtp" :loading="loading">Resend OTP</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -80,6 +90,7 @@ import axios from "axios";
 export default {
   data() {
     return {
+      loading: false,
       setInterval: '',
       countdown: '',
       fullName: '',
@@ -163,21 +174,23 @@ export default {
         token: this.$route.query.token 
         
       }
-      console.log(ip)
+      this.loading = true
       // Placeholder for sending OTP logic
       if(this.$route.query.key == 'SHhikA97phXxk4jCye9SPpPxr0gnJarPdFUtt779KSTANZg7DBMzHaDpvHUrgDz0ok4uBfoguOtQKJU1lerQ'){
        await this.$store.dispatch("app_booking_sys/sendOtp", data).then((res)=>{
        if(res.data == 1){
         alert('Please Try Again Tomorrow Or Goto Near Branch to file booking schedule')
+       }else if(res.data == 2){
+        alert('Sorry Customer Not Found')
        }else{
          this.otpSent = true;
-         
+         clearInterval(this.setInterval)
          let count = 60; // Use let instead of const
          this.setInterval = setInterval(() => {
              this.countdown = count-- 
           },   1000); // 3 minutes in milliseconds
        }
-             
+         this.loading = false    
         })
         
     

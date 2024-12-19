@@ -2,69 +2,9 @@
   <div>
     <v-container grid-list-md text-xs-center>
       <v-flex xs12>
-        <!-- <vs-row>
-          <vs-col
-            vs-type="flex"
-            vs-justify="center"
-            vs-align="center"
-            w="4"
-            :style="bgselected0"
-          >
-            <vs-card type="3" style="margin: 5px" @click="selected(0)">
-              <template #text>
-                <v-icon style="margin-right: 5px; color: red"
-                  >mdi-email-alert</v-icon
-                >
-                <strong
-                  >Unassigned
-
-                  <h2>{{ jobsCounts.unsigned }}</h2></strong
-                >
-              </template>
-            </vs-card>
-          </vs-col>
-          <vs-col
-            vs-type="flex"
-            vs-justify="center"
-            vs-align="center"
-            w="4"
-            :style="bgselected1"
-          >
-            <vs-card type="3" style="margin: 5px" @click="selected(1)">
-              <template #text>
-                <v-icon style="margin-right: 5px; color: yellowgreen"
-                  >mdi-account-check</v-icon
-                >
-                <strong
-                  >Accepted
-                  <h2>{{ jobsCounts.accepted }}</h2></strong
-                >
-              </template>
-            </vs-card>
-          </vs-col>
-          <vs-col
-            vs-type="flex"
-            vs-justify="center"
-            vs-align="center"
-            w="4"
-            :style="bgselected2"
-          >
-            <vs-card type="3" style="margin: 5px" @click="selected(2)">
-              <template #text>
-                <v-icon style="margin-right: 5px; color: blue"
-                  >mdi-teamviewer</v-icon
-                >
-                <strong
-                  >Dispatch to Other ASC
-                  <h2>{{ jobsCounts.asc }}</h2></strong
-                >
-              </template>
-            </vs-card>
-          </vs-col>
-        </vs-row> -->
-
+ 
         <v-row>
-          <v-col cols="12" sm="2">
+          <v-col cols="12" sm="3">
             <v-skeleton-loader
               class="mx-auto"
               max-height="80"
@@ -76,20 +16,20 @@
                 outlined
                 tile
                 :color="bgselected0"
-                to="/app/booking/jobs/unassigned"
+                @click="selected(0)"
               >
                 <v-icon style="margin-right: 5px; color: red"
                   >mdi-email-alert</v-icon
                 >
                 <strong
-                  >Unassigned
+                  >NEW
 
-                  <h2>{{ jobsCounts.unsigned }}</h2></strong
+                  <h2>22</h2></strong
                 >
               </v-card>
             </v-skeleton-loader>
           </v-col>
-          <v-col cols="12" sm="2">
+          <v-col cols="12" sm="3">
             <v-skeleton-loader
               class="mx-auto"
               max-height="80"
@@ -101,19 +41,19 @@
                 outlined
                 tile
                 :color="bgselected4"
-                @click="selected(4)"
+                @click="selected(3)"
                 
               >
                 <v-icon style="margin-right: 5px; color: red"> </v-icon>
                 <strong
-                  >Hold 
+                  >CUSTOMER CANNOT BE REACH 
 
-                  <h2> {{ jobsCounts.hold }}</h2></strong
+                  <h2> 22</h2></strong
                 >
               </v-card>
             </v-skeleton-loader>
           </v-col>
-          <v-col cols="12" sm="2">
+          <v-col cols="12" sm="3">
             <v-skeleton-loader
               class="mx-auto"
               max-height="80"
@@ -131,13 +71,13 @@
                   >mdi-account-check</v-icon
                 >
                 <strong
-                  >Pending
-                  <h2>{{ jobsCounts.accepted }}</h2></strong
+                  >CUSTOMER REQUEST
+                  <h2>22</h2></strong
                 >
               </v-card>
             </v-skeleton-loader>
           </v-col>
-          <v-col cols="12" sm="2">
+          <v-col cols="12" sm="3">
             <v-skeleton-loader
               class="mx-auto"
               max-height="80"
@@ -155,60 +95,14 @@
                   >mdi-teamviewer</v-icon
                 >
                 <strong
-                  >Dispatch to Other ASC
-                  <h2>{{ jobsCounts.asc }}</h2></strong
+                  >FOR REJECTION
+                  <h2>22</h2></strong
                 >
               </v-card>
             </v-skeleton-loader>
           </v-col>
-          <v-col cols="12" sm="2">
-            <v-skeleton-loader
-              class="mx-auto"
-              max-height="80"
-              type="card"
-              :loading="loadingForCount"
-            >
-              <v-card
-                class="pa-2"
-                outlined
-                tile
-                :color="bgselected5"
-                @click="selected(5)"
-              >
-                <v-icon style="margin-right: 5px; color: green"
-                  >mdi-account-check</v-icon
-                >
-                <strong
-                  >Completed
-                  <h2>{{ jobsCounts.completed }}</h2></strong
-                >
-              </v-card>
-            </v-skeleton-loader>
-          </v-col>
-          <v-col cols="12" sm="2">
-            <v-skeleton-loader
-              class="mx-auto"
-              max-height="80"
-              type="card"
-              :loading="loadingForCount"
-            >
-              <v-card
-                class="pa-2"
-                outlined
-                tile
-                :color="bgselected3"
-                @click="selected(3)"
-              >
-                <v-icon style="margin-right: 5px; color: red"
-                  >mdi-account-off</v-icon
-                >
-                <strong
-                  >Rejected
-                  <h2>{{ jobsCounts.rejected }}</h2></strong
-                >
-              </v-card>
-            </v-skeleton-loader>
-          </v-col>
+           
+          
         </v-row>
       </v-flex>
 
@@ -1284,14 +1178,13 @@ export default {
 
   mounted() {
      //this.$socket.emit("notification", 1);
-    this.$store.dispatch("app_booking_sys/fetchJobs").then((res) => {
+    this.$store.dispatch("app_booking_sys/fetchUnassigned").then((res) => {
       this.data = res.data;
     });
     this.$store.dispatch("userPermissions/fetchPermission").then((res) => {
       this.perm = res.data;
     });
     this.refresh(0);
-    this.selected(4)
     this.usersData = this.$store.state.currentUser;
   },
 
@@ -1338,7 +1231,7 @@ export default {
         this.loadingForCount = false;
       });
       this.loadingForTable = true;
-      this.$store.dispatch("app_booking_sys/fetchJobs", data).then((res) => {
+      this.$store.dispatch("app_booking_sys/fetchUnassigned", data).then((res) => {
         this.data = res.data;
         this.loadingForTable = false;
       });
@@ -1726,8 +1619,8 @@ export default {
         this.bgselected0 = "";
         this.bgselected1 = "";
         this.bgselected2 = "";
-        this.bgselected3 = "success";
-        this.bgselected4 = "";
+        this.bgselected3 = "";
+        this.bgselected4 = "success";
         this.bgselected5 = "";
         this.headers = [
           {
@@ -1776,8 +1669,8 @@ export default {
         this.bgselected0 = "";
         this.bgselected1 = "";
         this.bgselected2 = "";
-        this.bgselected3 = "";
-        this.bgselected4 = "success";
+        this.bgselected3 = "success";
+        this.bgselected4 = "";
         this.bgselected5 = "";
         this.headers = [
           {

@@ -86,6 +86,9 @@ import databaseconfigure from "../views/settings/database/configure.vue";
 //APPLETRONICS ROUTE BOOKING
 import booking from "../views/appletronics_system/booking/booking.vue";
 import jobs from "../views/appletronics_system/booking/jobs.vue";
+//NEW JOB UNASSIGNED
+import unassigned from "../views/appletronics_system/booking/unassigned.vue";
+
 import tracking from "../views/appletronics_system/booking/tracking.vue";
 import scalate from "../views/appletronics_system/booking/scalate/scalate.vue"
 import booking_fields from "../views/appletronics_system/booking/booking_fields/custom_fields.vue"
@@ -522,6 +525,15 @@ const viewRoutes = [
       path: "/app/booking/jobs",
       component: jobs,
       name: "jobs",
+      meta: {
+        requiresAuth: true
+      }
+    },
+     //Jobs Unassigned
+     {
+      path: "/app/booking/jobs/unassigned",
+      component: unassigned,
+      name: "unassigned",
       meta: {
         requiresAuth: true
       }
