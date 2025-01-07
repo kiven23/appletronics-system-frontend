@@ -8,12 +8,14 @@ const STOREBOOKING = rootUrl + "/api/booking/store";
 const REBOOK = rootUrl + "/api/booking/rebookrequest";
 const FETCHJOBS = rootUrl + "/api/booking/jobs";
 const FETCHUNASSIGNED = rootUrl + "/api/booking/unassigned";
+const APPROVERUNASSIGNED = rootUrl + "/api/booking/unassigned/approver";
 const JOBSACTIONS = rootUrl + "/api/booking/jobs/action";
 const REBOOKACTIONS = rootUrl + "/api/booking/jobs/rebookrequest";
 const CANCELLEDACTIONS = rootUrl + "/api/booking/jobs/cancelled";
 
 const JOBSUPDATE = rootUrl + "/api/booking/jobs/jobsupdate";
 const GETCOUNT = rootUrl + "/api/booking/jobs/counts";
+const UNASSIGNEDCOUNT = rootUrl + "/api/booking/jobs/counts/unassigned";
 const JOBSCHECKRECORDS = rootUrl + "/api/booking/jobs/checkrecords";
 const DOWNLOADSALESINVOICE = rootUrl + "/api/booking/jobs/salesinvoice/download";
 const DOWNLOADADDITIONAL = rootUrl + "/api/booking/jobs/additional/download";
@@ -176,6 +178,15 @@ const actions = {
      })
  
   },
+  unassignedApprover(context, data){
+    return  axios
+    .post(APPROVERUNASSIGNED, {
+      data,
+    })
+    .then((res) => {
+      return res
+    });
+ },
   storeBooking(context, data) {
     let formData = new FormData();
    // ATTACHMENT
@@ -395,8 +406,9 @@ const actions = {
   },
   JobsCount(context, data) {
     const user = JSON.parse(localStorage.getItem('user'));
+    const guest = JSON.parse(localStorage.getItem('guest'));
     var link
-    if(user.id){
+    if(guest == 1){
        link = GETCOUNT+'?key='+user.id
     }else{
        link = GETCOUNT
@@ -405,6 +417,14 @@ const actions = {
         .get(link)
         .then((res) => {
          return res
+        });
+    },
+  JobsUnassignedCount(context, data) {
+    
+    return  axios
+        .get(UNASSIGNEDCOUNT)
+        .then((res) => {
+          return res
         });
     },
   JobsSchedule(context, data) {

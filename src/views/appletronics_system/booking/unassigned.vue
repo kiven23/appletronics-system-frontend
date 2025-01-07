@@ -2,8 +2,14 @@
   <div>
     <v-container grid-list-md text-xs-center>
       <v-flex xs12>
- 
+        <v-col class="d-flex justify-start">
+          <v-icon @click="goToJobs" title="Previous">mdi-skip-previous</v-icon>
+          <span class="ml-2">Back</span>
+        </v-col>
         <v-row>
+          
+     
+          
           <v-col cols="12" sm="3">
             <v-skeleton-loader
               class="mx-auto"
@@ -24,7 +30,7 @@
                 <strong
                   >NEW
 
-                  <h2>22</h2></strong
+                  <h2>{{jobsCounts.new}}</h2></strong
                 >
               </v-card>
             </v-skeleton-loader>
@@ -48,7 +54,7 @@
                 <strong
                   >CUSTOMER CANNOT BE REACH 
 
-                  <h2> 22</h2></strong
+                  <h2> {{jobsCounts.cannotbereach}}</h2></strong
                 >
               </v-card>
             </v-skeleton-loader>
@@ -72,7 +78,7 @@
                 >
                 <strong
                   >CUSTOMER REQUEST
-                  <h2>22</h2></strong
+                  <h2> {{jobsCounts.customerreq}} </h2></strong
                 >
               </v-card>
             </v-skeleton-loader>
@@ -96,7 +102,7 @@
                 >
                 <strong
                   >FOR REJECTION
-                  <h2>22</h2></strong
+                  <h2> {{jobsCounts.forreject}}</h2></strong
                 >
               </v-card>
             </v-skeleton-loader>
@@ -220,7 +226,7 @@
               >Job Status Update:
               <strong
                 > {{
-                  selectedID == 0  ? "Unassigned"  : selectedID == 1  ? "Pending"  : selectedID == 2? "Dispatch to Other ASC": selectedID == 4? 'Hold': selectedID == 5? 'Completed':'Rejected' }}
+                  selectedID == 0  ? "Unassigned"  : selectedID == 1  ? "Pending"  : selectedID == 2? "For Rejection": selectedID == 4? 'Hold': selectedID == 5? 'Completed':'Rejected' }}
                 / {{ jobsData.callid }}</strong
               >
             </v-toolbar-title>
@@ -695,6 +701,9 @@
                     <br />
                     <strong>Log By: {{ jobsData.bookby }}</strong
                     ><br />
+                  
+
+                      
                   </v-col>
                 </v-row>
               </v-list-item-content>
@@ -730,7 +739,6 @@
                     <v-card class="pa-6" style="width: 90%; height: 90%;"   
                              >
                        <v-row>
-                        
                             <v-textarea
                               :disabled="!editrequest"
                               class="mx-2"
@@ -739,8 +747,33 @@
                               v-model="reasons"
                               prepend-icon="mdi-comment"
                               v-if="reasons || checkpermission"
-                            > </v-textarea>
-                          
+                            >
+                            </v-textarea>
+                            <v-btn
+                              v-if="selectedID == 2"
+                              color="success"
+                              depressed
+                              outlined
+                              raised
+                              small
+                              text
+                              tile
+                              @click="rejectButton(jobsData.id,10)"
+                            >APPROVED
+                            </v-btn>
+
+                            <v-btn
+                              v-if="selectedID == 2"
+                              color="red"
+                              depressed
+                              outlined
+                              raised
+                              small
+                              text
+                              tile
+                              @click="rejectButton(jobsData.id,0)"
+                            >DISAPPROVED
+                            </v-btn>
                          </v-row>
 
                       <div>
@@ -968,6 +1001,7 @@
           </v-card>
         </v-dialog>
       </v-dialog>
+      
     </v-container>
   </div>
 </template>
@@ -1043,7 +1077,8 @@ export default {
           street: "",
           telephoneno: "",
         },
-        branch: { name: "N/A" },
+        branch: { 
+          name: "N/A" },
       },
       search: "",
       data: [],
@@ -1189,12 +1224,49 @@ export default {
   },
 
   methods: {
+     goToJobs() {
+      this.$router.push('/app/booking/jobs'); // This will navigate to the "/jobs" route
+     },
+    rejectButton(id,i){
+
+       this.$swal
+        .fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, Proceed it!",
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            var data = {
+                id: id,
+                status : i,
+                reasons: i==10?'Reject' : this.reasons,
+            }
+            this.$store.dispatch("app_booking_sys/unassignedApprover", data).then((res)=>{
+                  this.$swal.fire(
+                  "Done!",
+                  "Mark as "+i==10? "Rejected": "Renewed",
+                  "success"
+                );
+                  this.refreshData();
+            })
+          }
+
+        });
+   
+       
+
+    },
     uploadadditional() {
       this.loading3 = true;
       var info = {
         ids: this.requestID,
         file: this.additionalfiles,
-      };
+      }; 
       this.$store
         .dispatch("app_booking_sys/uploadadditional", info)
         .then((res) => {
@@ -1226,7 +1298,7 @@ export default {
       this.$store.dispatch("app_booking_sys/updateSerial", data);
     },
     refresh(data) {
-      this.$store.dispatch("app_booking_sys/JobsCount").then((res) => {
+      this.$store.dispatch("app_booking_sys/JobsUnassignedCount").then((res) => {
         this.jobsCounts = res.data;
         this.loadingForCount = false;
       });

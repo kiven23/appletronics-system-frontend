@@ -219,6 +219,7 @@ export default {
            
               localStorage.setItem("token", `Bearer ${token}`);
               localStorage.setItem("user", JSON.stringify(res.data.data));
+              localStorage.setItem("guest", 1);
               axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
               
               this.$router.push('/booking/guest')
