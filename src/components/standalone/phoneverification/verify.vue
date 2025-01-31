@@ -25,6 +25,7 @@
                 :items="branchDATA"
                 item-text="name" 
                 item-value="name" 
+                 :rules="rules.required"
                 dense
                 filled
                 label="Select preferred Branch"
@@ -110,7 +111,6 @@ export default {
     };
   },
   created(){
-     this.DecodeBranch();
      this.getbranch();
   },
   methods: {
@@ -148,10 +148,7 @@ export default {
             }).catch(reject);
           });
     },
-    DecodeBranch(){
-    return  this.branch = atob(atob(atob(atob(this.$route.query.token))))
-
-    },
+  
     async getIPAddress() {
        try {
         const response = await fetch('https://api.ipify.org?format=json');
@@ -181,29 +178,34 @@ export default {
         token: btoa(btoa(btoa(btoa(this.branch))))
         
       }
-      this.loading = true
-      // Placeholder for sending OTP logic
-      if(this.$route.query.key == 'SHhikA97phXxk4jCye9SPpPxr0gnJarPdFUtt779KSTANZg7DBMzHaDpvHUrgDz0ok4uBfoguOtQKJU1lerQ'){
-       await this.$store.dispatch("app_booking_sys/sendOtp", data).then((res)=>{
-       if(res.data == 1){
-        alert('Please Try Again Tomorrow Or Goto Near Branch to file booking schedule')
-       }else if(res.data == 2){
-        alert('Sorry Customer Not Found')
-       }else{
-         this.otpSent = true;
-         clearInterval(this.setInterval)
-         let count = 60; // Use let instead of const
-         this.setInterval = setInterval(() => {
-             this.countdown = count-- 
-          },   1000); // 3 minutes in milliseconds
-       }
-         this.loading = false    
-        })
-        
-    
+     if(this.branch.trim() != '') {
+       
+            this.loading = true
+            // Placeholder for sending OTP logic
+            if(this.$route.query.key == 'SHhikA97phXxk4jCye9SPpPxr0gnJarPdFUtt779KSTANZg7DBMzHaDpvHUrgDz0ok4uBfoguOtQKJU1lerQ'){
+            await this.$store.dispatch("app_booking_sys/sendOtp", data).then((res)=>{
+            if(res.data == 1){
+              alert('Please Try Again Tomorrow Or Goto Near Branch to file booking schedule')
+            }else if(res.data == 2){
+              alert('Sorry Customer Not Found')
+            }else{
+              this.otpSent = true;
+              clearInterval(this.setInterval)
+              let count = 60; // Use let instead of const
+              this.setInterval = setInterval(() => {
+                  this.countdown = count-- 
+                },   1000); // 3 minutes in milliseconds
+            }
+              this.loading = false    
+              })
+            }else{
+              alert('Not Authenticate')
+            }
       }else{
-         alert('Not Authenticate')
+        alert('Please specify the branch where the unit was purchased before proceeding.')
       }
+       
+      
     },
     async verifyOtp() {
       var data = {
