@@ -178,7 +178,7 @@ export default {
         phone: this.phoneNumber,
         branch: this.branch,
         ipaddress: ip,
-        token: this.$route.query.token 
+        token: btoa(btoa(btoa(btoa(this.branch))))
         
       }
       this.loading = true
