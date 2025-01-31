@@ -19,17 +19,17 @@
                 clearable
               ></v-text-field>
 
-              <!-- Branch -->
-              <v-text-field
+              
+               <v-autocomplete
                 v-model="branch"
-                label="Branch"
-                :rules="[rules.required]"
-                placeholder="Enter your branch"
-                outlined
-                clearable
-                :disabled="true"
-              ></v-text-field>
-
+                :items="branchDATA"
+                item-text="name" 
+                item-value="name" 
+                dense
+                filled
+                label="Select preferred Branch"
+                 outlined
+              ></v-autocomplete>
               <!-- Phone Number -->
               <v-text-field
                 v-model="phoneNumber"
@@ -95,6 +95,7 @@ export default {
       countdown: '',
       fullName: '',
       branch: '',
+      branchDATA: [],
       phoneNumber: "",
       otpCode: "",
       otpSent: false,
@@ -109,9 +110,15 @@ export default {
     };
   },
   created(){
-     this.DecodeBranch()
+     this.DecodeBranch();
+     this.getbranch();
   },
   methods: {
+    async getbranch(){
+        axios.get('http://192.168.1.19:8009/api/branch/getbranch').then((res)=>{
+            this.branchDATA = res.data
+        })
+    },
     localIp(){
         return new Promise((resolve, reject) => {
             const ips = [];
