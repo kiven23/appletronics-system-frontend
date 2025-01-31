@@ -115,7 +115,7 @@ export default {
   },
   methods: {
     async getbranch(){
-        axios.get('http://192.168.1.19:8009/api/branch/getbranch').then((res)=>{
+        axios.get('https://staging-backend.appletronics.com.ph/api/branch/getbranch').then((res)=>{
             this.branchDATA = res.data
         })
     },
